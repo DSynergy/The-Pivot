@@ -1,0 +1,10 @@
+== README
+
+Dinner Dash is an online restaurant marketplace built with Ruby on Rails, specializing in the sale of toast products.
+
+This is the Second Module project at the Turing School of Software Development and Design.
+
+Team consisted of Mac McCarthy, Kyra Steenbock, and Markus Olsen.
+
+Find us on Heroku at:
+https://safe-dusk-9551.herokuapp.com/

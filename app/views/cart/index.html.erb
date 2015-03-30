@@ -1,0 +1,33 @@
+<%= link_to "Back to Items", items_path, class: "btn btn-info btn-small active"  %>
+<br>
+<br>
+<h3 id="cart-title">Shopping Cart</h3>
+<div id="cart">
+  <% if !@cart_contents.empty? %>
+    <table id="cart" class="table table-striped">
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Increase Quantity</th>
+            <th>Decrease Quantity</th>
+          </tr>
+          <% @cart.items_with_quantity.each do |item, quantity| %>
+            <tr>
+              <td><h4><%= item.name %></h4></td>
+              <td><%= quantity %></td>
+              <td><%= button_to "Add Item", cart_path(item_id: item.id) %></td>
+              <td><%= button_to "Remove Item", cart_path(item), method: :delete %></td>
+            </tr>
+        <% end %>
+      <% if current_user %>
+        <tfoot>
+          <td colspan="4">
+            <%= button_to "Checkout", orders_path, class: "btn-info", data: { confirm: "Proceed to Checkout?" } %>
+          </td>
+        </tfoot>
+      <% end %>
+    </table>
+  <% else %>
+    <p> "There are no items in your cart" </p>
+  <% end %>
+</div>

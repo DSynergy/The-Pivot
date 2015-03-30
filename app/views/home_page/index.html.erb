@@ -1,0 +1,14 @@
+
+
+<div class="row hero">
+  <div class="item_cat">
+   <ul>
+    <% @categories.each do |category| %>
+    <div class="category col-md-2">
+      <li><%= link_to "#{category.name}", category %> </li>
+    </div>
+    <% end %>
+  </ul>
+  <div style="clear:both;"> </div>
+</div>
+</div>

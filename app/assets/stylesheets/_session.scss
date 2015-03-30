@@ -1,0 +1,30 @@
+@import 'base';
+
+#login-form{
+  width:60%;
+  display:block;
+  margin:0 auto;
+  text-align:center;
+  padding:30px;
+  // padding-left:220px;
+  border:3px solid white;
+  background:rgba(253, 253, 253, 0.78);
+
+  input#check-in{
+    margin:none;
+  }
+
+  div{
+    padding:10px;
+    text-align:left;
+
+    label{
+      text-align:left;
+      margin-right:15px;
+    }
+
+    input{
+      @include border-radius(5px);
+    }
+  }
+}

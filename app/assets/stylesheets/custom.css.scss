@@ -1,0 +1,108 @@
+@import 'item';
+@import 'orders';
+@import 'base';
+
+body {
+  background: image-url('confectionary.png') repeat;
+  background-attachment: fixed;
+}
+
+#admin-dash{
+  padding-top:150px;
+  padding-bottom:150px;
+  color:white#525252;
+
+  background-image: image-url('admin-dash.jpg');
+
+  #admin-title{
+    border:1px solid white;
+    background:rgba(255, 255, 255, 0.91);
+    width:400px;
+    margin:0 auto;
+    text-align:center;
+    padding:15px 0 15px 0;
+    @include border-radius(5px);
+  }
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+.hero{
+  background-image: image-url('hero_pic.png');
+}
+
+.navbar {
+  margin-right: 23px;
+  margin-top: 35px;
+}
+
+.center{
+  width:30%;
+  margin-bottom:10px;
+}
+
+li {
+  list-style-type:none;
+}
+
+input[type="submit"] {
+  width: 60%;
+  display:block;
+  text-align:center;
+  @include border-radius(5px);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#small_submit_button {
+  width: 20%;
+  display:block;
+  text-align:center;
+  @include border-radius(5px);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#cart-title {
+  width: 100%;
+  text-align:center;
+  margin-bottom:50px;
+}
+
+#cart table tfoot td{
+  border:none;
+}
+
+h4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.item-create {
+  background: rgba(43,58,223,0.2);
+  width: 500px;
+  border: 1em;
+  border-color: black;
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item-update {
+  background: rgba(43,58,223,0.2);
+  width: 500px;
+  border: 1em;
+  border-color: black;
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#delete-edit-item {
+  margin-left: auto;
+  margin-right: auto;
+}

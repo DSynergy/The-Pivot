@@ -1,0 +1,50 @@
+@import 'base';
+
+.category {
+  padding-left: 10px;
+  padding-right: 10px;
+  list-style-type: none;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  li{
+    @include border-radius(5px);
+    border:1px solid white;
+    color:white;
+    padding:10px;
+    margin-top:170px;
+    margin-bottom:170px;
+    text-align:center;
+    background:rgba(255, 255, 255, 0.83)
+  }
+
+}
+
+.category :hover {
+  color: #bfa24b;
+  text-decoration: none;
+}
+
+#cat-title{
+  text-align:center;
+}
+
+#menu .floaters{
+  width:18%;
+  border:1px solid white;
+  @include border-radius(5px);
+  background:rgba(255, 255, 255, 0.83);
+
+  h4{
+    margin-bottom:10px;
+  }
+}
+
+.cats{
+  margin-top:30px;
+}
+
+.item-cat-button input{
+  margin:0 auto;
+  width:150px;
+}

@@ -1,0 +1,25 @@
+<%= nav_bar static: :top, responsive: true do %>
+<div class="row">
+  <div class="col-md-1 logo">
+    <a href="/"><%= image_tag "toasted_logo.png" %></a>
+  </div>
+
+  <div class="col-md-7 col-md-offset-2 navbar">
+    <ul class="nav nav-tabs" role="tablist">
+      <li>
+        <% if current_user %>
+          <%= link_to "Log out", logout_path, method: :delete, class: 'btn btn-link btn-lg active'%>
+        <% else %>
+          <%= link_to "Log in", login_path, class: 'btn btn-link btn-lg active' %>
+        <% end %>
+      </li>
+      <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-lg active' %></li>
+      <li><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-lg active' %></li>
+      <% if current_user %>
+        <li><%= link_to "Order History", orders_path, class: 'btn btn-link btn-lg active' %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<% end %>

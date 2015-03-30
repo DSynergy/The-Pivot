@@ -1,0 +1,11 @@
+<div class="well item-create" >
+<h3>Create Toast</h3>
+  <%= bootstrap_form_for([:admin, @item]) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <%= f.text_field :price %><br><br>
+    <%= f.file_field :avatar %><br>
+    <%= f.text_field :remote_avatar_url %>
+    <%= f.submit "Create Toast" %>
+  <% end %>
+</div>

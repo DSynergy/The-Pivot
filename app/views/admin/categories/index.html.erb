@@ -1,0 +1,13 @@
+<div id="menu">
+  <h1 id="cat-title" class="center">Manage Categories</h1>
+  <br>
+  <%= link_to "Add Category", new_admin_category_path, class: "btn btn-info btn-lg center" %>
+  <br>
+  <div class="row cats">
+    <% @categories.each do |category| %>
+      <div class="floaters">
+        <h4 class="item-title"> <%= link_to  category.name, admin_category_path(category) %> </h4>
+      </div>
+    <% end %>
+  </div>
+</div>

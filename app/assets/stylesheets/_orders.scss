@@ -1,0 +1,77 @@
+#order-title{
+  text-align:center;
+  margin:0 auto;
+  margin-bottom: 30px;
+}
+
+.admin-order-title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.admin-order-show{
+  width:70%;
+  margin:0 auto;
+  border:1px solid white;
+  background:rgba(255, 255, 255, 0.91);
+  text-align:center;
+  margin-bottom:50px;
+
+  th{
+    text-align:center;
+  }
+
+  tfoot{
+    td{
+      text-align:center;
+    }
+  }
+  .submit{
+    display:block;
+    margin:0 auto;
+  }
+}
+
+.radio{
+
+  label{
+    display:block;
+    margin:0 auto;
+    margin-left:30px;
+  }
+}
+
+.admin-order-list{
+  margin:0 auto;
+  margin-top:20px;
+  width:400px;
+  text-align:center;
+  border:1px solid white;
+  background:rgba(255, 255, 255, 0.91);
+
+  th{
+    text-align:center;
+  }
+
+  td{
+    padding:10px;
+  }
+}
+
+#order-show{
+  text-align:center;
+}
+
+#order-info{
+  ul{
+    display:block;
+  }
+
+  li{
+    margin-left: -42px;
+    text-align:center;
+  }
+}
+
+#order_filter_status {
+}

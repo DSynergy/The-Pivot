@@ -1,0 +1,6 @@
+<%= link_to "All Orders", admin_orders_path %>
+Ordered <%= link_to Order.ordered.count, admin_orders_path(status: 0) %>
+Paid <%= link_to Order.paid.count, admin_orders_path(status: 1) %>
+Completed <%= link_to Order.completed.count, admin_orders_path(status: 2) %>
+Cancelled <%= link_to Order.cancelled.count, admin_orders_path(status: 3) %>
+

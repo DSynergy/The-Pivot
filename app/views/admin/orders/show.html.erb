@@ -1,0 +1,45 @@
+<h1 id="order-show">Order: <%= @order.id %></h1>
+<ul id="order-info">
+  <li><%= @order.created_at %></li>
+  <li><%= @order.user.username %></li>
+  <li><%= @order.user.email_address %></li>
+</ul>
+
+  <table class="table table-striped admin-order-show ">
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Subtotal</th>
+    </tr>
+    <% @order.items_with_quantity.each do |item, quantity|%>
+      <tr>
+        <td><%= link_to item.name, admin_item_path(item) %></td>
+        <td><%= quantity %></td>
+        <td><%= number_to_currency(item.price) %></td>
+        <td><%= number_to_currency(@order.line_item_total(item, quantity)) %></td>
+      </tr>
+    <% end %>
+    <tfoot>
+      <tr>
+        <td colspan="4">Status: <strong><%= @order.status %></strong></td>
+      </tr>
+      <tr>
+        <td colspan="4">Updated: <%= time_ago_in_words(@order.updated_at) %> ago</td>
+      </tr>
+      <tr>
+        <td colspan="4">Order Total: <%= number_to_currency(@order.total) %></td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <% if @order.status == "ordered" %>
+            <%= render partial: "pay_or_cancel" %>
+          <% elsif @order.paid? %>
+              <%= render partial: "complete_or_cancel" %>
+          <% end %>
+        </td>
+      </tr>
+    </tfoot>
+
+
+  </table>

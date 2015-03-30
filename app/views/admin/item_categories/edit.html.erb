@@ -1,0 +1,7 @@
+<h3>Add Item to <%= @category.name %></h3>
+<%= form_for([:admin, @item_category]) do |f| %>
+  <%= f.label "Item" %>
+  <%= f.select(:item_id, options_for_select(@item_options)) %>
+
+  <%= f.submit "Check In" %>
+<% end %>

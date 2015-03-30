@@ -1,0 +1,24 @@
+<%= form_for(:session, url: login_path, role: "form") do |f| %>
+  <div id="login-form">
+    <div>
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :email_address %>
+      <%= f.text_field :email_address, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :display_name %>
+      <%= f.text_field :display_name, placeholder: "optional", class: "form-control" %>
+    </div>
+
+    <%= f.hidden_field :role %>
+    <%= f.submit "Check In", id: "check-in", class: "btn-info" %>
+  </div>
+<% end %>
+</div>

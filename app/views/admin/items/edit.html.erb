@@ -1,0 +1,23 @@
+  <div class="well item-update">
+    <h3>Update Item</h3>
+    <%= bootstrap_form_for([:admin, @item]) do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_area :description %>
+      <%= f.text_field :price %><br><br>
+      <div id="true">
+        <%= f.label(:retired, "Retired") %>
+        <%= f.radio_button(:retired, "true") %>
+      </div>
+      <div id="false">
+        <%= f.label(:retired, "Active") %>
+        <%= f.radio_button(:retired, "false") %>
+      </div>
+      <figure class="default-pic">
+        <%= image_tag @item.avatar.url(:thumb) %>
+      </figure>
+      <%= f.file_field :avatar %><br>
+      <%= f.text_field :remote_avatar_url %>
+      <%= f.submit "Update Item" %><br>
+    <div id="delete-edit-item"><%= link_to "Delete Item", admin_item_path, method: :delete, class: 'btn btn-info btn-md active' %></div>
+    <% end %>
+  </div>

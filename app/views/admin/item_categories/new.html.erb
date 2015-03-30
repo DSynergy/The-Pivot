@@ -1,0 +1,7 @@
+<h3>Add Item to <%= @category.name %></h3>
+<%= form_for([:admin, @item_category]) do |f| %>
+  <%= f.label "Item" %>
+  <%= f.select(:item_id, @item_options, {}, { :class => "btn btn-info btn-lg left"}) %>
+  <%= f.hidden_field :category_id, value: params[:category_id] %>
+  <%= f.submit "Submit" %>
+<% end %>
