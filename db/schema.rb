@@ -11,26 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331194926) do
+ActiveRecord::Schema.define(version: 20150331203714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "status",     default: 0
+    t.hstore   "cart"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
+
   create_table "categories", force: :cascade do |t|
     t.text     "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.text     "name"
-    t.text     "description"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.boolean  "retired",                             default: false
-    t.decimal  "price",       precision: 5, scale: 2
-    t.string   "avatar"
   end
 
   create_table "listing_categories", force: :cascade do |t|
@@ -41,15 +41,31 @@ ActiveRecord::Schema.define(version: 20150331194926) do
   add_index "listing_categories", ["category_id"], name: "index_listing_categories_on_category_id", using: :btree
   add_index "listing_categories", ["listing_id"], name: "index_listing_categories_on_listing_id", using: :btree
 
-  create_table "orders", force: :cascade do |t|
+  create_table "listings", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "private_bathroom",                           default: true
+    t.decimal  "price",              precision: 6, scale: 2
+    t.integer  "quantity_available"
+    t.integer  "people_per_unit"
+    t.hstore   "available_dates"
     t.integer  "user_id"
-    t.integer  "status",     default: 0
-    t.hstore   "cart"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "status",                                     default: 0
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zipcode"
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
   end
 
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.text     "username"
@@ -59,6 +75,9 @@ ActiveRecord::Schema.define(version: 20150331194926) do
     t.integer  "role",            default: 0
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "avatar"
+    t.string   "credit_card"
+    t.string   "billing_address"
   end
 
 end

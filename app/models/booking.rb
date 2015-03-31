@@ -1,4 +1,4 @@
-class Order < ActiveRecord::Base
+class Booking < ActiveRecord::Base
   belongs_to :user
   enum status: %w(ordered paid completed cancelled)
   scope :ordered, -> { where(status: 0)}
