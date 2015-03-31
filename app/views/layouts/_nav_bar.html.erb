@@ -1,8 +1,8 @@
 <%= nav_bar static: :top, responsive: true do %>
 <!-- <div class="row"> -->
-  <div class="col-md-1 logo">
+  <!-- <div class="logo">
     <a href="/"><%= image_tag "travel_home_logo.png" %></a>
-  </div>
+  </div> -->
 
   <!-- <div class="col-md-7 col-md-offset-2 navbar"> -->
     <ul class="navbar">
@@ -13,11 +13,12 @@
           <%= link_to "Log in", login_path, class: 'btn-lg navbar-right' %>
         <% end %>
       </li>
+      <li class="logo"><a href="/"><%= image_tag "travel_home_logo.png", class: "navbar-left" %></a></li>
       <li><%= link_to "Cart", cart_path, class: 'btn-lg navbar-left' %></li>
 
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="City...">
         </div>
         <!-- <span class="glyphicon glyphicon-search smaller" aria-hidden="true"></span> -->
         <button type="submit" class="btn">Search</button>

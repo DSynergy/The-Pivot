@@ -1,6 +1,7 @@
+@import 'base';
 @import 'item';
 @import 'orders';
-@import 'base';
+@import 'nav';
 
 body{
   background-image: image-url('barcelona.jpg');
@@ -15,12 +16,6 @@ body{
       color:$light-teal;
     }
   }
-}
-
-.logo img{
-  width:35px;
-  height:auto;
-  margin-top:7px;
 }
 
 #admin-dash{
@@ -41,39 +36,13 @@ body{
   }
 }
 
-.navbar, footer {
-  margin:0;
-  border-color:none;
-  background-color:transparent;
-
-  input{
-    color:$main-teal;
-  }
-
-  .container{
-    background-color:rgba(255, 255, 255, 0.9);
-    width:100%;
-  }
-}
-
-footer{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  line-height:50px;
-}
-
-.navbar-form{
-  width:400px;
-}
-
-.form-group .form-control{
-  width:250px;
-}
-
 .center{
   width:30%;
   margin-bottom:10px;
+}
+
+#home{
+  color:$mint;
 }
 
 .home-headings{
