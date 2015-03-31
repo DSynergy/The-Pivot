@@ -41,4 +41,6 @@ RSpec.describe ItemCategory do
     expect(duplicate).not_to be_valid
   end
 
+  #change to listing
+
 end

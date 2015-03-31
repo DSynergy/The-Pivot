@@ -55,4 +55,17 @@ RSpec.describe Item, type: :model do
     end
   end
 
+  #quanity --> quatity available
+  #people per unit
+  #bathroom type
+  #users have listings
+  #street address
+  #city
+  #state
+  #zipcode
+  #country
+  #status
+  #available dates
+
+
 end

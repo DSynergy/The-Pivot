@@ -43,4 +43,11 @@ RSpec.describe User, type: :model do
 
     expect { create(:user, email_address: "hey@ah.com", display_name: 'a') }.to raise_error(ActiveRecord::RecordInvalid)
   end
+
+  #credit card (validate it is correct)
+  #billing address
+  #role?
+
+  
+
 end

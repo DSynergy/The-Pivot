@@ -46,4 +46,6 @@ RSpec.describe Order, type: :model do
     end
   end
 
+  #the cart will point to listing id and dates
+
 end

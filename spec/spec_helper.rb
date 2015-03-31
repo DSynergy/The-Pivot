@@ -1,5 +1,3 @@
-require 'simplecov'
-SimpleCov.start 'rails'
 require 'pry'
 require 'factory_girl_rails'
 
