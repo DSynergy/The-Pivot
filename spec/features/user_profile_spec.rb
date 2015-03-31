@@ -14,7 +14,7 @@ RSpec.describe "Authenticated User profile" do
     expect(page).to have_content("Cheese Toast")
   end
 
-  it "can click Order History link to be taken to Order History page" do
+  xit "can click Order History link to be taken to Order History page" do
     visit root_path
 
     expect(page).to have_link("Order History")
