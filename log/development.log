@@ -1,0 +1,1496 @@
+
+
+Started GET "/" for ::1 at 2015-03-30 18:15:29 -0600
+
+PG::ConnectionBad - FATAL:  database "dinner_dash_development" does not exist
+:
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.0) lib/active_record/migration.rb:384:in `connection'
+  activerecord (4.2.0) lib/active_record/migration.rb:371:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/reloader.rb:73:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/34c10d1818d7f331/variables" for ::1 at 2015-03-30 18:15:29 -0600
+  [1m[36m (7.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150310185207)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150310185207"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateItems (20150310191416)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "items" ("id" serial primary key, "name" text, "description" text, "price" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150310191416"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20150310193435)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150310193435"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddHstore (20150311202153)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (48.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "hstore"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150311202153"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOrders (20150311202245)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150311202245"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateItemCategories (20150311214732)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "item_categories" ("id" serial primary key, "item_id" integer, "category_id" integer) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_item_categories_on_item_id" ON "item_categories"  ("item_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_item_categories_on_category_id" ON "item_categories"  ("category_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150311214732"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddRetiredToItems (20150312041204)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (6.0ms)[0m  ALTER TABLE "items" ADD "retired?" boolean DEFAULT 'f'
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150312041204"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+Migrating to ChangeRetiredToRetired (20150312205353)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "items" RENAME COLUMN "retired?" TO "retired"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150312205353"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to ChangePriceInItems (20150314173807)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "items" DROP "price"
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "items" ADD "price" decimal(5,2)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150314173807"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddAvatarToItems (20150315011144)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "items" ADD "avatar" character varying[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150315011144"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'item_categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'orders'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Chocolate Toast' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "items" ("name", "description", "price", "retired", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Chocolate Toast"], ["description", "Dark chocolate on toast"], ["price", "3.0"], ["retired", "t"], ["created_at", "2015-03-31 00:16:12.648485"], ["updated_at", "2015-03-31 00:16:12.648485"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Cake Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Cake Toast"], ["description", "Lemon poppyseed cake on toast"], ["price", "4.0"], ["created_at", "2015-03-31 00:16:12.652925"], ["updated_at", "2015-03-31 00:16:12.652925"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Brownie Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Brownie Toast"], ["description", "Delicious dark chocolate brownie on toast"], ["price", "4.0"], ["created_at", "2015-03-31 00:16:12.656243"], ["updated_at", "2015-03-31 00:16:12.656243"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Cinnamon Sugar Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Cinnamon Sugar Toast"], ["description", "Toast sprinkled with raw cane sugar, fresh ground\n        cinnamon, and a hint of sea salt"], ["price", "2.5"], ["created_at", "2015-03-31 00:16:12.659129"], ["updated_at", "2015-03-31 00:16:12.659129"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Avocado Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Avocado Toast"], ["description", "Fresh\n        California avacado sliced over toast"], ["price", "5.0"], ["created_at", "2015-03-31 00:16:12.661722"], ["updated_at", "2015-03-31 00:16:12.661722"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Egg Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Egg Toast"], ["description", "Choose\n        from fried or scrambled eggs!"], ["price", "4.0"], ["created_at", "2015-03-31 00:16:12.664307"], ["updated_at", "2015-03-31 00:16:12.664307"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Dry Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Dry Toast"], ["description", "Nothing on it"], ["price", "2.0"], ["created_at", "2015-03-31 00:16:12.666852"], ["updated_at", "2015-03-31 00:16:12.666852"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Tuna Salad Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Tuna Salad Toast"], ["description", "With pickles,onions, and a hint of basil"], ["price", "4.5"], ["created_at", "2015-03-31 00:16:12.669808"], ["updated_at", "2015-03-31 00:16:12.669808"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Buttered Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Buttered Toast"], ["description", "Creamy melted butter"], ["price", "5.0"], ["created_at", "2015-03-31 00:16:12.672705"], ["updated_at", "2015-03-31 00:16:12.672705"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Mac and Cheese Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Mac and Cheese Toast"], ["description", "Rich, three cheese mac and cheese, on toast"], ["price", "4.5"], ["created_at", "2015-03-31 00:16:12.675741"], ["updated_at", "2015-03-31 00:16:12.675741"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Salad Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Salad Toast"], ["description", "House salad on toast"], ["price", "4.0"], ["created_at", "2015-03-31 00:16:12.678593"], ["updated_at", "2015-03-31 00:16:12.678593"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Peanut Butter Toast' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Peanut Butter Toast"], ["description", "Fresh ground peanut butter"], ["price", "7.0"], ["created_at", "2015-03-31 00:16:12.681124"], ["updated_at", "2015-03-31 00:16:12.681124"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Sausage Toast' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Sausage Toast"], ["description", "German style brat on toast"], ["price", "6.0"], ["created_at", "2015-03-31 00:16:12.683672"], ["updated_at", "2015-03-31 00:16:12.683672"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Jam Toast' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jam Toast"], ["description", "Strawberry, or blueberry"], ["price", "5.5"], ["created_at", "2015-03-31 00:16:12.686199"], ["updated_at", "2015-03-31 00:16:12.686199"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Chicken Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Chicken Toast"], ["description", "Fried\n        or grilled!"], ["price", "8.0"], ["created_at", "2015-03-31 00:16:12.688741"], ["updated_at", "2015-03-31 00:16:12.688741"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Eggplant Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Eggplant Toast"], ["description", "Roasted Eggplant on toast"], ["price", "5.0"], ["created_at", "2015-03-31 00:16:12.691273"], ["updated_at", "2015-03-31 00:16:12.691273"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Curry Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Curry Toast"], ["description", "Spicy and delicious"], ["price", "8.0"], ["created_at", "2015-03-31 00:16:12.693886"], ["updated_at", "2015-03-31 00:16:12.693886"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Steak Toast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Steak Toast"], ["description", "Flank Steak"], ["price", "7.5"], ["created_at", "2015-03-31 00:16:12.696453"], ["updated_at", "2015-03-31 00:16:12.696453"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Tofu Toast' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Tofu Toast"], ["description", "Marinated tofu"], ["price", "4.0"], ["created_at", "2015-03-31 00:16:12.698996"], ["updated_at", "2015-03-31 00:16:12.698996"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Salmon Toast' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Salmon Toast"], ["description", "Alaskan made!"], ["price", "8.0"], ["created_at", "2015-03-31 00:16:12.701509"], ["updated_at", "2015-03-31 00:16:12.701509"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."name" = 'Cheese Toast' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "items" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Cheese Toast"], ["description", "melty sharp cheddar"], ["price", "3.0"], ["created_at", "2015-03-31 00:16:12.704028"], ["updated_at", "2015-03-31 00:16:12.704028"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Side dishes' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Side dishes"], ["created_at", "2015-03-31 00:16:12.713014"], ["updated_at", "2015-03-31 00:16:12.713014"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Small plates' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Small plates"], ["created_at", "2015-03-31 00:16:12.715792"], ["updated_at", "2015-03-31 00:16:12.715792"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Desserts' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Desserts"], ["created_at", "2015-03-31 00:16:12.718055"], ["updated_at", "2015-03-31 00:16:12.718055"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Main Courses' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Main Courses"], ["created_at", "2015-03-31 00:16:12.720363"], ["updated_at", "2015-03-31 00:16:12.720363"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Specials' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Specials"], ["created_at", "2015-03-31 00:16:12.722545"], ["updated_at", "2015-03-31 00:16:12.722545"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Chocolate Toast"]]
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 1 AND "item_categories"."category_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 1], ["category_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Cake Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 2 AND "item_categories"."category_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 2], ["category_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Brownie Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 3 AND "item_categories"."category_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 3], ["category_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Cinnamon Sugar Toast"]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 4 AND "item_categories"."category_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 4], ["category_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Avocado Toast"]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 5 AND "item_categories"."category_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 5], ["category_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Egg Toast"]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 6 AND "item_categories"."category_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 6], ["category_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Dry Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 7 AND "item_categories"."category_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 7], ["category_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Tuna Salad Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 8 AND "item_categories"."category_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 8], ["category_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 4
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 8 AND "item_categories"."category_id" = 5) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 8], ["category_id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1[0m  [["name", "Buttered Toast"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 9 AND "item_categories"."category_id" = 2) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 9], ["category_id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 9 AND "item_categories"."category_id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 9], ["category_id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Mac and Cheese Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 10 AND "item_categories"."category_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 10], ["category_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 4
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 10 AND "item_categories"."category_id" = 5) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 10], ["category_id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1[0m  [["name", "Salad Toast"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 11 AND "item_categories"."category_id" = 2) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 11], ["category_id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 11 AND "item_categories"."category_id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 11], ["category_id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Peanut Butter Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 12 AND "item_categories"."category_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 12], ["category_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 4
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 12 AND "item_categories"."category_id" = 5) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 12], ["category_id", 5]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1[0m  [["name", "Sausage Toast"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 13 AND "item_categories"."category_id" = 2) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 13], ["category_id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 13 AND "item_categories"."category_id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 13], ["category_id", 5]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Jam Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 14 AND "item_categories"."category_id" = 3) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 14], ["category_id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 3
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 14 AND "item_categories"."category_id" = 4) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 14], ["category_id", 4]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1[0m  [["name", "Chicken Toast"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 15 AND "item_categories"."category_id" = 3) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 15], ["category_id", 3]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 15 AND "item_categories"."category_id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 15], ["category_id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Eggplant Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 16 AND "item_categories"."category_id" = 3) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 16], ["category_id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 3
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 16 AND "item_categories"."category_id" = 4) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 16], ["category_id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1[0m  [["name", "Curry Toast"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 17 AND "item_categories"."category_id" = 3) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 17], ["category_id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 17 AND "item_categories"."category_id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 17], ["category_id", 4]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Steak Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 18 AND "item_categories"."category_id" = 3) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 18], ["category_id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 3
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 18 AND "item_categories"."category_id" = 4) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 18], ["category_id", 4]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1[0m  [["name", "Tofu Toast"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 19 AND "item_categories"."category_id" = 3) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 19], ["category_id", 3]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 19 AND "item_categories"."category_id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 19], ["category_id", 4]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1  [["name", "Salmon Toast"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 20 AND "item_categories"."category_id" = 3) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 20], ["category_id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 3
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 20 AND "item_categories"."category_id" = 4) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 20], ["category_id", 4]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."name" = $1 LIMIT 1[0m  [["name", "Cheese Toast"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItemCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 21 AND "item_categories"."category_id" = 3) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 21], ["category_id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItemCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "item_categories" WHERE ("item_categories"."item_id" = 21 AND "item_categories"."category_id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "item_categories" ("item_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["item_id", 21], ["category_id", 4]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'rachel@jumpstartlab.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email_address", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Rachel Warbelow"], ["email_address", "rachel@jumpstartlab.com"], ["password_digest", "$2a$10$vu8puNXfbUnDnpcAXZkBaeOgpYSX7R7XtXcqzMVHxdkfWw.wV1XZa"], ["created_at", "2015-03-31 00:16:12.998644"], ["updated_at", "2015-03-31 00:16:12.998644"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'jeff@jumpstartlab.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "email_address", "password_digest", "display_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Jeff Casimir"], ["email_address", "jeff@jumpstartlab.com"], ["password_digest", "$2a$10$SkopxR/wG5nuc1NQWW97Pez265WKiScF0kMIxNtZK2jSE0bUYnWDW"], ["display_name", "j3"], ["created_at", "2015-03-31 00:16:13.072673"], ["updated_at", "2015-03-31 00:16:13.072673"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'jorge@jumpstartlab.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "email_address", "password_digest", "display_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Jorge Tellez"], ["email_address", "jorge@jumpstartlab.com"], ["password_digest", "$2a$10$VIaWGfCW2NSklgMIYCQimupnCzT4RJSt2cKaDmcqAW.dNe0g4Y9qy"], ["display_name", "novohispano"], ["created_at", "2015-03-31 00:16:13.142510"], ["updated_at", "2015-03-31 00:16:13.142510"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'josh@jumpstartlab.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "email_address", "password_digest", "display_name", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["username", "Josh Cheek"], ["email_address", "josh@jumpstartlab.com"], ["password_digest", "$2a$10$uwCeryZpBlgVnLpsr5DsVui/p7/bn7rinADoglV1dhU5LKQobFoNW"], ["display_name", "josh"], ["role", 1], ["created_at", "2015-03-31 00:16:13.218084"], ["updated_at", "2015-03-31 00:16:13.218084"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "orders" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart", "\"1\"=>\"3\", \"4\"=>\"1\", \"9\"=>\"2\""], ["user_id", 1], ["created_at", "2015-03-31 00:16:13.231638"], ["updated_at", "2015-03-31 00:16:13.231638"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "orders" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["status", 1], ["cart", "\"1\"=>\"1\", \"10\"=>\"1\""], ["user_id", 3], ["created_at", "2015-03-31 00:16:13.236296"], ["updated_at", "2015-03-31 00:16:13.236296"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "orders" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 1], ["cart", "\"1\"=>\"1\", \"10\"=>\"1\""], ["user_id", 3], ["created_at", "2015-03-31 00:16:13.239222"], ["updated_at", "2015-03-31 00:16:13.239222"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "orders" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["status", 1], ["cart", "\"2\"=>\"1\""], ["user_id", 2], ["created_at", "2015-03-31 00:16:13.242524"], ["updated_at", "2015-03-31 00:16:13.242524"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "orders" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 1], ["cart", "\"2\"=>\"1\""], ["user_id", 2], ["created_at", "2015-03-31 00:16:13.245254"], ["updated_at", "2015-03-31 00:16:13.245254"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "orders" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["status", 1], ["cart", "\"2\"=>\"1\""], ["user_id", 2], ["created_at", "2015-03-31 00:16:13.248262"], ["updated_at", "2015-03-31 00:16:13.248262"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "orders" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 1], ["cart", "\"2\"=>\"1\""], ["user_id", 2], ["created_at", "2015-03-31 00:16:13.250851"], ["updated_at", "2015-03-31 00:16:13.250851"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "orders" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["status", 1], ["cart", "\"2\"=>\"1\""], ["user_id", 2], ["created_at", "2015-03-31 00:16:13.253280"], ["updated_at", "2015-03-31 00:16:13.253280"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "orders" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 2], ["cart", "\"15\"=>\"3\""], ["user_id", 4], ["created_at", "2015-03-31 00:16:13.255901"], ["updated_at", "2015-03-31 00:16:13.255901"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2015-03-30 18:16:24 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomePageController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered home_page/index.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_nav_bar.html.erb (7.3ms)
+Completed 200 OK in 2794ms (Views: 2775.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for ::1 at 2015-03-30 18:16:27 -0600
+Processing by HomePageController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered home_page/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 300ms (Views: 298.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application-3f9aefebe041a7b993e45a74994ef876.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/_category-1abf74c552ffd4308e4308bfbe36d353.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/custom-f2fc256d7bc5c79f8951fcca619d9a37.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/toasted_logo-cf1fa12eb81d8e63431ddddae2a33d9a.png" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/confectionary-ebd6f969a5d2a430c21d6562045b4ff7.png" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/assets/hero_pic-2c16d614a0dce2383073651c26d4c5b7.png" for ::1 at 2015-03-30 18:16:28 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+Processing by HomePageController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered home_page/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 275ms (Views: 273.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application-3f9aefebe041a7b993e45a74994ef876.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/_category-1abf74c552ffd4308e4308bfbe36d353.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/custom-f2fc256d7bc5c79f8951fcca619d9a37.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:34 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/assets/toasted_logo-cf1fa12eb81d8e63431ddddae2a33d9a.png" for 127.0.0.1 at 2015-03-30 18:23:35 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+Processing by HomePageController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered home_page/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.5ms)
+Completed 200 OK in 283ms (Views: 282.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/_category-1abf74c552ffd4308e4308bfbe36d353.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/application-3f9aefebe041a7b993e45a74994ef876.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/custom-f2fc256d7bc5c79f8951fcca619d9a37.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/assets/toasted_logo-cf1fa12eb81d8e63431ddddae2a33d9a.png" for 127.0.0.1 at 2015-03-30 18:23:36 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+Processing by HomePageController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered home_page/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_nav_bar.html.erb (0.6ms)
+Completed 200 OK in 276ms (Views: 275.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/application-3f9aefebe041a7b993e45a74994ef876.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/_category-1abf74c552ffd4308e4308bfbe36d353.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/custom-f2fc256d7bc5c79f8951fcca619d9a37.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/assets/toasted_logo-cf1fa12eb81d8e63431ddddae2a33d9a.png" for 127.0.0.1 at 2015-03-30 18:23:38 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+Processing by HomePageController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered home_page/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_nav_bar.html.erb (0.6ms)
+Completed 200 OK in 289ms (Views: 288.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/application-3f9aefebe041a7b993e45a74994ef876.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/_category-1abf74c552ffd4308e4308bfbe36d353.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/custom-f2fc256d7bc5c79f8951fcca619d9a37.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/toasted_logo-cf1fa12eb81d8e63431ddddae2a33d9a.png" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:40 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-30 18:23:42 -0600
+Processing by HomePageController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered home_page/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_nav_bar.html.erb (0.5ms)
+Completed 200 OK in 275ms (Views: 273.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application-3f9aefebe041a7b993e45a74994ef876.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/_category-1abf74c552ffd4308e4308bfbe36d353.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/custom-f2fc256d7bc5c79f8951fcca619d9a37.css?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/assets/toasted_logo-cf1fa12eb81d8e63431ddddae2a33d9a.png" for 127.0.0.1 at 2015-03-30 18:23:43 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_nav_bar.html.erb (0.5ms)
+Completed 200 OK in 274ms (Views: 273.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/_category-1abf74c552ffd4308e4308bfbe36d353.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/application-3f9aefebe041a7b993e45a74994ef876.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/custom-f2fc256d7bc5c79f8951fcca619d9a37.css?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
+
+
+Started GET "/assets/toasted_logo-cf1fa12eb81d8e63431ddddae2a33d9a.png" for 127.0.0.1 at 2015-03-30 18:24:12 -0600
