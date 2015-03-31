@@ -2,9 +2,25 @@
 @import 'orders';
 @import 'base';
 
-body {
-  background: image-url('confectionary.png') repeat;
-  background-attachment: fixed;
+body{
+  background-image: image-url('barcelona.jpg');
+  background-size: 100% auto;
+
+  a, button{
+    color:$main-teal;
+    background-color:transparent;
+
+    &:hover{
+      text-decoration:none;
+      color:$light-teal;
+    }
+  }
+}
+
+.logo img{
+  width:35px;
+  height:auto;
+  margin-top:5px;
 }
 
 #admin-dash{
@@ -25,22 +41,51 @@ body {
   }
 }
 
-.logo {
-  margin-right: 10px;
+.navbar, footer {
+  margin:0;
+  border-color:none;
+  background-color:transparent;
+
+  input{
+    color:$main-teal;
+  }
+
+  .container{
+    background-color:rgba(255, 255, 255, 0.9);
+    width:100%;
+  }
 }
 
-.hero{
-  background-image: image-url('hero_pic.png');
+footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  line-height:50px;
 }
 
-.navbar {
-  margin-right: 23px;
-  margin-top: 35px;
+.navbar-form{
+  width:400px;
+}
+
+.form-group .form-control{
+  width:250px;
 }
 
 .center{
   width:30%;
   margin-bottom:10px;
+}
+
+.home-headings{
+  text-align:center;
+  width:100%;
+  margin:0 auto;
+  margin-top:150px;
+  color:white;
+
+  h1{
+    font-size:5em;
+  }
 }
 
 li {
