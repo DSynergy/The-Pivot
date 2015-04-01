@@ -6,6 +6,10 @@
   background-color:transparent;
   padding-left:0;
 
+  li, #contact{
+    font-family:$sub-font;
+  }
+
   input{
     color:$main-teal;
   }
@@ -21,6 +25,10 @@ footer{
   bottom:0;
   width:100%;
   line-height:50px;
+
+  span#contact{
+    margin-right: 7px;
+  }
 }
 
 .navbar-form{
@@ -46,4 +54,11 @@ footer{
   height:auto;
   margin-bottom:40px;
   margin-right:-10px;
+}
+
+.logo-tiny img{
+  margin-bottom:12px;
+  margin-right:-5px;
+  width:25px;
+  height:auto;
 }

@@ -8134,3 +8134,12 @@ NoMethodError - undefined method `active_listings' for #<Class:0x007fe9d2d8e8e8>
 
 
 Started POST "/__better_errors/da2f9deaca7a13a4/variables" for ::1 at 2015-03-31 22:05:19 -0600
+
+
+Started GET "/" for ::1 at 2015-04-01 10:51:58 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_nav_bar.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 599ms (Views: 589.3ms | ActiveRecord: 0.0ms)

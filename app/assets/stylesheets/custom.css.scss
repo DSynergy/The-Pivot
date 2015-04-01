@@ -18,6 +18,15 @@ body{
   }
 }
 
+input:focus{
+  outline:none;
+}
+
+#login-form{
+  margin-top:40px;
+
+}
+
 #admin-dash{
   padding-top:150px;
   padding-bottom:150px;
@@ -55,6 +64,14 @@ body{
   h1{
     font-size:5em;
   }
+
+  h2 {
+        margin-top:-15px;
+      a{
+        font-family:$sub-font;
+        color:$mint;
+      }
+  }
 }
 
 li {
@@ -71,14 +88,16 @@ input[type="submit"] {
   box-shadow: none;
 }
 
+label{
+  color:$main-teal;
+}
+
 #small_submit_button {
   width: 20%;
   display:block;
   text-align:center;
-  @include border-radius(5px);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  color:$main-teal;
+  background-color:white;
 }
 
 #cart-title {
