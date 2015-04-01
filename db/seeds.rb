@@ -3,6 +3,7 @@ class Seed
     generate_categories
     generate_users
     generate_listings
+    generate_bookings
   end
 
   def generate_users
@@ -25,7 +26,8 @@ class Seed
                            state: Faker::Address.state, country: Faker::Address.country, 
                            zipcode: Faker::Address.zip) do |listing|
         listing.categories.build(id: Category.find(rand(1..@category_count)))
-        puts "Listing: #{listing.title}"
+        listing.pictures.build(url: "default_image")
+        puts "Listing: #{listing.title}, #{listing.categories.first.name}, #{listing.pictures.first.url}"
       end
     end 
   end
@@ -47,6 +49,22 @@ class Seed
       category = Category.create(content) 
       puts "Category: #{category.name}"
     end
+  end
+
+  def generate_bookings
+    10.times do
+      user = User.order("RANDOM()").limit(1).first
+      booking = user.bookings.create(status: rand(2), cart: generate_cart)
+      puts "#{booking.cart}"
+    end
+  end
+
+  def generate_cart
+    [
+     {"1" => generate_dates},
+     {"2" => generate_dates},
+     {"3" => generate_dates}
+    ].sample
   end
 
   def self.call

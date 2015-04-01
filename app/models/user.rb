@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates_format_of :credit_card, with: /\d{15,16}/, on: :create, allow_blank: true
 
   has_many :listings
+  has_many :bookings
   has_secure_password
 
   enum role: %w(active admin inactive)

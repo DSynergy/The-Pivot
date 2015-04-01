@@ -6,7 +6,7 @@ class Listing < ActiveRecord::Base
   validates :description, length: { maximum: 300 }
   has_many :listing_categories
   has_many :categories, through: :listing_categories
-  has_many :photos
+  has_many :pictures
 
   def retired?
     status == 1
