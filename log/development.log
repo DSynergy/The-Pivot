@@ -4797,3 +4797,673 @@ ActionController::RoutingError - uninitialized constant ListingController:
 
 
 Started POST "/__better_errors/7a6baf77721487b1/variables" for ::1 at 2015-03-31 19:42:04 -0600
+  [1m[36m (36.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150310185207)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (30.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150310185207"]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateItems (20150310191416)
+  [1m[35m (6.3ms)[0m  BEGIN
+  [1m[36m (16.9ms)[0m  [1mCREATE TABLE "items" ("id" serial primary key, "name" text, "description" text, "price" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150310191416"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20150310193435)
+  [1m[35m (6.4ms)[0m  BEGIN
+  [1m[36m (17.1ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150310193435"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddHstore (20150311202153)
+  [1m[35m (5.9ms)[0m  BEGIN
+  [1m[36mSQL (44.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "hstore"[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150311202153"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOrders (20150311202245)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (18.1ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.1ms)[0m  CREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150311202245"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateItemCategories (20150311214732)
+  [1m[36m (6.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (9.3ms)[0m  CREATE TABLE "item_categories" ("id" serial primary key, "item_id" integer, "category_id" integer) 
+  [1m[36m (6.7ms)[0m  [1mCREATE  INDEX  "index_item_categories_on_item_id" ON "item_categories"  ("item_id")[0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_item_categories_on_category_id" ON "item_categories"  ("category_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150311214732"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Migrating to AddRetiredToItems (20150312041204)
+  [1m[36m (6.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (20.2ms)[0m  ALTER TABLE "items" ADD "retired?" boolean DEFAULT 'f'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150312041204"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+Migrating to ChangeRetiredToRetired (20150312205353)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (6.2ms)[0m  ALTER TABLE "items" RENAME COLUMN "retired?" TO "retired"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150312205353"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+Migrating to ChangePriceInItems (20150314173807)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "items" DROP "price"
+  [1m[36m (6.1ms)[0m  [1mALTER TABLE "items" ADD "price" decimal(5,2)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150314173807"]]
+  [1m[36m (6.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddAvatarToItems (20150315011144)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "items" ADD "avatar" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150315011144"]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Migrating to RenameItemCategoriesToListingCategories (20150331194926)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "item_categories" RENAME COLUMN "item_id" TO "listing_id"[0m
+  [1m[35m (0.5ms)[0m  ALTER INDEX "index_item_categories_on_item_id" RENAME TO "index_item_categories_on_listing_id"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "item_categories" RENAME TO "listing_categories"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "public"."item_categories_id_seq" RENAME TO "listing_categories_id_seq"
+  [1m[36m (0.3ms)[0m  [1mALTER INDEX "item_categories_pkey" RENAME TO "listing_categories_pkey"[0m
+  [1m[35m (0.1ms)[0m  ALTER INDEX "index_item_categories_on_category_id" RENAME TO "index_listing_categories_on_category_id"
+  [1m[36m (0.2ms)[0m  [1mALTER INDEX "index_item_categories_on_listing_id" RENAME TO "index_listing_categories_on_listing_id"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150331194926"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to RenameTableOrderToBookings (20150331200428)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "orders" RENAME TO "bookings"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "public"."orders_id_seq" RENAME TO "bookings_id_seq"
+  [1m[36m (0.2ms)[0m  [1mALTER INDEX "orders_pkey" RENAME TO "bookings_pkey"[0m
+  [1m[35m (0.1ms)[0m  ALTER INDEX "index_orders_on_user_id" RENAME TO "index_bookings_on_user_id"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150331200428"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to UpdateUsers (20150331200900)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "avatar" character varying
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "credit_card" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "billing_address" character varying
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150331200900"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddPictures (20150331203258)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150331203258"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to DropItems (20150331203534)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  DROP TABLE "items"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150331203534"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateListings (20150331203714)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150331203714"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddColumnToUsers (20150331211443)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "status" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150331211443"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to DropColumnInUsers (20150401004601)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "users" DROP "status"
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150401004601"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'bookings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'listing_categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'listings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pictures'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (2.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Apartment' LIMIT 1[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apartment"], ["created_at", "2015-04-01 17:23:22.726676"], ["updated_at", "2015-04-01 17:23:22.726676"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Condo' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Condo"], ["created_at", "2015-04-01 17:23:22.742332"], ["updated_at", "2015-04-01 17:23:22.742332"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Cabin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Cabin"], ["created_at", "2015-04-01 17:23:22.750424"], ["updated_at", "2015-04-01 17:23:22.750424"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Treehouse' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Treehouse"], ["created_at", "2015-04-01 17:23:22.753915"], ["updated_at", "2015-04-01 17:23:22.753915"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Room' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Room"], ["created_at", "2015-04-01 17:23:22.756531"], ["updated_at", "2015-04-01 17:23:22.756531"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Mansion' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Mansion"], ["created_at", "2015-04-01 17:23:22.759136"], ["updated_at", "2015-04-01 17:23:22.759136"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'brando@johnsonbeahan.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Mr. Destinee Howell"], ["password_digest", "$2a$10$K80kafLzvCQg8x1BgqWS.uj813A3GNjXVo8NkZ8w6cDrcNrlQQQrK"], ["email_address", "brando@johnsonbeahan.com"], ["avatar", "http://robohash.org/repudiandaeaccusantiummodi.png?size=300x300"], ["credit_card", "7402521840146747"], ["billing_address", "Ducimus dolor nostrum facere deleniti corrupti similique."], ["created_at", "2015-04-01 17:23:23.157640"], ["updated_at", "2015-04-01 17:23:23.157640"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'enrico@gusikowskiswaniawski.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Gerda Purdy"], ["password_digest", "$2a$10$zPc4g83LwpLYZoECg88tGee9wHeEfyaMcQugpDAna.nrR6ko2AEjm"], ["email_address", "enrico@gusikowskiswaniawski.biz"], ["avatar", "http://robohash.org/exnihilipsum.png?size=300x300"], ["credit_card", "7354843882708746"], ["billing_address", "Perferendis excepturi earum id fugiat voluptatem."], ["created_at", "2015-04-01 17:23:23.242938"], ["updated_at", "2015-04-01 17:23:23.242938"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'kara.mohr@murphytorphy.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Kirstin Treutel"], ["password_digest", "$2a$10$KjgNJbefvtT49EVSdStuK.W.OC80JuzY/IC7nHfoJjAwLP8JY5eXq"], ["email_address", "kara.mohr@murphytorphy.net"], ["avatar", "http://robohash.org/rationevoluptasdolore.png?size=300x300"], ["credit_card", "4443532152671822"], ["billing_address", "Soluta ab autem aut."], ["created_at", "2015-04-01 17:23:23.331088"], ["updated_at", "2015-04-01 17:23:23.331088"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'kamryn@weinatmurray.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Lou Jones"], ["password_digest", "$2a$10$0XWdYDVZQGl4b7qzn67NvOWmymFnYMHJkHb/7GvB9PVRH.cZp4/ui"], ["email_address", "kamryn@weinatmurray.info"], ["avatar", "http://robohash.org/quibusdamidsequi.png?size=300x300"], ["credit_card", "4854343595385133"], ["billing_address", "Reiciendis amet ea et neque qui delectus."], ["created_at", "2015-04-01 17:23:23.409154"], ["updated_at", "2015-04-01 17:23:23.409154"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'drew@grantstehr.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Travis Wintheiser"], ["password_digest", "$2a$10$wbMT6Eifof9VpUZnxlw5QesqMnMb3PCg7FZe5NoyzvkC8sxKNyd0q"], ["email_address", "drew@grantstehr.org"], ["avatar", "http://robohash.org/repellatremex.png?size=300x300"], ["credit_card", "8237587449688455"], ["billing_address", "Qui voluptatem tempora neque nobis consectetur odit."], ["created_at", "2015-04-01 17:23:23.488934"], ["updated_at", "2015-04-01 17:23:23.488934"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'ramon@ricenolan.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Nat Rice"], ["password_digest", "$2a$10$9M3nrrFwKH4RrvG0ner05eQ6pJVsZph4ILmOARtFAiv7jaRJNuFpi"], ["email_address", "ramon@ricenolan.biz"], ["avatar", "http://robohash.org/rationequiexcepturi.png?size=300x300"], ["credit_card", "1386385638216544"], ["billing_address", "Qui nobis facilis delectus vero."], ["created_at", "2015-04-01 17:23:23.569150"], ["updated_at", "2015-04-01 17:23:23.569150"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'rocio_mayer@zemlak.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Hazel Wunsch I"], ["password_digest", "$2a$10$Fdy9bOxzwkrARR7v1fj5POJHFkWV0duBizipezV1j6b2B8ET81Ugi"], ["email_address", "rocio_mayer@zemlak.name"], ["avatar", "http://robohash.org/natusundein.png?size=300x300"], ["credit_card", "7350749671737765"], ["billing_address", "Eius odit quam temporibus soluta in."], ["created_at", "2015-04-01 17:23:23.653454"], ["updated_at", "2015-04-01 17:23:23.653454"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'ricardo@rolfsonstreich.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Verdie Altenwerth"], ["password_digest", "$2a$10$X3FiTkKmLLvScFUeJomTTeY2kiYOrKcQ/Mtg/Q7Y5iQFmtW1JODu2"], ["email_address", "ricardo@rolfsonstreich.name"], ["avatar", "http://robohash.org/nonidpariatur.png?size=300x300"], ["credit_card", "5457565285358141"], ["billing_address", "Suscipit minus eaque quas rerum optio quae."], ["created_at", "2015-04-01 17:23:23.737924"], ["updated_at", "2015-04-01 17:23:23.737924"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'gonzalo.wunsch@macejkovic.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Carolina Walter"], ["password_digest", "$2a$10$T3jMmPY50hkapebyip2clenVzMt8mLbFStXVwWy9i02d5X4XDrfvC"], ["email_address", "gonzalo.wunsch@macejkovic.net"], ["avatar", "http://robohash.org/doloresvelrerum.png?size=300x300"], ["credit_card", "7246745222556979"], ["billing_address", "Rem aut ea quis est ipsa."], ["created_at", "2015-04-01 17:23:23.819560"], ["updated_at", "2015-04-01 17:23:23.819560"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'alexandrea.windler@bodewolf.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Peyton Runte"], ["password_digest", "$2a$10$OY/aIn9AYu6wUIT41oTKj.8PVdSvz133hEyuplHJgZkdK4i4.Ar.G"], ["email_address", "alexandrea.windler@bodewolf.biz"], ["avatar", "http://robohash.org/essevoluptassunt.png?size=300x300"], ["credit_card", "2522844130260569"], ["billing_address", "Ut reiciendis et rerum pariatur non qui aspernatur est."], ["created_at", "2015-04-01 17:23:23.897769"], ["updated_at", "2015-04-01 17:23:23.897769"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Apartment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Condo' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Cabin' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Treehouse' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Room' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Mansion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'justyn@gaylordwuckert.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Kadin Mraz"], ["password_digest", "$2a$10$WWd9M4GDsXR6TCgItVeN7O8uBal9.eT7l55eHajhQ3kJcW5bxA7jG"], ["email_address", "justyn@gaylordwuckert.org"], ["avatar", "http://robohash.org/verominimavel.png?size=300x300"], ["credit_card", "5621138742877126"], ["billing_address", "Autem totam voluptate error blanditiis maiores."], ["created_at", "2015-04-01 17:25:06.302084"], ["updated_at", "2015-04-01 17:25:06.302084"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'alysa@rutherfordlittle.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Laurie Rolfson"], ["password_digest", "$2a$10$iMMCstWXNYY3PF3rU2IJoOBKyRLTDbUGnA0eag8eeo8Bf3iQWbGWm"], ["email_address", "alysa@rutherfordlittle.net"], ["avatar", "http://robohash.org/utfacilisporro.png?size=300x300"], ["credit_card", "7863755860423111"], ["billing_address", "Inventore illum quod voluptatem eaque ex ea vel harum."], ["created_at", "2015-04-01 17:25:06.381676"], ["updated_at", "2015-04-01 17:25:06.381676"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'ali_botsford@cartwright.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Angelica Pfeffer"], ["password_digest", "$2a$10$jE4TF01f6TaTOFbAQ9z02OX2h126876tDFz1pthxotihNiyNRYuQu"], ["email_address", "ali_botsford@cartwright.info"], ["avatar", "http://robohash.org/vitaefugitplaceat.png?size=300x300"], ["credit_card", "1444829733444387"], ["billing_address", "Est necessitatibus dignissimos dolorum et qui eum."], ["created_at", "2015-04-01 17:25:06.469708"], ["updated_at", "2015-04-01 17:25:06.469708"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'tabitha.metz@lakinyost.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Alejandrin Turner"], ["password_digest", "$2a$10$GyBjWmVNetUIH4cytnY...xH43VPNfowgBiSknkA/o/lmscJu58ta"], ["email_address", "tabitha.metz@lakinyost.org"], ["avatar", "http://robohash.org/quiculpaet.png?size=300x300"], ["credit_card", "5863747234424136"], ["billing_address", "Quaerat earum incidunt eum odit similique quibusdam et."], ["created_at", "2015-04-01 17:25:06.556379"], ["updated_at", "2015-04-01 17:25:06.556379"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sincere.fadel@oconnerrosenbaum.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Gianni Sauer"], ["password_digest", "$2a$10$mIpd6/RCgkyjIGD6ZLH6teEYDel0U0d5PF6kUU0q96AuU.s780mCG"], ["email_address", "sincere.fadel@oconnerrosenbaum.com"], ["avatar", "http://robohash.org/etpraesentiumomnis.png?size=300x300"], ["credit_card", "7542718881834222"], ["billing_address", "Assumenda voluptatem et ratione ipsa ducimus."], ["created_at", "2015-04-01 17:25:06.643657"], ["updated_at", "2015-04-01 17:25:06.643657"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'pablo@gaylordosinski.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Hershel Kling"], ["password_digest", "$2a$10$/jIrfXf6MgiZ84cDDPTeauK.B5eQ1cUSZhEp.orrhKTzM0Lkg0IQe"], ["email_address", "pablo@gaylordosinski.biz"], ["avatar", "http://robohash.org/nonquidemquasi.png?size=300x300"], ["credit_card", "1635933128127823"], ["billing_address", "Eaque molestias maiores qui voluptas suscipit corrupti libero aut."], ["created_at", "2015-04-01 17:25:06.732343"], ["updated_at", "2015-04-01 17:25:06.732343"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'vernice_hintz@rosenbaum.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Rhianna Waelchi"], ["password_digest", "$2a$10$FfbAvk.AT4tp5P36.g11..Nw82gEAi2wbxZJsxLiQfH8dPGSI0q0m"], ["email_address", "vernice_hintz@rosenbaum.org"], ["avatar", "http://robohash.org/magnieaaliquam.png?size=300x300"], ["credit_card", "3344762195417596"], ["billing_address", "Repellendus sit in beatae velit."], ["created_at", "2015-04-01 17:25:06.812363"], ["updated_at", "2015-04-01 17:25:06.812363"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'lisa_wintheiser@hackettbradtke.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Alberta Kovacek"], ["password_digest", "$2a$10$c099e2OvgJdq2Y7drr17W.ORBjQdq4mT3/nqqbyh7lXcrgOTnoPke"], ["email_address", "lisa_wintheiser@hackettbradtke.net"], ["avatar", "http://robohash.org/eumdoloremquenihil.png?size=300x300"], ["credit_card", "2321627483175732"], ["billing_address", "Eum nihil repellendus ipsum enim."], ["created_at", "2015-04-01 17:25:06.892261"], ["updated_at", "2015-04-01 17:25:06.892261"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'nat@gerlach.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Lizeth Hoeger DDS"], ["password_digest", "$2a$10$JdNLzLcx5tD8aZaCQPym5eGfBSz4v2QwNiXU2ATWs.XYtzWgjaokG"], ["email_address", "nat@gerlach.name"], ["avatar", "http://robohash.org/sapienteidnon.png?size=300x300"], ["credit_card", "6415295476145659"], ["billing_address", "Molestiae sit dolorum veniam aut in aperiam dolorem."], ["created_at", "2015-04-01 17:25:06.971135"], ["updated_at", "2015-04-01 17:25:06.971135"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'roie@macgyver.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Mr. Patsy Shanahan"], ["password_digest", "$2a$10$8kBxl5lOnhgOCYQeyv/baOFA.iTZxnUM.Cvw9cwyeSJtMS3/fmm/u"], ["email_address", "roie@macgyver.name"], ["avatar", "http://robohash.org/rationequaseum.png?size=300x300"], ["credit_card", "4813563264655858"], ["billing_address", "Unde nisi est voluptas quisquam dolorum."], ["created_at", "2015-04-01 17:25:07.050005"], ["updated_at", "2015-04-01 17:25:07.050005"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Apartment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Condo' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Cabin' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Treehouse' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Room' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Mansion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'nathan@dickenstremblay.info' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Thea West"], ["password_digest", "$2a$10$nY5TL/zz3Oq3L4gIBw4fQutDiZ6eht9LTYbSw0gqyjHjZW1ZrMQjS"], ["email_address", "nathan@dickenstremblay.info"], ["avatar", "http://robohash.org/istevelitearum.png?size=300x300"], ["credit_card", "1520571433741827"], ["billing_address", "Eligendi provident quia ea odio."], ["created_at", "2015-04-01 17:26:29.808394"], ["updated_at", "2015-04-01 17:26:29.808394"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'london@hagenesjacobi.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Ms. Leopold Murphy"], ["password_digest", "$2a$10$UnezetiGbviKD1TtvyI.OO527NVFoQRSDsW5CqjSN6YBYHSz5Lq/2"], ["email_address", "london@hagenesjacobi.info"], ["avatar", "http://robohash.org/velisteveniam.png?size=300x300"], ["credit_card", "7993021039073639"], ["billing_address", "Sequi ut commodi asperiores est doloribus."], ["created_at", "2015-04-01 17:26:29.889323"], ["updated_at", "2015-04-01 17:26:29.889323"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'koby@considine.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Mr. Brittany Moore"], ["password_digest", "$2a$10$IWpeZAuAYlgIWZ4I96ZFUe7PjAXbz1XznSUITLtQAmG8djF/DGY9q"], ["email_address", "koby@considine.net"], ["avatar", "http://robohash.org/ipsamquiadeserunt.png?size=300x300"], ["credit_card", "1016434857882814"], ["billing_address", "Et quis quibusdam molestiae est non et."], ["created_at", "2015-04-01 17:26:29.967035"], ["updated_at", "2015-04-01 17:26:29.967035"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'eloy@bradtke.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Elvie Moore IV"], ["password_digest", "$2a$10$PLpKcMx7e0Jv/emg8wdah.rbDrC0qG09r1M2figRtbazIx5YfIewW"], ["email_address", "eloy@bradtke.biz"], ["avatar", "http://robohash.org/omnissedest.png?size=300x300"], ["credit_card", "5542326828718636"], ["billing_address", "Qui eveniet molestias quidem eum."], ["created_at", "2015-04-01 17:26:30.046908"], ["updated_at", "2015-04-01 17:26:30.046908"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'karl@schuster.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Sigurd Pouros"], ["password_digest", "$2a$10$f8z9dqRNHwginVGENZKZReMez0rR0ihnxtkCEyVTChmpCyzKE0/jy"], ["email_address", "karl@schuster.net"], ["avatar", "http://robohash.org/etquisquamquos.png?size=300x300"], ["credit_card", "5011238892347894"], ["billing_address", "Commodi consequatur dolorem ut nulla rerum perspiciatis et omnis."], ["created_at", "2015-04-01 17:26:30.130588"], ["updated_at", "2015-04-01 17:26:30.130588"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sydney_marks@metzharvey.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Elaina Mertz"], ["password_digest", "$2a$10$kXhFvpgG.JHDjdjA5O3Lq.tSLNX3WxTwjSMNAdsFonImI7Rmp/K3."], ["email_address", "sydney_marks@metzharvey.net"], ["avatar", "http://robohash.org/autnonoptio.png?size=300x300"], ["credit_card", "4301522647489669"], ["billing_address", "Voluptatibus qui aut in est harum ad cum."], ["created_at", "2015-04-01 17:26:30.212219"], ["updated_at", "2015-04-01 17:26:30.212219"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'rolando_medhurst@halvorsonpouros.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Raleigh Wiegand"], ["password_digest", "$2a$10$pkRwsaeWVw59JtkqBRQBnuRjAaAargOz2VV8/p581.VuHNgyox1Di"], ["email_address", "rolando_medhurst@halvorsonpouros.biz"], ["avatar", "http://robohash.org/repellendusillumfugiat.png?size=300x300"], ["credit_card", "8809179754575047"], ["billing_address", "Quia porro repudiandae sint ducimus."], ["created_at", "2015-04-01 17:26:30.292960"], ["updated_at", "2015-04-01 17:26:30.292960"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'zion_kautzer@reinger.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Emma Von"], ["password_digest", "$2a$10$uapdQV5tUNowJNM3K6gy3.N4IMla4Ru.Yt/1J8Sm4AdGi0l2qmYLW"], ["email_address", "zion_kautzer@reinger.org"], ["avatar", "http://robohash.org/reprehenderitquisvoluptatibus.png?size=300x300"], ["credit_card", "7153898171641250"], ["billing_address", "Voluptatem qui voluptas repudiandae sunt et a harum ut."], ["created_at", "2015-04-01 17:26:30.372211"], ["updated_at", "2015-04-01 17:26:30.372211"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'bert_nitzsche@rohankrajcik.net' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Alexandrea Block"], ["password_digest", "$2a$10$vfcMcUUjQF9pocQlXKa9muu9Lh6W0efzPEzZMNPDruCbWZ9wWtox."], ["email_address", "bert_nitzsche@rohankrajcik.net"], ["avatar", "http://robohash.org/cupiditateofficiatempore.png?size=300x300"], ["credit_card", "8768435714539870"], ["billing_address", "Labore provident et error dignissimos beatae."], ["created_at", "2015-04-01 17:26:30.452172"], ["updated_at", "2015-04-01 17:26:30.452172"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'laurie_grimes@kozey.org' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "password_digest", "email_address", "avatar", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["username", "Tyler Glover"], ["password_digest", "$2a$10$XaG1W//GReoLrRnWtQfS0uvbjPiV9hrFDSDdsKvaURYIPoaYkbX6e"], ["email_address", "laurie_grimes@kozey.org"], ["avatar", "http://robohash.org/assumendamolestiasdolorum.png?size=300x300"], ["credit_card", "1586407624668154"], ["billing_address", "Et magni quibusdam et velit perferendis."], ["created_at", "2015-04-01 17:26:30.534368"], ["updated_at", "2015-04-01 17:26:30.534368"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mListing Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Casper and Sons' LIMIT 1[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Kling-Abernathy' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Tillman and Sons' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'O''Keefe-Nicolas' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Lang-West' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Volkman LLC' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Hane and Sons' LIMIT 1[0m
+  [1m[35mCategory Exists (0.5ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Morar-Schimmel' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Howell LLC' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Lesch-Halvorson' LIMIT 1[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Carroll-Jacobson' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Roberts-Lind' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bernier LLC' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Botsford LLC' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Morissette LLC' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Hyatt Inc' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Koelpin, Swift and Borer' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Barrows-Stoltenberg' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Lubowitz, Lang and Kris' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Ankunding, Quitzon and Carter' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Dietrich-Fadel' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Kunze, Runolfsdottir and Bruen' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'MacGyver-Klocko' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mListing Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Flatley, Grimes and Von' LIMIT 1[0m
+  [1m[35mCategory Exists (0.5ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Russel-Rosenbaum' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Mraz, Schimmel and Pagac' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Mosciski-McGlynn' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Hessel, Armstrong and Lehner' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Conn, Nikolaus and Weber' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Buckridge-Blick' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Wilkinson-Ratke' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Kilback LLC' LIMIT 1[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Mills, Schumm and Veum' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Kris-Veum' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Larkin, Stroman and Mueller' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Gutkowski Group' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bartell, Aufderhar and Goodwin' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Koepp, Rolfson and Block' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Rice, Fadel and Halvorson' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Stroman LLC' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Ziemann-Padberg' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Johnston Inc' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bergstrom-Huel' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Nienow Inc' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Hirthe LLC' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Sporer, Bernier and Jenkins' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Vandervort-Considine' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Borer, Greenholt and Rau' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mListing Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Jakubowski-Collier' LIMIT 1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'O''Kon-Koelpin' LIMIT 1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m

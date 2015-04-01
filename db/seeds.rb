@@ -1,59 +1,57 @@
+class Seed
+  def call
+    generate_categories
+    generate_users
+    generate_listings
+  end
 
-item_contents = ([{ name: "Chocolate Toast", description: "Dark chocolate on toast",
-        price: 3.00, retired: true}, { name: "Cake Toast", description: "Lemon poppyseed cake on toast", price: 4.00},
-        { name: "Brownie Toast", description: "Delicious dark chocolate brownie on toast", price: 4.00},
-        { name: "Cinnamon Sugar Toast", description: "Toast sprinkled with raw cane sugar, fresh ground
-        cinnamon, and a hint of sea salt", price: 2.50}, { name: "Avocado Toast", description: "Fresh
-        California avacado sliced over toast", price: 5.00}, { name: "Egg Toast", description: "Choose
-        from fried or scrambled eggs!", price: 4.00}, { name: "Dry Toast", description: "Nothing on it",
-        price: 2.00}, { name: "Tuna Salad Toast", description: "With pickles,onions, and a hint of basil",
-        price: 4.50}, { name: "Buttered Toast", description: "Creamy melted butter", price:
-        5.00}, { name: "Mac and Cheese Toast", description: "Rich, three cheese mac and cheese, on toast",
-        price: 4.50}, { name: "Salad Toast", description: "House salad on toast", price: 4.00}, { name:
-        "Peanut Butter Toast", description: "Fresh ground peanut butter", price: 7.00}, { name:
-        "Sausage Toast", description: "German style brat on toast", price: 6.00}, { name: "Jam Toast",
-        description: "Strawberry, or blueberry", price: 5.50}, { name: "Chicken Toast", description: "Fried
-        or grilled!", price: 8.00}, { name: "Eggplant Toast", description: "Roasted Eggplant on toast",
-        price: 5.00}, { name: "Curry Toast", description: "Spicy and delicious", price: 8.00}, { name:
-        "Steak Toast", description: "Flank Steak", price: 7.50}, { name: "Tofu Toast", description:
-        "Marinated tofu", price: 4.00}, { name: "Salmon Toast", description: "Alaskan made!", price:
-        8.00}, { name: "Cheese Toast", description: "melty sharp cheddar", price: 3.00}])
+  def generate_users
+    10.times do
+      user = User.create(username: Faker::Name.name, password: "password", email_address: Faker::Internet.email,
+                  role: 0, avatar: Faker::Avatar.image, credit_card: Faker::Number.number(16),
+                  billing_address: Faker::Lorem.sentence)
+      puts "User: #{user.username}"
+    end
+  end
 
-item_contents.each { |content| Item.create(content) }
+  def generate_listings
+    50.times do
+      user = User.order("RANDOM()").limit(1).first
+      listing = user.listings.create(title: Faker::Company.name, description: Faker::Lorem.sentence,
+                           private_bathroom: [true, false].sample, price: Faker::Commerce.price, 
+                           quantity_available: rand(1..4), people_per_unit: rand(1..10), 
+                           available_dates: generate_dates, status: rand(2), 
+                           street_address: Faker::Address.street_address, city: Faker::Address.city, 
+                           state: Faker::Address.state, country: Faker::Address.country, 
+                           zipcode: Faker::Address.zip) do |listing|
+        listing.categories.build(id: Category.find(rand(1..@category_count)))
+        puts "Listing: #{listing.title}"
+      end
+    end 
+  end
 
-category_contents = ([{ name: "Side dishes"}, { name: "Small plates" }, { name: "Desserts"}, { name: "Main Courses"},
-              { name: "Specials" }])
+  def generate_dates
+    [
+     {"Jan3" => 0, "Jan4" => 0, "Jan5" => 0},
+     {"Mar11" => 0, "March12" => 0},
+     {"July3" => 0, "July4" => 0, "July5" => 0, "July6" => 0}
+    ].sample
+  end
 
-category_contents.each { |content| Category.create(content) }
+  def generate_categories
+    category_contents = ([{ name: "Apartment"}, { name: "Condo" }, { name: "Cabin"}, { name: "Treehouse"},
+                  { name: "Room" }, { name: "Mansion" }])
 
-#ItemCategories
+    @category_count = category_contents.size
+    category_contents.each do |content| 
+      category = Category.create(content) 
+      puts "Category: #{category.name}"
+    end
+  end
 
-item_contents.each_with_index do |item, index|
-  if index < 7
-  Item.find_by(name: item[:name]).categories.push(Category.first)
-  elsif index < 13
-    Item.find_by(name: item[:name]).categories.push(Category.second).push(Category.fifth)
-  else
-    Item.find_by(name: item[:name]).categories.push(Category.third).push(Category.fourth)
+  def self.call
+    new.call
   end
 end
 
-user_content = ([{ username: "Rachel Warbelow", email_address: "rachel@jumpstartlab.com", password: "password", display_name:nil,
-        role: 0}, { username: "Jeff Casimir", email_address: "jeff@jumpstartlab.com", password: "password", display_name:
-        "j3", role: 0}, { username: "Jorge Tellez", email_address: "jorge@jumpstartlab.com", password: "password",
-        display_name: "novohispano", role: 0}, { username: "Josh Cheek", email_address: "josh@jumpstartlab.com", password:
-        "password", display_name: "josh", role: 1}])
-
-users = user_content.map { |content| User.create(content) }
-
-users.first.orders.create(status:0, cart: {"1"=>3, "4"=>1, "9"=>2})
-
-2.times do
-  users[2].orders.create(status:1, cart: {"1"=>1, "10"=>1})
-end
-
-5.times do
-  users[1].orders.create(status:1, cart: {"2"=>1})
-end
-
-users.last.orders.create(status:2, cart: {"15"=>3})
+Seed.call
