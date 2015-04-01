@@ -1,25 +1,17 @@
 class Booking < ActiveRecord::Base
   belongs_to :user
-  enum status: %w(ordered paid completed cancelled)
-  scope :ordered, -> { where(status: 0)}
-  scope :paid, -> { where(status: 1) }
-  scope :completed, -> { where(status: 2) }
-  scope :cancelled, -> { where(status: 3) }
+  enum status: %w(pending completed cancelled)
+  scope :pending, -> { where(status: 0)}
+  scope :completed, -> { where(status: 1) }
+  scope :cancelled, -> { where(status: 2) }
 
-  def open?
-    status == "ordered" || status == "paid"
-  end
-
-  def unpaid?
-    status == "ordered" && status != "paid"
-  end
-
-  def paid?
-    status == "paid"
+=begin
+  def pending?
+    status == "pending"     
   end
 
   def line_item_total(item, quantity)
-    item.price * quantity
+    listing.price * quantity
   end
 
   def items_with_quantity
@@ -36,29 +28,28 @@ class Booking < ActiveRecord::Base
     end
   end
 
-  def self.generate_order(user, cart)
+  def self.generate_booking(user, cart)
     create(user_id: user.id, cart: cart)
   end
+=end
 
   def self.sort_by_status(status)
     case status
     when nil
-      Order.all
+      Booking.all
     when '0'
-      Order.ordered
+      Booking.pending
     when '1'
-      Order.paid
+      Booking.completed
     when '2'
-      Order.completed
-    when '3'
-      Order.cancelled
+      Booking.cancelled
     end
   end
 
   private
 
   def format_quantity
-    cart.each { |item, quantity| cart[item] = quantity.to_i }
+    cart.each { |listing_id, dates| cart[listing_id] = dates.size }
   end
 
 end
