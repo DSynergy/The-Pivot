@@ -12843,3 +12843,127 @@ ActionController::RoutingError - uninitialized constant ListingController:
    () Users/DBomb/.rvm/gems/ruby-2.1.3/bin/ruby_executable_hooks:15:in `<main>'
 
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (2.0ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.8ms)[0m  select table_name from information_schema.views where table_schema = 'dinner_dash_test'
+  [1m[36m (20.7ms)[0m  [1mTRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-03-31 21:54:34 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_nav_bar.html.erb (8.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1471ms (Views: 1457.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-03-31 21:54:35 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started GET "/listings" for 127.0.0.1 at 2015-03-31 21:54:35 -0600
+
+ActionController::RoutingError - uninitialized constant ListingController:
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:62:in `rescue in controller'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:57:in `controller'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:38:in `serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/journey/router.rb:43:in `block in serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/journey/router.rb:30:in `serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:31:in `follow'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:56:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  spec/features/listing_index_view_spec.rb:27:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  ROLLBACK

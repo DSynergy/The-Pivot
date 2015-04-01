@@ -66,4 +66,6 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'database_cleaner'
+
+  gem 'disable_assets_logger', :group => :development
 end
