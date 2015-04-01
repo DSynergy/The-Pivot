@@ -4,21 +4,21 @@ class CartController < ApplicationController
   end
 
   def create
-    item_id = params[:item_id]
-    @cart.add_item(item_id)
+    listing_id = params[:listing_id]
+    @cart.add_listing(listing_id)
     session[:cart] = @cart.content
-    item = Item.find(item_id)
+    listing = listing.find(listing_id)
 
-    flash[:notice] = "#{item.name} added to cart"
+    flash[:notice] = "#{listing.name} added to cart"
     redirect_to(:back)
   end
 
   def destroy
-    item_id = params[:format]
-    @cart.remove_item(item_id)
-    item = Item.find(item_id)
+    listing_id = params[:format]
+    @cart.remove_listing(listing_id)
+    listing = listing.find(listing_id)
 
-    flash[:notice] = "#{item.name} removed from cart"
+    flash[:notice] = "#{listing.name} removed from cart"
     redirect_to cart_path
   end
 end

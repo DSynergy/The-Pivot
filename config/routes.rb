@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root "home_page#index"
 
+  get '/listings', to: 'listing#index'
   resources :users, only: [:create, :show, :update], param: 'slug'
 
-  resources :cart, only: [:index, :create, :destroy]
+  resource :cart, only: [:show, :create, :destroy]
   resources :categories, only: [:index, :show]
 
   get "/login", to: "sessions#new"
