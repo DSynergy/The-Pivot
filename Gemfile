@@ -43,8 +43,6 @@ gem "rails_12factor", group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'simplecov', :require => false, :group => :test
-
 
 group :development, :test do
   gem 'factory_girl_rails'

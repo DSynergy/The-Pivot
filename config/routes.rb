@@ -1,34 +1,34 @@
 Rails.application.routes.draw do
   root "home_page#index"
 
-  resources :items, only: [:index, :show]
+  get '/listings', to: 'listing#index'
+  resources :users, only: [:create, :show, :update], param: 'slug'
 
+  resource :cart, only: [:show, :create, :destroy]
   resources :categories, only: [:index, :show]
 
-  resources :orders, only: [:index, :create]
-
-  get "/cart", to: "cart#index"
-
-  post "/cart", to: "cart#create"
-
-  delete "/cart", to: "cart#destroy"
-
   get "/login", to: "sessions#new"
-
   post "/login", to: "sessions#create"
 
   delete "/logout", to: "sessions#destroy"
 
+  namespace :users, as: :user, path: "/:slug" do
+    resources :bookings, only: [:show, :index, :create]
+  end
+
+  namespace :hosts, as: :host, path: "/:slug" do
+    resources :listings, only: [:index, :show]
+    resources :bookings, only: [:index, :show, :update]
+  end
+
   namespace :admin do
-    get "/", to: "dashboard#index"
-
-    resources :items
-
-    resources :categories, except: [:update, :destroy]
-
-    resources :orders, only: [:index, :show, :update]
-
-    resources :item_categories, except: [:index]
+    namespace :hosts, as: :host, path: "/:slug" do
+      resources :listings
+      resources :bookings
+    end
+      get "/", to: "dashboard#index"
+      resources :categories
+      resources :users, only: [:index, :show, :update],  param: 'slug'
   end
 
 end

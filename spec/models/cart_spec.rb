@@ -50,4 +50,6 @@ RSpec.describe Cart do
 
   end
 
+  #listing id and date available
+
 end

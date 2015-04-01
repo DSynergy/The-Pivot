@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :load_cart
+  helper_method :load_cart, :current_user, :is_admin?, :redirect_to_login_if_not_logged_in
 
   private
 
@@ -26,6 +27,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :load_cart, :current_user, :is_admin?, :redirect_to_login_if_not_logged_in
 
 end

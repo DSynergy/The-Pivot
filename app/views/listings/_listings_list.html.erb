@@ -1,0 +1,18 @@
+<div id="menu">
+  <br>
+  <%= link_to "Return to Home Page", href="/", class: "btn btn-info btn-lg btn-md active center" %>
+  <br>
+  <div class="row">
+    <% @listings.each do |listing| %>
+      <div class="floaters">
+        <div class="toasty"><%= image_tag listing.avatar.url(:thumb) %></div>
+        <h4 class="listing-title"> <%= link_to  listing.name, listing %> </h4>
+
+        <div class="listing-cart-button">
+          <br>
+            <%= button_to  'Add to Cart', cart_path(listing_id: listing), class: "btn btn-success btn-xs active center " %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
