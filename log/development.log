@@ -22853,3 +22853,2832 @@ Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for
 
 
 Started GET "/assets/travel_home_logo-1597dea1f0a8e060bf760c93ac52fdeb.png" for ::1 at 2015-03-30 22:00:48 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:05:11 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_nav_bar.html.erb (18.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1030ms (Views: 1008.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-03-31 17:05:12 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_nav_bar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 283ms (Views: 282.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/travel_home_logo-1bf5aa1a989b51f1192f79eda4b13bfa.png" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/assets/barcelona-09b40fa929e62b48fc3a9628a9088df2.jpg" for ::1 at 2015-03-31 17:05:13 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:05:18 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 271ms (Views: 270.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/assets/travel_home_logo-1bf5aa1a989b51f1192f79eda4b13bfa.png" for ::1 at 2015-03-31 17:05:19 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:06:05 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 297ms (Views: 296.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/assets/travel_home_logo-1bf5aa1a989b51f1192f79eda4b13bfa.png" for ::1 at 2015-03-31 17:06:05 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:06:07 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_nav_bar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 299ms (Views: 298.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:06:07 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:06:07 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:06:07 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:06:07 -0600
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:06:07 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/assets/travel_home_logo-1bf5aa1a989b51f1192f79eda4b13bfa.png" for ::1 at 2015-03-31 17:06:08 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:06:09 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 323ms (Views: 321.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/travel_home_logo-1bf5aa1a989b51f1192f79eda4b13bfa.png" for ::1 at 2015-03-31 17:06:09 -0600
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:06:14 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:08:36 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (5.3ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 314ms (Views: 313.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 17:08:36 -0600
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:17:26 -0600
+
+
+Started GET "/cart" for ::1 at 2015-03-31 17:17:48 -0600
+Processing by CartController#index as HTML
+  Rendered cart/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_nav_bar.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 1312ms (Views: 1310.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-03-31 17:24:03 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 512ms (Views: 511.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-1226921a74142d447fa3338039f6e493.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/_nav-25b1c806e04af4a2cb96e35f392eb131.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/custom-cc21a99e046bdd3bd6919883afe80bfe.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:24:03 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/assets/barcelona-09b40fa929e62b48fc3a9628a9088df2.jpg" for ::1 at 2015-03-31 17:24:04 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:24:41 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 487ms (Views: 486.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:24:42 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:27:44 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 309ms (Views: 308.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:27:44 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:27:45 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:28:58 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 325ms (Views: 324.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:28:58 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:28:59 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:29:47 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 305ms (Views: 304.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:29:47 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 17:30:31 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_nav_bar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 317ms (Views: 315.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 17:30:32 -0600
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 17:39:43 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 18:13:46 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 327ms (Views: 326.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 18:13:46 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 18:13:47 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 18:21:20 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_nav_bar.html.erb (1.8ms)
+Completed 500 Internal Server Error in 315ms
+
+SyntaxError - syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+...er.append=( link_to <span class="glyphicon glyphicon-search"...
+...                               ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:17: syntax error, unexpected tIDENTIFIER, expecting ')'
+...lyphicon glyphicon-search" aria-hidden="true"></span>, cart_...
+...                               ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:17: syntax error, unexpected '<'
+...on-search" aria-hidden="true"></span>, cart_path, class: 'bt...
+...                               ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:17: unknown regexp option - l
+unmatched close parenthesis: /span>, cart_path, class: 'btn-lg navbar-left' );@output_buffer.safe_append='</i
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:19: syntax error, unexpected '<'
+      <form class="navbar-form navbar-left" role="search">
+       ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:19: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <form class="navbar-form navbar-left" role="search">
+                                                ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:20: syntax error, unexpected '<'
+        <div class="form-group">
+         ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:21: syntax error, unexpected '<'
+          <input type="text" class="form...
+           ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:21: syntax error, unexpected keyword_class, expecting ')'
+...       <input type="text" class="form-control" placeholder="...
+...                               ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:21: syntax error, unexpected tIDENTIFIER, expecting ')'
+...lass="form-control" placeholder="City...">
+...                               ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:22: syntax error, unexpected '<'
+        </div>
+         ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:23: unknown regexp options - pa
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:23: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:24: syntax error, unexpected keyword_class, expecting ')'
+        <button type="submit" class="btn">Search</button>
+                                   ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:25: unknown regexp options - fr
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:27: syntax error, unexpected '<'
+      <li>'.freeze;@output_buffer.ap...
+       ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:27: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ign Up", cart_path, class: 'btn-lg navbar-right' );@output_b...
+...                               ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:27: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...art_path, class: 'btn-lg navbar-right' );@output_buffer.safe...
+...                               ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:27: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...h, class: 'btn-lg navbar-right' );@output_buffer.safe_append...
+...                               ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:29: unknown regexp option - l
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:30: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:32: unknown regexp options - dv
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:32: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:33: syntax error, unexpected '<'
+<!-- </div> -->
+      ^
+/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/views/layouts/_nav_bar.html.erb:33: unterminated regexp meets end of file:
+  app/views/layouts/_nav_bar.html.erb:17:in `'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:296:in `compile'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:333:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:244:in `block in compile!'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:232:in `compile!'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:333:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:143:in `render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/partial_renderer.rb:339:in `render_partial'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/partial_renderer.rb:310:in `block in render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/partial_renderer.rb:309:in `render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/renderer.rb:47:in `render_partial'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__347554735277124553_70247010862240'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:333:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/template.rb:143:in `render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/template_renderer.rb:14:in `render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/renderer/renderer.rb:23:in `render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/rendering.rb:100:in `_render_template'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/streaming.rb:217:in `_render_template'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/rendering.rb:83:in `render_to_body'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/rendering.rb:25:in `render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:16:in `render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal.rb:195:in `dispatch'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal.rb:236:in `block in action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:42:in `serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/journey/router.rb:43:in `block in serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/journey/router.rb:30:in `serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/reloader.rb:73:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/4a8a028568eb2e3c/variables" for ::1 at 2015-03-31 18:21:20 -0600
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"
+
+
+Started GET "/" for ::1 at 2015-03-31 18:23:35 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 309ms (Views: 308.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 18:23:36 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 18:23:36 -0600
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/" for ::1 at 2015-03-31 18:37:58 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_nav_bar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 316ms (Views: 313.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 18:37:58 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 18:37:59 -0600
+
+
+Started GET "/assets/twitter/fonts/glyphicons-halflings-regular.woff" for ::1 at 2015-03-31 18:37:59 -0600
+
+ActionController::RoutingError (No route matches [GET] "/assets/twitter/fonts/glyphicons-halflings-regular.woff"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.8ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (22.3ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (105.2ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.8ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (17.0ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (36.6ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.5ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/index.html (60.1ms)
+
+
+Started GET "/assets/twitter/fonts/glyphicons-halflings-regular.ttf" for ::1 at 2015-03-31 18:37:59 -0600
+
+ActionController::RoutingError (No route matches [GET] "/assets/twitter/fonts/glyphicons-halflings-regular.ttf"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.4ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (42.6ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.4ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.9ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.6ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (17.2ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.2ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.3ms)
+  Rendered /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.1/lib/web_console/templates/index.html (31.3ms)
+
+
+Started GET "/" for ::1 at 2015-03-31 18:38:13 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_nav_bar.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 374ms (Views: 373.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 18:38:14 -0600
+
+
+Started GET "/" for ::1 at 2015-03-31 21:33:31 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_nav_bar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 306ms (Views: 305.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-d9b639514c00a5871b7ea01496527adc.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/_base-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/_item-8dbb68b0d11b8ae6501ed2f7e1c5d56e.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/_nav-49ff827738e6117dca0fcc8622d29927.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/_orders-0dd32be79b894c80cd76f254818bbc22.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/_category-614f3291910fb1fc12db283afb022714.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/_session-e76273b0ea2445ef8564a1488870683b.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/_table-e81ff3e63130096aad9b0ab629f4a654.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap_and_overrides-7e970301cc7f66948562169e6f7ca10b.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/custom-d78f8b4b8999b218fc3dbc93957e9d1e.css?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/transition-49c071d4d736acca69daed5bd6c4fdbd.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/alert-4fa131fff2ae05a1d89df662cd4a8531.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/modal-d403efa7333c333fdeecc5daa727c437.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-89b3696cc302eaf377aca640fae08632.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f3a0e91892e9edb7ccced4ed84ff23ec.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tab-fab339701c02e2cb7d02570dd26fcf10.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-1727c885f6618bb619e6a29ef0496d11.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/popover-c19ae92999a32fa658ffe5d5cc13d195.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/button-dcd83af4b8aa46a9026dec4ea360a003.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/collapse-cfd6f6e5cff9c41e78cc52464a71358b.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/carousel-ac6115504ba6a31f58406c5978a6aa20.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap/affix-745457a96802e8f61e15a7622b54b68f.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/twitter/bootstrap-4a7c8463ef111cbe52eec5efe89f8319.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/jquery.turbolinks-64b1af28e71ef81b90d4eecd3b5128da.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/bootstrap-91416daf9f05a6e9ca13ef54aa8dcb39.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/orders-55102abd5fb1b8cccc060a3e078f2c94.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/application-01d1857f69d2d91a892afc282ab57332.js?body=1" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/travel_home_logo-92a741623157dc0f7d7b4a2549ef15f3.png" for ::1 at 2015-03-31 21:33:31 -0600
+
+
+Started GET "/assets/travel_home_logo_white-0607f9499a67c4f795b3ab02492917e6.png" for ::1 at 2015-03-31 21:33:31 -0600
