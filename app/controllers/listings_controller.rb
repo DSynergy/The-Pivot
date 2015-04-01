@@ -2,10 +2,11 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show]
 
   def index
-    @listings = listing.active_listings
+    @listings = Listing.active
   end
 
   def show
+
   end
 
   private

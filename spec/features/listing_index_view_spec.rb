@@ -15,8 +15,6 @@ RSpec.describe "listing index" do
                                    zipcode: '80206',
                                    street_address: '1510 Blake St',
                                    status: 0)}
-
-
   before(:each) { visit root_path }
 
   it "has link to see all listings" do

@@ -7,24 +7,12 @@ class Booking < ActiveRecord::Base
 
 =begin
   def pending?
-    status == "pending"     
-  end
-
-  def line_item_total(item, quantity)
-    listing.price * quantity
-  end
-
-  def items_with_quantity
-    format_quantity
-    cart.reduce({}) do |hash, (id, quantity)|
-      hash[Item.find(id)] = quantity
-      hash
-    end
+    status == "pending"
   end
 
   def total
-    items_with_quantity.reduce(0) do |total, (item, quantity)|
-      total += line_item_total(item, quantity)
+    listings_with_quantity.reduce(0) do |total, (listing, quantity)|
+      total += line_listing_total(listing, quantity)
     end
   end
 
@@ -32,6 +20,25 @@ class Booking < ActiveRecord::Base
     create(user_id: user.id, cart: cart)
   end
 =end
+
+  def total_days_per_booking
+    cart.each { |listing_id, dates| cart[listing_id] = dates.count('=') }.values.reduce(:+)
+  end
+
+  def listings_per_cart
+    cart.count { |listing_id, dates| cart[listing_id] = dates.count('=') }
+  end
+
+  def parse_listings
+    cart.reduce({}) do |hash, (listing_id, dates)|
+      hash[Listing.find(listing_id)] = dates
+      hash
+    end
+  end
+
+  def line_listing_total(listing, dates)
+    listing.price * dates.size
+  end
 
   def self.sort_by_status(status)
     case status
@@ -46,10 +53,5 @@ class Booking < ActiveRecord::Base
     end
   end
 
-  private
-
-  def format_quantity
-    cart.each { |listing_id, dates| cart[listing_id] = dates.size }
-  end
 
 end

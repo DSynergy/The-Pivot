@@ -27,5 +27,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # def current_host
+  #   current_user.host
+  # end
+  #
+  # def current_slug
+  #   current_host.slug
+  # end
 
 end
