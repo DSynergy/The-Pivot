@@ -44,10 +44,39 @@ RSpec.describe User, type: :model do
     expect { create(:user, email_address: "hey@ah.com", display_name: 'a') }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
-  #credit card (validate it is correct)
-  #billing address
-  #role?
+  it 'should have a valid credit card' do
+    user = create(:user)
+    expect(user.credit_card).to eq '1234567890123456'
+  end
 
-  
+  it 'cannot have an invalid credit card' do
+    expect { create(:user, credit_card: 'sgd62827') }.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
+
+  it 'can have a blank credit card' do
+    expect { create(:user, credit_card: '') }.not_to raise_error
+  end
+
+  it 'can have a billing address' do
+    user = create(:user)
+    expect(user.billing_address).to eq 'blahblahblah'
+  end
+
+  it 'is active by default' do
+    user = create(:user)
+    expect(user.role).to eq 'active'
+  end
+
+  it 'can become inactive' do
+    user = create(:user, role: 2)
+    expect(user.role).to eq 'inactive'
+  end
+
+  it 'can be an admin' do
+    user = create(:user, role: 1)
+    expect(user.role).to eq 'admin'
+  end
+
 
 end
