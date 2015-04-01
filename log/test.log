@@ -12967,3 +12967,39 @@ ActionController::RoutingError - uninitialized constant ListingController:
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
 
   [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (872.0ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (653.5ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (2.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (210.1ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (31.9ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.5ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (13.5ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (8.9ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (2.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (3.4ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (18.0ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (19.9ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (20.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (6.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (4.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (1.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[35mActiveRecord::SchemaMigration Load (1.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

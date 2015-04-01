@@ -4,8 +4,12 @@
 @import 'nav';
 
 body{
-  background-image: image-url('barcelona.jpg');
-  background-size: 100% auto;
+  div.hero{
+    background-image: image-url('barcelona.jpg');
+    background-size: 100% auto;
+    background-repeat:none;
+    background-position:fixed;
+  }
 
   a, button{
     color:$main-teal;
@@ -59,6 +63,7 @@ input:focus{
   width:100%;
   margin:0 auto;
   margin-top:150px;
+  margin-bottom:350px;
   color:white;
 
   h1{
