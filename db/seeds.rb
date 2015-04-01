@@ -7,7 +7,7 @@ class Seed
   end
 
   def generate_users
-    10.times do
+    500.times do
       user = User.create(username: Faker::Name.name, password: "password", email_address: Faker::Internet.email,
                   role: 0, avatar: Faker::Avatar.image, credit_card: Faker::Number.number(16),
                   billing_address: Faker::Lorem.sentence)
@@ -25,7 +25,7 @@ class Seed
                            street_address: Faker::Address.street_address, city: Faker::Address.city, 
                            state: Faker::Address.state, country: Faker::Address.country, 
                            zipcode: Faker::Address.zip) do |listing|
-        listing.categories.build(id: Category.find(rand(1..@category_count)))
+        listing.categories.build(id: Category.find(rand(1..25)))
         listing.pictures.build(url: "default_image")
         puts "Listing: #{listing.title}, #{listing.categories.first.name}, #{listing.pictures.first.url}"
       end
@@ -41,22 +41,18 @@ class Seed
   end
 
   def generate_categories
-    category_contents = ([{ name: "Apartment"}, { name: "Condo" }, { name: "Cabin"}, { name: "Treehouse"},
-                  { name: "Room" }, { name: "Mansion" }])
-
-    @category_count = category_contents.size
-    category_contents.each do |content| 
-      category = Category.create(content) 
-      puts "Category: #{category.name}"
+    25.times do
+      Category.create(name: Faker::Name.name)
     end
   end
 
   def generate_bookings
-    10.times do
-      user = User.order("RANDOM()").limit(1).first
-      booking = user.bookings.create(status: rand(2), cart: generate_cart)
-      puts "#{booking.cart}"
-    end
+      User.all.each do |user|
+        10.times do
+          booking = user.bookings.create(status: rand(2), cart: generate_cart)
+          puts "#{booking.cart}"
+        end
+      end
   end
 
   def generate_cart
