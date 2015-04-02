@@ -5,7 +5,7 @@ def login_as(user)
   fill_in "session[email_address]", with: user.email_address
   fill_in "session[password]", with: user.password
 
-  click_link_or_button "Check In"
+  click_link_or_button "Submit"
 end
 
 def set_current_user(user)

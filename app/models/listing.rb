@@ -4,7 +4,6 @@ class Listing < ActiveRecord::Base
   validates :title, uniqueness: true
   validates :price, :quantity_available, numericality: {greater_than: 0}
   validates :description, length: { maximum: 300 }
-  validates_presence_of :pictures
   has_many :listing_categories
   has_many :categories, through: :listing_categories
   has_many :pictures
