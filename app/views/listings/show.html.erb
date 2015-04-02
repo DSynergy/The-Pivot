@@ -1,0 +1,28 @@
+<div id="listing-show">
+  <% if !current_user.nil? && current_user.admin? %>
+   <%= link_to "Back to listings", admin_listings_path, class: "btn backb btn-small"  %>
+  <% else %>
+   <%= link_to "Back to listings", listings_path, class: "btn backb btn-small" %>
+  <% end %>
+
+  <section>
+   <h1 id="listing-title"><%= @listing.title %></h1>
+  </section>
+
+  <section>
+    <p id="listing-description"><%= @listing.description %></p>
+   <p id="listing-price"><%= number_to_currency(@listing.price) %></p>
+  </section>
+
+
+
+
+
+
+  <% if @listing.retired %>
+   <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
+  <%= debug current_user %>
+  <% elsif current_user.nil? || current_user.default? %>
+   <%= button_to  'Add to Cart', cart_path(listing_id: @listing), class: "btn cart-button" %>
+  <% end %>
+ </div>

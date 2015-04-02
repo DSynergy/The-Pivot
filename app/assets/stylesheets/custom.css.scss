@@ -1,11 +1,15 @@
 @import 'base';
-@import 'item';
+@import 'listing';
 @import 'orders';
 @import 'nav';
 
 body{
-  background-image: image-url('barcelona.jpg');
-  background-size: 100% auto;
+  div.hero{
+    background-image: image-url('barcelona.jpg');
+    background-size: 100% auto;
+    background-repeat:no-repeat;
+    background-position:center center;
+  }
 
   a, button{
     color:$main-teal;
@@ -16,6 +20,19 @@ body{
       color:$light-teal;
     }
   }
+}
+
+.messages #flash_notice{
+  color:$main-teal;
+}
+
+input:focus{
+  outline:none;
+}
+
+#login-form{
+  margin-top:40px;
+
 }
 
 #admin-dash{
@@ -50,10 +67,19 @@ body{
   width:100%;
   margin:0 auto;
   margin-top:150px;
+  margin-bottom:350px;
   color:white;
 
   h1{
     font-size:5em;
+  }
+
+  h2 {
+        margin-top:-15px;
+      a{
+        font-family:$sub-font;
+        color:$mint;
+      }
   }
 }
 
@@ -71,14 +97,16 @@ input[type="submit"] {
   box-shadow: none;
 }
 
+label{
+  color:$main-teal;
+}
+
 #small_submit_button {
   width: 20%;
   display:block;
   text-align:center;
-  @include border-radius(5px);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  color:$main-teal;
+  background-color:white;
 }
 
 #cart-title {

@@ -1,10 +1,4 @@
 <%= nav_bar static: :top, responsive: true do %>
-<!-- <div class="row"> -->
-  <!-- <div class="logo">
-    <a href="/"><%= image_tag "travel_home_logo.png" %></a>
-  </div> -->
-
-  <!-- <div class="col-md-7 col-md-offset-2 navbar"> -->
     <ul class="navbar">
       <li>
         <% if current_user %>
@@ -14,7 +8,7 @@
         <% end %>
       </li>
       <li class="logo"><a href="/"><%= image_tag "travel_home_logo.png", class: "navbar-left" %></a></li>
-      <li><%= link_to "Cart", cart_path, class: 'btn-lg navbar-left' %></li>
+      <li><%= link_to "Cart", cart_path, class: 'btn-lg navbar-right' %></li>
 
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -24,12 +18,7 @@
         <button type="submit" class="btn">Search</button>
       </form>
 
-      <li><%= link_to "Sign Up", cart_path, class: 'btn-lg navbar-right' %></li>
-      <!-- <% if current_user %>
-        <li><%= link_to "Order History", orders_path, class: 'btn btn-link btn-lg active' %></li>
-      <% end %> -->
+      <li><%= link_to "Sign Up", users_path, class: 'btn-lg navbar-right' %></li>
     </ul>
-  <!-- </div> -->
-<!-- </div> -->
 
 <% end %>
