@@ -36,7 +36,7 @@ RSpec.describe Listing, type: :model do
   end
 
   it "not retired by default" do
-    expect(listing.retired?).to be false
+    expect(listing.retired).to be false
   end
 
   it "has a decimal price, greater than zero" do
