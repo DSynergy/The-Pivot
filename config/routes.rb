@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root "home_page#index"
 
-  get '/listings', to: 'listings#index'
-  get '/listings/:id', to: 'listings#show'
+#  get '/listings', to: 'listings#index'
+#  get '/listings/:id', to: 'listings#show'
+  resources :listings, only: [:index, :show]
   resources :users, only: [:create, :show, :update], param: 'slug'
 
   resource :cart, only: [:show, :create, :destroy]

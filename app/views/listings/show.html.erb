@@ -5,10 +5,7 @@
 <% end %>
 
 <section>
-  <h1 id="listing-title"><%= @listing.name %></h1>
-  <figure class="default-pic">
-    <%= image_tag @listing.avatar.url %>
-  </figure>
+  <h1 id="listing-title"><%= @listing.title %></h1>
 </section>
 
 <section>
@@ -21,7 +18,7 @@
 
 
 
-<% if @listing.retired? %>
+<% if @listing.retired %>
   <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
 <% elsif current_user.nil? || current_user.default? %>
   <%= button_to  'Add to Cart', cart_path(listing_id: @listing), class: "btn  btn-small active" %>

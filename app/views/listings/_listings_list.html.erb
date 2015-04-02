@@ -2,13 +2,11 @@
   <div class="row">
     <% @listings.each do |listing| %>
       <div class="floaters">
-        <div class="toasty"><%= image_tag listing.avatar.url(:thumb) %></div>
-        <h4 class="listing-title"><%= link_to listing.name, listing %></h4>
         <h3 class="listing-price"><%= listing.price %></h3>
         <p class="listing-price"><%= listing.description %></p>
         <div class="toasty">
 
-        <h4 class="listing-title"> <%= link_to listing.title, listings_path(params[:id]) %> </h4>
+        <h4 class="listing-title"> <%= link_to listing.title, listing %> </h4>
       </div>
     <% end %>
   </div>

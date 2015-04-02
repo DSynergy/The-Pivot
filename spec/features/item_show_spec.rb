@@ -1,58 +1,58 @@
 require 'rails_helper'
 
-RSpec.describe "Item show" do
-  let(:item) { create(:item) }
+RSpec.describe "Listing show" do
+  let(:listing) { create(:listing) }
 
-  it "displays item title" do
-    visit item_path(item)
-    within('#item-title') do
+  it "displays listing title" do
+    visit listing_path(listing)
+    within('#listing-title') do
       expect(page).to have_content("Cheese Toast")
     end
   end
 
-  it "displays item description" do
-    visit item_path(item)
-    within("#item-description") do
+  it "displays listing description" do
+    visit listing_path(listing)
+    within("#listing-description") do
       expect(page).to have_content("Super cheesy bread food")
     end
   end
 
-  it "display items price" do
-    visit item_path(item)
-    within("#item-price") do
+  it "display listings price" do
+    visit listing_path(listing)
+    within("#listing-price") do
       expect(page).to have_content("3.00")
     end
   end
 
   it "displays a custom picture" do
-    visit item_path(item)
+    visit listing_path(listing)
     within(".default-pic") do
       expect(page).to have_css("img")
     end
   end
 
-  it "has a link to add item to cart" do
-    visit item_path(item)
+  it "has a link to add listing to cart" do
+    visit listing_path(listing)
 
     expect(page).to have_button("Add to Cart")
 
     click_link_or_button("Add to Cart")
 
-    expect(current_path).to eq(item_path(item))
+    expect(current_path).to eq(listing_path(listing))
     expect(page).to have_selector("#flash_notice")
   end
 
-  context "when a user clicks an item from a previous order thats been retired" do
-    it "notes if item is retired" do
+  context "when a user clicks an listing from a previous order thats been retired" do
+    it "notes if listing is retired" do
       user = create(:user)
-      item = Item.create(name: "apple toast", description: "blah", price: 2.00, retired: true)
-      user.orders.create(status: 0, cart: { item.id => 1 })
+      listing = Listing.create(name: "apple toast", description: "blah", price: 2.00, retired: true)
+      user.orders.create(status: 0, cart: { listing.id => 1 })
 
       login_as(user)
       visit orders_path
       click_link_or_button("apple toast")
-      within("#retired-item") do
-        expect(page).to have_content("#{item.name} has been retired from the menu")
+      within("#retired-listing") do
+        expect(page).to have_content("#{listing.name} has been retired from the menu")
       end
       expect(page).not_to have_content("Add to Cart")
     end
