@@ -1,12 +1,18 @@
 <div id="menu">
-  <div class="row">
+  <div>
     <% @listings.each do |listing| %>
-      <div class="floaters">
-        <h3 class="listing-price"><%= listing.price %></h3>
-        <p class="listing-price"><%= listing.description %></p>
-        <div class="toasty">
-
-        <h4 class="listing-title"> <%= link_to listing.title, listing %> </h4>
+      <div class="row">
+        <div class="listing">
+          <div class="left">
+            <p class="photo">photo</p>
+            <h4 class="listing-title"> <%= link_to listing.title, listing %> </h4>
+          </div>
+          <div class="right">
+        <p class="listing-description"><%= listing.description %></p>
+        <h3 class="listing-price">$<%= listing.price %></h3>
+            <p class="listing-calendar">dates</p>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
