@@ -2,8 +2,8 @@ class Seed
   def call
     generate_categories
     generate_users
-    generate_pictures
     generate_listings
+    generate_pictures
     generate_bookings
   end
 
@@ -27,14 +27,16 @@ class Seed
                            state: Faker::Address.state, country: Faker::Address.country,
                            zipcode: Faker::Address.zip) do |listing|
         listing.categories << Category.find(rand(1..25))
-        listing.pictures << Picture.find(1)
-        puts "Listing: #{listing.title}, #{listing.categories.first.name}, #{listing.pictures.first.url}"
+        puts "Listing: #{listing.title}, #{listing.categories.first.name}"
       end
     end
   end
 
   def generate_pictures
-    Picture.create(url: "default_imoage")
+    Listing.all.each do |listing|
+      listing.pictures << Picture.create(url: "default_image")
+      puts "#{listing.pictures.first.url }"
+      end
   end
 
   def generate_dates
