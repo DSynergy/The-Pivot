@@ -4,11 +4,11 @@
       <div class="container">
         <div class="row middle">
           <div class="left">
-            <figure class="photo"><img src="default.jpg"></img></figure>
+
             <h4 class="listing-title"> <%= link_to listing.title, listing %> </h4>
+            <figure><%= image_tag "default.jpg", class: "photo" %></figure>
           </div>
           <div class="right">
-            <p><%= listing.pictures.first.url %></p>
             <p class="listing-description"><%= listing.description %></p>
             <h3 class="listing-price">$<%= listing.price %></h3>
             <p class="listing-calendar">dates</p>
