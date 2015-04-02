@@ -16,12 +16,6 @@ class Seed
     end
   end
 
-  # def generate_listing_categories
-  #
-  #   ListingCategory.create(category_id: rand(1..500), listing_id: rand(1..50))
-  # end
-
-
   def generate_listings
     50.times do
       user = User.order("RANDOM()").limit(1).first
