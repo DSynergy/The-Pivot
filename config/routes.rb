@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "home_page#index"
 
   get '/listings', to: 'listings#index'
+  get '/listings/:id', to: 'listings#show'
   resources :users, only: [:create, :show, :update], param: 'slug'
 
   resource :cart, only: [:show, :create, :destroy]
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   namespace :hosts, as: :host, path: "/:slug" do
-    resources :listings, only: [:index, :show]
+    resources :listings, only: [:index]
     resources :bookings, only: [:index, :show, :update]
   end
 

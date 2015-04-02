@@ -2,12 +2,13 @@ class Seed
   def call
     generate_categories
     generate_users
+    generate_pictures
     generate_listings
     generate_bookings
   end
 
   def generate_users
-    500.times do
+    50.times do
       user = User.create(username: Faker::Name.name, password: "password", email_address: Faker::Internet.email,
                   role: 0, avatar: Faker::Avatar.image, credit_card: Faker::Number.number(16),
                   billing_address: Faker::Lorem.sentence)
@@ -15,21 +16,31 @@ class Seed
     end
   end
 
+  # def generate_listing_categories
+  #
+  #   ListingCategory.create(category_id: rand(1..500), listing_id: rand(1..50))
+  # end
+
+
   def generate_listings
     50.times do
       user = User.order("RANDOM()").limit(1).first
-      listing = user.listings.create(title: Faker::Company.name, description: Faker::Lorem.sentence,
-                           private_bathroom: [true, false].sample, price: Faker::Commerce.price, 
-                           quantity_available: rand(1..4), people_per_unit: rand(1..10), 
-                           available_dates: generate_dates, status: rand(2), 
-                           street_address: Faker::Address.street_address, city: Faker::Address.city, 
-                           state: Faker::Address.state, country: Faker::Address.country, 
+      listing = user.listings.create!(title: Faker::Company.name, description: Faker::Lorem.sentence,
+                           private_bathroom: [true, false].sample, price: Faker::Commerce.price.to_f,
+                           quantity_available: rand(1..4), people_per_unit: rand(1..10),
+                           available_dates: generate_dates, status: rand(1),
+                           street_address: Faker::Address.street_address, city: Faker::Address.city,
+                           state: Faker::Address.state, country: Faker::Address.country,
                            zipcode: Faker::Address.zip) do |listing|
-        listing.categories.build(id: Category.find(rand(1..25)))
-        listing.pictures.build(url: "default_image")
+        listing.categories << Category.find(rand(1..25))
+        listing.pictures << Picture.find(1)
         puts "Listing: #{listing.title}, #{listing.categories.first.name}, #{listing.pictures.first.url}"
       end
-    end 
+    end
+  end
+
+  def generate_pictures
+    Picture.create(url: "default_imoage")
   end
 
   def generate_dates
