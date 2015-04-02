@@ -7,6 +7,11 @@
   font-family:$sub-font;
 }
 
+.middle{
+  width:75%;
+  margin:0 auto;
+}
+
 #listings-title{
   margin-bottom:30px;
 }
@@ -18,11 +23,10 @@
 .listing-calendar{
   height:25px;
   width:100%;
-  text-align:right;
 }
 
 .left{
-  float:left;
+  text-align:left;
 }
 
 .listing{
@@ -31,31 +35,24 @@
   display:block;
 }
 
-.row{
-  width:80%;
-  margin:0 auto;
-  margin-bottom:100px;
-  border:1px solid $main-teal;
-}
 
 .listing-description {
   min-height: 25px;
   font-size: 20px;
-  margin-left: 30px;
   color: $main-teal;
 }
 
 .listing-price {
   min-height: 24px;
   font-size: 20px;
-  margin-left: 30px;
   color:$main-teal;
-  border:1px solid $mint;
-  text-align:center;
+  text-align:right;
+  width:100%;
+  display:block;
 }
 
 .right{
-  float:right;
+  text-align:right;
 }
 .cart-button {
   margin-left: 30px;

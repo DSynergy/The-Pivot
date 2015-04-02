@@ -1,15 +1,16 @@
 <div id="menu">
   <div>
     <% @listings.each do |listing| %>
-      <div class="row">
-        <div class="listing">
+      <div class="container">
+        <div class="row middle">
           <div class="left">
-            <p class="photo">photo</p>
+            <figure class="photo"><img src="default.jpg"></img></figure>
             <h4 class="listing-title"> <%= link_to listing.title, listing %> </h4>
           </div>
           <div class="right">
-        <p class="listing-description"><%= listing.description %></p>
-        <h3 class="listing-price">$<%= listing.price %></h3>
+            <p><%= listing.pictures.first.url %></p>
+            <p class="listing-description"><%= listing.description %></p>
+            <h3 class="listing-price">$<%= listing.price %></h3>
             <p class="listing-calendar">dates</p>
           </div>
         </div>

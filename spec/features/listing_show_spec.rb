@@ -42,11 +42,9 @@ RSpec.describe "Listing show" do
     end
   end
 
- xit "displays a custom picture" do
+ it "displays a custom picture" do
     visit listing_path(listing)
-    within(".default-pic") do
       expect(page).to have_css("img")
-    end
   end
 
   it "has a link to add listing to cart" do
@@ -61,7 +59,7 @@ RSpec.describe "Listing show" do
   end
 
   context "when a user clicks an listing from a previous order thats been retired" do
-    it "notes if listing is retired" do
+    xit "notes if listing is retired" do
       user = create(:user)
       user.bookings.create(status: 0, cart: { listing.id => {"Jan1"=>0, "Jan2"=>0 }})
 
