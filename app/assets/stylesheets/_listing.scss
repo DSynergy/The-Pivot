@@ -1,24 +1,35 @@
-#item-title {
+@import 'base';
+
+#listing-title {
   font-weight: bold;
   margin-top: 20px;
   margin-left: 30px;
-  text-shadow: 0px 2px 3px #666;
+  color: $main-teal;
+  font-family:$sub-font;
 }
 
-#item-description {
+#listing-description {
   min-height: 25px;
   font-size: 20px;
   margin-left: 30px;
+  color: $main-teal;
 }
 
-#item-price {
+#listing-price {
   min-height: 24px;
   font-size: 20px;
   margin-left: 30px;
+  color:$main-teal;
 }
 
-#item-button {
+.cart-button {
   margin-left: 30px;
+  color:$main-teal;
+  background-color:$mint;
+}
+
+#listing-show {
+  color:$main-teal;
 }
 
 .create-item-form {
