@@ -31,6 +31,16 @@
   display:inline-block;
 }
 
+.bottom{
+    padding:10px;
+  h3{
+    display:inline;
+    margin:30px;
+    border:3px solid $mint;
+    padding:10px;
+  }
+}
+
 .listing{
   width:75%;
   margin:0 auto;
@@ -50,9 +60,9 @@
   color: $main-teal;
 }
 
-.listing-price {
+.listing-price, #listing-price {
   min-height: 24px;
-  font-size: 20px;
+  font-size: 30px;
   color:$main-teal;
   text-align:right;
   width:100%;
@@ -64,14 +74,27 @@
   display:inline-block;
   margin-left:60px;
 }
-.cart-button {
-  margin-left: 30px;
+
+input.cart-button {
+  margin:0 auto;
+  margin-top:30px;
   color:$main-teal;
   background-color:$mint;
+  border-radius:0;
+
+  &:hover{
+    color:white;
+    background-color:$main-teal;
+  }
 }
 
 #listing-show {
   color:$main-teal;
+  margin:60px;
+  margin:0 auto;
+  display:block;
+  width:100%;
+  text-align:center;
 }
 
 .create-item-form {

@@ -1,23 +1,34 @@
-<div id="listing-show">
   <% if !current_user.nil? && current_user.admin? %>
    <%= link_to "Back to listings", admin_listings_path, class: "btn backb btn-small"  %>
   <% else %>
    <%= link_to "Back to listings", listings_path, class: "btn backb btn-small" %>
   <% end %>
 
-  <section>
+<div id="listing-show">
+
+  <section class="left">
    <h1 id="listing-title"><%= @listing.title %></h1>
-  </section>
+   <figure><%= image_tag "default.jpg", class: "photo" %></figure>
+ </section>
 
-  <section>
+  <section class="right">
     <p id="listing-description"><%= @listing.description %></p>
-   <p id="listing-price"><%= number_to_currency(@listing.price) %></p>
+    <p id="listing-price"><%= number_to_currency(@listing.price) %></p>
+
+      <section id="calendar">
+        <%= month_calendar do |date| %>
+            <%= date.day %>
+        <% end %>
+      </section>
   </section>
 
-
-
-
-
+            <p><%= @listing.available_dates %></p>
+ <section class="bottom">
+   <h3><%= @listing.categories.first.name %></h3>
+   <h3><%= @listing.private_bathroom %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></h3>
+   <h3><%= @listing.people_per_unit %></h3>
+   <h3><%= @listing.quantity_available %></h3>
+  </section>
 
   <% if @listing.retired %>
    <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>

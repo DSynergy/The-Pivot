@@ -70,6 +70,11 @@ input:focus{
   margin-bottom:350px;
   color:white;
 
+  img{
+    width:40px;
+    height:auto;
+  }
+
   h1{
     font-size:5em;
   }
@@ -91,7 +96,6 @@ input[type="submit"] {
   width: 60%;
   display:block;
   text-align:center;
-  @include border-radius(5px);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

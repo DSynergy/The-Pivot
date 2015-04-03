@@ -1,0 +1,16 @@
+@import "base";
+#calendar{
+  .calendar-header, table, thead, tbody, tr, td{
+    border:1px solid $main-teal;
+  }
+
+  td{
+    text-align:center;
+    width:40px;
+  }
+
+  .calendar-header{
+    width:281px;
+  }
+}
+
