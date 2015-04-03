@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 #  get '/listings', to: 'listings#index'
 #  get '/listings/:id', to: 'listings#show'
   resources :listings, only: [:index, :show]
-  resources :users, only: [:create, :show, :update], param: 'slug'
+  resources :users, only: [:new, :create, :show, :update], param: 'slug'
 
   resource :cart, only: [:show, :create, :destroy]
   resources :categories, only: [:index, :show]
