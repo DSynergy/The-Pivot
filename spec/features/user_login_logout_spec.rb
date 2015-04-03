@@ -15,7 +15,7 @@ RSpec.describe 'User login/logout spec' do
       fill_in("session[username]", with: "Sally")
       fill_in("session[password]", with: "password")
 
-      click_link_or_button("Check In")
+      click_link_or_button("Submit")
 
       within("#flash_notice") do
         expect(page).to have_content("Successfully logged in as #{user.username}")
@@ -28,7 +28,7 @@ RSpec.describe 'User login/logout spec' do
       fill_in("session[username]", with: "Richard")
       fill_in("session[password]", with: "beiber")
 
-      click_link_or_button("Check In")
+      click_link_or_button("Submit")
 
       within("#flash_error") do
         expect(page).to have_content("Login failed")
@@ -40,11 +40,11 @@ RSpec.describe 'User login/logout spec' do
   context "when logged in" do
     it "sees a link logout on the page" do
       login_as(user)
-      expect(page).to have_link("Log out")
+      expect(page).to have_content("Log out")
 
       visit cart_path
 
-      expect(page).to have_link("Log out")
+      expect(page).to have_content("Log out")
     end
   end
 
