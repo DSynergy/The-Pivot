@@ -32541,3 +32541,1948 @@ Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "role", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$29StZ05ALLN2zRduNyGzpOrT.LZgJsi4Vuu7c2H2URMzH0OhAtp5O"], ["role", 1], ["billing_address", "blahblahblah"], ["created_at", "2015-04-02 21:44:06.003534"], ["updated_at", "2015-04-02 21:44:06.003534"]]
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.8ms)[0m  ALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (1.8ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (7.2ms)[0m  select table_name from information_schema.views where table_schema = 'dinner_dash_test'
+  [1m[36m (18.2ms)[0m  [1mTRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:03:57 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_nav_bar.html.erb (2.4ms)
+Completed 200 OK in 2220ms (Views: 2210.7ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2015-04-02 18:03:59 -0600
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (116.0ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (348.4ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (15.6ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.7ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (16.5ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:05:35 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 55ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2015-04-02 18:05:35 -0600
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.2ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (243.4ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (14.4ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.3ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (15.4ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:06:59 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 55ms (Views: 45.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.5ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (244.4ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (14.2ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.3ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.5ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (15.9ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:09:15 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_bar.html.erb (2.2ms)
+Completed 200 OK in 56ms (Views: 46.4ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2015-04-02 18:09:15 -0600
+
+ActionController::RoutingError - uninitialized constant UsersController:
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:62:in `rescue in controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:57:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:67:in `post'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `post'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:31:in `follow'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:56:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:8:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.3ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (243.3ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (15.2ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.3ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.5ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (14.8ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:10:41 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 56ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2015-04-02 18:10:42 -0600
+
+ActionController::RoutingError - uninitialized constant UsersController:
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:62:in `rescue in controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:57:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:67:in `post'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `post'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:31:in `follow'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:56:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:8:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.5ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (243.2ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (14.1ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (6.6ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (15.6ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:11:52 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 60ms (Views: 50.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:11:52 -0600
+
+ActionController::RoutingError - uninitialized constant UsersController:
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:62:in `rescue in controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:57:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:31:in `follow'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:56:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:8:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (117.6ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (244.5ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (14.2ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (16.5ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:21:26 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 1161ms (Views: 1152.3ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:21:27 -0600
+
+AbstractController::ActionNotFound - The action 'new' could not be found for UsersController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:31:in `follow'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:56:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:8:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.8ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (243.1ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.6ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (14.3ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:21:54 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_bar.html.erb (2.1ms)
+Completed 200 OK in 63ms (Views: 52.1ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:21:54 -0600
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 83ms
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/richshea/Turing/module_3_repeat/The-Pivot/app/views"
+  * "/Users/richshea/.rvm/gems/ruby-2.1.5/gems/twitter-bootstrap-rails-3.2.0/app/views"
+:
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:31:in `follow'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:56:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:8:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.2ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (275.7ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.6ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.7ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.5ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (13.9ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:24:14 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 58ms (Views: 48.8ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:24:14 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (282.9ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 363ms (Views: 362.6ms | ActiveRecord: 0.0ms)
+Started POST "/users/new" for 127.0.0.1 at 2015-04-02 18:24:14 -0600
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (121.2ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (243.3ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (15.1ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.3ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (14.4ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:27:43 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 61ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:27:43 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (308.8ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 314ms (Views: 313.9ms | ActiveRecord: 0.0ms)
+Started POST "/users/new" for 127.0.0.1 at 2015-04-02 18:27:44 -0600
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (118.6ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (242.5ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.5ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.6ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (14.2ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:29:41 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 64ms (Views: 52.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:29:41 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 79ms
+
+ArgumentError - First argument in form cannot contain nil or be empty:
+  actionview (4.2.0) lib/action_view/helpers/form_helper.rb:432:in `form_for'
+  app/views/users/new.html.erb:1:in `_app_views_users_new_html_erb___2035018434863687444_70238892853180'
+  actionview (4.2.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:31:in `follow'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:56:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:8:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.9ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (242.3ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.4ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (27.9ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:31:21 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 63ms (Views: 52.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:31:21 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (236.8ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 322ms (Views: 241.8ms | ActiveRecord: 2.3ms)
+Started POST "/users" for 127.0.0.1 at 2015-04-02 18:31:21 -0600
+
+AbstractController::ActionNotFound - The action 'create' could not be found for UsersController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:67:in `post'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `post'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:26:in `submit'
+  capybara (2.4.4) lib/capybara/rack_test/form.rb:75:in `submit'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:60:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:15:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (120.3ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (246.6ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.8ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (14.0ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:35:11 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 60ms (Views: 50.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:35:11 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (242.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 328ms (Views: 247.1ms | ActiveRecord: 2.2ms)
+Started POST "/users" for 127.0.0.1 at 2015-04-02 18:35:12 -0600
+
+AbstractController::ActionNotFound - The action 'create' could not be found for UsersController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:67:in `post'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `post'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:26:in `submit'
+  capybara (2.4.4) lib/capybara/rack_test/form.rb:75:in `submit'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:60:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:15:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (118.4ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (242.0ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (14.9ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (13.8ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:36:38 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 63ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:36:38 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (236.6ms)
+  Rendered layouts/_nav_bar.html.erb (0.6ms)
+Completed 200 OK in 325ms (Views: 243.1ms | ActiveRecord: 2.4ms)
+Started POST "/users" for 127.0.0.1 at 2015-04-02 18:36:38 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"username"=>"new_user", "email_address"=>"new_user@example.com", "password"=>"[FILTERED]", "display_name"=>"new"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate - Missing template users/create, application/create with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/richshea/Turing/module_3_repeat/The-Pivot/app/views"
+  * "/Users/richshea/.rvm/gems/ruby-2.1.5/gems/twitter-bootstrap-rails-3.2.0/app/views"
+:
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:67:in `post'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `post'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:26:in `submit'
+  capybara (2.4.4) lib/capybara/rack_test/form.rb:75:in `submit'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:60:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:13:in `click_link_or_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/unauthenticated_user_register_spec.rb:15:in `block (2 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.1ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (242.9ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.5ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.9ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.0ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (15.1ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:39:46 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 62ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:39:46 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (239.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 329ms (Views: 244.3ms | ActiveRecord: 2.4ms)
+Started POST "/users" for 127.0.0.1 at 2015-04-02 18:39:46 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"username"=>"new_user", "email_address"=>"new_user@example.com", "password"=>"[FILTERED]", "display_name"=>"new"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'new_user@example.com' LIMIT 1
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "users" ("username", "email_address", "password_digest", "display_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "new_user"], ["email_address", "new_user@example.com"], ["password_digest", "$2a$04$p.EcSSToFMOXiY5aZALwL.jwa3xuhiphl0AU./.6A.fMeQ4/g09ti"], ["display_name", "new"], ["created_at", "2015-04-03 00:39:46.946817"], ["updated_at", "2015-04-03 00:39:46.946817"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 25ms (ActiveRecord: 7.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:39:46 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (123.1ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (243.4ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (15.2ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (13.1ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:41:50 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 60ms (Views: 50.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-04-02 18:41:50 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (227.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 318ms (Views: 231.9ms | ActiveRecord: 2.5ms)
+Started POST "/users" for 127.0.0.1 at 2015-04-02 18:41:50 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"username"=>"new_user", "email_address"=>"new_user@example.com", "password"=>"[FILTERED]", "display_name"=>"new"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'new_user@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email_address", "password_digest", "display_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "new_user"], ["email_address", "new_user@example.com"], ["password_digest", "$2a$04$o9u/dDjvB0kkjsYxkEEPheinZUZ8HMjo6IX0c5wdCdfufiBdKfB4a"], ["display_name", "new"], ["created_at", "2015-04-03 00:41:50.544665"], ["updated_at", "2015-04-03 00:41:50.544665"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 14ms (ActiveRecord: 1.1ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 18:41:50 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  ROLLBACK
