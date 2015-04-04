@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if @user.admin?
         redirect_to admin_path
       else
-        redirect_to root_path
+        redirect_to traveler_path(@user) 
       end
     else
       flash[:error] = "Login failed"
