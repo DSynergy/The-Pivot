@@ -6,9 +6,8 @@ class Cart
   end
 
   def listings_with_quantity
-    format_quantity
     listings = {}
-    content.each { |id, quantity| listings[Listing.find(id)] = quantity }
+    content.each { |id, dates| listings[Listing.find(id)] = dates }
     listings
   end
 

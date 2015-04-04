@@ -24,7 +24,6 @@ class CartsController < ApplicationController
 
 
   def update
-
     listing_id = params[:id]
     start_date = params[:listing][:start_date]
     end_date = params[:listing][:end_date]
@@ -32,6 +31,7 @@ class CartsController < ApplicationController
     session[:cart] = @cart.content
     listing = Listing.find(listing_id)
 
+    require "pry"; binding.pry
     flash[:notice] = "#{listing.title} added to itinerary, #{start_date}-#{end_date}"
     redirect_to(:back)
   end
