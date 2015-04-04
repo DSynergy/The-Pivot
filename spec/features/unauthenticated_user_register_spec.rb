@@ -20,4 +20,16 @@ RSpec.describe 'Unauthenticated user register spec' do
     expect(user.email_address).to eq("new_user@example.com")
     expect(user.display_name).to eq("new")
   end
+
+  it "can pick available dates for reservation and add to cart" do
+    listing = create(:listing, available_dates: '{{1=>1, 1=>2, 1=>3} => 0}')
+    listing.categories.create(name: "house")
+    visit listing_path(listing)
+
+    click_link_or_button(20)
+    click_on(23)
+    click_on("Add to Itinerary")
+
+    expect(page).to have_content("Successfully added to Itinerary: January 21-23")
+  end
 end
