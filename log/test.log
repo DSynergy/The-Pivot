@@ -34486,6 +34486,7 @@ Processing by HomePageController#index as HTML
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35m (0.3ms)[0m  ROLLBACK
+<<<<<<< HEAD
   [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[36m (377.5ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
   [1m[35m (439.5ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
@@ -36500,11 +36501,56 @@ Processing by HomePageController#index as HTML
   Rendered layouts/_nav_bar.html.erb (0.4ms)
 Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+=======
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (1.8ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (5.9ms)[0m  select table_name from information_schema.views where table_schema = 'dinner_dash_test'
+  [1m[36m (18.5ms)[0m  [1mTRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$rOXhj55DcXnGMX.2iI3xIevRdGwpMDivv6pj5L7KZ8md1bFxrhzBu"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:12:34.850938"], ["updated_at", "2015-04-03 01:12:34.850938"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:12:34 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (318.9ms)
+  Rendered layouts/_nav_bar.html.erb (3.8ms)
+Completed 200 OK in 427ms (Views: 416.5ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.8ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+Started DELETE "/logout" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.3ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+>>>>>>> master
   [1m[35m (0.3ms)[0m  ROLLBACK
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  COMMIT
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+<<<<<<< HEAD
   [1m[36mListing Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
   [1m[35mSQL (0.8ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{{1\"=>\"1\", \"1\"=>\"3}\""], ["created_at", "2015-04-03 23:28:04.099350"], ["updated_at", "2015-04-03 23:28:04.099350"]]
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
@@ -36611,20 +36657,132 @@ NoMethodError - undefined method `name' for nil:NilClass:
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
   disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+=======
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$aG38v3OGfzCQ5gw8WRkjEej6jL/ETNkThxfo.OOie.qansVxRFTZS"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:12:35.368983"], ["updated_at", "2015-04-03 01:12:35.368983"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.3ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$Yf7jdUy0g4Z.pe0Yp90S4eZXWelBz1BAa1Nk4jmxI2NeJylnyzdtK"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:12:35.386909"], ["updated_at", "2015-04-03 01:12:35.386909"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_nav_bar.html.erb (0.6ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$5wqd6CiS.AjnhamvN.YSkOVxxzYJM9he9mZ7R12USbjVZmRRoLQ/i"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:12:35.405406"], ["updated_at", "2015-04-03 01:12:35.405406"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_nav_bar.html.erb (0.5ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered layouts/_nav_bar.html.erb (1.0ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+Started GET "/cart" for 127.0.0.1 at 2015-04-02 19:12:35 -0600
+
+AbstractController::ActionNotFound - The action 'show' could not be found for CartsController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
   rack (1.6.0) lib/rack/runtime.rb:18:in `call'
   activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
   rack (1.6.0) lib/rack/lock.rb:17:in `call'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
   rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+=======
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
   rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
   rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
   rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
   rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+<<<<<<< HEAD
   /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+=======
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+>>>>>>> master
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:21:in `visit'
@@ -36632,7 +36790,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   capybara (2.4.4) lib/capybara/session.rb:227:in `visit'
   capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
   rspec-rails (3.2.1) lib/rspec/rails/example/feature_example_group.rb:28:in `visit'
+<<<<<<< HEAD
   spec/features/unauthenticated_user_register_spec.rb:26:in `block (2 levels) in <top (required)>'
+=======
+  spec/features/user_login_logout_spec.rb:45:in `block (3 levels) in <top (required)>'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
   rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
   rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
@@ -36652,6 +36814,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+<<<<<<< HEAD
+=======
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `run'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
@@ -36662,6 +36829,7 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
   rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
 
@@ -36734,10 +36902,99 @@ Processing by UsersController#create as HTML
 Redirected to http://www.example.com/
 Completed 302 Found in 15ms (ActiveRecord: 1.4ms)
 Started GET "/" for 127.0.0.1 at 2015-04-03 17:45:50 -0600
+=======
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (12.4ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (7.2ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.1ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (15.7ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$qALvXxPxkjAT1ugLUdz6o.h0LhbdK4uBS2iqYno4JW9NRP.yimpgu"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:13:37.305029"], ["updated_at", "2015-04-03 01:13:37.305029"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (344.3ms)
+  Rendered layouts/_nav_bar.html.erb (4.3ms)
+Completed 200 OK in 460ms (Views: 450.3ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (3.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.7ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+Started DELETE "/logout" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.5ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$jRXrdm.J9WDTKlyS/5S0buA1Ylk44us9ZRnRAhN8Gg9.yT92bJIhG"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:13:37.859236"], ["updated_at", "2015-04-03 01:13:37.859236"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
 Processing by HomePageController#index as HTML
   Rendered home_page/index.html.erb within layouts/application (0.2ms)
   Rendered layouts/_nav_bar.html.erb (0.4ms)
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered layouts/_nav_bar.html.erb (1.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$dYMOwLK/fpD5eNO5y/2Z5eC.1.SZmFJCj4nOgC6dtBJdW57.yRLRW"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:13:37.887517"], ["updated_at", "2015-04-03 01:13:37.887517"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+>>>>>>> master
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+<<<<<<< HEAD
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35m (0.3ms)[0m  ROLLBACK
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
@@ -36850,20 +37107,113 @@ NoMethodError - undefined method `name' for nil:NilClass:
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
   disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+=======
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Richard", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Richard"]]
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_nav_bar.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$mxktA5nyRrYdb9CLEP7IvOzH46PpMQMp7IkcHtukLXHmtCCXANGqW"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:13:37.914504"], ["updated_at", "2015-04-03 01:13:37.914504"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered layouts/_nav_bar.html.erb (1.8ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+Started GET "/cart" for 127.0.0.1 at 2015-04-02 19:13:37 -0600
+
+AbstractController::ActionNotFound - The action 'show' could not be found for CartsController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
   rack (1.6.0) lib/rack/runtime.rb:18:in `call'
   activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
   rack (1.6.0) lib/rack/lock.rb:17:in `call'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
   rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+=======
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
   rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
   rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
   rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
   rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+<<<<<<< HEAD
   /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+=======
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+>>>>>>> master
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:21:in `visit'
@@ -36871,7 +37221,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   capybara (2.4.4) lib/capybara/session.rb:227:in `visit'
   capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
   rspec-rails (3.2.1) lib/rspec/rails/example/feature_example_group.rb:28:in `visit'
+<<<<<<< HEAD
   spec/features/unauthenticated_user_register_spec.rb:27:in `block (2 levels) in <top (required)>'
+=======
+  spec/features/user_login_logout_spec.rb:45:in `block (3 levels) in <top (required)>'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
   rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
   rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
@@ -36891,6 +37245,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+<<<<<<< HEAD
+=======
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `run'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
@@ -36901,6 +37260,7 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
   rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
 
@@ -36973,16 +37333,121 @@ Processing by UsersController#create as HTML
 Redirected to http://www.example.com/
 Completed 302 Found in 15ms (ActiveRecord: 1.4ms)
 Started GET "/" for 127.0.0.1 at 2015-04-03 17:46:55 -0600
+=======
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.6ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (13.9ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$iITkmTK8HMTkxIea5lcVCeBfmz4FI3AGFdqf6BbuDcMUfBpZB/E46"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:21:29.586208"], ["updated_at", "2015-04-03 01:21:29.586208"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:21:29 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (330.2ms)
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 396ms (Views: 387.1ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.7ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.2ms)
+Started DELETE "/logout" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
 Processing by HomePageController#index as HTML
   Rendered home_page/index.html.erb within layouts/application (0.2ms)
   Rendered layouts/_nav_bar.html.erb (0.4ms)
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$YjaATmizATHNhCmkIxduL.bcIWNyu/AilVcr28spI8joJItABxUvO"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:21:30.060959"], ["updated_at", "2015-04-03 01:21:30.060959"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered layouts/_nav_bar.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$g3gpZz.HzOzTmeSGK0Tcq.Y.fFbPHGmHFcd33mzimI4mi6TBr1vn6"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:21:30.090774"], ["updated_at", "2015-04-03 01:21:30.090774"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+>>>>>>> master
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+<<<<<<< HEAD
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35m (0.3ms)[0m  ROLLBACK
+=======
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_nav_bar.html.erb (0.3ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Richard", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Richard"]]
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+>>>>>>> master
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  COMMIT
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+<<<<<<< HEAD
   [1m[36mListing Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
   [1m[35mSQL (0.8ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{{1\"=>\"1\", \"1\"=>\"3}\""], ["created_at", "2015-04-03 23:46:55.838651"], ["updated_at", "2015-04-03 23:46:55.838651"]]
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
@@ -37089,20 +37554,96 @@ NoMethodError - undefined method `name' for nil:NilClass:
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
   disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+=======
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$aDCVMy5/JfBUiOhs59kwguYixvrqAc83WrZY5M329D5jDLY6VZnEq"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:21:30.119078"], ["updated_at", "2015-04-03 01:21:30.119078"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_nav_bar.html.erb (0.6ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered layouts/_nav_bar.html.erb (1.1ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+Started GET "/cart" for 127.0.0.1 at 2015-04-02 19:21:30 -0600
+
+AbstractController::ActionNotFound - The action 'show' could not be found for CartsController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
   rack (1.6.0) lib/rack/runtime.rb:18:in `call'
   activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
   rack (1.6.0) lib/rack/lock.rb:17:in `call'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
   rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+=======
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
   rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
   rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
   rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
   rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+<<<<<<< HEAD
   /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+=======
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+>>>>>>> master
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:21:in `visit'
@@ -37110,7 +37651,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   capybara (2.4.4) lib/capybara/session.rb:227:in `visit'
   capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
   rspec-rails (3.2.1) lib/rspec/rails/example/feature_example_group.rb:28:in `visit'
+<<<<<<< HEAD
   spec/features/unauthenticated_user_register_spec.rb:27:in `block (2 levels) in <top (required)>'
+=======
+  spec/features/user_login_logout_spec.rb:46:in `block (3 levels) in <top (required)>'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
   rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
   rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
@@ -37130,6 +37675,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+<<<<<<< HEAD
+=======
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `run'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
@@ -37140,6 +37690,7 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
   rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
 
@@ -37218,10 +37769,116 @@ Processing by HomePageController#index as HTML
 Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35m (0.3ms)[0m  ROLLBACK
+=======
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.5ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (15.6ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$koKv4fizMRbPbBGcBgXCO.unWCHfKkH/HIVW2wmOM1ouccupwXVXa"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:22:54.867607"], ["updated_at", "2015-04-03 01:22:54.867607"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:22:54 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (304.2ms)
+  Rendered layouts/_nav_bar.html.erb (2.3ms)
+Completed 200 OK in 373ms (Views: 363.6ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms)
+Started DELETE "/logout" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$iT/8J767jZhrSVULR8OojueYavxepUxHZ5ip19DLSa8FdtSRqArKq"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:22:55.321528"], ["updated_at", "2015-04-03 01:22:55.321528"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.5ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered layouts/_nav_bar.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$lUROIRXU4lDzSm.vTFtmYeHNW.4BdQp5St5uWk2IyxNJObXawJ7Ee"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:22:55.351418"], ["updated_at", "2015-04-03 01:22:55.351418"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_nav_bar.html.erb (1.0ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Richard", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Richard"]]
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+>>>>>>> master
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  COMMIT
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+<<<<<<< HEAD
   [1m[36mListing Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
   [1m[35mSQL (0.8ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{{1\"=>\"1\", \"1\"=>\"3}\""], ["created_at", "2015-04-03 23:47:27.669132"], ["updated_at", "2015-04-03 23:47:27.669132"]]
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
@@ -37328,20 +37985,96 @@ NoMethodError - undefined method `name' for nil:NilClass:
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
   disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+=======
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$HuMkoxqSBFbUQLtEvE5.duJmmevY9LCWc.kPrHwwOPy9TkbxGmbdK"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:22:55.381957"], ["updated_at", "2015-04-03 01:22:55.381957"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered layouts/_nav_bar.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/cart" for 127.0.0.1 at 2015-04-02 19:22:55 -0600
+
+AbstractController::ActionNotFound - The action 'show' could not be found for CartsController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
   rack (1.6.0) lib/rack/runtime.rb:18:in `call'
   activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
   rack (1.6.0) lib/rack/lock.rb:17:in `call'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
   rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+=======
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
   rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
   rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
   rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
   rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+<<<<<<< HEAD
   /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+=======
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+>>>>>>> master
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:21:in `visit'
@@ -37349,7 +38082,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   capybara (2.4.4) lib/capybara/session.rb:227:in `visit'
   capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
   rspec-rails (3.2.1) lib/rspec/rails/example/feature_example_group.rb:28:in `visit'
+<<<<<<< HEAD
   spec/features/unauthenticated_user_register_spec.rb:27:in `block (2 levels) in <top (required)>'
+=======
+  spec/features/user_login_logout_spec.rb:46:in `block (3 levels) in <top (required)>'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
   rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
   rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
@@ -37369,6 +38106,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+<<<<<<< HEAD
+=======
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `run'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
@@ -37379,6 +38121,7 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
   rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
 
@@ -37724,10 +38467,116 @@ Processing by HomePageController#index as HTML
 Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35m (0.3ms)[0m  ROLLBACK
+=======
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (14.4ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$mGyehUdGG0FO0.LmgAfVTusJ3S8OVZd3lPVhsvLqSeDyw5fRiW/yG"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:23:14.453234"], ["updated_at", "2015-04-03 01:23:14.453234"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (322.1ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 389ms (Views: 378.6ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (1.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.8ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+Started DELETE "/logout" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$W01mcVa/ftHMkAjxdP8pA.JvcuKUmlJRxLUlxUeQqyX3mt3HBFSea"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:23:14.922076"], ["updated_at", "2015-04-03 01:23:14.922076"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered layouts/_nav_bar.html.erb (1.1ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$cnBc8mAH938pV2XWt6nJr.hw60b6vI3WCl6FRlpI/zOF0I9Uxujmy"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:23:14.951524"], ["updated_at", "2015-04-03 01:23:14.951524"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_nav_bar.html.erb (0.3ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Richard", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Richard"]]
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+>>>>>>> master
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  COMMIT
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+<<<<<<< HEAD
   [1m[36mListing Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
   [1m[35mSQL (0.8ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{{1\"=>\"1\", \"1\"=>\"3}\""], ["created_at", "2015-04-03 23:50:29.161691"], ["updated_at", "2015-04-03 23:50:29.161691"]]
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
@@ -37834,20 +38683,96 @@ NoMethodError - undefined method `name' for nil:NilClass:
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
   disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+=======
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$zgOl9cQcCDbqfGWeiuCJdeeML9/DemkMGR7F310c7z0CVDeScwjVa"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:23:14.979464"], ["updated_at", "2015-04-03 01:23:14.979464"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:14 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered layouts/_nav_bar.html.erb (1.8ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+Started GET "/cart" for 127.0.0.1 at 2015-04-02 19:23:15 -0600
+
+AbstractController::ActionNotFound - The action 'show' could not be found for CartsController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
   rack (1.6.0) lib/rack/runtime.rb:18:in `call'
   activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
   rack (1.6.0) lib/rack/lock.rb:17:in `call'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
   rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
    () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+=======
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+>>>>>>> master
   rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
   rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
   rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
   rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
   rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+<<<<<<< HEAD
   /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+=======
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+>>>>>>> master
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
   capybara (2.4.4) lib/capybara/rack_test/browser.rb:21:in `visit'
@@ -37855,7 +38780,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   capybara (2.4.4) lib/capybara/session.rb:227:in `visit'
   capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
   rspec-rails (3.2.1) lib/rspec/rails/example/feature_example_group.rb:28:in `visit'
+<<<<<<< HEAD
   spec/features/unauthenticated_user_register_spec.rb:26:in `block (2 levels) in <top (required)>'
+=======
+  spec/features/user_login_logout_spec.rb:45:in `block (3 levels) in <top (required)>'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
   rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
   rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
@@ -37875,6 +38804,11 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
   rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+<<<<<<< HEAD
+=======
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `run'
+>>>>>>> master
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
   rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
@@ -37885,6 +38819,7 @@ NoMethodError - undefined method `name' for nil:NilClass:
   rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
   rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
   rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+<<<<<<< HEAD
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
    () Users/Kyra/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
 
@@ -38149,10 +39084,56 @@ Processing by UsersController#create as HTML
 Redirected to http://www.example.com/
 Completed 302 Found in 15ms (ActiveRecord: 1.3ms)
 Started GET "/" for 127.0.0.1 at 2015-04-03 17:52:34 -0600
+=======
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.5ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (13.2ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$eCnSk61F0EGRlvjvVw0njen9HtkCZ9VxdgRNlg5M5ehjt6K5C9sFm"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:23:57.626960"], ["updated_at", "2015-04-03 01:23:57.626960"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:23:57 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (305.4ms)
+  Rendered layouts/_nav_bar.html.erb (2.2ms)
+Completed 200 OK in 374ms (Views: 361.8ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (1.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms)
+Started DELETE "/logout" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+>>>>>>> master
 Processing by HomePageController#index as HTML
   Rendered home_page/index.html.erb within layouts/application (0.2ms)
   Rendered layouts/_nav_bar.html.erb (0.4ms)
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+<<<<<<< HEAD
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35m (0.2ms)[0m  ROLLBACK
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
@@ -38841,10 +39822,69 @@ Processing by HomePageController#index as HTML
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35m (0.3ms)[0m  ROLLBACK
+=======
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$YwcBkST5K7aQ8Vcv3HASbe0fC3G5Et/00nbICsmdOA6JsZhYBWNja"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:23:58.084899"], ["updated_at", "2015-04-03 01:23:58.084899"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered layouts/_nav_bar.html.erb (1.1ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$zJDB9js4Gvs9TX9HPvha6e.YQzdU.8/yz4IsiHdSyaQ8WXZ8FEAPm"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:23:58.113696"], ["updated_at", "2015-04-03 01:23:58.113696"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_nav_bar.html.erb (0.5ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Richard", "email_address"=>"", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Richard"]]
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+>>>>>>> master
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  COMMIT
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+<<<<<<< HEAD
   [1m[36mListing Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
   [1m[35mSQL (1.0ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{{1\"=>\"1\", \"1\"=>\"3}\""], ["created_at", "2015-04-04 00:06:34.665588"], ["updated_at", "2015-04-04 00:06:34.665588"]]
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
@@ -38987,3 +40027,125 @@ Processing by ListingsController#show as HTML
   Rendered layouts/_nav_bar.html.erb (0.4ms)
 Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.9ms)
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+=======
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$7VMEv4ZhCX8UpfAqU5G.SeCKsrowdXvo7/NsFpnpKACstQruy.NVC"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-03 01:23:58.143312"], ["updated_at", "2015-04-03 01:23:58.143312"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_nav_bar.html.erb (0.3ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"sadsal@example.com", "password"=>"[FILTERED]", "display_name"=>"", "role"=>""}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Sally"]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered layouts/_nav_bar.html.erb (1.4ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+Started GET "/cart" for 127.0.0.1 at 2015-04-02 19:23:58 -0600
+
+AbstractController::ActionNotFound - The action 'show' could not be found for CartsController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/urlmap.rb:66:in `block in call'
+  rack (1.6.0) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/richshea/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/forwardable.rb:183:in `get'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:35:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:21:in `visit'
+  capybara (2.4.4) lib/capybara/rack_test/driver.rb:42:in `visit'
+  capybara (2.4.4) lib/capybara/session.rb:227:in `visit'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  rspec-rails (3.2.1) lib/rspec/rails/example/feature_example_group.rb:28:in `visit'
+  spec/features/user_login_logout_spec.rb:45:in `block (3 levels) in <top (required)>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:177:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `block in with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:614:in `block in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-rails (3.2.1) lib/rspec/rails/adapters.rb:113:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:333:in `instance_exec'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:387:in `execute_with'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:616:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:247:in `call'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:617:in `run_around_example_hooks_for'
+  rspec-core (3.2.1) lib/rspec/core/hooks.rb:474:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:343:in `with_around_example_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:385:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.2.1) lib/rspec/core/example.rb:174:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:548:in `block in run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:544:in `run_examples'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:512:in `run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `block in run'
+  rspec-core (3.2.1) lib/rspec/core/example_group.rb:513:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (3 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:110:in `block (2 levels) in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/configuration.rb:1526:in `with_suite_hooks'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:109:in `block in run_specs'
+  rspec-core (3.2.1) lib/rspec/core/reporter.rb:62:in `report'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:108:in `run_specs'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:86:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:70:in `run'
+  rspec-core (3.2.1) lib/rspec/core/runner.rb:38:in `invoke'
+  rspec-core (3.2.1) exe/rspec:4:in `<top (required)>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/rspec:23:in `<main>'
+   () Users/richshea/.rvm/gems/ruby-2.1.5/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.1ms)[0m  ROLLBACK
+>>>>>>> master
