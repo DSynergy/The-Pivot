@@ -40303,3 +40303,537 @@ AbstractController::ActionNotFound - The action 'show' could not be found for Ca
   [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 1], ["available_dates", "\"{4\"=>\"{1\", \"1\"=>\"2}}\""], ["created_at", "2015-04-04 00:34:24.265972"], ["updated_at", "2015-04-04 00:34:24.265972"]]
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.3ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (22.5ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$b.4mSweo.12TRx.OmJW4TesmaXym/rkdSyz9C04AwJ5IrebJpYzum"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.113496"], ["updated_at", "2015-04-04 03:51:39.113496"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "bookings" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["cart", "\"1\"=>\"{\\\"Jan3\\\"=>0, \\\"Jan4\\\"=>0, \\\"Jan5\\\"=>0}\", \"3\"=>\"{\\\"Mar11\\\"=>0, \\\"Mar12\\\"=>0}\", \"2\"=>\"{\\\"July3\\\"=>0, \\\"July4\\\"=>0, \\\"July5\\\"=>0, \\\"July6\\\"=>0}\""], ["user_id", 1], ["created_at", "2015-04-04 03:51:39.141587"], ["updated_at", "2015-04-04 03:51:39.141587"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mBooking Load (0.7ms)[0m  SELECT  "bookings".* FROM "bookings"  ORDER BY "bookings"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$8itF2.8Crub1/zvw4fZPpOW/qbMGWFc4A3TsNyKP49SrX5yv0WcsW"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.152382"], ["updated_at", "2015-04-04 03:51:39.152382"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "bookings" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["cart", "\"1\"=>\"3\""], ["user_id", 2], ["created_at", "2015-04-04 03:51:39.155070"], ["updated_at", "2015-04-04 03:51:39.155070"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mBooking Load (0.3ms)[0m  SELECT  "bookings".* FROM "bookings"  ORDER BY "bookings"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$Md9puktwoOpBehQWyIojiujsvj9zTt2C2h7OXsoBAO25ylbANr2Le"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.161437"], ["updated_at", "2015-04-04 03:51:39.161437"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "bookings" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["cart", "\"1\"=>\"{\\\"Jan3\\\"=>0, \\\"Jan4\\\"=>0, \\\"Jan5\\\"=>0}\", \"3\"=>\"{\\\"Mar11\\\"=>0, \\\"Mar12\\\"=>0}\", \"2\"=>\"{\\\"July3\\\"=>0, \\\"July4\\\"=>0, \\\"July5\\\"=>0, \\\"July6\\\"=>0}\""], ["user_id", 3], ["created_at", "2015-04-04 03:51:39.164076"], ["updated_at", "2015-04-04 03:51:39.164076"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mBooking Load (0.3ms)[0m  SELECT  "bookings".* FROM "bookings"  ORDER BY "bookings"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.6ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.181853"], ["updated_at", "2015-04-04 03:51:39.181853"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'My house' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "My house"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.187059"], ["updated_at", "2015-04-04 03:51:39.187059"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.2ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Downtown Hipster Condo' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Downtown Hipster Condo"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.190825"], ["updated_at", "2015-04-04 03:51:39.190825"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$QgBNxpvFxbV4orYyyjBEJuB7v.E7Bq9wY/V5fCDYXsZCMrg/Ux5.u"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.195505"], ["updated_at", "2015-04-04 03:51:39.195505"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "bookings" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["cart", "\"1\"=>\"{\\\"Jan3\\\"=>0, \\\"Jan4\\\"=>0, \\\"Jan5\\\"=>0}\", \"3\"=>\"{\\\"Mar11\\\"=>0, \\\"Mar12\\\"=>0}\", \"2\"=>\"{\\\"July3\\\"=>0, \\\"July4\\\"=>0, \\\"July5\\\"=>0, \\\"July6\\\"=>0}\""], ["user_id", 4], ["created_at", "2015-04-04 03:51:39.198887"], ["updated_at", "2015-04-04 03:51:39.198887"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mBooking Load (0.3ms)[0m  SELECT  "bookings".* FROM "bookings"  ORDER BY "bookings"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.208860"], ["updated_at", "2015-04-04 03:51:39.208860"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'My house' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "My house"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.213392"], ["updated_at", "2015-04-04 03:51:39.213392"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Downtown Hipster Condo' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Downtown Hipster Condo"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.217227"], ["updated_at", "2015-04-04 03:51:39.217227"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$77NgJ/uq3QW3XN3mfFDRguCReiyF32xZOkPnqdBzNNPh9DoLZNTOC"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.222610"], ["updated_at", "2015-04-04 03:51:39.222610"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "bookings" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["cart", "\"1\"=>\"{\\\"Jan3\\\"=>0, \\\"Jan4\\\"=>0, \\\"Jan5\\\"=>0}\", \"3\"=>\"{\\\"Mar11\\\"=>0, \\\"Mar12\\\"=>0}\", \"2\"=>\"{\\\"July3\\\"=>0, \\\"July4\\\"=>0, \\\"July5\\\"=>0, \\\"July6\\\"=>0}\""], ["user_id", 5], ["created_at", "2015-04-04 03:51:39.225795"], ["updated_at", "2015-04-04 03:51:39.225795"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mBooking Load (0.4ms)[0m  SELECT  "bookings".* FROM "bookings"  ORDER BY "bookings"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "bookings"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$1uXUncqW34hP87Aj9h/2EOj0QzCefqQQE/LF8rqLQ7yblwqsItHXC"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.234222"], ["updated_at", "2015-04-04 03:51:39.234222"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "bookings" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart", "\"1\"=>\"{\\\"Jan3\\\"=>0, \\\"Jan4\\\"=>0, \\\"Jan5\\\"=>0}\", \"3\"=>\"{\\\"Mar11\\\"=>0, \\\"Mar12\\\"=>0}\", \"2\"=>\"{\\\"July3\\\"=>0, \\\"July4\\\"=>0, \\\"July5\\\"=>0, \\\"July6\\\"=>0}\""], ["user_id", 6], ["created_at", "2015-04-04 03:51:39.236913"], ["updated_at", "2015-04-04 03:51:39.236913"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "bookings"[0m
+  [1m[35mBooking Load (0.3ms)[0m  SELECT  "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1  ORDER BY "bookings"."id" ASC LIMIT 1  [["user_id", 6]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$8V6ugjus1y7shTOW.r9LCe3F6K/SvTI6x2/F/m/eTzMmel6G2u3WW"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.245790"], ["updated_at", "2015-04-04 03:51:39.245790"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "bookings" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["cart", "\"1\"=>\"{\\\"Jan3\\\"=>0, \\\"Jan4\\\"=>0, \\\"Jan5\\\"=>0}\", \"3\"=>\"{\\\"Mar11\\\"=>0, \\\"Mar12\\\"=>0}\", \"2\"=>\"{\\\"July3\\\"=>0, \\\"July4\\\"=>0, \\\"July5\\\"=>0, \\\"July6\\\"=>0}\""], ["user_id", 7], ["created_at", "2015-04-04 03:51:39.248445"], ["updated_at", "2015-04-04 03:51:39.248445"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "bookings" ("cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart", "\"1\"=>\"{\\\"Jan3\\\"=>0, \\\"Jan4\\\"=>0, \\\"Jan5\\\"=>0}\", \"3\"=>\"{\\\"Mar11\\\"=>0, \\\"Mar12\\\"=>0}\", \"2\"=>\"{\\\"July3\\\"=>0, \\\"July4\\\"=>0, \\\"July5\\\"=>0, \\\"July6\\\"=>0}\""], ["user_id", 7], ["created_at", "2015-04-04 03:51:39.252620"], ["updated_at", "2015-04-04 03:51:39.252620"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "bookings" ("status", "cart", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["status", 1], ["cart", "\"1\"=>\"{\\\"Jan3\\\"=>0, \\\"Jan4\\\"=>0, \\\"Jan5\\\"=>0}\", \"3\"=>\"{\\\"Mar11\\\"=>0, \\\"Mar12\\\"=>0}\", \"2\"=>\"{\\\"July3\\\"=>0, \\\"July4\\\"=>0, \\\"July5\\\"=>0, \\\"July6\\\"=>0}\""], ["user_id", 7], ["created_at", "2015-04-04 03:51:39.255010"], ["updated_at", "2015-04-04 03:51:39.255010"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "bookings" WHERE "bookings"."status" = $1  [["status", 0]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "bookings" WHERE "bookings"."status" = $1[0m  [["status", 1]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 1], ["available_dates", "\"{4\"=>\"{1\", \"1\"=>\"2}}\""], ["created_at", "2015-04-04 03:51:39.268719"], ["updated_at", "2015-04-04 03:51:39.268719"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'side dishes' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "side dishes"], ["created_at", "2015-04-04 03:51:39.278193"], ["updated_at", "2015-04-04 03:51:39.278193"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\""], ["created_at", "2015-04-04 03:51:39.567710"], ["updated_at", "2015-04-04 03:51:39.567710"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Entree' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Entree"], ["created_at", "2015-04-04 03:51:39.570879"], ["updated_at", "2015-04-04 03:51:39.570879"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Early Brunch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Early Brunch"], ["created_at", "2015-04-04 03:51:39.573022"], ["updated_at", "2015-04-04 03:51:39.573022"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListingCategory Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listing_categories" WHERE ("listing_categories"."listing_id" = 7 AND "listing_categories"."category_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "listing_categories" ("listing_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["listing_id", 7], ["category_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListingCategory Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "listing_categories" WHERE ("listing_categories"."listing_id" = 7 AND "listing_categories"."category_id" = 3) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listing_categories" ("listing_id", "category_id") VALUES ($1, $2) RETURNING "id"  [["listing_id", 7], ["category_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1  [["listing_id", 7]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" DESC LIMIT 1[0m  [["listing_id", 7]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Entree' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Entree"], ["created_at", "2015-04-04 03:51:39.601003"], ["updated_at", "2015-04-04 03:51:39.601003"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Dry Bread' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Dry Bread"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{\\\"Jan1\\\"\"=>\"0\", \"Jan2\"=>\"0}\""], ["created_at", "2015-04-04 03:51:39.604961"], ["updated_at", "2015-04-04 03:51:39.604961"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Wet Bread' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Wet Bread"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{\\\"Jan1\\\"\"=>\"0\", \"Jan2\"=>\"0}\""], ["created_at", "2015-04-04 03:51:39.609017"], ["updated_at", "2015-04-04 03:51:39.609017"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListingCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listing_categories" WHERE ("listing_categories"."listing_id" = 8 AND "listing_categories"."category_id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listing_categories" ("category_id", "listing_id") VALUES ($1, $2) RETURNING "id"  [["category_id", 4], ["listing_id", 8]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListingCategory Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "listing_categories" WHERE ("listing_categories"."listing_id" = 9 AND "listing_categories"."category_id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listing_categories" ("category_id", "listing_id") VALUES ($1, $2) RETURNING "id"  [["category_id", 4], ["listing_id", 9]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "listings" INNER JOIN "listing_categories" ON "listings"."id" = "listing_categories"."listing_id" WHERE "listing_categories"."category_id" = $1  [["category_id", 4]]
+  [1m[36mListing Load (0.5ms)[0m  [1mSELECT  "listings".* FROM "listings" INNER JOIN "listing_categories" ON "listings"."id" = "listing_categories"."listing_id" WHERE "listing_categories"."category_id" = $1  ORDER BY "listings"."id" ASC LIMIT 1[0m  [["category_id", 4]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Entree' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Entree"], ["created_at", "2015-04-04 03:51:39.627593"], ["updated_at", "2015-04-04 03:51:39.627593"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Dry Bread' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Dry Bread"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{\\\"Jan1\\\"\"=>\"0\", \"Jan2\"=>\"0}\""], ["created_at", "2015-04-04 03:51:39.631406"], ["updated_at", "2015-04-04 03:51:39.631406"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListingCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "listing_categories" WHERE ("listing_categories"."listing_id" = 10 AND "listing_categories"."category_id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listing_categories" ("category_id", "listing_id") VALUES ($1, $2) RETURNING "id"  [["category_id", 5], ["listing_id", 10]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "listings" INNER JOIN "listing_categories" ON "listings"."id" = "listing_categories"."listing_id" WHERE "listing_categories"."category_id" = $1  [["category_id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "listing_categories" WHERE "listing_categories"."listing_id" = $1 AND "listing_categories"."category_id" = 5  [["listing_id", 10]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "listings" INNER JOIN "listing_categories" ON "listings"."id" = "listing_categories"."listing_id" WHERE "listing_categories"."category_id" = $1  [["category_id", 5]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListingCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "listing_categories" WHERE ("listing_categories"."listing_id" = 1 AND "listing_categories"."category_id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listing_categories" ("category_id", "listing_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 1], ["listing_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mListingCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listing_categories" WHERE ("listing_categories"."listing_id" = 1 AND "listing_categories"."category_id" = 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.654271"], ["updated_at", "2015-04-04 03:51:39.654271"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.4ms)[0m  SELECT  1 AS one FROM "listings" WHERE ("listings"."title" = 'Bacon Maple Crunch' AND "listings"."id" != 11) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.664031"], ["updated_at", "2015-04-04 03:51:39.664031"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE ("listings"."title" IS NULL AND "listings"."id" != 12) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.674498"], ["updated_at", "2015-04-04 03:51:39.674498"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.4ms)[0m  SELECT  1 AS one FROM "listings" WHERE ("listings"."title" = 'Bacon Maple Crunch' AND "listings"."id" != 13) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.683574"], ["updated_at", "2015-04-04 03:51:39.683574"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.696776"], ["updated_at", "2015-04-04 03:51:39.696776"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.4ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.757236"], ["updated_at", "2015-04-04 03:51:39.757236"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.790153"], ["updated_at", "2015-04-04 03:51:39.790153"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mListing Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"Jan1\"=>\"0\", \"Jan2\"=>\"0\", \"Jan3\"=>\"1\", \"Sep27\"=>\"0\", \"Sep28\"=>\"0\", \"Sep29\"=>\"1\""], ["created_at", "2015-04-04 03:51:39.801062"], ["updated_at", "2015-04-04 03:51:39.801062"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pictures" ("url", "listing_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "url"], ["listing_id", 18], ["created_at", "2015-04-04 03:51:39.805976"], ["updated_at", "2015-04-04 03:51:39.805976"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pictures" WHERE "pictures"."listing_id" = $1[0m  [["listing_id", 18]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$E3Xcemao.DWBdew/KVs8a.4yCZHkNN3FpOQM7LCi/HE3Ofy1TzGpK"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.812869"], ["updated_at", "2015-04-04 03:51:39.812869"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email_address" = 'sadsal@example.com' AND "users"."id" != 8) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'example@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'example@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'example@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'example@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$zGs1VZAnG5m2XtggjK3rnOrI3oF7D53nCVVDbAos8ClWEok954KrC"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.837810"], ["updated_at", "2015-04-04 03:51:39.837810"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'hello' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "display_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$YFxsOzLxbdfg2nTbxl3etOR1scQIQhZ54E9zU0CB..Hxmbpcm.Jl."], ["billing_address", "blahblahblah"], ["display_name", "wefwf"], ["created_at", "2015-04-04 03:51:39.855354"], ["updated_at", "2015-04-04 03:51:39.855354"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email_address" = 'sadsal@example.com' AND "users"."id" != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'hello@exam.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'hey@ah.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$yL9DvpLlj4d.vY0e6ArkDOgOBA8ZfBAtfHrFgJkZl5WtNCvqrUM5S"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.873098"], ["updated_at", "2015-04-04 03:51:39.873098"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email_address", "password_digest", "credit_card", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$j8lqqy.FmY23k6em8MywYuwo55jXWG1A7Kc6H/dDD8/Vo7MnmfgDm"], ["credit_card", ""], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.885390"], ["updated_at", "2015-04-04 03:51:39.885390"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$3iRdomi0WzSga/ggcvxaeeW45C26d597UnXAA70rD94irhdUOJA66"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.890920"], ["updated_at", "2015-04-04 03:51:39.890920"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$0zVJnYK6pjAoRZaOuL/YmuATg7OqE.eleCNqBBNVKD4Jeo0KAeQ4u"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.896316"], ["updated_at", "2015-04-04 03:51:39.896316"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "role", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$0.Qv.iOYPwghkCawONCFrOtLVdNY2MLqPOC4y5LNSGiLiHHwsgi8G"], ["role", 2], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.902267"], ["updated_at", "2015-04-04 03:51:39.902267"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "role", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$PPCNvM1QkfCk8uQV5wRltOiX4pZhquWouPYT9slBzhxP8KywUWoKm"], ["role", 1], ["billing_address", "blahblahblah"], ["created_at", "2015-04-04 03:51:39.908494"], ["updated_at", "2015-04-04 03:51:39.908494"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m

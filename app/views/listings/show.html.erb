@@ -8,7 +8,7 @@
 
   <section class="left">
    <h1 id="listing-title"><%= @listing.title %></h1>
-   <figure><%= image_tag "default.jpg", class: "photo" %></figure>
+  <a href="#photo" type="button" data-toggle="modal"><%= image_tag "default.jpg", class: "photo" %></a>
  </section>
 
   <section class="right">
@@ -16,18 +16,73 @@
     <p id="listing-price"><%= number_to_currency(@listing.price) %></p>
 
       <section id="calendar">
-        <%= month_calendar do |date| %>
-          <a href="#" class="date-square"><%= date.day %></a>
-        <% end %>
+          <div class="container">
+             <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                      <div class="input-daterange">
+                        <h3>Select dates</h3>
+                        <input type="text" class="from_date" placeholder="start date" contenteditable="false">
+                        <span class="add-on">to</span>
+                        <input type="text" class="to_date" placeholder="end date" contenteditable="false">
+                      </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                  $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js", function(){
+
+                    var startDate = new Date('01/01/2012');
+                    var FromEndDate = new Date();
+                    var ToEndDate = new Date();
+
+                    ToEndDate.setDate(ToEndDate.getDate()+365);
+
+                    $('.from_date').datepicker({
+
+                          weekStart: 1,
+                          startDate: '01/01/2012',
+                                endDate: FromEndDate,
+                                autoclose: true
+                    })
+                        .on('changeDate', function(selected){
+                                  startDate = new Date(selected.date.valueOf());
+                                          startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+                                                  $('.to_date').datepicker('setStartDate', startDate);
+                                                      });
+                        $('.to_date')
+                              .datepicker({
+
+                                        weekStart: 1,
+                                        startDate: startDate,
+                                                  endDate: ToEndDate,
+                                                  autoclose: true
+                                                        })
+                            .on('changeDate', function(selected){
+                                      FromEndDate = new Date(selected.date.valueOf());
+                                              FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+                                                      $('.from_date').datepicker('setEndDate', FromEndDate);
+                                                          });
+
+
+
+
+
+                  });
+                </script>
+            </div>
+          </div>
       </section>
   </section>
-
             <p><%= @listing.available_dates %></p>
  <section class="bottom">
-   <h3><%= @listing.categories.first.name %></h3>
-   <h3 class="glyphicon glyphicon-user"><%= @listing.private_bathroom %></h3>
-   <h3><%= @listing.people_per_unit %></h3>
-   <h3><%= @listing.quantity_available %></h3>
+   <h3><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @listing.categories.first.name %></h3>
+   <% if @listing.private_bathroom %>
+      <h3><span class="glyphicon glyphicon-tint" aria-hidden="true"></span>Private</h3>
+    <% else %>
+      <h3><span class="glyphicon glyphicon-tint" aria-hidden="true"></span>Shared</h3>
+    <% end %>
+   <h3><span class="glyphicon glyphicon-user" aria-hidden="true"><%= @listing.people_per_unit %></h3>
   </section>
 
   <% if @listing.retired %>
@@ -36,4 +91,16 @@
   <% elsif current_user.nil? || current_user.default? %>
    <%= button_to  'Add to Itinerary', cart_path(listing_id: @listing), class: "btn cart-button" %>
   <% end %>
+ </div>
+
+ <div class="modal fade" id="photo" role="dialog">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-body">
+       </div>
+       <div class="modal-footer">
+         <a class = "btn" data-dismiss="modal">close</a>
+       </div>
+     </div>
+   </div>
  </div>
