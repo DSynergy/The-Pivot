@@ -1,10 +1,17 @@
 <div class="form-group">
-<%= form_for(:listings) do %>
+<%= form_tag("#{@listing.id}/update_cart") do %>
   <div class="input-daterange">
     <h3>Select dates</h3>
-    <input type="text" class="from_date" placeholder="start date" contenteditable="false">
+    <input type="text" class="from_date form-control" name="listing[start_date]" placeholder="start date" contenteditable="false">
     <span class="add-on">to</span>
-    <input type="text" class="to_date" placeholder="end date" contenteditable="false">
+    <input type="text" class="to_date form-control" name="listing[end_date]" placeholder="end date" contenteditable="false">
   </div>
+
+  <% if @listing.retired %>
+   <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
+  <%= debug current_user %>
+  <% elsif current_user.nil? || current_user.default? %>
+   <%= button_to  'Add to Itinerary', class: "btn cart-button" %>
+  <% end %>
 <% end %>
 </div>
