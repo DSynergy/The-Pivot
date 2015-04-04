@@ -40149,3 +40149,157 @@ AbstractController::ActionNotFound - The action 'show' could not be found for Ca
 
   [1m[35m (0.1ms)[0m  ROLLBACK
 >>>>>>> master
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.2ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.1ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (16.3ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.1ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.1ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (15.8ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.7ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 1], ["available_dates", "\"{4\"=>\"{\\\"Jan1\\\"\", \"Jan2\"=>\"0}}\""], ["created_at", "2015-04-04 00:14:35.348026"], ["updated_at", "2015-04-04 00:14:35.348026"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Strawberry Toast' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Strawberry Toast"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 2], ["available_dates", "\"{4\"=>\"{\\\"Jan1\\\"\", \"Jan2\"=>\"0}}\""], ["created_at", "2015-04-04 00:14:35.353642"], ["updated_at", "2015-04-04 00:14:35.353642"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.5ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.2ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.5ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (20.1ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.7ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 1], ["available_dates", "\"{4\"=>\"{1\", \"1\"=>\"2}}\""], ["created_at", "2015-04-04 00:19:20.019012"], ["updated_at", "2015-04-04 00:19:20.019012"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.3ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Strawberry Toast' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Strawberry Toast"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 2], ["available_dates", "\"{4\"=>\"{1\", \"1\"=>\"2}}\""], ["created_at", "2015-04-04 00:19:20.024961"], ["updated_at", "2015-04-04 00:19:20.024961"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.2ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (19.1ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.7ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 1], ["available_dates", "\"{4\"=>\"{1\", \"1\"=>\"2}}\""], ["created_at", "2015-04-04 00:23:05.543338"], ["updated_at", "2015-04-04 00:23:05.543338"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.1ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.1ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (15.5ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.7ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 1], ["available_dates", "\"{4\"=>\"{1\", \"1\"=>\"2}}\""], ["created_at", "2015-04-04 00:24:18.480207"], ["updated_at", "2015-04-04 00:24:18.480207"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.2ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (16.0ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.7ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 1], ["available_dates", "\"{4\"=>\"{1\", \"1\"=>\"2}}\""], ["created_at", "2015-04-04 00:24:49.912544"], ["updated_at", "2015-04-04 00:24:49.912544"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (41.4ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.7ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "id", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["id", 1], ["available_dates", "\"{4\"=>\"{1\", \"1\"=>\"2}}\""], ["created_at", "2015-04-04 00:34:24.265972"], ["updated_at", "2015-04-04 00:34:24.265972"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m

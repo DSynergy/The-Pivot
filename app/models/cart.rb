@@ -12,9 +12,8 @@ class Cart
     listings
   end
 
-  def add_listing(listing_id)
-    content[listing_id] ||= 0
-    content[listing_id] += 1
+  def add_listing(listing_id, dates)
+    content[listing_id] = dates
   end
 
   def remove_listing(listing_id)
