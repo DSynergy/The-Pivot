@@ -14,7 +14,7 @@ RSpec.describe Cart do
 
     it "can have a listings added" do
       cart.add_listing(listing_1.id, listing_1.available_dates)
-      expect(cart.content).to eq('{4 => {1=>1}, 1=>2}}')
+      expect(cart.content).to eq(1 => {"{4"=>"{1", "1"=>"2}}"})
     end
 
   end
