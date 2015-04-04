@@ -31,7 +31,6 @@ class CartsController < ApplicationController
     session[:cart] = @cart.content
     listing = Listing.find(listing_id)
 
-    require "pry"; binding.pry
     flash[:notice] = "#{listing.title} added to itinerary, #{start_date}-#{end_date}"
     redirect_to(:back)
   end

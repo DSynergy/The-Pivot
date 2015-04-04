@@ -40,7 +40,7 @@ RSpec.describe Cart do
 
   describe "#total_quantity" do
 
-    xit "returns total number of listings in cart" do
+    it "returns total number of listings in cart" do
       5.times { cart.add_listing(listing_1.id) }
 
       expect(total_quantity).to eq(5)
