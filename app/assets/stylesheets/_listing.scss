@@ -38,6 +38,7 @@
     margin:30px;
     border:3px solid $mint;
     padding:10px;
+    font-family:$sub-font;
   }
 }
 
@@ -81,6 +82,7 @@ input.cart-button {
   color:$main-teal;
   background-color:$mint;
   border-radius:0;
+  font-family:$sub-font;
 
   &:hover{
     color:white;

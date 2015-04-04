@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  def index
+  def show
     @cart_contents = @cart.content
   end
 

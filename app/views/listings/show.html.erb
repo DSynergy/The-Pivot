@@ -17,7 +17,7 @@
 
       <section id="calendar">
         <%= month_calendar do |date| %>
-            <%= date.day %>
+          <a href="#" class="date-square"><%= date.day %></a>
         <% end %>
       </section>
   </section>
@@ -25,7 +25,7 @@
             <p><%= @listing.available_dates %></p>
  <section class="bottom">
    <h3><%= @listing.categories.first.name %></h3>
-   <h3><%= @listing.private_bathroom %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></h3>
+   <h3 class="glyphicon glyphicon-user"><%= @listing.private_bathroom %></h3>
    <h3><%= @listing.people_per_unit %></h3>
    <h3><%= @listing.quantity_available %></h3>
   </section>
@@ -34,6 +34,6 @@
    <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
   <%= debug current_user %>
   <% elsif current_user.nil? || current_user.default? %>
-   <%= button_to  'Add to Cart', cart_path(listing_id: @listing), class: "btn cart-button" %>
+   <%= button_to  'Add to Itinerary', cart_path(listing_id: @listing), class: "btn cart-button" %>
   <% end %>
  </div>

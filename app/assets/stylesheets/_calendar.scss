@@ -2,15 +2,28 @@
 #calendar{
   .calendar-header, table, thead, tbody, tr, td{
     border:1px solid $main-teal;
-  }
+    }
 
   td{
     text-align:center;
     width:40px;
+
+    &:hover{
+      color:white;
+      background-color:$mint;
+    }
   }
 
   .calendar-header{
     width:281px;
-  }
-}
+    font-family:$sub-font;
 
+    thead{
+      font-family:inherit;
+    }
+
+    &:hover{
+      background-color:$mint;
+    }
+}
+}
