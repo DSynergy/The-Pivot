@@ -38017,3 +38017,266 @@ Processing by HostsController#show as HTML
   Rendered layouts/_nav_bar.html.erb (1.2ms)
 Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.5ms)
   [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (117.8ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (326.0ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.7ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (13.6ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.4ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.1ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (16.0ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$Qh7SfGJMJCN.jrl2mQcReuThUNcwhbKMQeNFCs1807BFcn6KKlhYu"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-05 14:13:54.722044"], ["updated_at", "2015-04-05 14:13:54.722044"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-05 08:13:54 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_bar.html.erb (3.0ms)
+Completed 200 OK in 141ms (Views: 131.8ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-05 08:13:54 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (231.9ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 237ms (Views: 236.7ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-05 08:13:55 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"", "password"=>"[FILTERED]", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/travelers/1
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms)
+Started GET "/travelers/1" for 127.0.0.1 at 2015-04-05 08:13:55 -0600
+Processing by TravelersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered travelers/show.html.erb within layouts/application (0.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (0.7ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+Started GET "/hosts/1" for 127.0.0.1 at 2015-04-05 08:13:55 -0600
+Processing by HostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered hosts/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.1ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (117.5ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (242.7ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.4ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.6ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (14.7ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$O7BYgmd/rEaNG0MJ98DUZuHU7WT8i.oqvib2AVOl.NIrzy2PwWO6y"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-05 14:19:51.910981"], ["updated_at", "2015-04-05 14:19:51.910981"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-05 08:19:51 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 144ms (Views: 134.1ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-05 08:19:52 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (233.5ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 239ms (Views: 238.4ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-05 08:19:52 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"", "password"=>"[FILTERED]", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/travelers/1
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms)
+Started GET "/travelers/1" for 127.0.0.1 at 2015-04-05 08:19:52 -0600
+Processing by TravelersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered travelers/show.html.erb within layouts/application (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (0.7ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.2ms)
+Started GET "/hosts/1" for 127.0.0.1 at 2015-04-05 08:19:52 -0600
+Processing by HostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered hosts/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.1ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (119.9ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (242.0ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (13.4ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401182809')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.4ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.6ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (1.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (14.1ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email_address" = 'sadsal@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("credit_card", "username", "email_address", "password_digest", "billing_address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["credit_card", "1234567890123456"], ["username", "Sally"], ["email_address", "sadsal@example.com"], ["password_digest", "$2a$04$cPDlxIFWdepc90wrICq21e8idvehxbikkCqV3UNIjkNPngHTY6pbS"], ["billing_address", "blahblahblah"], ["created_at", "2015-04-05 14:20:47.792998"], ["updated_at", "2015-04-05 14:20:47.792998"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-04-05 08:20:47 -0600
+Processing by HomePageController#index as HTML
+  Rendered home_page/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_nav_bar.html.erb (1.8ms)
+Completed 200 OK in 134ms (Views: 123.0ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2015-04-05 08:20:47 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (236.8ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 242ms (Views: 241.8ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-04-05 08:20:48 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"Sally", "email_address"=>"", "password"=>"[FILTERED]", "role"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "Sally"]]
+Redirected to http://www.example.com/travelers/1
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms)
+Started GET "/travelers/1" for 127.0.0.1 at 2015-04-05 08:20:48 -0600
+Processing by TravelersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered travelers/show.html.erb within layouts/application (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.2ms)
+Started GET "/hosts/1" for 127.0.0.1 at 2015-04-05 08:20:48 -0600
+Processing by HostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered hosts/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (1.0ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.5ms)
+Started GET "/travelers/1" for 127.0.0.1 at 2015-04-05 08:20:48 -0600
+Processing by TravelersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered travelers/show.html.erb within layouts/application (0.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_bar.html.erb (0.6ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
