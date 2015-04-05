@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "home_page#index"
+  root "home_page#show"
 
   resources :listings, only: [:index, :show]
 

@@ -10,7 +10,7 @@
   <% if @listing.retired %>
    <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
   <%= debug current_user %>
-  <% elsif current_user.nil? || current_user.default? %>
+  <% elsif current_user.nil? || !current_user.admin? %>
    <%= button_to  'Add to Itinerary', class: "btn cart-button" %>
   <% end %>
 <% end %>
