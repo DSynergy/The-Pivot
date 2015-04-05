@@ -17,6 +17,7 @@ RSpec.describe "Listing show" do
                                    street_address: '1510 Blake St',
                                    status: 0})}
 
+
   it "displays listing title" do
     visit root_path
     click_on("Browse All Listings")
