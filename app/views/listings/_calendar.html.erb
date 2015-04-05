@@ -1,5 +1,5 @@
 <div class="form-group">
-<%= form_tag("#{@listing.id}/update_cart") do %>
+<%= form_tag(cart_path(@listing.id)) do %>
   <div class="input-daterange">
     <h3>Select dates</h3>
     <input type="text" id="from-date" class="from_date form-control" name="listing[start_date]" placeholder="start date" contenteditable="false">

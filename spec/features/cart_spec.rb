@@ -11,7 +11,7 @@ RSpec.describe "Cart" do
     click_link_or_button("Add to Itinerary")
   end
 
-  xit "shows a list of cart items" do
+  it "shows a list of cart items" do
     visit cart_path
     expect(page).to have_content("Cheese Toast 1")
   end

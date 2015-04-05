@@ -21550,3 +21550,127 @@ Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 2.1ms)
 Started POST "/listings/2?class=btn+cart-button" for 127.0.0.1 at 2015-04-04 18:40:05 -0600
 >>>>>>> fb1ebb072a83ade088e02488a8a692262ba0fb36
   [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (395.8ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (423.2ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (75.9ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150405022601')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150404202123')
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.3ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.3ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.7ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (20.5ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (132.0ms)[0m  [1mDROP DATABASE IF EXISTS "dinner_dash_test"[0m
+  [1m[35m (241.3ms)[0m  CREATE DATABASE "dinner_dash_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (51.8ms)[0m  CREATE EXTENSION IF NOT EXISTS "hstore"
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "user_id" integer, "status" integer DEFAULT 0, "cart" hstore, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_bookings_on_user_id" ON "bookings" USING btree ("user_id")
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "listing_categories" ("id" serial primary key, "listing_id" integer, "category_id" integer) 
+  [1m[36m (1.6ms)[0m  [1mCREATE  INDEX  "index_listing_categories_on_category_id" ON "listing_categories" USING btree ("category_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_listing_categories_on_listing_id" ON "listing_categories" USING btree ("listing_id")
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "listings" ("id" serial primary key, "title" character varying, "description" character varying, "private_bathroom" boolean DEFAULT 't', "price" decimal(6,2), "quantity_available" integer, "people_per_unit" integer, "available_dates" hstore, "user_id" integer, "status" integer DEFAULT 0, "street_address" character varying, "city" character varying, "state" character varying, "country" character varying, "zipcode" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "listing_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" text, "password_digest" text, "email_address" text, "display_name" text, "role" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "credit_card" character varying, "billing_address" character varying) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150405022601')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310185207')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310191416')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150310193435')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311202153')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150311202245')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150311214732')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150312041204')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150312205353')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150314173807')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150315011144')[0m
+  [1m[35m (16.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331194926')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331200428')[0m
+  [1m[35m (8.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331200900')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203258')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331203534')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150331203714')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150331211443')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150401004601')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150404202123')
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "bookings" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "listing_categories" DISABLE TRIGGER ALL;ALTER TABLE "listings" DISABLE TRIGGER ALL;ALTER TABLE "pictures" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.2ms)[0m            SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE tablename !~ '_prt_' AND schemaname = ANY (current_schemas(false))
+
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'dinner_dash_test'[0m
+  [1m[35m (19.4ms)[0m  TRUNCATE TABLE "public"."bookings", "public"."categories", "public"."listing_categories", "public"."listings", "public"."pictures", "public"."users", "public"."schema_migrations" RESTART IDENTITY CASCADE;
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "bookings" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "listing_categories" ENABLE TRIGGER ALL;ALTER TABLE "listings" ENABLE TRIGGER ALL;ALTER TABLE "pictures" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mListing Exists (0.7ms)[0m  SELECT  1 AS one FROM "listings" WHERE "listings"."title" = 'Bacon Maple Crunch' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "listings" ("title", "description", "price", "quantity_available", "people_per_unit", "user_id", "country", "state", "city", "zipcode", "street_address", "available_dates", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Bacon Maple Crunch"], ["description", "see title"], ["price", "8.0"], ["quantity_available", 2], ["people_per_unit", 2], ["user_id", 2], ["country", "USA"], ["state", "Colorado"], ["city", "Denver"], ["zipcode", "80206"], ["street_address", "1510 Blake St"], ["available_dates", "\"{2\"=>\"3}\""], ["created_at", "2015-04-05 14:04:31.595462"], ["updated_at", "2015-04-05 14:04:31.595462"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.6ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'home' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "home"], ["created_at", "2015-04-05 14:04:31.630657"], ["updated_at", "2015-04-05 14:04:31.630657"]]
+  [1m[35mListingCategory Exists (0.7ms)[0m  SELECT  1 AS one FROM "listing_categories" WHERE ("listing_categories"."listing_id" = 1 AND "listing_categories"."category_id" = 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "listing_categories" ("listing_id", "category_id") VALUES ($1, $2) RETURNING "id"[0m  [["listing_id", 1], ["category_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/listings" for 127.0.0.1 at 2015-04-05 08:04:31 -0600
+Processing by ListingsController#index as HTML
+  [1m[36mListing Load (0.3ms)[0m  [1mSELECT "listings".* FROM "listings" WHERE "listings"."status" = $1[0m  [["status", 0]]
+  Rendered listings/_listings_list.html.erb (6.1ms)
+  Rendered listings/index.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_nav_bar.html.erb (3.5ms)
+Completed 200 OK in 6017ms (Views: 6001.6ms | ActiveRecord: 0.3ms)
+Started GET "/listings/1" for 127.0.0.1 at 2015-04-05 08:04:37 -0600
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mListing Load (0.3ms)[0m  SELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered listings/_calendar.html.erb (1.4ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1[0m  [["listing_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1  [["listing_id", 1]]
+  Rendered listings/show.html.erb within layouts/application (258.1ms)
+  Rendered layouts/_nav_bar.html.erb (0.4ms)
+Completed 200 OK in 264ms (Views: 259.9ms | ActiveRecord: 0.7ms)
+Started POST "/listings/1?class=btn" for 127.0.0.1 at 2015-04-05 08:04:37 -0600
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
