@@ -1,16 +1,16 @@
 
 $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js", function(){
-
-  var startDate = new Date('01/01/2012');
+  var startDate = new Date('01/01/2015');
+  var nowDate = new Date();
   var FromEndDate = new Date();
   var ToEndDate = new Date();
+  var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
 
   ToEndDate.setDate(ToEndDate.getDate()+365);
 
   $('.from_date').datepicker({
-
     weekStart: 1,
-    startDate: '01/01/2012',
+    startDate: today,
     endDate: FromEndDate,
     autoclose: true
   })

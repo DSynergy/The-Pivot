@@ -8,10 +8,10 @@ RSpec.describe "Cart" do
     click_link_or_button("Bacon Maple Crunch")
     fill_in "from-date", :with => "01/01/2015"
     fill_in "to-date", :with => "01/01/2015"
+    click_link_or_button("Add to Itinerary")
   end
 
   it "shows a list of cart items" do
-    click_link_or_button("Add to Itinerary")
     visit cart_path
     expect(page).to have_content("Cheese Toast 1")
   end
