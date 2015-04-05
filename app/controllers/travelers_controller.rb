@@ -1,5 +1,5 @@
 class TravelersController < ApplicationController
   def show
-    @traveler = User.find(1)
+    @traveler = User.find(params[:id])
   end
 end
