@@ -14,7 +14,7 @@ class CartsController < ApplicationController
 
 
   def create
-    listing_id = params[:format]
+    listing_id = params[:listing_id]
     start_date = params[:listing][:start_date]
     end_date = params[:listing][:end_date]
     @cart.add_listing(listing_id, [start_date, end_date])

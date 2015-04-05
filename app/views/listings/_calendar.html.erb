@@ -1,10 +1,12 @@
 <div class="form-group">
-<%= form_tag(cart_path(@listing.id)) do %>
+<%= form_tag(cart_path) do %>
   <div class="input-daterange">
     <h3>Select dates</h3>
     <input type="text" id="from-date" class="from_date form-control" name="listing[start_date]" placeholder="start date" contenteditable="false">
     <input type="text" id="to-date" class="to_date form-control" name="listing[end_date]" placeholder="end date" contenteditable="false">
   </div>
+
+  <%= hidden_field_tag "listing_id", @listing.id %>
 
   <% if @listing.retired %>
    <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
