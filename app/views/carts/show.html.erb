@@ -7,7 +7,7 @@
             <th>Item</th>
             <th>Quantity</th>
           </tr>
-          <% @cart.listings_with_quantity.each do |listing, dates| %>
+          <% @cart.listings_with_dates.each do |listing, dates| %>
             <tr>
               <td><h4><%= listing.title %></h4></td>
               <td><%= dates %></td>

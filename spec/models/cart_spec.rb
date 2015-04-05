@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Cart do
-  let(:listing_1) { create(:listing, id: 1, available_dates: '{4 => {1=>1}, 1=>2}}') }
+  let!(:listing_1) { create(:listing, id: 1, available_dates: '{4 => {1=>1}, 1=>2}}') }
   let(:listing_2) { create(:listing, id: 2, title: "Strawberry Toast", available_dates: '{4 => {1=>1}, 1=>2}}' ) }
   let(:cart) { Cart.new(nil) }
   let(:total_quantity) { cart.content.values.reduce(:+) }
@@ -38,12 +38,11 @@ RSpec.describe Cart do
 
   end
 
-  describe "#total_quantity" do
+  describe "#listings_with_dates" do
 
-    it "returns total number of listings in cart" do
-      5.times { cart.add_listing(listing_1.id) }
-
-      expect(total_quantity).to eq(5)
+    it "returns date range that listing is requested for" do
+      cart = Cart.new({1=>{1 => 1, 1 => 3}})
+      expect(cart.listings_with_dates.keys.first.title).to eq("Bacon Maple Crunch")
     end
 
   end

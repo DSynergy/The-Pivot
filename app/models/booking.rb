@@ -1,6 +1,5 @@
 class Booking < ActiveRecord::Base
   belongs_to :user
-  belongs_to :listing
   enum status: %w(pending completed cancelled)
   scope :pending, -> { where(status: 0)}
   scope :completed, -> { where(status: 1) }

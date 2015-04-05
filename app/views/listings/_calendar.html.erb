@@ -2,9 +2,9 @@
 <%= form_tag("#{@listing.id}/update_cart") do %>
   <div class="input-daterange">
     <h3>Select dates</h3>
-    <input type="text" class="from_date form-control" name="listing[start_date]" placeholder="start date" contenteditable="false">
+    <input type="text" id="from-date" class="from_date form-control" name="listing[start_date]" placeholder="start date" contenteditable="false">
     <span class="add-on">to</span>
-    <input type="text" class="to_date form-control" name="listing[end_date]" placeholder="end date" contenteditable="false">
+    <input type="text" id="to-date" class="to_date form-control" name="listing[end_date]" placeholder="end date" contenteditable="false">
   </div>
 
   <% if @listing.retired %>

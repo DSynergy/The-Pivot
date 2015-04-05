@@ -5,7 +5,7 @@ class Cart
     @content = content || Hash.new
   end
 
-  def listings_with_quantity
+  def listings_with_dates
     listings = {}
     content.each { |id, dates| listings[Listing.find(id)] = dates }
     listings
