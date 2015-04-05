@@ -4,7 +4,7 @@ RSpec.describe "Home page" do
   context "as an unauthenticated user" do
     let!(:category_1) { create(:category) }
     let!(:category_2) { create(:category, name: "side item") }
-    let!(:item) { create(:item, name: "Avocado Toast") }
+    let!(:listing) { create(:listing, name: "Avocado Toast") }
 
     before(:each) { visit root_path }
 

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  root "home_page#show"
+
+  root "home_page#index"
 
   resources :listings, only: [:index, :show]
 
   resources :users, only: [:new, :create, :show, :update], param: 'slug'
+  resources :travelers, only: [:show]
+  resources :hosts, only: [:show]
 
   resource :cart, only: [:show, :create, :destroy]
 

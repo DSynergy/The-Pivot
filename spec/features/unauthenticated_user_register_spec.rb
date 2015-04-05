@@ -13,7 +13,7 @@ RSpec.describe 'Unauthenticated user register spec' do
     fill_in "user[password]", with: "password"
     fill_in "user[display_name]", with: "new"
     click_on("Submit")
-    user = User.find(1)
+    user = User.last
 
     expect(current_path).to eq(root_path)
     expect(user.username).to eq("new_user")
