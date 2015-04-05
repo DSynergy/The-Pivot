@@ -2,15 +2,63 @@
 
 .listing-title, .photo, #listings-title {
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 10px;
   color: $main-teal;
   font-family:$sub-font;
 }
 
 .middle{
-  width:75%;
+  width:85%;
   margin:0 auto;
+  margin-bottom:30px;
+  text-align:center;
+  border:3px solid $light-teal;
+
+  figure{
+    margin-bottom:20px;
+  }
+
+  a{
+
+    &:hover .middle{
+      background-color:$mint;
+    }
+
+    &:hover .photo {
+      filter: grayscale(100%);
+    }
+  }
 }
+
+.glyphicon{
+  padding:10px;
+}
+
+.form-group{
+  padding:10px;
+}
+
+.form_control{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.input-daterange{
+  h3 {
+    text-align:center;
+  }
+
+  #from-date, #to-date{
+  margin-top:10px;
+  margin-bottom:10px;
+  }
+
+}
+#calendar{
+  input[type="submit"] {
+      margin:0 auto;
+    }
+  }
 
 #listings-title{
   margin-bottom:30px;
@@ -18,7 +66,8 @@
 
 .listing-title{
   font-size:2.3em;
-  text-align:left;
+  text-align:center;
+  margin-bottom:10px;
 }
 
 .listing-calendar{
@@ -29,6 +78,7 @@
 .left{
   text-align:left;
   display:inline-block;
+  width:300px;
 }
 
 .bottom{
@@ -43,6 +93,12 @@
   }
 }
 
+.backb {
+  &:hover{
+    color:$light-teal;
+  }
+}
+
 .listing{
   width:75%;
   margin:0 auto;
@@ -51,7 +107,7 @@
 }
 
   .photo {
-    height:250px;
+    height:200px;
     width:auto;
  }
 
@@ -74,7 +130,7 @@
 .right{
   text-align:right;
   display:inline-block;
-  margin-left:60px;
+  width:400px;
 }
 
 input.cart-button {

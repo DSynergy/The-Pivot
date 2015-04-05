@@ -3,15 +3,13 @@
   <div class="input-daterange">
     <h3>Select dates</h3>
     <input type="text" id="from-date" class="from_date form-control" name="listing[start_date]" placeholder="start date" contenteditable="false">
-    <span class="add-on">to</span>
     <input type="text" id="to-date" class="to_date form-control" name="listing[end_date]" placeholder="end date" contenteditable="false">
   </div>
 
   <% if @listing.retired %>
    <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
-  <%= debug current_user %>
   <% elsif current_user.nil? || !current_user.admin? %>
-   <%= button_to  'Add to Itinerary', class: "btn cart-button" %>
+   <%= button_to  'Add to Itinerary', class: "btn" %>
   <% end %>
 <% end %>
 </div>

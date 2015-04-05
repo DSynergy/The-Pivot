@@ -8,7 +8,7 @@
 
   <section class="left">
    <h1 id="listing-title"><%= @listing.title %></h1>
-  <a href="#photo" type="button" data-toggle="modal"><%= image_tag "default.jpg", class: "photo" %></a>
+   <a href="#photo" type="button" data-toggle="modal"><%= image_tag "default.jpg", class: "photo" %></a>
  </section>
 
   <section class="right">
@@ -22,14 +22,14 @@
 
  <section class="bottom">
    <% if @listing.categories.first %>
-      <h3><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= listing @listing.categories.first.name %></h3>
+      <h3><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @listing.categories.first.name %></h3>
    <% end %>
    <% if @listing.private_bathroom %>
       <h3><span class="glyphicon glyphicon-tint" aria-hidden="true"></span>Private</h3>
     <% else %>
       <h3><span class="glyphicon glyphicon-tint" aria-hidden="true"></span>Shared</h3>
     <% end %>
-   <h3><span class="glyphicon glyphicon-user" aria-hidden="true"><%= @listing.people_per_unit %></h3>
+    <h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= @listing.people_per_unit %></h3>
   </section>
 
  </div>
