@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :update], param: 'slug'
 
   resource :cart, only: [:show, :create, :destroy]
-  post '/listings/:id/update_cart', to: 'carts#update'
 
   resources :categories, only: [:index, :show]
 
