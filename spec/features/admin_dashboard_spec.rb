@@ -14,7 +14,7 @@ RSpec.describe "Admin dashboard" do
   end
 
   it "has a link to Manage Items" do
-    create(:item)
+    create(:listing)
 
     expect(page).to have_link("Manage Items")
 

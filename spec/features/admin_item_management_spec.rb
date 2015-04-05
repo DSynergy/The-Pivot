@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Admin Item Management" do
   let(:admin) { create(:admin) }
-  let!(:item) { create(:item) }
+  let!(:listing) { create(:listing) }
 
   before(:each) do
     login_as(admin)
