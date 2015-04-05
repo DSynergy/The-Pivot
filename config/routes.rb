@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
 
-  get "/login", to: "sessions#new"
+  get "/login", to: "sessions#new", as: :new
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 

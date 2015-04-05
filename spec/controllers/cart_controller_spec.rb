@@ -10,11 +10,11 @@ RSpec.describe CartsController, type: :controller do
   end
 
   describe "POST #create" do
-    xit "successfully adds listing to cart" do
+    it "successfully adds listing to cart" do
       request.env["HTTP_REFERER"] = "/cart"
       listing = create(:listing, available_dates: {"1"=>"2", "1"=>"3"})
-      post :create, {listing_id: listing, :listing["start_date"] => {"1"=>"2"} , :listing["end_date"] => {"1"=>"3"} }
-      expect(session[:cart][listing.id.to_s]).to eq(1)
+      post :create, {listing_id: listing, :listing => {"start_date" => {"1"=>"2"}, "end_date" => {"1"=>"3"} } }
+      expect(session[:cart][listing.id.to_s]).to eq([{"1"=>"2"}, {"1"=>"3"}])
     end
   end
 

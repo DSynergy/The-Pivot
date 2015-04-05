@@ -1,0 +1,13 @@
+@import 'base';
+
+#cart-title {
+  width: 100%;
+  text-align:center;
+  margin-bottom:50px;
+  color:$main-teal;
+  font-family:$sub-font;
+}
+
+#cart table tfoot td{
+  border:none;
+}

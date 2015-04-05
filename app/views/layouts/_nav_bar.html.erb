@@ -5,20 +5,25 @@
           <%= link_to "Log out", logout_path, method: :delete, class: "btn-lg navbar-right"%>
         <% else %>
           <li><%= link_to "Sign Up", new_user_path, class: 'btn-lg navbar-right' %></li>
-          <%= link_to "Log in", login_path, class: 'btn-lg navbar-right' %>
+          <%= link_to "Log in", new_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
         <% end %>
       </li>
       <li class="logo"><a href="/"><%= image_tag "travel_home_logo.png", class: "navbar-left" %></a></li>
-      <li><%= link_to "Cart", cart_path, class: 'btn-lg navbar-right' %></li>
+      <li>
+        <%= link_to cart_path, class: 'btn-lg navbar-right' do %>
+          <span class="glyphicon glyphicon-shopping-cart smaller" aria-hidden="true"></span>
+        <% end %>
+      </li>
 
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="City...">
         </div>
-        <!-- <span class="glyphicon glyphicon-search smaller" aria-hidden="true"></span> -->
-        <button type="submit" class="btn">Search</button>
+        <button type="submit" class="btn"><span class="glyphicon glyphicon-search smaller" aria-hidden="true"></span></button>
       </form>
 
     </ul>
 
 <% end %>
+
+

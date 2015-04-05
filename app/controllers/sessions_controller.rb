@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -10,7 +14,7 @@ class SessionsController < ApplicationController
       if @user.admin?
         redirect_to admin_path
       else
-        redirect_to traveler_path(@user) 
+        redirect_to traveler_path(@user)
       end
     else
       flash[:error] = "Login failed"

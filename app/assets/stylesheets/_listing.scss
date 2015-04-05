@@ -13,20 +13,17 @@
   margin-bottom:30px;
   text-align:center;
   border:3px solid $light-teal;
-
+  &:hover{
+    background-color:$transparent-teal;
+  }
+  &:hover .photo {
+    filter: grayscale(100%);
+  }
   figure{
     margin-bottom:20px;
   }
 
   a{
-
-    &:hover .middle{
-      background-color:$mint;
-    }
-
-    &:hover .photo {
-      filter: grayscale(100%);
-    }
   }
 }
 
@@ -43,24 +40,26 @@
   padding-bottom:10px;
 }
 
-.input-daterange{
-  h3 {
-    text-align:center;
-  }
 
   #from-date, #to-date{
   margin-top:10px;
   margin:0 auto;
   margin-bottom:10px;
-  text-align:center;
+  text-align:right;
+  float:right;
   }
 
-}
 #calendar{
   input[type="submit"] {
       margin:0 auto;
+      margin-left:152px;
     }
   }
+
+
+#listing-title{
+  margin-bottom:170px;
+}
 
 #listings-title{
   margin-bottom:30px;
@@ -108,11 +107,16 @@
 
 }
 
-  .photo {
+#listing-show .photo {
     height:200px;
     width:auto;
+    margin-top:-110px;
  }
 
+ .photo{
+    height:200px;
+    width:auto;
+  }
 
 .listing-description {
   min-height: 25px;
