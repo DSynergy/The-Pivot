@@ -1,5 +1,6 @@
 def login_as(user)
-  visit login_path
+  visit root_path
+  click_on("Log in")
 
   fill_in "session[username]", with: user.username
   fill_in "session[email_address]", with: user.email_address

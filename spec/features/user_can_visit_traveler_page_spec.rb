@@ -5,7 +5,7 @@ RSpec.describe "user visit traveler page spec" do
 
   it "can view traveler page" do
     sign_in(:user)
-    expect(page).to have_content("Traveler Page: #{user.username}")
+    expect(page).to have_content("Traveler Page")
   end
 
   def sign_in(user)
