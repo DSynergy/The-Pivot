@@ -32,10 +32,10 @@ first(:css, "#small_submit_button").click
     it "returns to previous url after logging in" do
       visit root_path
       click_on("Browse All Listings")
-      click_on("Log in")
+      click_on("Log In")
       fill_in("session[username]", with: "Sally")
       fill_in("session[password]", with: "password")
-      click_on("Submit")
+      first(:css, "#small_submit_button").click
 
       expect(page).to have_content("All Listings")
     end
