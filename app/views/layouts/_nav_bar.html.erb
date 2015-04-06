@@ -3,6 +3,7 @@
       <li>
         <% if current_user %>
           <%= link_to "Traveler Page", traveler_path(current_user) %>
+          <%= link_to "Host Page", host_path(current_user) %>
           <%= link_to "Log out", logout_path, method: :delete, class: "btn-lg navbar-right"%>
         <% else %>
           <li><%= link_to "Sign Up", new_user_path, class: 'btn-lg navbar-right' %></li>

@@ -5,9 +5,9 @@ RSpec.describe "user visit host page spec" do
 
   it "can view host page" do
     sign_in(:user)
-    click_on("View Host Page")
+    click_on("Host Page")
     
-    expect(page).to have_content("Traveler Page")
+    expect(page).to have_content("Host Page: #{user.username}")
   end
 
   def sign_in(user)
