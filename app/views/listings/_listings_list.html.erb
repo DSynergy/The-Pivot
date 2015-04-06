@@ -9,6 +9,7 @@
             <figure><%= image_tag "default.jpg", class: "photo" %></figure>
           </div>
           <div class="right">
+            <p><%= link_to "Add Listing", cart_path, method: :create %>
             <p class="listing-description"><%= listing.description %></p>
             <h3 class="listing-price">$<%= listing.price %></h3>
             <p class="listing-calendar">dates</p>
