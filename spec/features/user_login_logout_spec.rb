@@ -29,6 +29,17 @@ first(:css, "#small_submit_button").click
       end
     end
 
+    it "returns to previous url after logging in" do
+      visit root_path
+      click_on("Browse All Listings")
+      click_on("Log in")
+      fill_in("session[username]", with: "Sally")
+      fill_in("session[password]", with: "password")
+      click_on("Submit")
+
+      expect(page).to have_content("All Listings")
+    end
+
   end
 
   context "when logged in" do
@@ -53,10 +64,9 @@ first(:css, "#small_submit_button").click
     first(:css, "#small_submit_button").click
     click_link_or_button("Log out")
 
-    within("#flash_notice") do
-      expect(page).to have_content("You have been logged out")
+      within("#flash_notice") do
+       expect(page).to have_content("You have been logged out")
+      end
+      expect(current_path).to eq(root_path)
     end
-    expect(current_path).to eq(root_path)
   end
-
-end

@@ -1,4 +1,10 @@
 class SessionsController < ApplicationController
+  before_action :store_url, only: [:new]
+
+  def store_url
+    session[:previous_url] = request.referrer
+  end
+
   def new
   end
 
@@ -10,7 +16,7 @@ class SessionsController < ApplicationController
       if @user.admin?
         redirect_to admin_path
       else
-        redirect_to traveler_path(@user)
+        redirect_to session[:previous_url]
       end
     else
       flash[:error] = "Login failed"
