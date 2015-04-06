@@ -9,7 +9,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem "simple_calendar", "~> 1.1.0"
 gem 'autoprefixer-rails'
 gem 'bcrypt', '~> 3.1.7'
 
@@ -20,8 +19,6 @@ gem "therubyracer"
 gem 'less-rails'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass'
-gem "bootstrap_form"
-gem 'simple_form', '~> 3.1'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem "rails_12factor", group: :production
