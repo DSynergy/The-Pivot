@@ -34,7 +34,7 @@ class Seed
 
   def generate_pictures
     Listing.all.each do |listing|
-      listing.pictures << Picture.create(url: "default_image")
+      listing.pictures << Picture.create(url: "default_image.jpg")
       puts "#{listing.pictures.first.url }"
       end
   end

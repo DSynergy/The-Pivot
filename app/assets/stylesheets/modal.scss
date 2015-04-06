@@ -13,6 +13,11 @@
 }
 .modal-body{
   background-color:$background-teal;
+
+  img{
+    width:400px;
+    height:auto;
+  }
 }
 
 .modal-open .modal{
