@@ -13239,3 +13239,209 @@ Processing by ListingsController#show as HTML
   Rendered users/_new.html.erb (1.0ms)
   Rendered layouts/_nav_bar.html.erb (5.2ms)
 Completed 200 OK in 445ms (Views: 442.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/listings/1" for ::1 at 2015-04-05 21:41:15 -0600
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mListing Load (0.3ms)[0m  SELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered listings/_calendar.html.erb (1.0ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1[0m  [["listing_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1  [["listing_id", 1]]
+  Rendered listings/_show_details.html.erb (2.5ms)
+  [1m[36mPicture Load (0.3ms)[0m  [1mSELECT  "pictures".* FROM "pictures" WHERE "pictures"."listing_id" = $1  ORDER BY "pictures"."id" ASC LIMIT 1[0m  [["listing_id", 1]]
+  Rendered listings/show.html.erb within layouts/application (11.0ms)
+  Rendered sessions/_new.html.erb (1.0ms)
+  Rendered users/_new.html.erb (1.2ms)
+  Rendered layouts/_nav_bar.html.erb (13.9ms)
+Completed 200 OK in 432ms (Views: 429.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cart" for ::1 at 2015-04-05 21:41:36 -0600
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (0.6ms)
+  Rendered sessions/_new.html.erb (2.1ms)
+  Rendered users/_new.html.erb (1.0ms)
+  Rendered layouts/_nav_bar.html.erb (6.0ms)
+Completed 200 OK in 440ms (Views: 439.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cart" for ::1 at 2015-04-05 21:41:51 -0600
+Processing by CartsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MLSA25YRk/Z8qHdPE/6reOArc2HO8ZNbdCn/ST4sAH4Lsf7imKkIT1qYsr+EZVREZEUuzZir69HNelT+n8LorA==", "listing"=>{"start_date"=>"04/07/2015", "end_date"=>"04/09/2015"}, "listing_id"=>"1"}
+  [1m[35mListing Load (1.1ms)[0m  SELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/listings/1
+Completed 302 Found in 3ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/listings/1" for ::1 at 2015-04-05 21:41:52 -0600
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mListing Load (0.4ms)[0m  [1mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered listings/_calendar.html.erb (0.7ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1  [["listing_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1[0m  [["listing_id", 1]]
+  Rendered listings/_show_details.html.erb (3.9ms)
+  [1m[35mPicture Load (0.4ms)[0m  SELECT  "pictures".* FROM "pictures" WHERE "pictures"."listing_id" = $1  ORDER BY "pictures"."id" ASC LIMIT 1  [["listing_id", 1]]
+  Rendered listings/show.html.erb within layouts/application (12.2ms)
+  Rendered sessions/_new.html.erb (1.0ms)
+  Rendered users/_new.html.erb (1.2ms)
+  Rendered layouts/_nav_bar.html.erb (4.2ms)
+Completed 200 OK in 405ms (Views: 402.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cart" for ::1 at 2015-04-05 21:42:03 -0600
+Processing by CartsController#show as HTML
+  [1m[36mListing Load (0.6ms)[0m  [1mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered carts/_cart_details.html.erb (3.6ms)
+  Rendered carts/show.html.erb within layouts/application (12.7ms)
+  Rendered sessions/_new.html.erb (0.9ms)
+  Rendered users/_new.html.erb (1.2ms)
+  Rendered layouts/_nav_bar.html.erb (3.9ms)
+Completed 200 OK in 459ms (Views: 457.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/cart" for ::1 at 2015-04-05 21:42:07 -0600
+Processing by CartsController#create as HTML
+  Parameters: {"authenticity_token"=>"Q3xjF6SzYdoXpCqt1zuGImZ7jAvcx/Esz+tKdUynmO54eR0uqgv6YzGU711AoHke4hXRp4qdiaZ2uOHC7UlwPA=="}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/carts_controller.rb:18:in `create'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal.rb:195:in `dispatch'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_controller/metal.rb:236:in `block in action'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:42:in `serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/journey/router.rb:43:in `block in serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/journey/router.rb:30:in `serve'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/reloader.rb:73:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/rack/logger.rb:20:in `call'
+  disable_assets_logger (1.0.0) lib/disable_assets_logger/middleware.rb:11:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.0/lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/engine.rb:518:in `call'
+   () Users/Kyra/.rvm/gems/ruby-2.1.5@global/gems/railties-4.2.0/lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Kyra/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/6c70edb9eafd9619/variables" for ::1 at 2015-04-05 21:42:07 -0600
+  [1m[36mPicture Load (0.7ms)[0m  [1mSELECT "pictures".* FROM "pictures"[0m
+  [1m[35mListing Load (1.4ms)[0m  SELECT  "listings".* FROM "listings"  ORDER BY "listings"."id" ASC LIMIT 1
+  [1m[36mPicture Load (0.3ms)[0m  [1mSELECT "pictures".* FROM "pictures" WHERE "pictures"."listing_id" = $1[0m  [["listing_id", 1]]
+
+
+Started GET "/listings" for ::1 at 2015-04-05 21:52:37 -0600
+Processing by ListingsController#index as HTML
+  [1m[35mListing Load (0.5ms)[0m  SELECT "listings".* FROM "listings" WHERE "listings"."status" = $1  [["status", 0]]
+  Rendered listings/_listings_list.html.erb (162.0ms)
+  Rendered listings/index.html.erb within layouts/application (163.1ms)
+  Rendered sessions/_new.html.erb (1.8ms)
+  Rendered users/_new.html.erb (2.3ms)
+  Rendered layouts/_nav_bar.html.erb (7.2ms)
+Completed 200 OK in 571ms (Views: 570.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/listings/1" for ::1 at 2015-04-05 21:52:40 -0600
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mListing Load (0.2ms)[0m  [1mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered listings/_calendar.html.erb (2.6ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1  [["listing_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1[0m  [["listing_id", 1]]
+  Rendered listings/_show_details.html.erb (4.5ms)
+  [1m[35mPicture Load (0.4ms)[0m  SELECT  "pictures".* FROM "pictures" WHERE "pictures"."listing_id" = $1  ORDER BY "pictures"."id" ASC LIMIT 1  [["listing_id", 1]]
+  Rendered listings/show.html.erb within layouts/application (16.8ms)
+  Rendered sessions/_new.html.erb (1.0ms)
+  Rendered users/_new.html.erb (1.0ms)
+  Rendered layouts/_nav_bar.html.erb (4.0ms)
+Completed 200 OK in 419ms (Views: 416.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/listings" for ::1 at 2015-04-05 21:52:51 -0600
+Processing by ListingsController#index as HTML
+  [1m[36mListing Load (1.1ms)[0m  [1mSELECT "listings".* FROM "listings" WHERE "listings"."status" = $1[0m  [["status", 0]]
+  Rendered listings/_listings_list.html.erb (214.5ms)
+  Rendered listings/index.html.erb within layouts/application (215.6ms)
+  Rendered sessions/_new.html.erb (2.0ms)
+  Rendered users/_new.html.erb (3.5ms)
+  Rendered layouts/_nav_bar.html.erb (9.5ms)
+Completed 200 OK in 631ms (Views: 629.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/listings/1" for ::1 at 2015-04-05 21:52:53 -0600
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mListing Load (0.7ms)[0m  SELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered listings/_calendar.html.erb (0.7ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1[0m  [["listing_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1  [["listing_id", 1]]
+  Rendered listings/_show_details.html.erb (3.3ms)
+  [1m[36mPicture Load (0.6ms)[0m  [1mSELECT  "pictures".* FROM "pictures" WHERE "pictures"."listing_id" = $1  ORDER BY "pictures"."id" ASC LIMIT 1[0m  [["listing_id", 1]]
+  Rendered listings/show.html.erb within layouts/application (12.2ms)
+  Rendered sessions/_new.html.erb (0.7ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered layouts/_nav_bar.html.erb (3.1ms)
+Completed 200 OK in 384ms (Views: 378.4ms | ActiveRecord: 1.9ms)

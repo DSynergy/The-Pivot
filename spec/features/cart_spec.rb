@@ -4,8 +4,10 @@ RSpec.describe "Cart" do
   before(:each) do
     listing =  create(:listing, available_dates: "{2=>3}")
     listing.categories.create(name: "home")
+    listing.pictures.create(url: "default_image.jpg")
     visit listings_path
     click_link_or_button("Bacon Maple Crunch")
+
     fill_in "from-date", :with => "01/01/2015"
     fill_in "to-date", :with => "01/01/2015"
     click_link_or_button("Add to Itinerary")
