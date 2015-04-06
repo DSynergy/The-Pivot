@@ -1,11 +1,10 @@
 def login_as(user)
-  visit login_path
+  visit root_path
+  first(:css, ".login-username").set(user.username)
+  first(:css, ".login-email").set(user.email_address)
+  first(:css, ".login-password").set(user.password)
 
-  fill_in "session[username]", with: user.username
-  fill_in "session[email_address]", with: user.email_address
-  fill_in "session[password]", with: user.password
-
-  click_link_or_button "Submit"
+  first(:css, "#small_submit_button").click
 end
 
 def set_current_user(user)

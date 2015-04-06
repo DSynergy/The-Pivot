@@ -8,15 +8,15 @@
   <%= form_for(:session, url: login_path, role: "form") do |f| %>
     <div id="login-form">
       <div>
-        <%= f.label :username %>
+        <%= f.label :username, class: "login-username" %>
         <%= f.text_field :username, class: "form-control"%>
       </div>
       <div class="form-group">
-        <%= f.label :email_address %>
+        <%= f.label :email_address, class: "login-email" %>
         <%= f.text_field :email_address, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :password %>
+        <%= f.label :password, class: "login-password" %>
         <%= f.password_field :password, class: "form-control" %>
       </div>
 

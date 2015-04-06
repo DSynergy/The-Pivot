@@ -10,7 +10,7 @@ RSpec.describe "Cart" do
 
     fill_in "from-date", :with => "01/01/2015"
     fill_in "to-date", :with => "01/01/2015"
-    click_link_or_button("Add to Itinerary")
+    click_button("Add to Itinerary")
   end
 
   it "shows a list of cart items" do

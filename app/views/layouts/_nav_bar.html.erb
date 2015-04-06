@@ -5,7 +5,7 @@
         <%= link_to "Log out", logout_path, method: :delete, class: "btn-lg navbar-right"%>
       <% else %>
         <a href="#" class='btn-lg navbar-right' data-toggle="modal" data-target='#modal-window-sign-up'>Sign Up</a>
-        <a href="#" class='btn-lg navbar-right' data-toggle="modal" data-target='#modal-window'>Log In</a>
+        <a href="#" class='btn-lg navbar-right' id="login-button" data-toggle="modal" data-target='#modal-window'>Log In</a>
       <% end %>
     </li>
     <li class="logo"><a href="/"><%= image_tag "travel_home_logo.png", class: "navbar-left" %></a></li>

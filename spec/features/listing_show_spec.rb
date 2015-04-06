@@ -44,16 +44,17 @@ RSpec.describe "Listing show" do
   end
 
  it "displays a custom picture" do
+    listing.pictures.create(url: "default_image.jpg")
     visit listing_path(listing)
       expect(page).to have_css("img")
   end
 
   it "has a link to add listing to cart" do
+    listing.pictures.create(url: "default_image.jpg")
     visit listing_path(listing)
+    expect(page).to have_button("Add to Itinerary")
 
-    expect(page).to have_button("Add to Cart")
-
-    click_link_or_button("Add to Cart")
+    click_link_or_button("Add to Itinerary")
 
     expect(current_path).to eq(listing_path(listing))
     expect(page).to have_selector("#flash_notice")
