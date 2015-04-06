@@ -22,12 +22,3 @@
     </ul>
 
 <% end %>
-
-<footer>
-  <% if current_user %>
-     <%= link_to "Traveler Page", traveler_path(current_user) %> |
-     <%= link_to "Host Page", host_path(current_user) %>
-   <% else %>
-     Nothing to see here.
-  <% end %> 
-</footer>
