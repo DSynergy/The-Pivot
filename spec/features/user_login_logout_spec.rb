@@ -8,14 +8,10 @@ RSpec.describe 'User login/logout spec' do
     it "can login with valid credentials" do
       visit root_path
 
-      click_link_or_button("Log in")
-
-      expect(current_path).to eq(login_path)
-
       fill_in("session[username]", with: "Sally")
       fill_in("session[password]", with: "password")
 
-      click_link_or_button("Submit")
+      first(:css, "#small_submit_button").click
 
       within("#flash_notice") do
         expect(page).to have_content("Successfully logged in as #{user.username}")
@@ -24,11 +20,9 @@ RSpec.describe 'User login/logout spec' do
 
     it "cannot login with invalid credentials" do
       visit root_path
-      click_link_or_button("Log in")
       fill_in("session[username]", with: "Richard")
       fill_in("session[password]", with: "beiber")
-
-      click_link_or_button("Submit")
+first(:css, "#small_submit_button").click
 
       within("#flash_error") do
         expect(page).to have_content("Login failed")
@@ -51,29 +45,24 @@ RSpec.describe 'User login/logout spec' do
   context "when logged in" do
     it "sees a link logout on the page" do
       visit root_path
-      click_on("Log in")
-      
+
       fill_in("session[username]", with: "Sally")
       fill_in("session[password]", with: "password")
-      click_on("Submit")
+      first(:css, "#small_submit_button").click
 
       expect(page).to have_content("Log out")
-
       visit cart_path
-
       expect(page).to have_content("Log out")
     end
   end
 
-    it "user can log out" do
-      visit root_path
-      click_on("Log in")
-      
-      fill_in("session[username]", with: "Sally")
-      fill_in("session[password]", with: "password")
-      click_on("Submit")
+  it "user can log out" do
+    visit root_path
 
-      click_link_or_button("Log out")
+    fill_in("session[username]", with: "Sally")
+    fill_in("session[password]", with: "password")
+    first(:css, "#small_submit_button").click
+    click_link_or_button("Log out")
 
       within("#flash_notice") do
        expect(page).to have_content("You have been logged out")

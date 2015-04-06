@@ -6,8 +6,13 @@
   background-color:transparent;
   padding-left:0;
 
-  li, #contact{
+  a{
+    line-height:1.7em;
     font-family:$sub-font;
+
+    &:focus{
+      text-decoration:none;
+    }
   }
 
   input{
@@ -18,6 +23,10 @@
     background-color:rgba(255, 255, 255, 0.89);
     width:100%;
   }
+}
+
+.navbar-default{
+  border-bottom-color:$mint;
 }
 
 footer{
@@ -36,6 +45,15 @@ footer{
 
 .navbar-form{
   width:400px;
+  margin:0;
+}
+
+button[type="submit"] {
+  padding-left:0;
+
+  .glyphicon{
+    padding:0;
+  }
 }
 
 .form-group .form-control{
@@ -47,7 +65,7 @@ footer{
 }
 
 .logo img{
-  width:35px;
+  width:25px;
   height:auto;
   margin-top:7px;
 }

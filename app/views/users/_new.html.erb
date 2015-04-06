@@ -1,6 +1,12 @@
-<h1>Sign Up Page</h1>
 
-<%= form_for @user do |f| %>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h3 id="myModalLabel">Sign Up</h3>
+</div>
+
+<div class="modal-body">
+
+<%= form_for(:user, url: new_user_path) do |f| %>
   <div id="login-form">
     <div>
       <%= f.label :username %>
@@ -22,3 +28,5 @@
     <%= f.submit "Submit", id: "small_submit_button", class: "btn" %>
   </div>
 <% end %>
+
+</div>

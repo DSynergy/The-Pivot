@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
         redirect_to admin_path
       else
         redirect_to session[:previous_url]
-#        redirect_to traveler_path(@user) 
       end
     else
       flash[:error] = "Login failed"

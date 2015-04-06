@@ -5,16 +5,14 @@ class Cart
     @content = content || Hash.new
   end
 
-  def listings_with_quantity
-    format_quantity
+  def listings_with_dates
     listings = {}
-    content.each { |id, quantity| listings[Listing.find(id)] = quantity }
+    content.each { |id, dates| listings[Listing.find(id)] = dates }
     listings
   end
 
-  def add_listing(listing_id)
-    content[listing_id] ||= 0
-    content[listing_id] += 1
+  def add_listing(listing_id, dates)
+    content[listing_id] = dates
   end
 
   def remove_listing(listing_id)

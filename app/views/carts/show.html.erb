@@ -1,0 +1,9 @@
+<%= link_to "Back to Listings", listings_path, class: "btn backb btn-small"  %>
+<h3 id="cart-title">Shopping Cart</h3>
+<div id="cart">
+  <% if !@cart_contents.empty? %>
+    <%= render partial: "cart_details" %>
+  <% else %>
+    <p> "There are no items in your cart" </p>
+  <% end %>
+</div>

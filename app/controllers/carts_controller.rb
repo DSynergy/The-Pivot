@@ -1,16 +1,6 @@
 class CartsController < ApplicationController
-  def index
+  def show
     @cart_contents = @cart.content
-  end
-
-  def create
-    listing_id = params[:listing_id]
-    @cart.add_listing(listing_id)
-    session[:cart] = @cart.content
-    listing = Listing.find(listing_id)
-
-    flash[:notice] = "#{listing.title} added to cart"
-    redirect_to(:back)
   end
 
   def destroy
@@ -20,5 +10,18 @@ class CartsController < ApplicationController
 
     flash[:notice] = "#{listing.name} removed from cart"
     redirect_to cart_path
+  end
+
+
+  def create
+    listing_id = params[:listing_id]
+    start_date = params[:listing][:start_date]
+    end_date = params[:listing][:end_date]
+    @cart.add_listing(listing_id, [start_date, end_date])
+    session[:cart] = @cart.content
+    listing = Listing.find(listing_id)
+
+    flash[:notice] = "#{listing.title} added to itinerary, #{start_date}-#{end_date}"
+    redirect_to(:back)
   end
 end

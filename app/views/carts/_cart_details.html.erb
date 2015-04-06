@@ -1,0 +1,17 @@
+<table id="cart" class="table table-striped">
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+  </tr>
+  <% @cart.listings_with_dates.each do |listing, dates| %>
+    <tr>
+      <td><h4><%= listing.title %></h4></td>
+      <td><%= dates %></td>
+    </tr>
+  <% end %>
+  <tfoot>
+    <td colspan="4">
+      <%= button_to "Book Itinerary", "#", class: "btn", data: { confirm: "Proceed to Checkout?" } %>
+    </td>
+  </tfoot>
+</table>
