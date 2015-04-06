@@ -9,6 +9,10 @@
   a{
     line-height:1.7em;
     font-family:$sub-font;
+
+    &:focus{
+      text-decoration:none;
+    }
   }
 
   input{

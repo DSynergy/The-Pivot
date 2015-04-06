@@ -23,7 +23,7 @@ $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js
   .datepicker({
 
     weekStart: 1,
-    startDate: startDate,
+    startDate: today,
     endDate: ToEndDate,
     autoclose: true
   })

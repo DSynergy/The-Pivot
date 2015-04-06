@@ -52,7 +52,12 @@
 #calendar{
   input[type="submit"] {
       margin:0 auto;
-      margin-left:152px;
+      margin-left:129px;
+      background:none;
+      border:3px solid $main-teal;
+      font-family:$sub-font;
+      width:66%;
+      padding:15px;
     }
   }
 
@@ -111,6 +116,12 @@
     height:200px;
     width:auto;
     margin-top:-110px;
+ }
+
+  .photo{
+   &:hover{
+    filter: grayscale(100%);
+   }
  }
 
  .photo{
