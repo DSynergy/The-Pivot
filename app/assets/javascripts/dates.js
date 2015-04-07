@@ -1,29 +1,22 @@
-
 $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js", function(){
-  var startDate = new Date('01/01/2015');
-  var nowDate = new Date();
+  var today = new Date();
   var FromEndDate = new Date();
+  FromEndDate.setDate(today.getDate() + 30);
+
   var ToEndDate = new Date();
-  var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
-  var dates = Date.now();
   ToEndDate.setDate(ToEndDate.getDate()+365);
 
   $('.from_date').datepicker({
-    weekStart: 1,
     startDate: today,
     endDate: FromEndDate,
     autoclose: true,
-    datesDisabled: [new Date(2015, 3, 20), new Date(2015, 3, 22)],
-  })
-  .on('changeDate', function(selected){
+  }).on('changeDate', function(selected){
     startDate = new Date(selected.date.valueOf());
     startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
     $('.to_date').datepicker('setStartDate', startDate);
   });
-  $('.to_date')
-  .datepicker({
 
-    weekStart: 1,
+  $('.to_date').datepicker({
     startDate: today,
     endDate: ToEndDate,
     autoclose: true
@@ -33,7 +26,6 @@ $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js
     FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
     $('.from_date').datepicker('setEndDate', FromEndDate);
   });
-
 });
 
 
