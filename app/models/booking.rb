@@ -16,10 +16,11 @@ class Booking < ActiveRecord::Base
     end
   end
 
+=end
+
   def self.generate_booking(user, cart)
     create(user_id: user.id, cart: cart)
   end
-=end
 
   def total_days_per_booking
     cart.each { |listing_id, dates| cart[listing_id] = dates.count('=') }.values.reduce(:+)

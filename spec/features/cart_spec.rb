@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Cart" do
   before(:each) do
-    listing =  create(:listing, start_date: "{2=>3}", end_date: "{2=>4}")
+    listing =  create(:listing, available_dates: "{2=>3}")
     listing.categories.create(name: "home")
     listing.pictures.create(url: "default_image.jpg")
     visit listing_path(listing)
