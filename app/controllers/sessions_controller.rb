@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    session[:stored_url] = request.referrer
   end
 
   def create
@@ -10,6 +11,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       if @user.admin?
         redirect_to admin_path
+      elsif session[:stored_url] != nil
+        redirect_to session[:stored_url] 
       else
         redirect_to request.referrer
       end
