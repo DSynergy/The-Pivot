@@ -22,7 +22,7 @@ class Seed
       listing = user.listings.create!(title: Faker::Company.name, description: Faker::Lorem.sentence,
                            private_bathroom: [true, false].sample, price: Faker::Commerce.price.to_f,
                            quantity_available: rand(1..4), people_per_unit: rand(1..10),
-                           available_dates: generate_dates, status: rand(1),
+                           start_date: generate_dates, end_date: generate_end_dates, status: rand(1),
                            street_address: Faker::Address.street_address, city: Faker::Address.city,
                            state: Faker::Address.state, country: Faker::Address.country,
                            zipcode: Faker::Address.zip) do |listing|
@@ -41,9 +41,13 @@ class Seed
 
   def generate_dates
     [
-     {"Jan3" => 0, "Jan4" => 0, "Jan5" => 0},
-     {"Mar11" => 0, "March12" => 0},
-     {"July3" => 0, "July4" => 0, "July5" => 0, "July6" => 0}
+     {"1" => 1},{ "1" => 2},{ "1" => 3}
+    ].sample
+  end
+
+  def generate_end_dates
+    [
+     {"1" => 4},{ "1" => 5},{ "1" => 6}
     ].sample
   end
 
@@ -64,9 +68,9 @@ class Seed
 
   def generate_cart
     [
-     {"1" => generate_dates},
-     {"2" => generate_dates},
-     {"3" => generate_dates}
+      {"1" => [generate_dates, generate_end_dates]},
+      {"1" => [generate_dates, generate_end_dates]},
+      {"1" => [generate_dates, generate_end_dates]},
     ].sample
   end
 

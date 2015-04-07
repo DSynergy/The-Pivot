@@ -1,5 +1,5 @@
 class Listing < ActiveRecord::Base
-  validates :title, :description, :price, :available_dates,
+  validates :title, :description, :price, :start_date, :end_date,
             :quantity_available, presence: true
   validates :title, uniqueness: true
   validates :price, :quantity_available, numericality: {greater_than: 0}
@@ -18,12 +18,12 @@ class Listing < ActiveRecord::Base
   #   status == 0
   # end
 
-  def available_count
-    available_dates.select {|key| available_dates[key].to_i == 0 }.count
-  end
+#  def available_count
+#    available_dates.select {|key| available_dates[key].to_i == 0 }.count
+#  end
 
-  def available_days
-    available_dates.select {|key| available_dates[key].to_i == 0 }.keys
-  end
+#  def available_days
+#    available_dates.select {|key| available_dates[key].to_i == 0 }.keys
+#  end
 
 end

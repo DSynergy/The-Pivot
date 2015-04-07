@@ -2,25 +2,22 @@ require 'rails_helper'
 
 RSpec.describe "Cart" do
   before(:each) do
-    listing =  create(:listing, available_dates: "{2=>3}")
+    listing =  create(:listing, start_date: "{2=>3}", end_date: "{2=>4}")
     listing.categories.create(name: "home")
     listing.pictures.create(url: "default_image.jpg")
     visit listing_path(listing)
-
-    fill_in "from-date", :with => "01/01/2015"
-    fill_in "to-date", :with => "01/01/2015"
-    click_button("Add to Itinerary")
+    fill_in('listing[start_date]', with: "05/10/2015")
+    fill_in('listing[end_date]', with: "05/13/2015")
+    click_link_or_button("Add to Itinerary")
+    save_and_open_page
+    visit cart_path
   end
 
   it "shows a list of cart listings" do
-    visit cart_path
     expect(page).to have_content("Bacon Maple Crunch")
   end
 
  xit "can remove a listing from the cart" do
-
-    visit cart_path
-
     click_link_or_button("Remove Listing")
 
     within("#flash_notice") do
@@ -32,8 +29,6 @@ RSpec.describe "Cart" do
   end
 
   xit "can increase an item's quantity in the cart" do
-    visit cart_path
-
     click_link_or_button("Add Item")
 
     within("#flash_notice") do
@@ -42,8 +37,6 @@ RSpec.describe "Cart" do
   end
 
   xit "persists from logged out state to logged in state" do
-    visit cart_path
-
     click_link_or_button("Add Item")
 
     within("#flash_notice") do
