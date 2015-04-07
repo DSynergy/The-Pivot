@@ -30,13 +30,13 @@
 }
 
 footer{
-  position:absolute;
   bottom:0;
   width:100%;
   line-height:50px;
   color: $main-teal;
   border-color: $main-teal;
   border-top: solid;
+  position:fixed;
 
   span#contact{
     margin-right: 7px;

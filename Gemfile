@@ -24,28 +24,15 @@ gem "momentjs-rails", '~> 2.9.0'
 
 group :development, :test do
   gem 'factory_girl_rails'
-
   gem 'byebug'
-
   gem 'pry'
-
   gem 'better_errors'
-
-  gem 'sprockets', '~> 2.0'
-
   gem 'web-console', '~> 2.0'
-
 #  gem 'spring'
-
   gem 'rspec-rails'
-
   gem 'launchy'
-
   gem 'capybara'
-
   gem 'selenium-webdriver'
-
   gem 'database_cleaner'
-
   gem 'disable_assets_logger', :group => :development
 end
