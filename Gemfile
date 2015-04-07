@@ -31,6 +31,8 @@ group :development, :test do
 
   gem 'better_errors'
 
+  gem 'sprockets', '~> 2.0'
+
   gem 'web-console', '~> 2.0'
 
   gem 'spring'
