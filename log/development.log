@@ -35507,3 +35507,22 @@ Completed 200 OK in 389ms (Views: 388.5ms | ActiveRecord: 0.3ms)
   [1m[36mBooking Load (2.7ms)[0m  [1mSELECT "bookings".* FROM "bookings"[0m
   [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 51]]
   [1m[35mBooking Load (1.1ms)[0m  SELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1  [["user_id", 51]]
+
+
+Started GET "/listings/1" for ::1 at 2015-04-07 13:40:28 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mListing Load (1.1ms)[0m  SELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 51]]
+  Rendered listings/_calendar.html.erb (1.1ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1  [["listing_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" INNER JOIN "listing_categories" ON "categories"."id" = "listing_categories"."category_id" WHERE "listing_categories"."listing_id" = $1  ORDER BY "categories"."id" ASC LIMIT 1[0m  [["listing_id", 1]]
+  Rendered listings/_show_details.html.erb (36.2ms)
+  [1m[35mPicture Load (0.5ms)[0m  SELECT  "pictures".* FROM "pictures" WHERE "pictures"."listing_id" = $1  ORDER BY "pictures"."id" ASC LIMIT 1  [["listing_id", 1]]
+  Rendered listings/show.html.erb within layouts/application (359.8ms)
+  Rendered sessions/_new.html.erb (9.2ms)
+  Rendered users/_new.html.erb (1.7ms)
+  Rendered layouts/_nav_bar.html.erb (15.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 979ms (Views: 932.8ms | ActiveRecord: 13.6ms)
