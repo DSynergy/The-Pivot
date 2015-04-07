@@ -6,6 +6,7 @@ FactoryGirl.define do
     role 0
     credit_card '1234-5678-9012-3456'
     billing_address 'blahblahblah'
+    display_name 'SuperStarSally123'
   end
 
   factory :admin, class: User do

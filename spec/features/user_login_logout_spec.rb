@@ -14,7 +14,7 @@ RSpec.describe 'User login/logout spec' do
       first(:css, "#small_submit_button").click
 
       within("#flash_notice") do
-        expect(page).to have_content("Successfully logged in as #{user.username}")
+        expect(page).to have_content("Successfully logged in as #{user.display_name ? user.display_name : user.username}")
       end
     end
 
@@ -22,7 +22,7 @@ RSpec.describe 'User login/logout spec' do
       visit root_path
       fill_in("session[username]", with: "Richard")
       fill_in("session[password]", with: "beiber")
-first(:css, "#small_submit_button").click
+      first(:css, "#small_submit_button").click
 
       within("#flash_error") do
         expect(page).to have_content("Login failed")
@@ -67,6 +67,7 @@ first(:css, "#small_submit_button").click
       within("#flash_notice") do
        expect(page).to have_content("You have been logged out")
       end
-      expect(current_path).to eq(root_path)
-    end
+    expect(current_path).to eq(root_path)
   end
+
+end

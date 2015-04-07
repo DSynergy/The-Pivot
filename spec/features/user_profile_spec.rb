@@ -28,7 +28,7 @@ RSpec.describe "Authenticated User profile" do
     click_link_or_button("Order History")
 
     expect(current_path).to eq(orders_path)
-    expect(page).to have_content("#{user.username}'s Orders")
+    expect(page).to have_content("#{user.display_name ? user.display_name : user.username}'s Orders")
   end
 
   it "sees Order History" do
