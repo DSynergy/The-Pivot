@@ -32,8 +32,20 @@ RSpec.describe 'User confirm booking spec' do
      click_link_or_button("Book Itinerary")
    end
 
-
   context "when not logged in" do
+
+    it "can pick available dates for reservation and add to cart" do
+      listing = create(:listing, available_dates: '{{1=>1, 1=>2, 1=>3}}')
+      listing.categories.create(name: "house")
+      listing.pictures.create(url: "default_image.jpg")
+      visit listing_path(listing)
+
+      fill_in("listing[start_date]", with: "01/01/2015")
+      fill_in("listing[end_date]", with: "01/03/2015")
+      click_on("Add to Itinerary")
+
+      expect(page).to have_content("Successfully added to Itinerary: January 21-23")
+    end
 
     it "cannot checkout cart" do
       add_a_booking

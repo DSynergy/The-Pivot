@@ -18,5 +18,6 @@ class User < ActiveRecord::Base
     end
   end
 
+  #when fails validation
 
 end
