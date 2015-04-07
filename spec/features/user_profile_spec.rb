@@ -5,10 +5,16 @@ RSpec.describe "Authenticated User profile" do
   before(:each) { set_current_user(user) }
 
   it "submits an order when cart is checked out" do
-    set_cart
-    visit cart_path
+    listing1 = create(:listing)
+    listing1.pictures.create(url: "default-image")
+    visit listing_path(listing1)
+    fill_in("listing[end_date]", with: "11/07/2015")
+    fill_in("listing[start_date]", with: "11/01/2015")
+    click_link_or_button("Add to Itinerary")
 
-    click_link_or_button("Checkout")
+    visit cart_path
+    expect(page).to have_content("Bacon Maple Crunch")
+    click_link_or_button("Book Itinerary")
     visit orders_path
 
     expect(page).to have_content("Cheese Toast")

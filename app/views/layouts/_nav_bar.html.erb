@@ -1,24 +1,44 @@
 <%= nav_bar static: :top, responsive: true do %>
-    <ul class="navbar">
-      <li>
-        <% if current_user %>
-          <%= link_to "Log out", logout_path, method: :delete, class: "btn-lg navbar-right"%>
-        <% else %>
-          <li><%= link_to "Sign Up", new_user_path, class: 'btn-lg navbar-right' %></li>
-          <%= link_to "Log in", login_path, class: 'btn-lg navbar-right' %>
-        <% end %>
-      </li>
-      <li class="logo"><a href="/"><%= image_tag "travel_home_logo.png", class: "navbar-left" %></a></li>
-      <li><%= link_to "Cart", cart_path, class: 'btn-lg navbar-right' %></li>
+  <ul class="navbar">
+    <li>
+      <% if current_user %>
+        <%= link_to "Log out", logout_path, method: :delete, class: "btn-lg navbar-right"%>
+      <% else %>
+        <a href="#" class='btn-lg navbar-right' data-toggle="modal" data-target='#modal-window-sign-up'>Sign Up</a>
+        <a href="#" class='btn-lg navbar-right' id="login-button" data-toggle="modal" data-target='#modal-window'>Log In</a>
+      <% end %>
+    </li>
+    <li class="logo"><a href="/"><%= image_tag "travel_home_logo.png", class: "navbar-left" %></a></li>
+    <li>
+      <%= link_to cart_path, class: 'btn-lg navbar-right' do %>
+        <span id="shopping-cart" class="glyphicon glyphicon-shopping-cart smaller" aria-hidden="true"></span>
+      <% end %>
+    </li>
 
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="City...">
-        </div>
-        <!-- <span class="glyphicon glyphicon-search smaller" aria-hidden="true"></span> -->
-        <button type="submit" class="btn">Search</button>
-      </form>
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="City...">
+      </div>
+      <button type="submit" class="btn"><span class="glyphicon glyphicon-search smaller" aria-hidden="true"></span></button>
+    </form>
 
-    </ul>
+  </ul>
 
 <% end %>
+
+<div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= render "sessions/new" %>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal-window-sign-up" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= render "users/new" %>
+    </div>
+  </div>
+</div>

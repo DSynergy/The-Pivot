@@ -2,14 +2,68 @@
 
 .listing-title, .photo, #listings-title {
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 10px;
   color: $main-teal;
   font-family:$sub-font;
 }
 
 .middle{
-  width:75%;
+  width:85%;
   margin:0 auto;
+  margin-bottom:30px;
+  text-align:center;
+  border:3px solid $light-teal;
+  &:hover{
+    background-color:$transparent-teal;
+  }
+  &:hover .photo {
+    filter: grayscale(100%);
+  }
+  figure{
+    margin-bottom:20px;
+  }
+
+  a{
+  }
+}
+
+.glyphicon{
+  padding:10px;
+}
+
+.form-group{
+  padding:10px;
+}
+
+.form_control{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+
+  #from-date, #to-date{
+  margin-top:10px;
+  margin:0 auto;
+  margin-bottom:10px;
+  text-align:right;
+  float:right;
+  }
+
+#calendar{
+  input[type="submit"] {
+      margin:0 auto;
+      margin-left:129px;
+      background:none;
+      border:3px solid $main-teal;
+      font-family:$sub-font;
+      width:66%;
+      padding:15px;
+    }
+  }
+
+
+#listing-title{
+  margin-bottom:170px;
 }
 
 #listings-title{
@@ -18,7 +72,8 @@
 
 .listing-title{
   font-size:2.3em;
-  text-align:left;
+  text-align:center;
+  margin-bottom:10px;
 }
 
 .listing-calendar{
@@ -29,6 +84,25 @@
 .left{
   text-align:left;
   display:inline-block;
+  width:300px;
+}
+
+.bottom{
+    padding:10px;
+    margin-top: 50px;
+  h3{
+    display:inline;
+    margin:30px;
+    border:3px solid $mint;
+    padding:10px;
+    font-family:$sub-font;
+  }
+}
+
+.backb {
+  &:hover{
+    color:$light-teal;
+  }
 }
 
 .listing{
@@ -38,11 +112,22 @@
 
 }
 
-  .photo {
-    height:250px;
+#listing-show .photo {
+    height:200px;
     width:auto;
+    margin-top:-110px;
  }
 
+  .photo{
+   &:hover{
+    filter: grayscale(100%);
+   }
+ }
+
+ .photo{
+    height:200px;
+    width:auto;
+  }
 
 .listing-description {
   min-height: 25px;
@@ -50,9 +135,9 @@
   color: $main-teal;
 }
 
-.listing-price {
+.listing-price, #listing-price {
   min-height: 24px;
-  font-size: 20px;
+  font-size: 30px;
   color:$main-teal;
   text-align:right;
   width:100%;
@@ -62,16 +147,32 @@
 .right{
   text-align:right;
   display:inline-block;
-  margin-left:60px;
+  width:400px;
 }
-.cart-button {
-  margin-left: 30px;
+
+input.cart-button {
+  margin:0 auto;
+  margin-top:30px;
   color:$main-teal;
   background-color:$mint;
+  border-radius:0;
+  font-family:$sub-font;
+
+  &:hover{
+    color:white;
+    background-color:$main-teal;
+  }
 }
 
 #listing-show {
   color:$main-teal;
+  margin:60px;
+  margin:0 auto;
+  display:block;
+  width:80%;
+  padding:40px;
+  text-align:center;
+  border:5px solid $light-teal;
 }
 
 .create-item-form {
@@ -97,10 +198,6 @@
   width: 23%;
   float: left;
   margin: 10px;
-}
-
-.toasty {
-  text-align:center;
 }
 
 .center{

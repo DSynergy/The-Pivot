@@ -4,7 +4,7 @@ RSpec.describe "Home page" do
   context "as an unauthenticated user" do
     let!(:category_1) { create(:category) }
     let!(:category_2) { create(:category, name: "side item") }
-    let!(:listing) { create(:listing, name: "Avocado Toast") }
+    let!(:listing) { create(:listing, title: "Avocado Toast") }
 
     before(:each) { visit root_path }
 
@@ -26,9 +26,7 @@ RSpec.describe "Home page" do
     end
 
     it "can view the cart page by clicking cart link" do
-      expect(page).to have_link("Cart", href: cart_path)
-
-      find_link("Cart", href: cart_path).click
+      first(:css, '#shopping-cart').click
 
       expect(current_path).to eq(cart_path)
 

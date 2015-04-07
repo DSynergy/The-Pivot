@@ -1,20 +1,21 @@
-class Cart
+class Cart 
+
   attr_accessor :content
 
   def initialize(content)
     @content = content || Hash.new
   end
 
-  def listings_with_quantity
-    format_quantity
+  def listings_with_dates
     listings = {}
-    content.each { |id, quantity| listings[Listing.find(id)] = quantity }
+    content.each { |id, dates| listings[Listing.find(id)] = dates }
     listings
   end
 
-  def add_listing(listing_id)
-    content[listing_id] ||= 0
-    content[listing_id] += 1
+  def add_listing(listing_id, dates)
+    unless dates.nil?
+      content[listing_id] = dates
+    end
   end
 
   def remove_listing(listing_id)

@@ -34,16 +34,14 @@ class Seed
 
   def generate_pictures
     Listing.all.each do |listing|
-      listing.pictures << Picture.create(url: "default_image")
+      listing.pictures << Picture.create(url: "default_image.jpg")
       puts "#{listing.pictures.first.url }"
       end
   end
 
   def generate_dates
     [
-     {"Jan3" => 0, "Jan4" => 0, "Jan5" => 0},
-     {"Mar11" => 0, "March12" => 0},
-     {"July3" => 0, "July4" => 0, "July5" => 0, "July6" => 0}
+     {"1" => 1, "1" => 2, "1"=> 3},{ "2" => 2, "2" => 3}, {"3"=>15, "3"=>16}
     ].sample
   end
 
@@ -64,9 +62,9 @@ class Seed
 
   def generate_cart
     [
-     {"1" => generate_dates},
-     {"2" => generate_dates},
-     {"3" => generate_dates}
+      {"1" => generate_dates },
+      {"1" => generate_dates},
+      {"1" => generate_dates}
     ].sample
   end
 

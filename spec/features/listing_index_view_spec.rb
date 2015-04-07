@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "listing index" do
-  let(:listing) { create(:listing, title: "Bacon Maple Crunch",
+  let!(:listing) { Listing.create({title: "Bacon Maple Crunch",
                                    description: "see title",
                                    price: 8.00,
                                    quantity_available: 2,
@@ -14,7 +14,8 @@ RSpec.describe "listing index" do
                                    city: 'Denver',
                                    zipcode: '80206',
                                    street_address: '1510 Blake St',
-                                   status: 0)}
+                                   status: 0})}
+
   before(:each) { visit root_path }
 
   it "has link to see all listings" do

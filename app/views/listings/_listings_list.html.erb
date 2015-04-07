@@ -3,16 +3,20 @@
     <% @listings.each do |listing| %>
       <div class="container">
         <div class="row middle">
+          <%= link_to listing do %>
           <div class="left">
 
-            <h4 class="listing-title"> <%= link_to listing.title, listing %> </h4>
+            <h4 class="listing-title"><%= listing.title %></h4>
             <figure><%= image_tag "default.jpg", class: "photo" %></figure>
           </div>
           <div class="right">
             <p class="listing-description"><%= listing.description %></p>
             <h3 class="listing-price">$<%= listing.price %></h3>
-            <p class="listing-calendar">dates</p>
           </div>
+          <% rand(1..5) do %>
+            <span class="glyphicon glyphicon-star smaller" aria-hidden="true"></span>
+          <% end %>
+        <% end %>
         </div>
       </div>
     <% end %>
