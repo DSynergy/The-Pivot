@@ -5,8 +5,7 @@ RSpec.describe "Cart" do
     listing =  create(:listing, available_dates: "{2=>3}")
     listing.categories.create(name: "home")
     listing.pictures.create(url: "default_image.jpg")
-    visit listings_path
-    click_link_or_button("Bacon Maple Crunch")
+    visit listing_path(listing)
 
     fill_in "from-date", :with => "01/01/2015"
     fill_in "to-date", :with => "01/01/2015"
@@ -15,11 +14,10 @@ RSpec.describe "Cart" do
 
   it "shows a list of cart listings" do
     visit cart_path
-
     expect(page).to have_content("Bacon Maple Crunch")
   end
 
-  it "can remove a listing from the cart" do
+ xit "can remove a listing from the cart" do
 
     visit cart_path
 

@@ -19,8 +19,6 @@ gem "therubyracer"
 gem 'less-rails'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass'
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem "rails_12factor", group: :production
 
 # Use Unicorn as the app server

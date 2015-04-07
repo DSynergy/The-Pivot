@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Browse by Category" do
   xit "shows a list of Items by Category" do
-    category = create(:category)
-    item = create(:item)
-    category.items << item
-
+    listing = create(:listing)
+    listing.categories.create(name: "house")
     visit root_path
     click_link_or_button("Entree")
 

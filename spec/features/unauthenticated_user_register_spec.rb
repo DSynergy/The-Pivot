@@ -4,12 +4,16 @@ RSpec.describe 'Unauthenticated user register spec' do
 
   it "can register" do
     visit root_path
+      fill_in("session[username]", with: "Sally")
+      fill_in("session[password]", with: "password")
 
+      first(:css, "#small_submit_button").click
     fill_in "user[username]", with: "new_user"
     fill_in "user[email_address]", with: "new_user@example.com"
     fill_in "user[password]", with: "password"
     fill_in "user[display_name]", with: "new"
-    first(:css, "#small_submit_button").click
+    first(:css, "#small_submit_button-register").click
+
     user = User.last
 
     expect(current_path).to eq(root_path)

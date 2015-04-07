@@ -5,14 +5,15 @@ $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js
   var FromEndDate = new Date();
   var ToEndDate = new Date();
   var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
-
+  var dates = Date.now();
   ToEndDate.setDate(ToEndDate.getDate()+365);
 
   $('.from_date').datepicker({
     weekStart: 1,
     startDate: today,
     endDate: FromEndDate,
-    autoclose: true
+    autoclose: true,
+    datesDisabled: [new Date(2015, 3, 20), new Date(2015, 3, 22)],
   })
   .on('changeDate', function(selected){
     startDate = new Date(selected.date.valueOf());

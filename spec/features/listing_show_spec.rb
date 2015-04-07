@@ -19,28 +19,25 @@ RSpec.describe "Listing show" do
 
 
   it "displays listing title" do
+    listing.pictures.create(url: "default-img.jpg")
     visit root_path
     click_on("Browse All Listings")
     expect(current_path).to eq(listings_path)
     click_on("Bacon Maple Crunch")
     expect(current_path).to eq(listing_path(listing))
-    within('#listing-title') do
       expect(page).to have_content("Bacon Maple Crunch")
-    end
   end
 
  it "displays listing description" do
+    listing.pictures.create(url: 'default-image.jpg')
     visit listing_path(listing)
-    within("#listing-description") do
       expect(page).to have_content("see title")
-    end
   end
 
  it "display listings price" do
+    listing.pictures.create(url: 'default-image.jpg')
     visit listing_path(listing)
-    within("#listing-price") do
-      expect(page).to have_content("8.00")
-    end
+    expect(page).to have_content("8.00")
   end
 
  it "displays a custom picture" do
@@ -54,9 +51,11 @@ RSpec.describe "Listing show" do
     visit listing_path(listing)
     expect(page).to have_button("Add to Itinerary")
 
+    fill_in('.from-date', with: "04/20/2015")
+
     click_link_or_button("Add to Itinerary")
 
-    expect(current_path).to eq(listing_path(listing))
+    expect(page).to have_content(listing.title)
     expect(page).to have_selector("#flash_notice")
   end
 

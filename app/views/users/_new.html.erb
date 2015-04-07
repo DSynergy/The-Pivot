@@ -9,15 +9,15 @@
 <%= form_for(:user, url: users_path) do |f| %>
   <div id="login-form">
     <div>
-      <%= f.label :username %>
+      <%= f.label :username, class: "register-username" %>
       <%= f.text_field :username, class: "form-control"%>
     </div>
     <div class="form-group">
-      <%= f.label :email_address %>
+      <%= f.label :email_address, class: "register-email"%>
       <%= f.text_field :email_address, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :password %>
+      <%= f.label :password, class: "register-password"%>
       <%= f.password_field :password, class: "form-control" %>
     </div>
     <div class="form-group">
@@ -25,7 +25,7 @@
       <%= f.text_field :display_name, placeholder: "optional", class: "form-control" %>
     </div>
 
-    <%= f.submit "Submit", id: "small_submit_button", class: "btn" %>
+    <%= f.submit "Submit", id: "small_submit_button-register", class: "btn" %>
   </div>
 <% end %>
 

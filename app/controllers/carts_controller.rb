@@ -14,6 +14,7 @@ class CartsController < ApplicationController
 
 
   def create
+
     start_date = params[:listing][:start_date]
     end_date = params[:listing][:end_date]
 
