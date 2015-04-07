@@ -17,9 +17,9 @@ class CartsController < ApplicationController
     start_date = params[:listing][:start_date]
     end_date = params[:listing][:end_date]
 
-    if start_date.nil? || end_date.nil?
-      format.html { render action: "new" }
-      format.json { render json: @cart.errors, status: :cannot_be_blank }
+    if start_date == "" || end_date == ""
+      flash[:notice] =  "cannot be blank"
+      redirect_to(:back)
     else
       listing_id = params[:listing_id]
       @cart.add_listing(listing_id, [start_date, end_date])

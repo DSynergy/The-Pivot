@@ -32,11 +32,7 @@ $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js
     FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
     $('.from_date').datepicker('setEndDate', FromEndDate);
   });
-  $.ajaxSetup({
-    dataType: 'json'
-  })
-
-
-
 
 });
+
+
