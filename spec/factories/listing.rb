@@ -13,5 +13,6 @@ FactoryGirl.define do
     zipcode '80206'
     street_address '1510 Blake St'
     status 0
+    available_dates "{'1' => 1, '1' => 2, '1' => 3}"
   end
 end

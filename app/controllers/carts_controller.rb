@@ -14,14 +14,20 @@ class CartsController < ApplicationController
 
 
   def create
-    listing_id = params[:listing_id]
     start_date = params[:listing][:start_date]
     end_date = params[:listing][:end_date]
-    @cart.add_listing(listing_id, [start_date, end_date])
-    session[:cart] = @cart.content
-    listing = Listing.find(listing_id)
 
-    flash[:notice] = "#{listing.title} added to itinerary, #{start_date}-#{end_date}"
-    redirect_to(:back)
+    if start_date.nil? || end_date.nil?
+      format.html { render action: "new" }
+      format.json { render json: @cart.errors, status: :cannot_be_blank }
+    else
+      listing_id = params[:listing_id]
+      @cart.add_listing(listing_id, [start_date, end_date])
+      session[:cart] = @cart.content
+      listing = Listing.find(listing_id)
+
+      flash[:notice] = "#{listing.title} added to itinerary, #{start_date}-#{end_date}"
+      redirect_to(:back)
+    end
   end
 end

@@ -1,5 +1,5 @@
 <div class="form-group">
-<%= form_tag(cart_path) do %>
+<%= form_tag(cart_path, remote: true) do %>
   <div class="input-daterange">
     <h3>Select dates</h3>
     <input type="text" id="from-date" class="from_date form-control" name="listing[start_date]" placeholder="start date" contenteditable="false">
@@ -9,9 +9,9 @@
   <%= hidden_field_tag "listing_id", @listing.id %>
 
   <% if @listing.retired %>
-   <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
+    <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
   <% elsif current_user.nil? || !current_user.admin? %>
-   <%= button_to  'Add to Itinerary', class: "btn" %>
+    <%= button_to 'Add to Itinerary', cart_path, class: "btn" %>
   <% end %>
 <% end %>
 </div>

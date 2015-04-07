@@ -47,5 +47,9 @@ RSpec.describe Cart do
 
   end
 
+  describe "#empty cart" do
 
+    xit "cannot be empty" do
+    end
+  end
 end

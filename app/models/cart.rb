@@ -1,4 +1,5 @@
-class Cart
+class Cart 
+
   attr_accessor :content
 
   def initialize(content)
@@ -12,7 +13,9 @@ class Cart
   end
 
   def add_listing(listing_id, dates)
-    content[listing_id] = dates
+    unless dates.nil?
+      content[listing_id] = dates
+    end
   end
 
   def remove_listing(listing_id)
