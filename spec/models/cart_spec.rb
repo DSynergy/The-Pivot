@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Cart do
-  let!(:listing_1) { create(:listing, id: 1, available_dates: '{4 => {1=>1, 1=>2}}') }
-  let(:listing_2) { create(:listing, id: 2, title: "Strawberry Toast", available_dates: '{4 => {1=>1}, 1=>2}}' ) }
+  let!(:listing_1) { create(:listing, id: 1, available_dates: '{1=>1, 1=>2}') }
+  let(:listing_2) { create(:listing, id: 2, title: "Strawberry Toast", available_dates: '{1=>1, 1=>2}' ) }
   let(:cart) { Cart.new(nil) }
 
  it "has a hash of content by default" do
@@ -13,7 +13,7 @@ RSpec.describe Cart do
 
     it "can have a listings added" do
       cart.add_listing(listing_1.id, listing_1.available_dates)
-      expect(cart.content).to eq(1 => {"{4"=>"{1", "1"=>"2}}"})
+      expect(cart.content).to eq(1 => [{"{1"=>"1", "1"=>"2}"}])
     end
 
   end
@@ -48,12 +48,4 @@ RSpec.describe Cart do
 
   end
 
-  describe "#empty cart" do
-
-    it "cannot be empty" do
-
-
-
-    end
-  end
 end
