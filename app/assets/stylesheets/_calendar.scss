@@ -1,5 +1,44 @@
 @import "base";
 
-.day.disabled {
-  background-color: LightGray;
+#calendar{
+  input[type="submit"] {
+    margin:0 auto;
+    margin-left:129px;
+    background:none;
+    border:3px solid $main-teal;
+    font-family:$sub-font;
+    width:66%;
+    padding:15px;
+  }
 }
+
+
+.day.disabled {
+  color: LightGray;
+}
+
+.mint{
+  color:$mint;
+}
+
+.datepicker table{
+  color:$main-teal;
+  border:3px solid white;
+
+  .day{
+    text-align:center;
+  }
+
+  .day:not(.disabled) {
+    &:hover{
+      background-color: $mint;
+    }
+  }
+}
+
+.datepicker-switch{
+  text-align:center;
+  border-bottom:1px solid $mint;
+  font-family:$sub-font;
+}
+

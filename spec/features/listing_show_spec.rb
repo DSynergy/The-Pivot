@@ -51,7 +51,7 @@ RSpec.describe "Listing show" do
     visit listing_path(listing)
     expect(page).to have_button("Add to Itinerary")
 
-    fill_in('.from-date', with: "04/20/2015")
+    fill_in('listing[from_date]', with: "04/20/2015")
 
     click_link_or_button("Add to Itinerary")
 

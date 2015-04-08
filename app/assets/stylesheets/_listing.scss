@@ -22,9 +22,6 @@
   figure{
     margin-bottom:20px;
   }
-
-  a{
-  }
 }
 
 .glyphicon{
@@ -40,7 +37,6 @@
   padding-bottom:10px;
 }
 
-
   #from-date, #to-date{
   margin-top:10px;
   margin:0 auto;
@@ -48,19 +44,6 @@
   text-align:right;
   float:right;
   }
-
-#calendar{
-  input[type="submit"] {
-      margin:0 auto;
-      margin-left:129px;
-      background:none;
-      border:3px solid $main-teal;
-      font-family:$sub-font;
-      width:66%;
-      padding:15px;
-    }
-  }
-
 
 #listing-title{
   margin-bottom:170px;
@@ -76,11 +59,6 @@
   margin-bottom:10px;
 }
 
-.listing-calendar{
-  height:25px;
-  width:100%;
-}
-
 .left{
   text-align:left;
   display:inline-block;
@@ -89,7 +67,7 @@
 
 .bottom{
     padding:10px;
-    margin-top: 50px;
+    margin-top: 20px;
   h3{
     display:inline;
     margin:30px;
@@ -170,34 +148,9 @@ input.cart-button {
   margin:0 auto;
   display:block;
   width:80%;
-  padding:40px;
+  padding:20px;
   text-align:center;
   border:5px solid $light-teal;
-}
-
-.create-item-form {
-  width: 80%;
-}
-
-.item-title :hover {
-  color: #bfa24b;
-  text-decoration: none;
-}
-
-.item-create {
-  background: rgba(43,58,223,0.2);
-  width: 500px;
-  border: 1em;
-  border-color: black;
-  border-style: solid;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.floaters {
-  width: 23%;
-  float: left;
-  margin: 10px;
 }
 
 .center{
@@ -206,6 +159,3 @@ input.cart-button {
   text-align:center;
 }
 
-#items-title{
-  text-align:center;
-}

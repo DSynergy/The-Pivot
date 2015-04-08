@@ -1,5 +1,5 @@
 def set_cart
-  listing1 = create(:listing)
+  listing1 = create(:listing, available_dates: { 1=> {1=>4, 1=>7}})
   listing1.pictures.create(url: "default-image")
   listing2 = create(:listing, title: "Banana Toast")
   listing2.pictures.create(url: "default-image")

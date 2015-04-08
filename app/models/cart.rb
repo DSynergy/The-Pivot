@@ -20,7 +20,7 @@ class Cart
   end
 
   def listings_per_cart
-    content.keys.count 
+    content.keys.count
   end
 
   def remove_listing(listing_id)
