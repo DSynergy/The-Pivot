@@ -8,22 +8,20 @@
         <a href="#" class='btn-lg navbar-right' id="login-button" data-toggle="modal" data-target='#modal-window'>Log In</a>
       <% end %>
     </li>
+
     <li class="logo"><a href="/"><%= image_tag "travel_home_logo.png", class: "navbar-left" %></a></li>
+
     <li>
       <%= link_to cart_path, class: 'btn-lg navbar-right', id: 'shopping_cart' do %>
         <%= @cart.listings_per_cart %><span id="shopping-cart" class="glyphicon glyphicon-shopping-cart smaller" aria-hidden="true"></span>
       <% end %>
     </li>
 
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="City...">
-      </div>
+    <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "city..." %>
       <button type="submit" class="btn"><span class="glyphicon glyphicon-search smaller" aria-hidden="true"></span></button>
-    </form>
-
+    <% end %>
   </ul>
-
 <% end %>
 
 <div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-hidden="true">
@@ -33,7 +31,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="modal fade" id="modal-window-sign-up" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
