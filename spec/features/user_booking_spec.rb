@@ -6,7 +6,6 @@ RSpec.describe 'User confirm booking spec' do
     create(:user)
     visit root_path
     click_link_or_button("Log In")
-    fill_in("session[username]", with: "Sally")
     fill_in("session[email_address]", with: "sadsal@example.com")
     fill_in("session[password]", with: "password")
     first(:css, "#small_submit_button").click
@@ -79,10 +78,16 @@ RSpec.describe 'User confirm booking spec' do
   context "when logged in" do
 
     it "can checkout cart", js:true, :driver => :selenium_firefox do
-      user = create(:user, email_address: "ex@ex.com")
+#      user = create(:user, email_address: "ex@ex.com")
       listing.pictures.create(url: "default_image.jpg")
       add_a_booking
-      user_login
+      user = create(:user)
+      visit root_path
+      click_link_or_button("Log In")
+      fill_in("session[email_address]", with: "sadsal@example.com")
+      fill_in("session[password]", with: "password")
+      first(:css, "#small_submit_button").click
+
       checkout
       within("#flash_notice") do
         expect(page).to have_content("Your itinerary has been successfully booked. Happy travels!")
