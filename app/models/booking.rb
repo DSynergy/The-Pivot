@@ -26,15 +26,15 @@ class Booking < ActiveRecord::Base
     cart.each { |listing_id, dates| cart[listing_id] = dates.count('=') }.values.reduce(:+)
   end
 
-  def listings_per_cart
-    cart.count { |listing_id, dates| cart[listing_id] = dates.count('=') }
-  end
-
   def parse_listings
     cart.reduce({}) do |hash, (listing_id, dates)|
       hash[Listing.find(listing_id)] = dates
       hash
     end
+  end
+
+  def listings_per_booking
+    cart.count { |listing_id, dates| cart[listing_id] = dates.count('=') }
   end
 
   def line_listing_total(listing, dates)

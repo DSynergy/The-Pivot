@@ -7,6 +7,7 @@
 <div class="modal-body">
 
 <%= form_for(:user, url: users_path) do |f| %>
+<%= render "shared/errors", object: @user %>
   <div id="login-form">
     <div>
       <%= f.label :username, class: "register-username" %>
