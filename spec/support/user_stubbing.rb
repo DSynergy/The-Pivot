@@ -1,7 +1,6 @@
 def login_as(user)
   visit root_path
 
-  first(:css, ".login-username").set(user.username)
   first(:css, ".login-email").set(user.email_address)
   first(:css, ".login-password").set(user.password)
 

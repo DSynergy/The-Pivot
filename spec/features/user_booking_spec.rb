@@ -78,7 +78,6 @@ RSpec.describe 'User confirm booking spec' do
   context "when logged in" do
 
     it "can checkout cart", js:true, :driver => :selenium_firefox do
-#      user = create(:user, email_address: "ex@ex.com")
       listing.pictures.create(url: "default_image.jpg")
       add_a_booking
       user = create(:user)
