@@ -86,7 +86,7 @@ RSpec.describe Booking, type: :model do
     it "can access the listings in the cart" do
       create_listing
       generate_bookings
-      parsed_cart = Booking.first.listings_per_cart
+      parsed_cart = Booking.first.listings_per_booking
       expect(parsed_cart).to eq(3)
     end
   end

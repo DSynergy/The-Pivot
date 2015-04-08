@@ -17,7 +17,7 @@ RSpec.describe "Cart" do
     expect(page).to have_content("Bacon Maple Crunch")
   end
 
- xit "can remove a listing from the cart" do
+ it "can remove a listing from the cart" do
     click_link_or_button("Remove Listing")
 
     within("#flash_notice") do

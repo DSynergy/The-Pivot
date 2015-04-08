@@ -10,8 +10,8 @@
     </li>
     <li class="logo"><a href="/"><%= image_tag "travel_home_logo.png", class: "navbar-left" %></a></li>
     <li>
-      <%= link_to cart_path, class: 'btn-lg navbar-right' do %>
-        <span id="shopping-cart" class="glyphicon glyphicon-shopping-cart smaller" aria-hidden="true"></span>
+      <%= link_to cart_path, class: 'btn-lg navbar-right', id: 'shopping_cart' do %>
+        <%= @cart.listings_per_cart %><span id="shopping-cart" class="glyphicon glyphicon-shopping-cart smaller" aria-hidden="true"></span>
       <% end %>
     </li>
 

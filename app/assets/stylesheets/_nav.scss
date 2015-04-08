@@ -34,8 +34,7 @@ footer{
   width:100%;
   line-height:50px;
   color: $main-teal;
-  border-color: $main-teal;
-  border-top: solid;
+  border-top:1px solid $mint;
   position:fixed;
 
   span#contact{

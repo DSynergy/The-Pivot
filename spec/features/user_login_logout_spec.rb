@@ -39,8 +39,8 @@ RSpec.describe 'User login/logout spec' do
 
       expect(page).to have_content("All Listings")
     end
-    
-   xit "returns to url prior to login after entering invalid login info and having to re-enter login info" do
+
+   it "returns to url prior to login after entering invalid login info and having to re-enter login info" do
       visit root_path
       click_on("Browse All Listings")
       click_on("Log In")
@@ -48,10 +48,12 @@ RSpec.describe 'User login/logout spec' do
       fill_in("session[password]", with: "incorrect")
       first(:css, "#small_submit_button").click
 
-      fill_in("session[username]", with: "Sally")
-      fill_in("session[password]", with: "password")
-      first(:css, "#login-form").click
-      expect(page).to have_content("All Listings")
+      within all("#login-form").last do
+        fill_in("session[username]", with: "Sally")
+        fill_in("session[password]", with: "password")
+        first(:css, "#small_submit_button").click
+        expect(page).to have_content("All Listings")
+      end
     end
 
   end

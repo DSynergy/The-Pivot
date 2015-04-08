@@ -23,6 +23,7 @@ gem "rails_12factor", group: :production
 gem "momentjs-rails", '~> 2.9.0'
 
 group :development, :test do
+  gem 'brakeman', :require => false
   gem 'factory_girl_rails'
   gem 'byebug'
   gem 'pry'

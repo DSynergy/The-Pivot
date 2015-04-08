@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :load_cart
-  helper_method :load_cart, :current_user, :is_admin?, :redirect_to_login_if_not_logged_in
+  helper_method :load_cart, :set_name, :current_user, :current_cart, :is_admin?, :redirect_to_login_if_not_logged_in
 
   private
 
@@ -13,11 +13,19 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def current_cart
+    @current_cart ||= session[:cart]
+  end
+
   def is_admin?
     if !current_user.admin?
       flash[:notice] = "Unauthorized. Access Denied"
       redirect_to root_path
     end
+  end
+
+  def set_name(user)
+    user.display_name ? user.display_name : user.username
   end
 
   def redirect_to_login_if_not_logged_in

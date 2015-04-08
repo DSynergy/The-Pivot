@@ -5,7 +5,7 @@ RSpec.describe "Authenticated User profile" do
   before(:each) { set_current_user(user) }
 
   it "submits an order when cart is checked out" do
-    listing1 = create(:listing)
+    listing1 = create(:listing, available_dates: {1 => { 1=>4, 1=>5 }})
     listing1.pictures.create(url: "default-image")
     visit listing_path(listing1)
     fill_in("listing[end_date]", with: "11/07/2015")
@@ -22,20 +22,16 @@ RSpec.describe "Authenticated User profile" do
 
   xit "can click Order History link to be taken to Order History page" do
     visit root_path
+    click_link_or_button("Traveler Page")
 
-    expect(page).to have_link("Order History")
-
-    click_link_or_button("Order History")
-
-    expect(current_path).to eq(orders_path)
+    expect(current_path).to eq(travelers_path(user.id))
     expect(page).to have_content("#{user.display_name ? user.display_name : user.username}'s Orders")
   end
 
   it "sees Order History" do
-    user.orders.create(cart: {"1" => 1})
-    create(:item, id: 1)
+    user.bookings.create(cart: {1 => { 1=>4, 1=>5 }})
 
-    visit orders_path
+    visit user_bookings_path(user.username)
 
     expect(page).to have_content("Cheese Toast")
   end

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :email_address, presence: true, uniqueness: true
   validates :display_name, length: { in: 2..32 }, allow_blank: true
   validates_format_of :email_address, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, on: :create
-  validates_format_of :credit_card, with: /\d{15,16}/, on: :create, allow_blank: true
+  validates_format_of :credit_card, with: /\A\d{15,16}\z/, on: :create, allow_blank: true
 
   has_many :listings
   has_many :bookings

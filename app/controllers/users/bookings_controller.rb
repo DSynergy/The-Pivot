@@ -10,7 +10,7 @@ class Users::BookingsController < ApplicationController
     Booking.generate_booking(current_user, cart)
     session[:cart]={}
     redirect_to traveler_path(current_user),
-      notice: "Order successfully submitted!"
+      notice: "Your itinerary has been successfully booked. Happy travels!"
   end
 
 end

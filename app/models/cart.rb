@@ -1,4 +1,4 @@
-class Cart 
+class Cart
 
   attr_accessor :content
 
@@ -14,16 +14,17 @@ class Cart
 
   def add_listing(listing_id, dates)
     unless dates.nil?
-      content[listing_id] = dates
+      content[listing_id] ||= []
+      content[listing_id] << dates
     end
   end
 
+  def listings_per_cart
+    content.keys.count
+  end
+
   def remove_listing(listing_id)
-    if content[listing_id] > 1
-      content[listing_id] -= 1
-    else
-      content.delete(listing_id)
-    end
+    content.delete(listing_id)
   end
 
   private
