@@ -1,7 +1,7 @@
 
  <section class="bottom">
    <% if @listing.categories.first %>
-      <h3><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @listing.categories.first.name %></h3>
+      <h3><span class="glyphicon glyphicon-star" aria-hidden="true"></span><%= @listing.categories.first.name %></h3>
    <% end %>
    <% if @listing.private_bathroom %>
       <h3><span class="glyphicon glyphicon-tint" aria-hidden="true"></span>Private</h3>
@@ -9,4 +9,5 @@
       <h3><span class="glyphicon glyphicon-tint" aria-hidden="true"></span>Shared</h3>
     <% end %>
     <h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= @listing.people_per_unit %></h3>
+    <h3><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @listing.quantity_available %></h3>
   </section>
