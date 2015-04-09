@@ -3,5 +3,5 @@
 //= require bootstrap
 //= require moment
 //= require bootstrap-sprockets
-//= require bootstrap-datetimepicker
+//= require bootstrap-datepicker
 //= require_tree .
