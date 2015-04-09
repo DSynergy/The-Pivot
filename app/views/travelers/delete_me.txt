@@ -1,0 +1,54 @@
+
+<hl>
+
+<h3>Bookings currently awaiting host's approval</h3>
+    <% @traveler.bookings.pending.sort.each do |booking| %>
+<table id="traveler_profile" class="table">
+  <tr>
+    <th>Booking</th>
+    <th>Listings</th>
+    <th>Dates</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Total Days per Stay</th>
+    <th>Price per Stay</th>
+  </tr>
+      <tr>
+        <td> Booking: <%= booking.id %> </td>
+          <% booking.cart.each do |listing_id, date|%>
+            <td><h4><%= Listing.find(listing_id.to_i).title %></h4></td>
+            <td><h4><%= date %></h4></td>
+          <% end %>
+
+
+          <% booking[:cart].each do |listing_id|%>
+
+        <!-- <td><h4><%= booking.created_at %></h4></td>
+        <td><h4><%= booking.updated_at %></h4></td>
+        <td><h4><$= booking.total_days_per_booking %></h4></td>
+        <td><h4><$= booking.line_listing_total(listing, dates)%></h4></td> -->
+      <!-- </tr>
+      <% end %>
+</table>
+    <% end %> -->
+
+<!-- -Total stays per booking
+-Total booking price
+-Total days in booking -->
+
+<ul>
+</ul>
+
+<h3>Your Past Bookings</h3>
+
+<ul>
+  <!-- <li><%= @traveler.bookings.completed %></li> -->
+</ul>
+
+<h3>Your Cancelled Bookings</h3>
+
+<ul>
+  <!-- <li><%= @traveler.bookings.cancelled %></li> -->
+</ul>
+
+<!-- edit profile --> -->

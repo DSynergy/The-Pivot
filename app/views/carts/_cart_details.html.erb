@@ -16,11 +16,13 @@
   <tfoot>
     <td colspan="4">
       <% if current_user %>
-
+      <%=form_tag(user_bookings_path(slug: current_user.username), id: "trip-name-form") do %>
+        <%= text_field_tag :trip_name, params[:trip_name], placeholder: "Please enter your trip name!" %>
         <%= button_to "Book Itinerary", user_bookings_path(slug: current_user.username), class: "btn", data: { confirm: "Proceed to Checkout?" } %>
+        <% end %>
       <% else %>
         <%= link_to "Sign in to book itinerary", login_path, class: "btn"%>
-        <% end %>
+      <% end %>
     </td>
   </tfoot>
 </table>
