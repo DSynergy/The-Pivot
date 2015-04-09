@@ -19,6 +19,7 @@ class Booking < ActiveRecord::Base
 =end
 
   def self.generate_booking(user, cart)
+    binding.pry
     create(user_id: user.id, cart: cart)
   end
 
@@ -41,6 +42,15 @@ class Booking < ActiveRecord::Base
     listing.price * dates.size
   end
 
+  def title_of_listing
+    cart.keys
+  end
+
+  def dates_of_listing
+    cart.values
+  end
+
+
   def self.sort_by_status(status)
     case status
     when nil
@@ -53,6 +63,5 @@ class Booking < ActiveRecord::Base
       Booking.cancelled
     end
   end
-
 
 end
