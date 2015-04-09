@@ -1,5 +1,3 @@
-require 'Date'
-
 class CartsController < ApplicationController
   def show
     @cart_contents = @cart.content
