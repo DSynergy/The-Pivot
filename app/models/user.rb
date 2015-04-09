@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
   validates_format_of :email_address, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, on: :create
   validates_format_of :credit_card, with: /\A\d{15,16}\z/, on: :create, allow_blank: true
 
-  has_many :listings
-  has_many :bookings
+  has_many :listings #host
+  has_many :bookings #traveler
+  has_many :reservations #traveler
   has_secure_password
 
   enum role: %w(active admin inactive)
