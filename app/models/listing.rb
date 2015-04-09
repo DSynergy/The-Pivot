@@ -10,9 +10,13 @@ class Listing < ActiveRecord::Base
   scope :active, -> { where(status: 0)}
   scope :retired, -> { where(status: 1) }
 
-   def retired
-     status == 1
-   end
+  def self.search(query)
+      where("city like ?", "%#{query}%")
+  end
+
+  def retired
+    status == 1
+  end
   #
   # def active
   #   status == 0

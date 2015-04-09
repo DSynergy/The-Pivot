@@ -4,18 +4,20 @@ RSpec.describe "Authenticated User profile" do
   let!(:user) { create(:user) }
   before(:each) { set_current_user(user) }
 
-  it "submits an order when cart is checked out" do
+  it "submits an order when cart is checked out", js: true do
     listing1 = create(:listing, available_dates: {1 => { 1=>4, 1=>5 }})
-    listing1.pictures.create(url: "default-image")
+    listing1.pictures.create(url: "default_image.jpg")
     visit listing_path(listing1)
-    fill_in("listing[end_date]", with: "11/07/2015")
     fill_in("listing[start_date]", with: "11/01/2015")
+    fill_in("listing[end_date]", with: "11/07/2015")
     click_link_or_button("Add to Itinerary")
 
     visit cart_path
     expect(page).to have_content("Bacon Maple Crunch")
     click_link_or_button("Book Itinerary")
-    visit orders_path
+    a = page.driver.browser.switch_to.alert
+    a.accept
+    visit traveler_path(user.id)
 
     expect(page).to have_content("Cheese Toast")
   end
