@@ -1,12 +1,12 @@
 <h3 id="cat-title">Manage <%= @category.name %></h3>
 
 <div id="menu">
-  <%= link_to  'Add Item', new_admin_item_category_path(category_id: params[:id]), class: 'btn btn-info btn-lg center' %><br>
-    <% @items.each do |item| %>
+  <%= link_to  'Add Item', new_admin_listing_category_path(category_id: params[:id]), class: 'btn btn-info btn-lg center' %><br>
+    <% @listings.each do |listing| %>
       <div class="floaters">
-        <h4 class="item-title"> <%= link_to  item.name, admin_item_path(item) %> </h4>
-        <div class="item-cat-button">
-          <%= button_to  'Remove Item', admin_item_category_path(item_id: item, category_id: params[:id]), method: :delete, data: { confirm: 'Are you sure?' }%>
+        <h4 class="listing-title"> <%= link_to  listing.name, admin_listing_path(listing) %> </h4>
+        <div class="listing-cat-button">
+          <%= button_to  'Remove Item', admin_listing_category_path(listing_id: listing, category_id: params[:id]), method: :delete, data: { confirm: 'Are you sure?' }%>
         </div>
       </div>
     <% end %>

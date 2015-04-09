@@ -1,5 +1,5 @@
 class AddAvatarToItems < ActiveRecord::Migration
   def change
-    add_column :items, :avatar, :string
+    add_column :listings, :avatar, :string
   end
 end

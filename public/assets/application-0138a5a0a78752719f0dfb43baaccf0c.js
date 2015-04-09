@@ -478,7 +478,7 @@ jQuery.extend({
 			length = elems.length,
 			callbackExpect = !invert;
 
-		// Go through the array, only saving the items
+		// Go through the array, only saving the listings
 		// that pass the validator function
 		for ( ; i < length; i++ ) {
 			callbackInverse = !callback( elems[ i ], i );
@@ -498,7 +498,7 @@ jQuery.extend({
 			isArray = isArraylike( elems ),
 			ret = [];
 
-		// Go through the array, translating each of the items to their new values
+		// Go through the array, translating each of the listings to their new values
 		if ( isArray ) {
 			for ( ; i < length; i++ ) {
 				value = callback( elems[ i ], i, arg );
@@ -811,7 +811,7 @@ function Sizzle( selector, context, results, seed ) {
 					// Check parentNode to catch when Blackberry 4.6 returns
 					// nodes that are no longer in the document (jQuery #6963)
 					if ( elem && elem.parentNode ) {
-						// Handle the case where IE, Opera, and Webkit return items
+						// Handle the case where IE, Opera, and Webkit return listings
 						// by name instead of ID
 						if ( elem.id === m ) {
 							results.push( elem );
@@ -2825,7 +2825,7 @@ var rootjQuery,
 					// Check parentNode to catch when Blackberry 4.6 returns
 					// nodes that are no longer in the document #6963
 					if ( elem && elem.parentNode ) {
-						// Handle the case where IE and Opera return items
+						// Handle the case where IE and Opera return listings
 						// by name instead of ID
 						if ( elem.id !== match[2] ) {
 							return rootjQuery.find( selector );
@@ -3430,7 +3430,7 @@ jQuery.extend({
 	// Is the DOM ready to be used? Set to true once it occurs.
 	isReady: false,
 
-	// A counter to track how many items to wait for before
+	// A counter to track how many listings to wait for before
 	// the ready event fires. See #6781
 	readyWait: 1,
 
@@ -5943,7 +5943,7 @@ jQuery.fn.extend({
 				scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
 				hasScripts = scripts.length;
 
-				// Use the original fragment for the last item instead of the first because it can end up
+				// Use the original fragment for the last listing instead of the first because it can end up
 				// being emptied incorrectly in certain situations (#8070).
 				for ( ; i < l; i++ ) {
 					node = fragment;
@@ -9470,10 +9470,10 @@ function buildParams( prefix, obj, traditional, add ) {
 	var name;
 
 	if ( jQuery.isArray( obj ) ) {
-		// Serialize array item.
+		// Serialize array listing.
 		jQuery.each( obj, function( i, v ) {
 			if ( traditional || rbracket.test( prefix ) ) {
-				// Treat each array item as a scalar.
+				// Treat each array listing as a scalar.
 				add( prefix, v );
 
 			} else {
@@ -9483,13 +9483,13 @@ function buildParams( prefix, obj, traditional, add ) {
 		});
 
 	} else if ( !traditional && jQuery.type( obj ) === "object" ) {
-		// Serialize object item.
+		// Serialize object listing.
 		for ( name in obj ) {
 			buildParams( prefix + "[" + name + "]", obj[ name ], traditional, add );
 		}
 
 	} else {
-		// Serialize scalar item.
+		// Serialize scalar listing.
 		add( prefix, obj );
 	}
 }
@@ -11621,7 +11621,7 @@ return jQuery;
 
     // pick the locale from the array
     // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
-    // substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
+    // substring from most specific to least, but move to the next array listing if it's a more specific variant than the current root
     function chooseLocale(names) {
         var i = 0, j, next, locale, split;
 
@@ -11636,7 +11636,7 @@ return jQuery;
                     return locale;
                 }
                 if (next && next.length >= j && compareArrays(split, next, true) >= j - 1) {
-                    //the next array item is better than a shallower substring of this one
+                    //the next array listing is better than a shallower substring of this one
                     break;
                 }
                 j--;
@@ -14235,7 +14235,7 @@ return jQuery;
     this.sliding     =
     this.interval    =
     this.$active     =
-    this.$items      = null
+    this.$listings      = null
 
     this.options.pause == 'hover' && this.$element
       .on('mouseenter.bs.carousel', $.proxy(this.pause, this))
@@ -14272,21 +14272,21 @@ return jQuery;
     return this
   }
 
-  Carousel.prototype.getItemIndex = function (item) {
-    this.$items = item.parent().children('.item')
-    return this.$items.index(item || this.$active)
+  Carousel.prototype.getItemIndex = function (listing) {
+    this.$listings = listing.parent().children('.listing')
+    return this.$listings.index(listing || this.$active)
   }
 
   Carousel.prototype.to = function (pos) {
     var that        = this
-    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
+    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.listing.active'))
 
-    if (pos > (this.$items.length - 1) || pos < 0) return
+    if (pos > (this.$listings.length - 1) || pos < 0) return
 
     if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"
     if (activeIndex == pos) return this.pause().cycle()
 
-    return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
+    return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$listings[pos]))
   }
 
   Carousel.prototype.pause = function (e) {
@@ -14313,7 +14313,7 @@ return jQuery;
   }
 
   Carousel.prototype.slide = function (type, next) {
-    var $active   = this.$element.find('.item.active')
+    var $active   = this.$element.find('.listing.active')
     var $next     = next || $active[type]()
     var isCycling = this.interval
     var direction = type == 'next' ? 'left' : 'right'
@@ -14322,7 +14322,7 @@ return jQuery;
 
     if (!$next.length) {
       if (!this.options.wrap) return
-      $next = this.$element.find('.item')[fallback]()
+      $next = this.$element.find('.listing')[fallback]()
     }
 
     if ($next.hasClass('active')) return (this.sliding = false)
@@ -14680,17 +14680,17 @@ return jQuery;
     }
 
     var desc = ' li:not(.divider):visible a'
-    var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
+    var $listings = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
 
-    if (!$items.length) return
+    if (!$listings.length) return
 
-    var index = $items.index($items.filter(':focus'))
+    var index = $listings.index($listings.filter(':focus'))
 
     if (e.keyCode == 38 && index > 0)                 index--                        // up
-    if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
+    if (e.keyCode == 40 && index < $listings.length - 1) index++                        // down
     if (!~index)                                      index = 0
 
-    $items.eq(index).trigger('focus')
+    $listings.eq(index).trigger('focus')
   }
 
   function clearMenus(e) {

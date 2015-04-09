@@ -20,7 +20,7 @@ RSpec.describe "Admin dashboard" do
 
     click_link_or_button("Manage Items")
 
-    expect(current_path).to eq(admin_items_path)
+    expect(current_path).to eq(admin_listings_path)
 
     expect(page).to have_link("Cheese Toast")
   end

@@ -9,7 +9,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def show
-    @items = @category.items
+    @listings = @category.listings
   end
 
   def new

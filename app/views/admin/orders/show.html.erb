@@ -12,12 +12,12 @@
       <th>Price</th>
       <th>Subtotal</th>
     </tr>
-    <% @order.items_with_quantity.each do |item, quantity|%>
+    <% @order.listings_with_quantity.each do |listing, quantity|%>
       <tr>
-        <td><%= link_to item.name, admin_item_path(item) %></td>
+        <td><%= link_to listing.name, admin_listing_path(listing) %></td>
         <td><%= quantity %></td>
-        <td><%= number_to_currency(item.price) %></td>
-        <td><%= number_to_currency(@order.line_item_total(item, quantity)) %></td>
+        <td><%= number_to_currency(listing.price) %></td>
+        <td><%= number_to_currency(@order.line_listing_total(listing, quantity)) %></td>
       </tr>
     <% end %>
     <tfoot>
