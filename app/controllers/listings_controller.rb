@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
     if params[:search]
       @listings = Listing.search(params[:search]).order("created_at DESC")
     else
-      @Listing = Listing.active.order('created_at DESC')
+      @listings = Listing.active.order('created_at DESC')
     end
   end
 

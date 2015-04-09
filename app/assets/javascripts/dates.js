@@ -21,6 +21,7 @@ $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js
 
 
   $('.from_date').datepicker({
+    format: "dd/mm/yyyy",
     startDate: today,
     endDate: FromEndDate,
     autoclose: true,
@@ -32,6 +33,7 @@ $.getScript("http://www.urimalo.com/assets/admin/plugins/bootstrap-datepicker/js
   });
 
   $('.to_date').datepicker({
+    format: "dd/mm/yyyy",
     startDate: today,
     endDate: ToEndDate,
     autoclose: true

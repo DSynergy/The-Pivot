@@ -1,12 +1,16 @@
 <table id="cart" class="table">
   <tr>
     <th>Listing</th>
-    <th>Dates</th>
+    <th>Start date</th>
+    <th>End date</th>
   </tr>
   <% @cart.listings_with_dates.each do |listing, dates| %>
     <tr>
       <td><h4><%= listing.title %></h4></td>
-      <td><%= dates %></td>
+      <% dates.each do |range| %>
+        <td><%= range.first %></td>
+        <td><%= range.last %></td>
+      <% end %>
     </tr>
   <% end %>
   <tfoot>

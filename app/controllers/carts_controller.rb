@@ -28,7 +28,7 @@ class CartsController < ApplicationController
       listing = Listing.find(listing_id)
       @cart.add_listing(listing_id, [start_date, end_date])
       session[:cart] = @cart.content
-      flash[:notice] = "#{listing.title} added to itinerary, #{Date.parse(start_date).strftime("%b %d %Y: %A")} - #{Date.parse(start_date).strftime("%b %d %Y: %A")}"
+      flash[:notice] = "#{listing.title} added to itinerary , #{Date.parse(start_date).strftime("%b %d %Y: %A")} - #{Date.parse(start_date).strftime("%b %d %Y: %A")}"
       redirect_to(:back)
     end
   end
