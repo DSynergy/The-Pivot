@@ -9,10 +9,4 @@ RSpec.describe "user visit host page spec" do
     expect(page).to have_content("Host Page: #{user.display_name ? user.display_name : user.username}")
   end
 
-  def sign_in(user)
-    visit root_path
-    fill_in("session[username]", with: "Sally")
-    fill_in("session[password]", with: "password")
-    first(:css, "#small_submit_button").click
-  end
 end
