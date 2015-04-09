@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :hosts, as: :host, path: "/:slug" do
-    resources :bookings, only: [:show, :update]
+    resources :listings
   end
 
   namespace :admin do

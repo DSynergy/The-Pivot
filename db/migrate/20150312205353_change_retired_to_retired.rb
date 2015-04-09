@@ -1,5 +1,5 @@
 class ChangeRetiredToRetired < ActiveRecord::Migration
   def change
-    rename_column :items, :retired?, :retired
+    rename_column :listings, :retired?, :retired
   end
 end

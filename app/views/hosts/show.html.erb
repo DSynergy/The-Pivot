@@ -1,6 +1,11 @@
 <h1>Welcome <%= set_name(@host)%> to your hosting profile page</h1>
 
-<hl \>
+<hl>
+
+<%= link_to "Add listing", new_host_listing_path(slug: @host.username) %>
+
+
+
 
 <h3>Bookings currently awaiting your approval</h3>
 

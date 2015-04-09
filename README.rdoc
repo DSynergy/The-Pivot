@@ -141,14 +141,14 @@ FreshThreads
 Off-the-rack clothes are so blah. Let’s build a marketplace for buying custom clothing.
 
     Users register on the site as either sellers or buyers
-    Sellers have a "store" page where they can post one or more items
-    An item has a title, photos, a detailed description, and a time-to-produce
-    Each item can also have one or more "options" defined by the seller such as: waist size, color, fabric, sleeve length, etc. These must be chosen by the seller when creating/editing the item and allow them to set specific values (like "S", "M", "L", etc or "Short", "Regular", "Long")
-    Customers can browse all itemson the platform or browse a specific seller’s store
-    When a customer adds an item to their cart they need to specify each of the options
+    Sellers have a "store" page where they can post one or more listings
+    An listing has a title, photos, a detailed description, and a time-to-produce
+    Each listing can also have one or more "options" defined by the seller such as: waist size, color, fabric, sleeve length, etc. These must be chosen by the seller when creating/editing the listing and allow them to set specific values (like "S", "M", "L", etc or "Short", "Regular", "Long")
+    Customers can browse all listingson the platform or browse a specific seller’s store
+    When a customer adds an listing to their cart they need to specify each of the options
     When the order is submitted the customer is emailed a receipt and the seller is notified to begin production.
 
-It’s a pain to enter my options for EVERY purchase. Allow a user to store their options in their account, so when they purchase an item the right values are pre-selected (but can still be changed).
+It’s a pain to enter my options for EVERY purchase. Allow a user to store their options in their account, so when they purchase an listing the right values are pre-selected (but can still be changed).
 Gallery
 
 People hated our restaurant, but they loved our product photos. Let’s pivot the platform to sell photography, providing our customers a "whitelabel" experience:
@@ -159,7 +159,7 @@ People hated our restaurant, but they loved our product photos. Let’s pivot th
     A customer visits a store at a URL like example.com/stores/store_name
     The customer sees only the photos for this store
     The customer can browse photos and add them to the cart
-    There is no aggregated shopping experience across stores, so a customer who visits Store A and adds something to their cart, then visits Store B, will not see the Store A item in the Store B cart
+    There is no aggregated shopping experience across stores, so a customer who visits Store A and adds something to their cart, then visits Store B, will not see the Store A listing in the Store B cart
     The customer can checkout and receives an email receipt
     A photograph which is purchased is marked as purchased, can still be browsed, but cannot be ordered by other users
     The photographer is notified via email about the purchase.
@@ -171,8 +171,8 @@ Who wants to stand in line for tickets the day they come out? Nobody. Instead yo
 
     Users register on the site and can both sell tickets (the business) or buy tickets (the customer)
     Sellers automatically have a tickets-for-sale page (the store)
-    Within that seller page, they post one or more available items (the products)
-    An item has an event title, date, time, section, seat number(s), categories, photos, and a delivery method (download or mail)
+    Within that seller page, they post one or more available listings (the products)
+    An listing has an event title, date, time, section, seat number(s), categories, photos, and a delivery method (download or mail)
     A buyer can browse the site and view all available tickets or browse them grouped by event or seller
     They can add multiple tickets from multiple sellers to their cart
     They can then checkout and the tickets are either downloaded or the seller is notified that they need to mail them
@@ -180,7 +180,7 @@ Who wants to stand in line for tickets the day they come out? Nobody. Instead yo
 Shows and events are more fun together. Can you create a way to invite my friends and have them RSVP?
 Base Expectations
 
-You are to extend Dinner Dash so that it can handle multiple, simultaneous businesses. Each business has their own name, unique URL pattern, items, orders, and administrators.
+You are to extend Dinner Dash so that it can handle multiple, simultaneous businesses. Each business has their own name, unique URL pattern, listings, orders, and administrators.
 
 The requirements reference an example.com, but your URL will differ.
 Functional Requirements
@@ -189,7 +189,7 @@ Individual restaurants can be accessed by specifying their restaurant name as th
 
     Given a business named Billy’s BBQ
     When I visit http://example.com/billys-bbq
-    Then I expect to see all items defined for Billy’s BBQ
+    Then I expect to see all listings defined for Billy’s BBQ
     And I expect to see branding defined for Billy’s BBQ
     When I visit http://example.com/billys-bbq/categories
     Then I expect to see all categories defined for Billy’s BBQ
@@ -199,7 +199,7 @@ Public Visitor
 As a public, unauthenticated visitor to a business I can:
 
     Maintain a shared shopping cart across all businesses I browse
-    Add items to a shopping cart
+    Add listings to a shopping cart
     Log in to or create an account before completing checkout
         When I create an account, then I expect to receive a welcome email
         After login or creating an account, I will immediately resume the checkout process
@@ -232,7 +232,7 @@ Authenticated Business Administrator
 
 As an authenticated business admin, by using a dedicated admin area, I can:
 
-    Add items, edit items, and retire listings in my business only
+    Add listings, edit listings, and retire listings in my business only
     Update the details of my business such as the: name, URL identifier, and description
     Add or remove other admins for the business
         There can never be fewer than 1 admin for a business
@@ -293,7 +293,7 @@ Use Sub-Domains To Distinguish Businesses
 
 In order to give greater precedence and more SEO-juice to each individual business, as well as pave the way for businesses to use custom domains, change your application so that, instead of using a path prefix per request to identify individual businesses in the system, use unique sub-domains instead.
 
-So instead of http://www.example.com/billys-bbq/items pointing to the items belonging to the business Billy’s BBQ, allow http://billys-bbq.example.com/items to be used instead.
+So instead of http://www.example.com/billys-bbq/listings pointing to the listings belonging to the business Billy’s BBQ, allow http://billys-bbq.example.com/listings to be used instead.
 Feedback/Evaluation Schedule
 
 Rapid and frequent feedback about the work we produce is a central tenet of agile software development. As such, we’ll have frequent meetings to discuss the state of your project and correct course as necessary.

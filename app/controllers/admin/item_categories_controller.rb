@@ -3,21 +3,21 @@ class Admin::ItemCategoriesController < ApplicationController
   before_action :redirect_to_login_if_not_logged_in
   before_action :is_admin?
   before_action :set_category, only: [:new, :edit, :update, :destroy]
-  before_action :set_item, only: [:destroy]
-  before_action :item_options, :new
+  before_action :set_listing, only: [:destroy]
+  before_action :listing_options, :new
 
   def new
-    @item_category = ItemCategory.new(category_id: params[:category_id])
+    @listing_category = ItemCategory.new(category_id: params[:category_id])
   end
 
   def edit
   end
 
   def create
-    @item_category = ItemCategory.new(item_category_params)
-    category = Category.find(@item_category.category_id)
+    @listing_category = ItemCategory.new(listing_category_params)
+    category = Category.find(@listing_category.category_id)
 
-    if @item_category.save
+    if @listing_category.save
       flash[:notice] = "Category updated!"
       redirect_to admin_category_path(category)
     else
@@ -30,27 +30,27 @@ class Admin::ItemCategoriesController < ApplicationController
   end
 
   def destroy
-    @item.categories.delete(@category)
-    flash[:notice] = "#{@item.name} removed from category"
+    @listing.categories.delete(@category)
+    flash[:notice] = "#{@listing.name} removed from category"
 
     redirect_to admin_category_path(@category)
   end
 
   private
 
-  def item_category_params
-    params.require(:item_category).permit(:category_id, :item_id)
+  def listing_category_params
+    params.require(:listing_category).permit(:category_id, :listing_id)
   end
 
   def set_category
     @category = Category.find(params[:category_id])
   end
 
-  def set_item
-    @item = Item.find(params[:item_id])
+  def set_listing
+    @listing = Item.find(params[:listing_id])
   end
 
-  def item_options
-    @item_options = Item.all.map { |item| [item.name, item.id] }
+  def listing_options
+    @listing_options = Item.all.map { |listing| [listing.name, listing.id] }
   end
 end

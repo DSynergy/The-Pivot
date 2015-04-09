@@ -91,7 +91,7 @@
 }
 
 /* line 43, /Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/assets/stylesheets/_category.scss */
-.item-cat-button input {
+.listing-cat-button input {
   margin: 0 auto;
   width: 150px;
 }
@@ -1704,8 +1704,8 @@ img {
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
+.carousel-inner > .listing > img,
+.carousel-inner > .listing > a > img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -5339,7 +5339,7 @@ a.badge:focus {
   text-decoration: none;
   cursor: pointer;
 }
-a.list-group-item.active > .badge,
+a.list-group-listing.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #428bca;
   background-color: #ffffff;
@@ -5600,7 +5600,7 @@ a.thumbnail.active {
   margin-bottom: 20px;
   padding-left: 0;
 }
-.list-group-item {
+.list-group-listing {
   position: relative;
   display: block;
   padding: 10px 15px;
@@ -5608,167 +5608,167 @@ a.thumbnail.active {
   background-color: #ffffff;
   border: 1px solid #dddddd;
 }
-.list-group-item:first-child {
+.list-group-listing:first-child {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
-.list-group-item:last-child {
+.list-group-listing:last-child {
   margin-bottom: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-.list-group-item > .badge {
+.list-group-listing > .badge {
   float: right;
 }
-.list-group-item > .badge + .badge {
+.list-group-listing > .badge + .badge {
   margin-right: 5px;
 }
-a.list-group-item {
+a.list-group-listing {
   color: #555555;
 }
-a.list-group-item .list-group-item-heading {
+a.list-group-listing .list-group-listing-heading {
   color: #333333;
 }
-a.list-group-item:hover,
-a.list-group-item:focus {
+a.list-group-listing:hover,
+a.list-group-listing:focus {
   text-decoration: none;
   color: #555555;
   background-color: #f5f5f5;
 }
-.list-group-item.disabled,
-.list-group-item.disabled:hover,
-.list-group-item.disabled:focus {
+.list-group-listing.disabled,
+.list-group-listing.disabled:hover,
+.list-group-listing.disabled:focus {
   background-color: #eeeeee;
   color: #777777;
   cursor: not-allowed;
 }
-.list-group-item.disabled .list-group-item-heading,
-.list-group-item.disabled:hover .list-group-item-heading,
-.list-group-item.disabled:focus .list-group-item-heading {
+.list-group-listing.disabled .list-group-listing-heading,
+.list-group-listing.disabled:hover .list-group-listing-heading,
+.list-group-listing.disabled:focus .list-group-listing-heading {
   color: inherit;
 }
-.list-group-item.disabled .list-group-item-text,
-.list-group-item.disabled:hover .list-group-item-text,
-.list-group-item.disabled:focus .list-group-item-text {
+.list-group-listing.disabled .list-group-listing-text,
+.list-group-listing.disabled:hover .list-group-listing-text,
+.list-group-listing.disabled:focus .list-group-listing-text {
   color: #777777;
 }
-.list-group-item.active,
-.list-group-item.active:hover,
-.list-group-item.active:focus {
+.list-group-listing.active,
+.list-group-listing.active:hover,
+.list-group-listing.active:focus {
   z-index: 2;
   color: #ffffff;
   background-color: #428bca;
   border-color: #428bca;
 }
-.list-group-item.active .list-group-item-heading,
-.list-group-item.active:hover .list-group-item-heading,
-.list-group-item.active:focus .list-group-item-heading,
-.list-group-item.active .list-group-item-heading > small,
-.list-group-item.active:hover .list-group-item-heading > small,
-.list-group-item.active:focus .list-group-item-heading > small,
-.list-group-item.active .list-group-item-heading > .small,
-.list-group-item.active:hover .list-group-item-heading > .small,
-.list-group-item.active:focus .list-group-item-heading > .small {
+.list-group-listing.active .list-group-listing-heading,
+.list-group-listing.active:hover .list-group-listing-heading,
+.list-group-listing.active:focus .list-group-listing-heading,
+.list-group-listing.active .list-group-listing-heading > small,
+.list-group-listing.active:hover .list-group-listing-heading > small,
+.list-group-listing.active:focus .list-group-listing-heading > small,
+.list-group-listing.active .list-group-listing-heading > .small,
+.list-group-listing.active:hover .list-group-listing-heading > .small,
+.list-group-listing.active:focus .list-group-listing-heading > .small {
   color: inherit;
 }
-.list-group-item.active .list-group-item-text,
-.list-group-item.active:hover .list-group-item-text,
-.list-group-item.active:focus .list-group-item-text {
+.list-group-listing.active .list-group-listing-text,
+.list-group-listing.active:hover .list-group-listing-text,
+.list-group-listing.active:focus .list-group-listing-text {
   color: #e1edf7;
 }
-.list-group-item-success {
+.list-group-listing-success {
   color: #3c763d;
   background-color: #dff0d8;
 }
-a.list-group-item-success {
+a.list-group-listing-success {
   color: #3c763d;
 }
-a.list-group-item-success .list-group-item-heading {
+a.list-group-listing-success .list-group-listing-heading {
   color: inherit;
 }
-a.list-group-item-success:hover,
-a.list-group-item-success:focus {
+a.list-group-listing-success:hover,
+a.list-group-listing-success:focus {
   color: #3c763d;
   background-color: #d0e9c6;
 }
-a.list-group-item-success.active,
-a.list-group-item-success.active:hover,
-a.list-group-item-success.active:focus {
+a.list-group-listing-success.active,
+a.list-group-listing-success.active:hover,
+a.list-group-listing-success.active:focus {
   color: #fff;
   background-color: #3c763d;
   border-color: #3c763d;
 }
-.list-group-item-info {
+.list-group-listing-info {
   color: #31708f;
   background-color: #d9edf7;
 }
-a.list-group-item-info {
+a.list-group-listing-info {
   color: #31708f;
 }
-a.list-group-item-info .list-group-item-heading {
+a.list-group-listing-info .list-group-listing-heading {
   color: inherit;
 }
-a.list-group-item-info:hover,
-a.list-group-item-info:focus {
+a.list-group-listing-info:hover,
+a.list-group-listing-info:focus {
   color: #31708f;
   background-color: #c4e3f3;
 }
-a.list-group-item-info.active,
-a.list-group-item-info.active:hover,
-a.list-group-item-info.active:focus {
+a.list-group-listing-info.active,
+a.list-group-listing-info.active:hover,
+a.list-group-listing-info.active:focus {
   color: #fff;
   background-color: #31708f;
   border-color: #31708f;
 }
-.list-group-item-warning {
+.list-group-listing-warning {
   color: #8a6d3b;
   background-color: #fcf8e3;
 }
-a.list-group-item-warning {
+a.list-group-listing-warning {
   color: #8a6d3b;
 }
-a.list-group-item-warning .list-group-item-heading {
+a.list-group-listing-warning .list-group-listing-heading {
   color: inherit;
 }
-a.list-group-item-warning:hover,
-a.list-group-item-warning:focus {
+a.list-group-listing-warning:hover,
+a.list-group-listing-warning:focus {
   color: #8a6d3b;
   background-color: #faf2cc;
 }
-a.list-group-item-warning.active,
-a.list-group-item-warning.active:hover,
-a.list-group-item-warning.active:focus {
+a.list-group-listing-warning.active,
+a.list-group-listing-warning.active:hover,
+a.list-group-listing-warning.active:focus {
   color: #fff;
   background-color: #8a6d3b;
   border-color: #8a6d3b;
 }
-.list-group-item-danger {
+.list-group-listing-danger {
   color: #a94442;
   background-color: #f2dede;
 }
-a.list-group-item-danger {
+a.list-group-listing-danger {
   color: #a94442;
 }
-a.list-group-item-danger .list-group-item-heading {
+a.list-group-listing-danger .list-group-listing-heading {
   color: inherit;
 }
-a.list-group-item-danger:hover,
-a.list-group-item-danger:focus {
+a.list-group-listing-danger:hover,
+a.list-group-listing-danger:focus {
   color: #a94442;
   background-color: #ebcccc;
 }
-a.list-group-item-danger.active,
-a.list-group-item-danger.active:hover,
-a.list-group-item-danger.active:focus {
+a.list-group-listing-danger.active,
+a.list-group-listing-danger.active:hover,
+a.list-group-listing-danger.active:focus {
   color: #fff;
   background-color: #a94442;
   border-color: #a94442;
 }
-.list-group-item-heading {
+.list-group-listing-heading {
   margin-top: 0;
   margin-bottom: 5px;
 }
-.list-group-item-text {
+.list-group-listing-text {
   margin-bottom: 0;
   line-height: 1.3;
 }
@@ -5810,21 +5810,21 @@ a.list-group-item-danger.active:focus {
 .panel > .list-group {
   margin-bottom: 0;
 }
-.panel > .list-group .list-group-item {
+.panel > .list-group .list-group-listing {
   border-width: 1px 0;
   border-radius: 0;
 }
-.panel > .list-group:first-child .list-group-item:first-child {
+.panel > .list-group:first-child .list-group-listing:first-child {
   border-top: 0;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-.panel > .list-group:last-child .list-group-item:last-child {
+.panel > .list-group:last-child .list-group-listing:last-child {
   border-bottom: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.panel-heading + .list-group .list-group-item:first-child {
+.panel-heading + .list-group .list-group-listing:first-child {
   border-top-width: 0;
 }
 .list-group + .panel-footer {
@@ -6092,7 +6092,7 @@ a.list-group-item-danger.active:focus {
   padding: 0;
   overflow: hidden;
 }
-.embed-responsive .embed-responsive-item,
+.embed-responsive .embed-responsive-listing,
 .embed-responsive iframe,
 .embed-responsive embed,
 .embed-responsive object {
@@ -6496,14 +6496,14 @@ button.close {
   overflow: hidden;
   width: 100%;
 }
-.carousel-inner > .item {
+.carousel-inner > .listing {
   display: none;
   position: relative;
   -webkit-transition: 0.6s ease-in-out left;
   transition: 0.6s ease-in-out left;
 }
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
+.carousel-inner > .listing > img,
+.carousel-inner > .listing > a > img {
   line-height: 1;
 }
 .carousel-inner > .active,
@@ -7771,7 +7771,7 @@ button.close {
 .fa-bolt:before {
   content: "\f0e7";
 }
-.fa-sitemap:before {
+.fa-slistingap:before {
   content: "\f0e8";
 }
 .fa-umbrella:before {
@@ -14465,7 +14465,7 @@ a.label:hover, a.label:focus {
   padding: 1px 5px;
 }
 /* line 39, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_badges.scss */
-a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
+a.list-group-listing.active > .badge, .nav-pills > .active > a > .badge {
   color: #428bca;
   background-color: #fff;
 }
@@ -14823,7 +14823,7 @@ a.thumbnail.active {
 }
 
 /* line 21, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item {
+.list-group-listing {
   position: relative;
   display: block;
   padding: 10px 15px;
@@ -14832,187 +14832,187 @@ a.thumbnail.active {
   border: 1px solid #ddd;
 }
 /* line 31, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item:first-child {
+.list-group-listing:first-child {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
 /* line 34, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item:last-child {
+.list-group-listing:last-child {
   margin-bottom: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 /* line 40, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item > .badge {
+.list-group-listing > .badge {
   float: right;
 }
 /* line 43, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item > .badge + .badge {
+.list-group-listing > .badge + .badge {
   margin-right: 5px;
 }
 
 /* line 54, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-a.list-group-item {
+a.list-group-listing {
   color: #555;
 }
 /* line 57, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-a.list-group-item .list-group-item-heading {
+a.list-group-listing .list-group-listing-heading {
   color: #333;
 }
 /* line 62, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-a.list-group-item:hover, a.list-group-item:focus {
+a.list-group-listing:hover, a.list-group-listing:focus {
   text-decoration: none;
   color: #555;
   background-color: #f5f5f5;
 }
 
 /* line 72, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus {
+.list-group-listing.disabled, .list-group-listing.disabled:hover, .list-group-listing.disabled:focus {
   background-color: #eeeeee;
   color: #777777;
 }
 /* line 79, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item.disabled .list-group-item-heading, .list-group-item.disabled:hover .list-group-item-heading, .list-group-item.disabled:focus .list-group-item-heading {
+.list-group-listing.disabled .list-group-listing-heading, .list-group-listing.disabled:hover .list-group-listing-heading, .list-group-listing.disabled:focus .list-group-listing-heading {
   color: inherit;
 }
 /* line 82, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item.disabled .list-group-item-text, .list-group-item.disabled:hover .list-group-item-text, .list-group-item.disabled:focus .list-group-item-text {
+.list-group-listing.disabled .list-group-listing-text, .list-group-listing.disabled:hover .list-group-listing-text, .list-group-listing.disabled:focus .list-group-listing-text {
   color: #777777;
 }
 /* line 88, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+.list-group-listing.active, .list-group-listing.active:hover, .list-group-listing.active:focus {
   z-index: 2;
   color: #fff;
   background-color: #428bca;
   border-color: #428bca;
 }
 /* line 97, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item.active .list-group-item-heading,
-.list-group-item.active .list-group-item-heading > small,
-.list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading,
-.list-group-item.active:hover .list-group-item-heading > small,
-.list-group-item.active:hover .list-group-item-heading > .small, .list-group-item.active:focus .list-group-item-heading,
-.list-group-item.active:focus .list-group-item-heading > small,
-.list-group-item.active:focus .list-group-item-heading > .small {
+.list-group-listing.active .list-group-listing-heading,
+.list-group-listing.active .list-group-listing-heading > small,
+.list-group-listing.active .list-group-listing-heading > .small, .list-group-listing.active:hover .list-group-listing-heading,
+.list-group-listing.active:hover .list-group-listing-heading > small,
+.list-group-listing.active:hover .list-group-listing-heading > .small, .list-group-listing.active:focus .list-group-listing-heading,
+.list-group-listing.active:focus .list-group-listing-heading > small,
+.list-group-listing.active:focus .list-group-listing-heading > .small {
   color: inherit;
 }
 /* line 102, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
+.list-group-listing.active .list-group-listing-text, .list-group-listing.active:hover .list-group-listing-text, .list-group-listing.active:focus .list-group-listing-text {
   color: #e1edf7;
 }
 
 /* line 4, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-.list-group-item-success {
+.list-group-listing-success {
   color: #3c763d;
   background-color: #dff0d8;
 }
 
 /* line 11, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-success {
+a.list-group-listing-success {
   color: #3c763d;
 }
 /* line 14, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-success .list-group-item-heading {
+a.list-group-listing-success .list-group-listing-heading {
   color: inherit;
 }
 /* line 18, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-success:hover, a.list-group-item-success:focus {
+a.list-group-listing-success:hover, a.list-group-listing-success:focus {
   color: #3c763d;
   background-color: #d0e9c6;
 }
 /* line 23, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-success.active, a.list-group-item-success.active:hover, a.list-group-item-success.active:focus {
+a.list-group-listing-success.active, a.list-group-listing-success.active:hover, a.list-group-listing-success.active:focus {
   color: #fff;
   background-color: #3c763d;
   border-color: #3c763d;
 }
 
 /* line 4, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-.list-group-item-info {
+.list-group-listing-info {
   color: #31708f;
   background-color: #d9edf7;
 }
 
 /* line 11, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-info {
+a.list-group-listing-info {
   color: #31708f;
 }
 /* line 14, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-info .list-group-item-heading {
+a.list-group-listing-info .list-group-listing-heading {
   color: inherit;
 }
 /* line 18, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-info:hover, a.list-group-item-info:focus {
+a.list-group-listing-info:hover, a.list-group-listing-info:focus {
   color: #31708f;
   background-color: #c4e3f3;
 }
 /* line 23, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-info.active, a.list-group-item-info.active:hover, a.list-group-item-info.active:focus {
+a.list-group-listing-info.active, a.list-group-listing-info.active:hover, a.list-group-listing-info.active:focus {
   color: #fff;
   background-color: #31708f;
   border-color: #31708f;
 }
 
 /* line 4, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-.list-group-item-warning {
+.list-group-listing-warning {
   color: #8a6d3b;
   background-color: #fcf8e3;
 }
 
 /* line 11, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-warning {
+a.list-group-listing-warning {
   color: #8a6d3b;
 }
 /* line 14, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-warning .list-group-item-heading {
+a.list-group-listing-warning .list-group-listing-heading {
   color: inherit;
 }
 /* line 18, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-warning:hover, a.list-group-item-warning:focus {
+a.list-group-listing-warning:hover, a.list-group-listing-warning:focus {
   color: #8a6d3b;
   background-color: #faf2cc;
 }
 /* line 23, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-warning.active, a.list-group-item-warning.active:hover, a.list-group-item-warning.active:focus {
+a.list-group-listing-warning.active, a.list-group-listing-warning.active:hover, a.list-group-listing-warning.active:focus {
   color: #fff;
   background-color: #8a6d3b;
   border-color: #8a6d3b;
 }
 
 /* line 4, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-.list-group-item-danger {
+.list-group-listing-danger {
   color: #a94442;
   background-color: #f2dede;
 }
 
 /* line 11, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-danger {
+a.list-group-listing-danger {
   color: #a94442;
 }
 /* line 14, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-danger .list-group-item-heading {
+a.list-group-listing-danger .list-group-listing-heading {
   color: inherit;
 }
 /* line 18, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-danger:hover, a.list-group-item-danger:focus {
+a.list-group-listing-danger:hover, a.list-group-listing-danger:focus {
   color: #a94442;
   background-color: #ebcccc;
 }
 /* line 23, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_list-group.scss */
-a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
+a.list-group-listing-danger.active, a.list-group-listing-danger.active:hover, a.list-group-listing-danger.active:focus {
   color: #fff;
   background-color: #a94442;
   border-color: #a94442;
 }
 
 /* line 124, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item-heading {
+.list-group-listing-heading {
   margin-top: 0;
   margin-bottom: 5px;
 }
 
 /* line 128, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_list-group.scss */
-.list-group-item-text {
+.list-group-listing-text {
   margin-bottom: 0;
   line-height: 1.3;
 }
@@ -15078,25 +15078,25 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   margin-bottom: 0;
 }
 /* line 62, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .list-group .list-group-item {
+.panel > .list-group .list-group-listing {
   border-width: 1px 0;
   border-radius: 0;
 }
 /* line 69, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .list-group:first-child .list-group-item:first-child {
+.panel > .list-group:first-child .list-group-listing:first-child {
   border-top: 0;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
 /* line 76, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .list-group:last-child .list-group-item:last-child {
+.panel > .list-group:last-child .list-group-listing:last-child {
   border-bottom: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
 /* line 85, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_panels.scss */
-.panel-heading + .list-group .list-group-item:first-child {
+.panel-heading + .list-group .list-group-listing:first-child {
   border-top-width: 0;
 }
 
@@ -15423,7 +15423,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   overflow: hidden;
 }
 /* line 12, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_responsive-embed.scss */
-.embed-responsive .embed-responsive-item,
+.embed-responsive .embed-responsive-listing,
 .embed-responsive iframe,
 .embed-responsive embed,
 .embed-responsive object {
@@ -15935,15 +15935,15 @@ button.close {
   width: 100%;
 }
 /* line 16, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_carousel.scss */
-.carousel-inner > .item {
+.carousel-inner > .listing {
   display: none;
   position: relative;
   -webkit-transition: 0.6s ease-in-out left;
   transition: 0.6s ease-in-out left;
 }
 /* line 22, /Users/Kyra/.rvm/gems/ruby-2.1.5/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_carousel.scss */
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
+.carousel-inner > .listing > img,
+.carousel-inner > .listing > a > img {
   display: block;
   width: 100% \9;
   max-width: 100%;

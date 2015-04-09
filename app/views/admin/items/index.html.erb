@@ -1,10 +1,10 @@
 <div id="menu">
   <h1 class="center">Manage Items</h1><br>
-  <%= link_to  'Create Item', new_admin_item_path, class: 'btn btn-info btn-lg center' %><br><br>
+  <%= link_to  'Create Item', new_admin_listing_path, class: 'btn btn-info btn-lg center' %><br><br>
   <div class="row">
-    <% @items.each do |item| %>
+    <% @listings.each do |listing| %>
       <div class="floaters">
-        <h4 class="item-title"> <%= link_to  item.name, edit_admin_item_path(item) %> </h4>
+        <h4 class="listing-title"> <%= link_to  listing.name, edit_admin_listing_path(listing) %> </h4>
       </div>
     <% end %>
   </div>

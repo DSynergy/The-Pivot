@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "User Authorization" do
   let(:user_1) { create(:user, username: "Sally") }
   let(:user_2) { create(:user, username: "Billy", email_address: "billbob@example.com") }
-  let!(:item_1) { create(:item, id: 1) }
-  let!(:item_2) { create(:item, id: 2, name: "Beer Toast") }
+  let!(:listing_1) { create(:listing, id: 1) }
+  let!(:listing_2) { create(:listing, id: 2, name: "Beer Toast") }
 
   before(:each) do
     user_1.orders.create(cart: {"1" => 3, "2" => 4})

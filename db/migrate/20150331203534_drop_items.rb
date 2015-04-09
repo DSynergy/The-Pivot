@@ -1,5 +1,5 @@
 class DropItems < ActiveRecord::Migration
   def change
-    drop_table :items
+    drop_table :listings
   end
 end
