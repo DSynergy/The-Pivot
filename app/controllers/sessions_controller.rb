@@ -14,11 +14,7 @@ class SessionsController < ApplicationController
       elsif session[:stored_url] != nil
         redirect_to session[:stored_url]
       else
-        if request.referrer == root_path
-          redirect_to root_path
-        else
-          redirect_to root_path 
-        end
+        redirect_to root_path 
       end
     else
       flash[:error] = "Login failed"
