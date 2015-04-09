@@ -8,7 +8,7 @@ class Listing < ActiveRecord::Base
   has_many :categories, through: :listing_categories
   has_many :pictures
   has_many :reservations
-  has_many :bookings, :through :reservations
+  has_many :bookings, through: :reservations
   scope :active, -> { where(status: 0)}
   scope :retired, -> { where(status: 1) }
 
