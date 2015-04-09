@@ -32,7 +32,7 @@ RSpec.describe 'User confirm booking spec' do
     fill_in("listing[end_date]", with: "01/02/2015")
     click_link_or_button("Add to Itinerary")
     expect(current_path).to eq(listing_path(listing))
-    expect(page).to have_content("added to itinerary, Jan 01 2015: Thursday - Jan 01 2015: Thursday")
+    expect(page).to have_content("added to itinerary: Jan 01 2015: Thursday - Jan 01 2015: Thursday")
   end
 
   def checkout

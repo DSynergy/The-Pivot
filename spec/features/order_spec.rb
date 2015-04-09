@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Booking" do
-  before(:each), js:true do
+  before(:each)  do
     user = create(:user)
     set_current_user(user)
     listing1 = create(:listing, available_dates: { 1=> {1=>4, 1=>7}})
