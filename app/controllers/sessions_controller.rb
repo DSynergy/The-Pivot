@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:session][:username])
+    @user = User.find_by(email_address: params[:session][:email_address])
     if @user && @user.authenticate(params[:session][:password])
       flash[:notice] = "Successfully logged in as #{set_name(@user)}"
       session[:user_id] = @user.id
@@ -14,11 +14,7 @@ class SessionsController < ApplicationController
       elsif session[:stored_url] != nil
         redirect_to session[:stored_url]
       else
-        if request.referrer == root_path
-          redirect_to root_path
-        else
-        redirect_to request.referrer
-        end
+        redirect_to root_path 
       end
     else
       flash[:error] = "Login failed"
