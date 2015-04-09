@@ -5,8 +5,8 @@
 
 $(document).ready(function(){
   $('.from_date').datepicker({
-     startDate: '04/10/2015',
-     endDate: '04/20/2015',
+//     startDate: '04/10/2015',
+ //    endDate: '04/20/2015',
      datesDisabled: ["04/15/2015"]
   });
 
