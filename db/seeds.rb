@@ -51,18 +51,17 @@ class Seed
     end
   end
 
-  def generate_bookings
+  def generate_reservations
       User.all.each do |user|
         10.times do
-          booking = user.bookings.create(status: rand(2), cart: generate_cart)
-          puts "#{booking.cart}"
+          user.reservations.create(status: rand(2))
         end
       end
   end
 
   def generate_cart
     [
-      {"1" => generate_dates },
+      {"1" => generate_dates},
       {"1" => generate_dates},
       {"1" => generate_dates}
     ].sample
