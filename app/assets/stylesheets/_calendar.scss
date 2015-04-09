@@ -21,17 +21,21 @@
   color:$mint;
 }
 
-.datepicker table{
-  color:$main-teal;
-  border:3px solid white;
+div.datepicker{
+  z-index:1000 !important;
 
-  .day{
-    text-align:center;
-  }
+  table{
+    color:$main-teal;
+    border:3px solid white;
 
-  .day:not(.disabled) {
-    &:hover{
-      background-color: $mint;
+    .day{
+      text-align:center;
+    }
+
+    .day:not(.disabled) {
+      &:hover{
+        background-color: $mint;
+      }
     }
   }
 }
