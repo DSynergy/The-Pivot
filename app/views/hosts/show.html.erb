@@ -25,3 +25,11 @@
 <ul>
   <li><%= @host.listings%></li>
 </ul>
+
+<h3>Your Listings<h3>
+
+<ul>
+  <% @host.listings.each do |listing| %>
+  <li><%= listing.title %></li>
+  <% end %>
+</ul>
