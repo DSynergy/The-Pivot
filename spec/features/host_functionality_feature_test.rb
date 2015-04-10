@@ -8,11 +8,14 @@ RSpec.describe "host functionality" do
       user = create(:user)
       sign_in(user)
       visit host_path(user)
-      clink_link_or_button "Add listing"
-      expect(current_path).to eq(new_host_listing_path(slug: user.username)
-
+      click_on("Add listing")
+      expect(current_path).to eq(new_host_listing_path(slug: user.username))
     end
 
+    it "can edit a listing" do
+    end
+  end
+end
 
 
 
@@ -29,12 +32,6 @@ RSpec.describe "host functionality" do
 #
 #
 
-
-
-
-
-
-
-As a user, when I reserve a listing, I receive an email notification with the details of my reservation.
-As a user, when a host confirms the reservation, I receive an email notification.
-As a host, when a reservation is requested, I receive an email notification.
+#As a user, when I reserve a listing, I receive an email notification with the details of my reservation.
+#As a user, when a host confirms the reservation, I receive an email notification.
+#As a host, when a reservation is requested, I receive an email notification.
