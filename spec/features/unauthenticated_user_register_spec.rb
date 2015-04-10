@@ -10,7 +10,7 @@ RSpec.describe 'Unauthenticated user register spec' do
         fill_in("user[email_address]", with: "sadsal@example.com")
         fill_in("user[display_name]", with: "SuperStarSally123")
         fill_in("user[password]", with: "password")
-
+        fill_in("user[password_confirmation]", with: "password")
         first(:css, "#small_submit_button-register").click
 
         within("#flash_notice") do

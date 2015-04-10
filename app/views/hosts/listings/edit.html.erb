@@ -1,4 +1,5 @@
-<%= form_for([:host, @listing]) do |f| %>
+<h1>Edit Page</h1>
+<%= form_for(@listing, url: host_listing_path(slug: current_user.username, id: @listing.id)) do |f| %>
   <%= render "shared/errors", object: current_user %>
   <div id="new-listing-form">
     <div>
@@ -66,7 +67,7 @@
         <%= image_tag src="default_image.jpg" %>
       </figure>
     <%= f.file_field :avatar %><br>
-    <%= f.submit "Submit New Listing", id: "submit_button-listing", class: "btn" %>
+    <%= f.submit "Update Changes", id: "submit_button-listing", class: "btn" %>
    </div>
  </br></br></br></br></br>
   </div>
