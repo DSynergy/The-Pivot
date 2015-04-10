@@ -11,7 +11,8 @@ class Listing < ActiveRecord::Base
   has_many :bookings, through: :reservations
   scope :active, -> { where(status: 0)}
   scope :retired, -> { where(status: 1) }
-
+  belongs_to :user
+  
   def retired
     status == 1
   end

@@ -30,6 +30,7 @@ class Hosts::ListingsController < ApplicationController
     def create
       @listing = Listing.new(listing_params)
       if @listing.save
+        current_user.listings << @listing
         flash[:notice] = "Listing saved!"
         redirect_to host_path(current_user)
       else
