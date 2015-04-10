@@ -12,7 +12,7 @@ class Hosts::ListingsController < ApplicationController
 
     def update
       if @listing.update(listing_params)
-        redirect_to admin_listings_path
+        redirect_to host_path(current_user)
         flash[:notice] = "Successfully Updated"
       else
         flash[:notice] = @listing.errors.empty? ? "Listing did not update" : @listing.errors.full_messages.to_sentence
@@ -31,17 +31,17 @@ class Hosts::ListingsController < ApplicationController
       @listing = Listing.new(listing_params)
       if @listing.save
         flash[:notice] = "Listing saved!"
-        redirect_to new_admin_listing_path
+        redirect_to host_path(current_user)
       else
-        flash[:notice] = "That toast already exists"
-        redirect_to new_admin_listing_path
+        flash[:notice] = "That listing already exists!!"
+        redirect_to host_path(current_user)
       end
     end
 
     def destroy
       if @listing.destroy
         flash[:notice] = "Listing Deleted"
-        redirect_to admin_listings_path
+        redirect_to host_path(current_user)
       else
         flash[:notice] = "Uh oh, something went wrong"
         render :edit
@@ -51,12 +51,13 @@ class Hosts::ListingsController < ApplicationController
     private
 
     def listing_params
-      params.require(:listing).permit(:name, :description, :retired, :price, :avatar, :remote_avatar_url)
+      params.require(:listing).permit(:title, :description, :private_bathroom,
+      :price, :quantity_available, :people_per_unit, :status, :street_address, :city,
+      :state, :country, :zipcode, :start_date, :end_date, :avatar, :remote_avatar_url)
     end
 
     def set_listing
       @listing = Listing.find(params[:id])
     end
-  end
-
+    
 end
