@@ -39,18 +39,17 @@ class Seed
                            quantity_available: rand(1..4), people_per_unit: rand(1..10),
                            start_date: generate_start_dates, end_date: generate_end_dates, status: rand(1),
                            street_address: Faker::Address.street_address, city: Faker::Address.city,
-                           state: Faker::Address.state, country: Faker::Address.country
-                           zipcode: Faker::Address.zip) do |listing|
+                           state: Faker::Address.state, country: Faker::Address.country,
+                           zipcode: Faker::Address.zip)
         listing.categories << Category.find(rand(1..25))
         puts "Listing: #{listing.title}, #{listing.categories.first.name}"
-      end
     end
   end
 
   def generate_pictures
     Listing.all.each do |listing|
       listing.pictures << Picture.create(avatar: "default_image.jpg")
-      puts "#{listing.pictures.first.url }"
+      puts "#{listing.pictures.first.avatar}"
      end
   end
 
