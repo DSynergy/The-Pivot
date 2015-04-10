@@ -7,6 +7,27 @@
   font-family:$sub-font;
 }
 
+#stars{
+  text-align:right;
+  margin-top:20px;
+
+  li{
+   display:inline;
+  }
+}
+
+.input-daterange h3{
+  text-align:right;
+}
+
+.listing-description{
+  text-align:right;
+}
+
+.right p#listing-description{
+  text-align:right;
+}
+
 .middle{
   width:85%;
   margin:0 auto;
@@ -21,6 +42,10 @@
   }
   figure{
     margin-bottom:20px;
+
+    .photo{
+      border:3px solid $mint;
+    }
   }
 }
 
@@ -57,12 +82,14 @@
   font-size:2.3em;
   text-align:center;
   margin-bottom:10px;
+  margin-top:20px;
 }
 
 .left{
   text-align:left;
   display:inline-block;
   width:300px;
+  margin-right:20px;
 }
 
 .bottom{
@@ -78,6 +105,10 @@
 }
 
 .backb {
+  font-family:$sub-font;
+  border:1px solid $mint;
+  border-radius:0px;
+  margin:10px;
   &:hover{
     color:$light-teal;
   }
@@ -104,7 +135,7 @@
  .photo{
     height:200px;
     width:auto;
-    margin:20px;
+    margin-bottom:10px;
   }
 
 .listing-description {
@@ -123,9 +154,10 @@
 }
 
 .right{
-  text-align:right;
+  text-align:left;
   display:inline-block;
   width:400px;
+  margin-left:20px;
 }
 
 input.cart-button {

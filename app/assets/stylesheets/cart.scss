@@ -11,3 +11,10 @@
 #cart table tfoot td{
   border:none;
 }
+
+#no-items{
+  text-align:center;
+  color:$mint;
+  font-size:2em;
+  font-family:$sub-font;
+}

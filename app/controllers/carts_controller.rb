@@ -19,7 +19,7 @@ class CartsController < ApplicationController
     end_date = params[:listing][:end_date]
 
     if start_date == "" || end_date == ""
-      flash[:notice] =  "cannot be blank"
+      flash[:notice] =  "dates cannot be blank"
       redirect_to(:back)
     else
       listing_id = params[:listing_id]

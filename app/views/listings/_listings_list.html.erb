@@ -1,9 +1,9 @@
 <div id="menu">
   <div>
     <% @listings.each do |listing| %>
+     <%= link_to listing do %>
       <div class="container">
         <div class="row middle">
-          <%= link_to listing do %>
           <div class="left">
 
             <h4 class="listing-title"><%= listing.title %></h4>
@@ -12,10 +12,12 @@
           <div class="right">
             <p class="listing-description"><%= listing.description %></p>
             <h3 class="listing-price">$<%= listing.price %></h3>
+            <ol id="stars">
+              <% rand(1..5).times do %>
+                <li><a class="stars"><span class="glyphicon glyphicon-star smaller" aria-hidden="true"></span></a></li>
+              <% end %>
+            </ol>
           </div>
-          <% rand(1..5) do %>
-            <span class="glyphicon glyphicon-star smaller" aria-hidden="true"></span>
-          <% end %>
         <% end %>
         </div>
       </div>

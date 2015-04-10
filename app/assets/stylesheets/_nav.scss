@@ -13,11 +13,16 @@
     &:focus{
       text-decoration:none;
     }
+
+    .footer-btn{
+      margin-left:5px;
+      margin-right: 5px;
+    }
   }
 
   input{
     color:$main-teal;
-    border:1px solid $mint;
+    border:3px solid $mint;
     border-radius:0px;
     &:focus{
       outline:none;
