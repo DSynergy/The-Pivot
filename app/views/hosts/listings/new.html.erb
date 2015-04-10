@@ -1,4 +1,4 @@
-<%= form_for(:listing, url: new_host_listing_path(slug: current_user.username)) do |f| %>
+<%= form_for([:host, @listing]) do |f| %>
   <%= render "shared/errors", object: current_user %>
   <div id="new-listing-form">
     <div>
@@ -9,14 +9,17 @@
       <%= f.label :description, class: "listing-email"%>
       <%= f.text_field :description, class: "form-control" %>
     </div>
+  </br>
     <div id="private" class="radio">
       <%= f.radio_button(:private_bathroom, "private") %>
-      <%= f.label(:private_bathroom, "private") %>
+      <%= f.label(:private_bathroom, "private_bathroom") %>
     </div>
+
     <div id="shared" class="radio">
       <%= f.radio_button(:private_bathroom, "shared") %>
-      <%= f.label(:private_bathroom, "Shared") %>
+      <%= f.label(:private_bathroom, "Shared_bathroom") %>
     </div>
+  </br>
     <div class="form-group">
       <%= f.label :price, class: "listing-price"%>
       <%= f.number_field :price, class: "form-control" %>
@@ -60,12 +63,11 @@
     </div>
     <div class="form-group">
       <figure class="default-pic">
-        <%= image_tag @listing.avatar.url(:thumb) %>
+        <%= image_tag src="default_image.jpg" %>
       </figure>
     <%= f.file_field :avatar %><br>
-    <%= f.text_field :remote_avatar_url %>
-    </div>
-
     <%= f.submit "Submit", id: "submit_button-listing", class: "btn" %>
+   </div>
+ </br></br></br></br></br>
   </div>
 <% end %>
