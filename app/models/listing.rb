@@ -1,5 +1,5 @@
 class Listing < ActiveRecord::Base
-  validates :title, :description, :price, :available_dates,
+  validates :title, :description, :price, :start_date, :end_date,
             :quantity_available, presence: true
   validates :title, uniqueness: true
   validates :price, :quantity_available, numericality: {greater_than: 0}
