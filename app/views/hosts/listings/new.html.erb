@@ -1,4 +1,4 @@
-<%= form_for([:host, @listing]) do |f| %>
+<%= form_for([:host, @listing], :html => { :multipart => true }) do |f| %>
   <%= render "shared/errors", object: current_user %>
   <div id="new-listing-form">
     <div>
@@ -65,7 +65,8 @@
       <figure class="default-pic">
         <%= image_tag src="default_image.jpg" %>
       </figure>
-    <%= f.file_field :avatar %><br>
+      <%= f.label :avatar %><br>
+      <%= f.file_field :avatar, :multiple => true, name: "pictures[avatar][]" %><br>
     <%= f.submit "Submit", id: "submit_button-listing", class: "btn" %>
    </div>
  </br></br></br></br></br>

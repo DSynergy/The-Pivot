@@ -5,12 +5,14 @@
       <div class="container">
         <div class="row middle">
           <div class="left">
-
+          <div>
             <h4 class="listing-title"><%= listing.title %></h4>
+           </div>
             <figure><%= image_tag "default.jpg", class: "photo" %></figure>
           </div>
           <div class="right">
             <p class="listing-description"><%= listing.description %></p>
+            <p class="listing-city"><%= listing.city %>, <%= listing.state %></P>
             <h3 class="listing-price">$<%= listing.price %></h3>
             <ol id="stars">
               <% rand(1..5).times do %>

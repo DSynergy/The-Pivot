@@ -12,7 +12,7 @@ class Listing < ActiveRecord::Base
   scope :active, -> { where(status: 0)}
   scope :retired, -> { where(status: 1) }
   belongs_to :user
-  
+
   def retired
     status == 1
   end
@@ -21,12 +21,12 @@ class Listing < ActiveRecord::Base
       where("city like ?", "%#{query}%")
   end
 
-  def available_count
-    available_dates.select {|key| available_dates[key].to_i == 0 }.count
-  end
+ # def available_count
+ #   available_dates.select {|key| available_dates[key].to_i == 0 }.count
+ # end
 
-  def available_days
-    available_dates.select {|key| available_dates[key].to_i == 0 }.keys
-  end
+ # def available_days
+ #   available_dates.select {|key| available_dates[key].to_i == 0 }.keys
+ # end
 
 end
