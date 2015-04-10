@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ListingCategory do
   it "has an listing associated with a category" do
-    listing = create(:listing, available_dates: {"Jan1"=>0, "Jan2"=>0})
+    listing = create(:listing, start_date: "08/10/2015", end_date: "08/12/2015")
     category = create(:category)
     category_2 = create(:category, name: "Early Brunch")
     listing_category = create(:listing_category, listing_id: listing.id, category_id: category.id)
@@ -14,8 +14,8 @@ RSpec.describe ListingCategory do
 
   it "can add listings to a category" do
     category = create(:category)
-    listing_1 = create(:listing, title: "Dry Bread", available_dates: '{"Jan1"=>0, "Jan2"=>0}')
-    listing_2 = create(:listing, title: "Wet Bread", available_dates: '{"Jan1"=>0, "Jan2"=>0}')
+    listing_1 = create(:listing, title: "Dry Bread", start_date: "08/10/2015", end_date: "08/12/2015")
+    listing_2 = create(:listing, title: "Wet Bread", start_date: "08/10/2015", end_date: "08/12/2015")
     category.listings.push(listing_1).push(listing_2)
 
     expect(category.listings.count).to eq(2)
@@ -24,7 +24,7 @@ RSpec.describe ListingCategory do
 
   it "can have an listing removed from a category" do
     category = create(:category)
-    listing_1 = create(:listing, title: "Dry Bread", available_dates: '{"Jan1"=>0, "Jan2"=>0}')
+    listing_1 = create(:listing, title: "Dry Bread", start_date: "08/10/2015", end_date: "08/12/2015")
     category.listings.push(listing_1)
 
     expect(category.listings.count).to eq(1)

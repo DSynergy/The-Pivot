@@ -10,7 +10,8 @@ RSpec.describe Reservation, type: :model do
                                quantity_available: 2,
                                people_per_unit: 2,
                                private_bathroom: true,
-                               available_dates: {'Jan1' => 0, 'Jan2' => 0, 'Jan3' => 1, 'Sep27' => 0, 'Sep28' => 0, 'Sep29' => 1},
+                               start_date: "08/07/2015",
+                               end_date: "08/10/2015",
                                user_id: 1,
                                country: 'USA',
                                state: 'Colorado',
@@ -47,11 +48,11 @@ RSpec.describe Reservation, type: :model do
                                          end_date: '05/05/2015')}
 
 
-  xit "belongs to booking" do
+  it "belongs to booking" do
     expect(booking.reservations.first.id).to eq(1)
   end
 
-  xit "belongs to a listing" do
+  it "belongs to a listing" do
     expect(reservation.listing.title).to eq("Bacon Maple Crunch")
   end
 
