@@ -1,0 +1,76 @@
+<h1>Edit Page</h1>
+<%= form_for(@listing, url: host_listing_path(slug: current_user.username, id: @listing.id)) do |f| %>
+
+<%#= form_for ([:host, @listing]), url: host_listing_path(slug: current_user.username, id: @listing.id), method: :patch do |f| %>
+  <%= render "shared/errors", object: current_user %>
+  <div id="new-listing-form">
+    <div>
+      <%= f.label :title, class: "listing-title" %>
+      <%= f.text_field :title, class: "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class: "listing-email"%>
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
+  </br>
+    <div id="private" class="radio">
+      <%= f.radio_button(:private_bathroom, "private") %>
+      <%= f.label(:private_bathroom, "private_bathroom") %>
+    </div>
+
+    <div id="shared" class="radio">
+      <%= f.radio_button(:private_bathroom, "shared") %>
+      <%= f.label(:private_bathroom, "Shared_bathroom") %>
+    </div>
+  </br>
+    <div class="form-group">
+      <%= f.label :price, class: "listing-price"%>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :quantity_available, class: "listing-quantity_available"%>
+      <%= f.number_field :quantity_available, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :people_per_unit, class: "listing-people_per_unit"%>
+      <%= f.number_field :people_per_unit, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :street_address, class: "listing-street_address"%>
+      <%= f.text_field :street_address, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :city, class: "listing-city"%>
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :state, class: "listing-state"%>
+      <%= f.text_field :state, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :country, class: "listing-country"%>
+      <%= f.text_field :country, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :zipcode, class: "listing-zipcode"%>
+      <%= f.text_field :zipcode, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :start_date, class: "listing-start_date"%>
+      <%= f.text_field :start_date, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :end_date, class: "listing-end_date"%>
+      <%= f.text_field :end_date, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <figure class="default-pic">
+        <%= image_tag src="default_image.jpg" %>
+      </figure>
+    <%= f.file_field :avatar %><br>
+    <%= f.submit "Update Changes", id: "submit_button-listing", class: "btn" %>
+   </div>
+ </br></br></br></br></br>
+  </div>
+<% end %>
