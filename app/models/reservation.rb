@@ -7,6 +7,14 @@ class Reservation < ActiveRecord::Base
   scope :completed, -> { where(status: 1) }
   scope :cancelled, -> { where(status: 2) }
 
+   def listing
+     Listing.find(listing_id)
+   end
+
+   def total_price
+     listing.price
+   end
+
 end
 
 
@@ -25,13 +33,6 @@ end
   #   end
   # end
   #
-  # def listings_per_booking
-  #   cart.count { |listing_id, dates| cart[listing_id] = dates.count('=') }
-  # end
-  #
-  # def line_listing_total(listing, dates)
-  #   listing.price * dates.size
-  # end
   #
   # def title_of_listing
   #   cart.keys
