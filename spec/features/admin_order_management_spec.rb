@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "Admin Order Management" do
   let(:admin) { create(:admin) }
   let(:user) { create(:user) }
-  let!(:item) { create(:item, id: 1) }
+  let!(:listing) { create(:listing, id: 1) }
   let!(:order) { user.orders.create(cart: {"1"=> 2 }) }
 
   context "when on All Orders page" do
@@ -25,7 +25,7 @@ describe "Admin Order Management" do
       expect(page).to have_content(order.user.username)
     end
 
-    it "shows all items and their information" do
+    it "shows all listings and their information" do
       click_link_or_button(order.id.to_s)
       expect(page).to have_link("Cheese Toast")
       expect(page).to have_content("ordered")

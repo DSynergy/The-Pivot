@@ -28,7 +28,7 @@ RSpec.describe "Cart" do
   it "persists from logged out state to logged in state" do
   end
 
-  xit "can increase an item's quantity in the cart" do
+  xit "can increase an listing's quantity in the cart" do
     click_link_or_button("Add Item")
 
     within("#flash_notice") do

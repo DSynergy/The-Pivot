@@ -1,22 +1,28 @@
 <table id="cart" class="table">
   <tr>
     <th>Listing</th>
-    <th>Dates</th>
+    <th>Start date</th>
+    <th>End date</th>
   </tr>
   <% @cart.listings_with_dates.each do |listing, dates| %>
     <tr>
       <td><h4><%= listing.title %></h4></td>
-      <td><%= dates %></td>
+      <% dates.each do |range| %>
+        <td><%= range.first %></td>
+        <td><%= range.last %></td>
+      <% end %>
     </tr>
   <% end %>
   <tfoot>
     <td colspan="4">
       <% if current_user %>
-
+      <%=form_tag(user_bookings_path(slug: current_user.username), id: "trip-name-form") do %>
+        <%= text_field_tag :trip_name, params[:trip_name], placeholder: "Please enter your trip name!" %>
         <%= button_to "Book Itinerary", user_bookings_path(slug: current_user.username), class: "btn", data: { confirm: "Proceed to Checkout?" } %>
+        <% end %>
       <% else %>
         <%= link_to "Sign in to book itinerary", login_path, class: "btn"%>
-        <% end %>
+      <% end %>
     </td>
   </tfoot>
 </table>

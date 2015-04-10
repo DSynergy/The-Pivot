@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe "Home page" do
   context "as an unauthenticated user" do
     let!(:category_1) { create(:category) }
-    let!(:category_2) { create(:category, name: "side item") }
+    let!(:category_2) { create(:category, name: "side listing") }
     let!(:listing) { create(:listing, title: "Avocado Toast") }
 
     before(:each) { visit root_path }
 
-    it "shows a link to browse all items" do
+    it "shows a link to browse all listings" do
       expect(page).to have_link("Browse All Listings")
     end
 
@@ -17,10 +17,10 @@ RSpec.describe "Home page" do
       expect(page).to have_link("#{category_2.name}", href: category_path(category_2))
     end
 
-    xit "shows a list of all items once Browse All Items link is clicked" do
+    xit "shows a list of all listings once Browse All Items link is clicked" do
       find_link("Browse All Listings").click
 
-      expect(current_path).to eq(items_path)
+      expect(current_path).to eq(listings_path)
 
       expect(page).to have_link("Avocado Toast")
     end
@@ -30,7 +30,7 @@ RSpec.describe "Home page" do
 
       expect(current_path).to eq(cart_path)
 
-      expect(page).to have_content("There are no items in your cart")
+      expect(page).to have_content("There are no listings in your cart")
     end
 
   end

@@ -6,7 +6,7 @@
   <div class="row cats">
     <% @categories.each do |category| %>
       <div class="floaters">
-        <h4 class="item-title"> <%= link_to  category.name, admin_category_path(category) %> </h4>
+        <h4 class="listing-title"> <%= link_to  category.name, admin_category_path(category) %> </h4>
       </div>
     <% end %>
   </div>

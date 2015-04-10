@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407174141) do
+ActiveRecord::Schema.define(version: 20150410003732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,9 @@ ActiveRecord::Schema.define(version: 20150407174141) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "status",     default: 0
-    t.hstore   "cart"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "trip_name"
   end
 
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -57,14 +56,24 @@ ActiveRecord::Schema.define(version: 20150407174141) do
     t.string   "zipcode"
     t.datetime "created_at",                                                null: false
     t.datetime "updated_at",                                                null: false
-    t.hstore   "available_dates"
+    t.string   "start_date"
+    t.string   "end_date"
   end
 
   create_table "pictures", force: :cascade do |t|
     t.integer  "listing_id"
-    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "avatar"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "listing_id"
+    t.integer "booking_id"
+    t.integer "user_id"
+    t.integer "status"
+    t.string  "start_date"
+    t.string  "end_date"
   end
 
   create_table "users", force: :cascade do |t|

@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   resources :listings, only: [:index, :show]
 
-  resources :users, only: [:new, :create, :show, :update], param: 'slug'
+  resources :users, only: [:new, :create, :update], param: 'slug'
   resources :travelers, only: [:show]
   resources :hosts, only: [:show]
 
-  resource :cart, only: [:show, :create, :destroy]
+  resource :cart, only: [:show, :create]
 
   resources :categories, only: [:index, :show]
 
@@ -17,12 +17,11 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   namespace :users, as: :user, path: "/:slug" do
-    resources :bookings, only: [:show, :index, :create]
+    resources :bookings, only: [:index, :create]
   end
 
   namespace :hosts, as: :host, path: "/:slug" do
-    resources :listings, only: [:index]
-    resources :bookings, only: [:index, :show, :update]
+    resources :listings
   end
 
   namespace :admin do

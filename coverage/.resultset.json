@@ -124,14 +124,14 @@
         1,
         null
       ],
-      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/models/item_category.rb": [
+      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/models/listing_category.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/models/item.rb": [
+      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/models/listing.rb": [
         1,
         1,
         1,
@@ -349,7 +349,7 @@
         null,
         null
       ],
-      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/controllers/admin/item_categories_controller.rb": [
+      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/controllers/admin/listing_categories_controller.rb": [
         1,
         1,
         1,
@@ -407,7 +407,7 @@
         null,
         null
       ],
-      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/controllers/admin/items_controller.rb": [
+      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/controllers/admin/listings_controller.rb": [
         1,
         1,
         1,
@@ -538,7 +538,7 @@
         null,
         null
       ],
-      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/controllers/items_controller.rb": [
+      "/Users/Kyra/Documents/coding/Turing/module_3/The-Pivot/app/controllers/listings_controller.rb": [
         1,
         1,
         null,
