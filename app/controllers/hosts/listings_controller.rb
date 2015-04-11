@@ -33,7 +33,7 @@ class Hosts::ListingsController < ApplicationController
     if @listing.save
       params[:pictures]['avatar'].each do |pic|
         @picture = @listing.pictures.create(:avatar => pic, :listing_id => @listing.id)
-      end
+     end
       current_user.listings << @listing
       flash[:notice] = "Listing saved!"
       redirect_to host_path(current_user)

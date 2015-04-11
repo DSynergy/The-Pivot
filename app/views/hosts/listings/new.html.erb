@@ -53,13 +53,8 @@
       <%= f.label :zipcode, class: "listing-zipcode"%>
       <%= f.text_field :zipcode, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :start_date, class: "listing-start_date"%>
-      <%= f.text_field :start_date, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :end_date, class: "listing-end_date"%>
-      <%= f.text_field :end_date, class: "form-control" %>
+    <div class="form-group">Available Dates
+      <%= render partial: "shared/calendar" %>
     </div>
     <div class="form-group">
       <figure class="default-pic">
@@ -70,7 +65,7 @@
       <%= f.fields_for :pictures do |p| %>
         <div class="field">
           <%= p.label :avatar %><br>
-          <%= p.file_field :avatar, :multiple => true, name: "pictures[avatar][]" %>
+          <%= p.file_field :remote_avatar_url, :multiple => true, name: "pictures[avatar][]" %>
         </div>
       <% end %>
     </div>
