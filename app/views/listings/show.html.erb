@@ -7,16 +7,19 @@
 <div id="listing-show">
 
   <section class="left">
-    <h1 id="listing-title"><%= @listing.title %></h1>
-
     <div class="listing-photo">
-      <a href="#modal-gallery-link" type="button" data-toggle="modal"><%= image_tag @listing.pictures.first.avatar_url, class: "photo" %></a>
+      <ol>
+      <% @listing.pictures.each do |pic|%>
+        <li><%= image_tag pic.avatar_url, class: " photo" %></li>
+      <% end %>
+      </ol>
     </div>
+    <h1 id="listing-title"><%= @listing.title %></h1>
   </section>
 
   <section class="right">
-    <p id="listing-description"><%= @listing.description %></p>
     <p id="listing-price"><%= number_to_currency(@listing.price) %></p>
+    <p id="listing-description"><%= @listing.description %></p>
 
     <section id="calendar">
       <%= render partial: "shared/calendar" %>
@@ -28,13 +31,6 @@
 </div>
 
 
-<div class="hidden" id="img-repo">
-  <div class="listing-photo">
-    <% @listing.pictures.each do |pic|%>
-      <%= image_tag pic.avatar_url, class: "thumbnail" %>
-    <% end %>
-  </div>
-</div>
 
 <div class="modal" id="modal-gallery" role="dialog">
   <div class="modal-dialog">
@@ -57,19 +53,3 @@
     </div>
   </div>
 </div>
-
-<script>
-$(document).ready(function(){
-$('a img').on('click',function(){
-var src = $(this).attr('src');
-var img = '<img src="' + src + '" class="img-responsive"/>';
-$('#modal-gallery').modal();
-$('#modal-gallery').on('shown.bs.modal', function(){
-$('#modal-gallery .modal-body').html(img);
-});
-$('#modal-gallery').on('hidden.bs.modal', function(){
-$('#modal-gallery .modal-body').html('');
-});
-});
-})
-</script>

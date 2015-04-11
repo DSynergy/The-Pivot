@@ -1,27 +1,12 @@
-$("#modal-carousel").carousel({interval:false});
-
-/* change modal title when slide changes */
-$("#modal-carousel").on("slid.bs.carousel", function () {
-})
-
-/* when clicking a thumbnail */
-$(".thumbnail").click(function(){
-  var content = $(".carousel-inner");
-  var title = $(".modal-title");
-
-  content.empty();
-  title.empty();
-
-  var id = this.id;
-  var repo = $("#img-repo .listing-photo");
-  var repoCopy = repo.filter("#" + id).clone();
-  var active = repoCopy.first();
-
-  active.addClass("active");
-  title.html(active.find("img").attr("title"));
-  content.append(repoCopy);
-
-  // show the modal
-    $("#modal-gallery").modal("show");
+$(document).ready(function(){
+  $('li img').on('click',function(){
+    var src = $(this).attr('src');
+    var img = '<img src="' + src + '" class="img-responsive"/>';
+    var left = '<a> < </a>';
+    var right = '<a class="right-arrow"> > </a>';
+    $('#modal-gallery').modal();
+    $('#modal-gallery').on('shown.bs.modal', function(){
+      $('#modal-gallery .modal-body').html([img, left, right]);
     });
-  //
+  });
+})
