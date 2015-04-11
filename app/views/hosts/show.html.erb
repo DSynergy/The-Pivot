@@ -28,8 +28,4 @@
 
 <h3>Your Listings<h3>
 
-<ul>
-  <% @host.listings.each do |listing| %>
-    <li><%= listing.title %> <%= link_to "Edit", edit_host_listing_path(slug: @host.username, id: listing.id)%></li>
-  <% end %>
-</ul>
+    <%= render partial: "host_listings" %>

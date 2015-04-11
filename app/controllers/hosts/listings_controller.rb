@@ -4,7 +4,7 @@ class Hosts::ListingsController < ApplicationController
   before_action :redirect_to_login_if_not_logged_in
 
   def index
-    @listings = Listing.all
+    @listings = current_user.listings
   end
 
     def edit
@@ -21,7 +21,7 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def new
-    @listing = Listing.new
+    @listing = current_user.listings.new
     @picture = @listing.pictures.build
   end
 
@@ -29,7 +29,7 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = current_user.listings.new(listing_params)
     if @listing.save
       params[:pictures]['avatar'].each do |pic|
         @picture = @listing.pictures.create(:avatar => pic, :listing_id => @listing.id)
