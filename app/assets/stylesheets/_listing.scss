@@ -131,6 +131,7 @@
  }
 
   .photo{
+    border:3px solid $mint;
    &:hover{
     filter: grayscale(100%);
    }

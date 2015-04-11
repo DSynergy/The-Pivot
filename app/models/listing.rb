@@ -7,6 +7,7 @@ class Listing < ActiveRecord::Base
   has_many :listing_categories
   has_many :categories, through: :listing_categories
   has_many :pictures
+  accepts_nested_attributes_for :pictures
   has_many :reservations
   has_many :bookings, through: :reservations
   scope :active, -> { where(status: 0)}

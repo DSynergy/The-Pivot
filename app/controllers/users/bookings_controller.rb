@@ -9,4 +9,8 @@ class Users::BookingsController < ApplicationController
       notice: "Your itinerary has been successfully booked. Happy travels!"
   end
 
+  def index
+    redirect_to traveler_path(current_user)
+  end
+
 end

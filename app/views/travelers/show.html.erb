@@ -10,11 +10,11 @@ Your trips:
       start_date: <%= reservation.start_date %>
       end_date: <%= reservation.end_date %>
       status: <%= reservation.status %>
-      price: <%=reservation.listing.price %>
+      price: <%=number_to_currency(reservation.listing.price) %>
     <% end %>
   Total price: <% prices = booking.reservations.map do |reservation| %>
     <% reservation.listing.price %>
   <% end %>
-  <%= prices.reduce(:+) %>
+  <%= number_to_currency(prices.reduce(:+)) %>
 
 <% end %>

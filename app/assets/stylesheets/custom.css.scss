@@ -85,11 +85,11 @@ input:focus{
   }
 
   h2 {
-        margin-top:-15px;
-      a{
-        font-family:$sub-font;
-        color:$mint;
-      }
+    margin-top:-15px;
+    a{
+      font-family:$sub-font;
+      color:$mint;
+    }
   }
 }
 
@@ -104,6 +104,16 @@ input[type="submit"] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  background-color:$mint;
+  &:focus{
+    color:$main-teal;
+    background-color:$mint;
+  }
+
+  &:hover{
+    color:$main-teal;
+    background-color:$mint;
+  }
 }
 
 label{
