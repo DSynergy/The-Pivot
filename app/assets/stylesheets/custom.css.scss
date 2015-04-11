@@ -27,6 +27,22 @@ body{
   }
 }
 
+::-webkit-input-placeholder {
+  color: $main-teal;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $main-teal;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: $main-teal;
+}
+
+:-ms-input-placeholder {
+  color:  $main-teal;
+}
+
 .messages #flash_notice{
   color:$main-teal;
 }

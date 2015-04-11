@@ -7,8 +7,8 @@ class Hosts::ListingsController < ApplicationController
     @listings = Listing.all
   end
 
-  def edit
-  end
+    def edit
+    end
 
   def update
     if @listing.update(listing_params)

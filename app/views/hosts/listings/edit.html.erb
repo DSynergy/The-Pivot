@@ -1,4 +1,5 @@
-<%= form_for([:host, @listing], :html => { :multipart => true }) do |f| %>
+<h1>Edit Page</h1>
+<%= form_for(@listing, url: host_listing_path(slug: current_user.username, id: @listing.id)) do |f| %>
   <%= render "shared/errors", object: current_user %>
   <div id="new-listing-form">
     <div>
@@ -9,7 +10,7 @@
       <%= f.label :description, class: "listing-email"%>
       <%= f.text_field :description, class: "form-control" %>
     </div>
-    </br>
+  </br>
     <div id="private" class="radio">
       <%= f.radio_button(:private_bathroom, "private") %>
       <%= f.label(:private_bathroom, "private_bathroom") %>
@@ -19,7 +20,7 @@
       <%= f.radio_button(:private_bathroom, "shared") %>
       <%= f.label(:private_bathroom, "Shared_bathroom") %>
     </div>
-    </br>
+  </br>
     <div class="form-group">
       <%= f.label :price, class: "listing-price"%>
       <%= f.number_field :price, class: "form-control" %>
@@ -63,18 +64,11 @@
     </div>
     <div class="form-group">
       <figure class="default-pic">
-        <%= image_tag @listing.pictures.last.avatar %>
+        <%= image_tag src="default_image.jpg" %>
       </figure>
-    </div>
-    <div>
-      <%= f.fields_for :pictures do |p| %>
-        <div class="field">
-          <%= p.label :avatar %><br>
-          <%= p.file_field :avatar, :multiple => true, name: "pictures[avatar][]" %>
-        </div>
-      <% end %>
-    </div>
-    <%= f.submit "Submit New Listing", id: "submit_button-listing", class: "btn" %>
+    <%= f.file_field :avatar %><br>
+    <%= f.submit "Update Changes", id: "submit_button-listing", class: "btn" %>
    </div>
  </br></br></br></br></br>
+  </div>
 <% end %>

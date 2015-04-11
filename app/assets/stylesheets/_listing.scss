@@ -7,17 +7,29 @@
   font-family:$sub-font;
 }
 
+.avatar-pic, .photo{
+  height:200px;
+  width:auto;
+}
+
+.avatar-pic{
+  margin-top:-150px;
+}
+
+.photo, .avatar-pic{
+  border:3px solid $mint;
+  &:hover{
+    filter: grayscale(100%);
+  }
+}
+
 #stars{
   text-align:right;
   margin-top:20px;
 
   li{
-   display:inline;
+    display:inline;
   }
-}
-
-.input-daterange h3{
-  text-align:right;
 }
 
 .listing-description, .listing-city{
@@ -34,9 +46,10 @@
   margin:0 auto;
   margin-bottom:30px;
   text-align:center;
+  background-color:$transparent-teal;
   border:3px solid $light-teal;
   &:hover{
-    background-color:$transparent-teal;
+    background-color:$mint;
   }
   &:hover .photo {
     filter: grayscale(100%);
@@ -63,20 +76,13 @@
   padding-bottom:10px;
 }
 
-  #from-date, #to-date{
-  margin-top:10px;
-  margin:0 auto;
-  margin-bottom:10px;
-  text-align:right;
-  float:right;
-  }
-
 #listing-title{
-  margin-bottom:170px;
+  margin-bottom:180px;
 }
 
 #listings-title{
-  margin-bottom:30px;
+  margin-bottom:70px;
+  margin-top:20px;
 }
 
 .listing-title{
@@ -91,13 +97,20 @@
   }
   text-align:left;
   display:inline-block;
-  width:350px;
-  margin-right:20px;
+  width:40%;
+}
+
+.right{
+  text-align:left;
+  display:inline-block;
+  width:40%;
+  margin-top:40px;
 }
 
 .bottom{
-    padding:10px;
-    margin-top: 20px;
+  padding:10px;
+  margin-top: 20px;
+  display:block;
   h3{
     display:inline;
     margin:30px;
@@ -114,7 +127,8 @@
   margin:20px;
   padding:10px;
   &:hover{
-    color:$light-teal;
+    color:$main-teal;
+    background-color:$mint;
   }
 }
 
@@ -125,23 +139,11 @@
 }
 
 #listing-show .photo {
-    height:200px;
-    width:auto;
-    margin-top:-110px;
- }
+  height:200px;
+  width:auto;
+  margin-top:-110px;
+}
 
-  .photo{
-    border:3px solid $mint;
-   &:hover{
-    filter: grayscale(100%);
-   }
- }
-
- .photo{
-    height:200px;
-    width:auto;
-    margin-bottom:10px;
-  }
 
 .listing-description {
   min-height: 25px;
@@ -156,28 +158,6 @@
   text-align:right;
   width:100%;
   display:block;
-}
-
-.right{
-  text-align:left;
-  display:inline-block;
-  width:400px;
-  margin-left:20px;
-  margin-top:40px;
-}
-
-input.cart-button {
-  margin:0 auto;
-  margin-top:30px;
-  color:$main-teal;
-  background-color:$mint;
-  border-radius:0;
-  font-family:$sub-font;
-
-  &:hover{
-    color:white;
-    background-color:$main-teal;
-  }
 }
 
 #listing-show {
