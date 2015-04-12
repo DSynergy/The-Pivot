@@ -7,10 +7,9 @@
   <% @cart.listings_with_dates.each do |listing, dates| %>
     <tr>
       <td><h4><%= listing.title %></h4></td>
-      <% dates.each do |range| %>
-        <td><%= range.first %></td>
-        <td><%= range.last %></td>
-      <% end %>
+        <td><%= dates.first %></td>
+        <td><%= dates.last %></td>
+        <td><%= link_to "remove listing", cart_path(listing), method: :delete %></td>
     </tr>
   <% end %>
   <tfoot>

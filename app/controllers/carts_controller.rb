@@ -6,9 +6,9 @@ class CartsController < ApplicationController
   def destroy
     listing_id = params[:format]
     @cart.remove_listing(listing_id)
-    listing = listing.find(listing_id)
+    listing = Listing.find(listing_id)
 
-    flash[:notice] = "#{listing.name} removed from cart"
+    flash[:notice] = "#{listing.title} removed from cart"
     redirect_to cart_path
   end
 
