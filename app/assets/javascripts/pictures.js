@@ -10,13 +10,14 @@ $(document).ready(function(){
     html += '<a style="margin-left:404px;" class="controls next" href="'+ (index+2) + '">next &raquo;</a>';
     html += '</div>';
 
-    $('#modal-gallery').modal();
     $('#modal-gallery').on('shown.bs.modal', function(){
       $('#modal-gallery .modal-body').html(html);
     })
     $('#modal-gallery').on('hidden.bs.modal', function(){
       $('#modal-gallery .modal-body').html('');
-    });
+    })
+
+    $('#modal-gallery').modal();
   });
 })
 
