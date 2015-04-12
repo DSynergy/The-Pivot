@@ -19,6 +19,7 @@ body{
   a, button{
     color:$main-teal;
     background-color:transparent;
+    transition: all 0.3s ease 0s;
 
     &:hover{
       text-decoration:none;
