@@ -1,5 +1,13 @@
 @import 'base';
 
+.paginate {
+  text-align: center;
+}
+
+#menu {
+  padding-bottom: 60px;
+}
+
 .listing-title, .photo, #listings-title {
   font-weight: bold;
   color: $main-teal;
