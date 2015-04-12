@@ -63,10 +63,10 @@ class Hosts::ListingsController < ApplicationController
   def set_pictures
     if params[:picutres]
       params[:pictures]['avatar'].each do |pic|
-        @picture = @listing.pictures.create(avatar: pic)
+        @listing.pictures.create(avatar: pic)
       end
     else
-      @picture = @listing.pictures.create(avatar: "default_image")
+      @listing.pictures.create(avatar: "default_image")
     end
   end
 

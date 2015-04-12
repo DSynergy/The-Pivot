@@ -9,8 +9,9 @@
   <section class="left">
     <div class="listing-photo">
       <ol>
+       <li><%= image_tag @listing.pictures.first.avatar_url, class: "photo" %></li>
       <% @listing.pictures.each do |pic|%>
-        <li><%= image_tag pic.avatar_url, class: " photo" %></li>
+        <li class="hidden"><%= image_tag pic.avatar_url, class: "photo" %></li>
       <% end %>
       </ol>
     </div>
@@ -29,8 +30,6 @@
   <%= render partial: "show_details" %>
 
 </div>
-
-
 
 <div class="modal" id="modal-gallery" role="dialog">
   <div class="modal-dialog">
