@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :travelers, only: [:show]
   resources :hosts, only: [:show]
 
-  resource :cart, only: [:show, :create]
+  resource :cart, only: [:show, :create, :destroy]
 
   resources :categories, only: [:index, :show]
 

@@ -17,11 +17,6 @@ class Reservation < ActiveRecord::Base
 
 end
 
-
-
-
-
-
   # def total_days_per_booking
   #   cart.each { |listing_id, dates| cart[listing_id] = dates.count('=') }.values.reduce(:+)
   # end

@@ -3,7 +3,8 @@ class Users::BookingsController < ApplicationController
 
   def create
     cart = @cart.content
-    current_user.bookings.generate_reservations(current_user, cart, params[:trip_name])
+    booking = current_user.bookings.create(trip_name: params[:trip_name])
+    booking.generate_reservations(cart)
     session[:cart]={}
     redirect_to traveler_path(current_user),
       notice: "Your itinerary has been successfully booked. Happy travels!"

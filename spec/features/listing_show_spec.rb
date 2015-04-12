@@ -8,7 +8,8 @@ RSpec.describe "Listing show" do
                                    quantity_available: 2,
                                    people_per_unit: 2,
                                    private_bathroom: true,
-                                   available_dates: {'Jan1' => 0, 'Jan2' => 0, 'Jan3' => 1, 'Sep27' => 0, 'Sep28' => 0, 'Sep29' => 1},
+                                   start_date: "08/12/2015",
+                                   end_date: "08/14/2015",
                                    user_id: 2,
                                    country: 'USA',
                                    state: 'Colorado',
@@ -19,7 +20,7 @@ RSpec.describe "Listing show" do
 
 
   it "displays listing title" do
-    listing.pictures.create(url: "default-img.jpg")
+    listing.pictures.create(avatar: "default-img.jpg")
     visit root_path
     click_on("Browse All Listings")
     expect(current_path).to eq(listings_path)
@@ -29,29 +30,30 @@ RSpec.describe "Listing show" do
   end
 
  it "displays listing description" do
-    listing.pictures.create(url: 'default-image.jpg')
+    listing.pictures.create(avatar: 'default-image.jpg')
     visit listing_path(listing)
       expect(page).to have_content("see title")
   end
 
  it "display listings price" do
-    listing.pictures.create(url: 'default-image.jpg')
+    listing.pictures.create(avatar: 'default-image.jpg')
     visit listing_path(listing)
     expect(page).to have_content("8.00")
   end
 
  it "displays a custom picture" do
-    listing.pictures.create(url: "default_image.jpg")
+    listing.pictures.create(avatar: "default_image.jpg")
     visit listing_path(listing)
       expect(page).to have_css("img")
   end
 
-  it "has a link to add listing to cart" do
-    listing.pictures.create(url: "default_image.jpg")
+  it "has a link to add listing to cart", js: true do
+    listing.pictures.create(avatar: "default_image.jpg")
     visit listing_path(listing)
     expect(page).to have_button("Add to Itinerary")
 
-    fill_in('listing[from_date]', with: "04/20/2015")
+    fill_in('listing[start_date]', with: "04/20/2015")
+    fill_in('listing[end_date]', with: "04/20/2015")
 
     click_link_or_button("Add to Itinerary")
 
@@ -62,7 +64,7 @@ RSpec.describe "Listing show" do
   context "when a user clicks an listing from a previous order thats been retired" do
     xit "notes if listing is retired" do
       user = create(:user)
-      user.bookings.create(status: 0, cart: { listing.id => {"Jan1"=>0, "Jan2"=>0 }})
+      user.bookings.create(status: 0, cart: { listing.id => ["08/10/2015", "08/10/2015"]})
 
       login_as(user)
       visit user_bookings_path(slug: user.username)
