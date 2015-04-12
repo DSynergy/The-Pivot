@@ -12,11 +12,10 @@ class Cart
     listings
   end
 
-  def add_listing(listing_id, dates)
-    unless dates.nil?
+  def add_listing(listing_id, start_date, end_date)
       content[listing_id] ||= []
-      content[listing_id] << dates
-    end
+      content[listing_id] << start_date
+      content[listing_id] << end_date
   end
 
   def listings_per_cart

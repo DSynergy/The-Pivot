@@ -24,7 +24,7 @@ class CartsController < ApplicationController
     else
       listing_id = params[:listing_id]
       listing = Listing.find(listing_id)
-      @cart.add_listing(listing_id, [start_date, end_date])
+      @cart.add_listing(listing_id, start_date, end_date)
       session[:cart] = @cart.content
       flash[:notice] = "#{listing.title} added to itinerary: #{Date.strptime(start_date, '%m/%d/%Y').strftime("%b %d %Y: %A")} - #{Date.strptime(end_date, '%m/%d/%Y').strftime("%b %d %Y: %A")}"
       redirect_to(:back)
