@@ -55,11 +55,11 @@
       <%= f.text_field :zipcode, class: "form-control" %>
     </div>
     <div class="form-group">Update Dates
-      <%= render partial: "shared/calendar" %>
+      <%= render partial: "calendar" %>
     </div>
     <div class="form-group">
       <figure class="default-pic">
-        <%= image_tag src="default_image.jpg" %>
+        <%= image_tag @listing.pictures.last.avatar_url %>
       </figure>
     <%= f.file_field :avatar %><br>
     <%= f.submit "Update Changes", id: "submit_button-listing", class: "btn" %>
