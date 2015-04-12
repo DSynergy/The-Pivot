@@ -52,7 +52,6 @@ RSpec.describe 'User login/logout spec' do
       fill_in("session[password]", with: "password")
       first(:css, "#small_submit_button").click
       expect(page).to have_content("Browse All Listings")
-      #      end
     end
 
   end
