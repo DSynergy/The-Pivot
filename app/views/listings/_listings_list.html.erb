@@ -1,21 +1,25 @@
 <div id="menu">
   <div>
     <% @listings.each do |listing| %>
+     <%= link_to listing do %>
       <div class="container">
         <div class="row middle">
-          <%= link_to listing do %>
           <div class="left">
-
+          <div>
             <h4 class="listing-title"><%= listing.title %></h4>
-            <figure><%= image_tag "default.jpg", class: "photo" %></figure>
+           </div>
+            <figure><%= image_tag listing.pictures.first.avatar_url, class: "photo" %></figure>
           </div>
           <div class="right">
             <p class="listing-description"><%= listing.description %></p>
+            <p class="listing-city"><%= listing.city %>, <%= listing.state %></P>
             <h3 class="listing-price">$<%= listing.price %></h3>
+            <ol id="stars">
+              <% rand(1..5).times do %>
+                <li class="stars"><span class="glyphicon glyphicon-star smaller" aria-hidden="true"></span></li>
+              <% end %>
+            </ol>
           </div>
-          <% rand(1..5) do %>
-            <span class="glyphicon glyphicon-star smaller" aria-hidden="true"></span>
-          <% end %>
         <% end %>
         </div>
       </div>

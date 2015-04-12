@@ -3,15 +3,34 @@
 #calendar{
   input[type="submit"] {
     margin:0 auto;
-    margin-left:129px;
-    background:none;
+    background-color:$mint;
     border:3px solid $main-teal;
     font-family:$sub-font;
-    width:66%;
+    width:100%;
     padding:15px;
+    border-radius:0px;
+    &:hover{
+      color:white;
+      background-color:$main-teal;
+      border:3px solid $mint;
+    }
   }
 }
 
+.input-daterange h3{
+  text-align:right;
+  margin-top:0px;
+}
+
+#from-date, #to-date{
+  margin-top:10px;
+  margin:0 auto;
+  margin-bottom:10px;
+  text-align:right;
+  float:right;
+  width:100%;
+  background-color:$background-teal;
+}
 
 .day.disabled {
   color: LightGray;

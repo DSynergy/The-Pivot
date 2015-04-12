@@ -1,16 +1,15 @@
 require 'rails_helper'
 
-#works when run individually, does not work when run all specs
-
 RSpec.describe Reservation, type: :model do
 
-  let!(:listing) {Listing.create(title: "Bacon Maple Crunch",
+  let!(:listing) {Listing.create(id: 1, title: "Bacon Maple Crunch",
                                description: "see title",
                                price: 8.00,
                                quantity_available: 2,
                                people_per_unit: 2,
                                private_bathroom: true,
-                               available_dates: {'Jan1' => 0, 'Jan2' => 0, 'Jan3' => 1, 'Sep27' => 0, 'Sep28' => 0, 'Sep29' => 1},
+                               start_date: "08/07/2015",
+                               end_date: "08/10/2015",
                                user_id: 1,
                                country: 'USA',
                                state: 'Colorado',
@@ -27,44 +26,26 @@ RSpec.describe Reservation, type: :model do
                           billing_address: 'blahblahblah',
                           display_name: 'SuperStarSally123')}
 
-  let(:booking) {user.bookings.create(trip_name: "My summer getaway")}
+  let!(:reservation) {user.bookings.create(trip_name: "My summer getaway").reservations.create(listing_id:1, booking_id:1, status: 0, start_date: "05/05/2015", end_date: "05/05/2015")}
 
-  let!(:reservation3) {user.reservations.create(listing_id: 2,
-                                         booking_id: 1,
-                                         status: 0,
-                                         start_date: '05/01/2015',
-                                         end_date: '05/05/2015')}
-
-  let!(:reservation) {booking.reservations.create(listing_id: 2,
-                                         user_id: 1,
-                                         status: 0,
-                                         start_date: '05/01/2015',
-                                         end_date: '05/05/2015')}
-  let!(:reservation2) {booking.reservations.create(listing_id: 2,
-                                         user_id: 1,
-                                         status: 0,
-                                         start_date: '05/01/2015',
-                                         end_date: '05/05/2015')}
-
-
-  xit "belongs to booking" do
-    expect(booking.reservations.first.id).to eq(1)
+  it "belongs to booking" do
+    expect(reservation.id).to eq(1)
   end
 
-  xit "belongs to a listing" do
+  it "belongs to a listing" do
     expect(reservation.listing.title).to eq("Bacon Maple Crunch")
   end
 
   it "belongs to a user" do
-    expect(user.reservations.first.id).to eq(1)
-  end
-
-  it "a booking has many reservations" do
-    expect(booking.reservations.count).to eq(2)
+    expect(user.bookings.first.reservations.first.id).to eq(3)
   end
 
   it "its original status is pending" do
     expect(reservation.status).to eq("pending")
+  end
+
+  it "has a total price" do
+    expect(reservation.total_price).to eq(8.00)
   end
 
 end

@@ -7,16 +7,22 @@
 <div id="listing-show">
 
   <section class="left">
+    <div class="listing-photo">
+      <ol>
+      <% @listing.pictures.each do |pic|%>
+        <li><%= image_tag pic.avatar_url, class: " photo" %></li>
+      <% end %>
+      </ol>
+    </div>
     <h1 id="listing-title"><%= @listing.title %></h1>
-    <a href="#modal-gallery" type="button" data-toggle="modal"><%= image_tag "default.jpg", class: "photo" %></a>
   </section>
 
   <section class="right">
-    <p id="listing-description"><%= @listing.description %></p>
     <p id="listing-price"><%= number_to_currency(@listing.price) %></p>
+    <p id="listing-description"><%= @listing.description %></p>
 
     <section id="calendar">
-      <%= render partial: "calendar" %>
+      <%= render partial: "shared/calendar" %>
     </section>
   </section>
 
@@ -24,11 +30,7 @@
 
 </div>
 
-<div class="hidden" id="img-repo">
-  <div class="listing-photo">
-    <%= image_tag @listing.pictures.first.url, class: "thumbnail" %>
-  </div>
-</div>
+
 
 <div class="modal" id="modal-gallery" role="dialog">
   <div class="modal-dialog">
@@ -48,10 +50,6 @@
 
         </div>
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
     </div>
   </div>
 </div>
-

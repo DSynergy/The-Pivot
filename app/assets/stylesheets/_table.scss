@@ -8,17 +8,19 @@
     text-align:center;
     margin-bottom: 30px;
     padding:10px;
-    border:3px solid white;
     padding-left:70px;
-    background:rgba(253, 253, 253, 0.78);
-    @include border-radius(5px);
+    background-color:$light-teal;
+
+    tr{
+      border:none;
+    }
 
     th{
       text-align:center;
-    }
-
-    tfoot td{
-      border:1px solid gray;
+      color:white;
+      font-family:$sub-font;
+      font-size:1.5em;
+      border:none;
     }
   }
 }
@@ -27,12 +29,18 @@
   table{
     width:530px;
     padding-left:10px;
+    color:white;
+    border:5px solid $mint;
 
     input{
       text-align:center;
       margin:0 auto;
       display:block;
       width:100%;
+    }
+    a{
+      font-family:$sub-font;
+      border:3px solid $mint;
     }
   }
 }

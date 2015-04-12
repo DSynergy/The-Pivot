@@ -12,7 +12,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'autoprefixer-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-datepicker-rails'
-
 gem 'rmagick'
 gem 'carrierwave'
 

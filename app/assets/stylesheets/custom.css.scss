@@ -27,6 +27,22 @@ body{
   }
 }
 
+::-webkit-input-placeholder {
+  color: $main-teal;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $main-teal;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: $main-teal;
+}
+
+:-ms-input-placeholder {
+  color:  $main-teal;
+}
+
 .messages #flash_notice{
   color:$main-teal;
 }
@@ -85,11 +101,11 @@ input:focus{
   }
 
   h2 {
-        margin-top:-15px;
-      a{
-        font-family:$sub-font;
-        color:$mint;
-      }
+    margin-top:-15px;
+    a{
+      font-family:$sub-font;
+      color:$mint;
+    }
   }
 }
 
@@ -104,6 +120,16 @@ input[type="submit"] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  background-color:$mint;
+  &:focus{
+    color:$main-teal;
+    background-color:$mint;
+  }
+
+  &:hover{
+    color:$main-teal;
+    background-color:$mint;
+  }
 }
 
 label{

@@ -1,20 +1,20 @@
-<h1>Welcome <%=set_name(@traveler)%> to your traveler's profile page</h1>
+  <h1>Welcome <%=set_name(@traveler)%> to your traveler's profile page</h1>
 
-Your trips:
+  Your trips:
 
-<% @traveler.bookings.each do |booking| %>
-  trip_name: <%= booking.trip_name %>
+  <% @traveler.bookings.each do |booking| %>
+    trip_name: <%= booking.trip_name %>
 
-    <% booking.reservations.each do |reservation|%>
-      listing_title: <%= reservation.listing.title %>
-      start_date: <%= reservation.start_date %>
-      end_date: <%= reservation.end_date %>
-      status: <%= reservation.status %>
-      price: <%=reservation.listing.price %>
+      <% booking.reservations.each do |reservation|%>
+        listing_title: <%= reservation.listing.title %>
+        start_date: <%= reservation.start_date %>
+        end_date: <%= reservation.end_date %>
+        status: <%= reservation.status %>
+        price: <%=number_to_currency(reservation.listing.price) %>
+      <% end %>
+    Total price: <% prices = booking.reservations.map do |reservation| %>
+      <% reservation.listing.price %>
     <% end %>
-  Total price: <% prices = booking.reservations.map do |reservation| %>
-    <% reservation.listing.price %>
-  <% end %>
-  <%= prices.reduce(:+) %>
+    <%= number_to_currency(prices.reduce(:+)) %>
 
-<% end %>
+  <% end %>

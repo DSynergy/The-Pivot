@@ -1,13 +1,10 @@
 <footer class="footer">
   <div class="container">
-    <div class=btn-lg logo-tiny">
+    <div class="btn-lg footer-btn">
       <% if current_user %>
-        <%= link_to "Contact", root_path %> |
         <%= link_to "Traveler Page", traveler_path(current_user) %> |
         <%= link_to "Host Page", host_path(current_user) %>
-      <% else %>
-        <%= link_to "Contact", root_path %> 
-      <% end %> 
+      <% end %>
     </div>
   </div>
 </footer>
