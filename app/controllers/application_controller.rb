@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery
   before_action :load_cart
   helper_method :load_cart, :set_name, :current_user, :current_cart, :is_admin?, :redirect_to_login_if_not_logged_in
 
