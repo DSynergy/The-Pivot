@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :reservations #traveler
   has_secure_password
 
+  mount_uploader :avatar, ProfileUploader
+
   enum role: %w(active admin inactive)
 
   def format_credit_card
@@ -19,6 +21,25 @@ class User < ActiveRecord::Base
     end
   end
 
-  #when fails validation
+  def reservations_awaiting_approval
+    reservations = self.listings.collect do |listing|
+      listing.pending_reservations
+    end
+    reservations.flatten
+  end
+
+  def past_reservations
+    reservations = self.listings.collect do |listing|
+      listing.past_reservations
+    end
+    reservations.flatten
+  end
+
+  def cancelled_reservations
+    reservations = self.listings.collect do |listing|
+      listing.cancelled_reservations
+    end
+    reservations.flatten
+  end
 
 end

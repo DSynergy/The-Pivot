@@ -1,2 +1,6 @@
 <%= @host.username %>
-    <%= render partial: "host_listings" %>
+<ul>
+  <% @host.listings.each do |listing| %>
+    <li><%= listing.title %>
+  <% end %>
+</ul>

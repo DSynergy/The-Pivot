@@ -1,8 +1,15 @@
 @import 'base';
 
+.paginate {
+  text-align: center;
+}
+
+#menu {
+  padding-bottom: 60px;
+}
+
 .listing-title, .photo, #listings-title {
   font-weight: bold;
-  margin-top: 10px;
   color: $main-teal;
   font-family:$sub-font;
 }
@@ -11,7 +18,7 @@
   height:35px;
 }
 .avatar-pic, .photo{
-  height:200px;
+  height:207px;
   width:auto;
 }
 
@@ -23,20 +30,18 @@ ol{
   padding-left:0px;
 }
 
-.avatar-pic{
-}
-
 .photo, .avatar-pic{
   border:3px solid $mint;
   &:hover{
+    transition: all 0.3s ease 0s;
     filter: grayscale(100%);
     cursor:pointer;
   }
 }
 
 #stars{
-  text-align:right;
-  margin-top:20px;
+  text-align:left;
+  margin-top:-20px;
 
   li{
     display:inline;
@@ -44,15 +49,8 @@ ol{
 }
 
 .listing-description, .listing-city{
-  text-align:right;
-  line-height:2em;
-}
-
-.right {
-  p{
-  padding-right:10px;
-  text-align:right;
-  }
+  text-align:center;
+  line-height:1em;
 }
 
 .middle{
@@ -66,13 +64,20 @@ ol{
     background-color:$mint;
   }
   &:hover .photo {
+    transition: all 0.3s ease 0s;
     filter: grayscale(100%);
   }
+  .left{
+    width:34%;
+    margin-right:53px;
+  }
+  .right{
+    width:42%;
+  }
   figure{
-    margin-bottom:20px;
-
     .photo{
-      border:3px solid $mint;
+      border:3px solid $main-teal;
+      margin-bottom:15px;
     }
   }
 }
@@ -97,28 +102,31 @@ ol{
 
 #listing-title{
   margin-top:40px;
+  padding-right:20px;
 }
 
 .listing-title{
   font-size:2em;
   text-align:center;
-  margin-bottom:30px;
 }
 
 .left{
-  margin-top:30px;
+  margin-top:10px;
   figure{
-    text-align:center;
+    text-align:right;
+    img.photo{
+      margin-top:-97px;
+    }
   }
   text-align:left;
   display:inline-block;
-  width:40%;
+  width:45%;
 }
 
 .right{
   text-align:left;
   display:inline-block;
-  width:40%;
+  width:45%;
 }
 
 .bottom{
@@ -162,6 +170,8 @@ ol{
   min-height: 25px;
   font-size: 20px;
   color: $main-teal;
+  text-align:left;
+  margin-left:20px;
 }
 
 .listing-price, #listing-price {
@@ -173,8 +183,29 @@ ol{
   display:block;
 }
 
+.local{
+  display:inline-block;
+  margin:20px;
+  .state{
+    font-family:$sub-font;
+    font-size:24px;
+    margin-top:0px;
+  }
+  .listing-city{
+    margin-bottom:0px;
+    text-align:left;
+  }
+}
+
+.listing-price{
+  display:inline;
+  margin:20px;
+  font-size:39px;
+}
+
 #listing-price{
   margin-bottom:30px;
+  padding-right:20px;
 }
 
 #listing-show {
@@ -189,9 +220,16 @@ ol{
   background-color:$background-teal;
 }
 
+#listing-description{
+  text-align:right;
+}
+
 .center{
   display:block;
   margin:0 auto;
   text-align:center;
 }
 
+.hidden{
+  display:none;
+}

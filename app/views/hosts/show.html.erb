@@ -1,31 +1,39 @@
 <h1>Welcome <%= set_name(@host)%> to your hosting profile page</h1>
+<%= image_tag @host.avatar_url, class:"profile-pic" %>
 
 <hl>
-
 <%= link_to "Add listing", new_host_listing_path(slug: @host.username) %>
+</h1>
 
-
-
-
-<h3>Bookings currently awaiting your approval</h3>
+<h3>Reservations currently awaiting your approval</h3>
 
 <ul>
-  <li><%= @host.listings %></li>
+  <% @host.reservations_awaiting_approval.each do |reservation|%>
+    <%= render partial: "reservation_info", locals: {reservation: reservation} %>
+  <% end %>
 </ul>
 
-<h3>Your Past Bookings</h3>
+<h3>Past reservations</h3>
 
 <ul>
-  <li><%= @host.listings %></li>
+  <% @host.past_reservations.each do |reservation| %>
+    <%= render partial: "reservation_info", locals: {reservation: reservation} %>
+  <% end %>
 </ul>
 
 
-<h3>Your Cancelled Bookings</h3>
+<h3>Cancelled reservations</h3>
 
 <ul>
-  <li><%= @host.listings%></li>
+  <% @host.cancelled_reservations.each do |reservation| %>
+    <%= render partial: "reservation_info", locals: {reservation: reservation} %>
+  <% end %>
 </ul>
 
 <h3>Your Listings<h3>
 
-    <%= render partial: "host_listings" %>
+    <ul>
+      <% @host.listings.each do |listing| %>
+        <li><%= link_to listing.title, listing %> <%= link_to "Edit", edit_host_listing_path(slug: @host.username, id: listing.id)%></li>
+      <% end %>
+    </ul>

@@ -9,8 +9,9 @@
   <section class="left">
     <div class="listing-photo">
       <ol>
+       <li><%= image_tag @listing.pictures.first.avatar_url, class: "photo" %></li>
       <% @listing.pictures.each do |pic|%>
-        <li><%= image_tag pic.avatar_url, class: " photo" %></li>
+        <li class="hidden"><%= image_tag pic.avatar_url, class: "photo" %></li>
       <% end %>
       </ol>
     </div>
@@ -22,15 +23,13 @@
     <p id="listing-description"><%= @listing.description %></p>
 
     <section id="calendar">
-      <%= render partial: "shared/calendar" %>
+      <%= render partial: "calendar" %>
     </section>
   </section>
 
   <%= render partial: "show_details" %>
 
 </div>
-
-
 
 <div class="modal" id="modal-gallery" role="dialog">
   <div class="modal-dialog">
@@ -40,13 +39,6 @@
         <h3 class="modal-title"></h3>
       </div>
       <div class="modal-body">
-        <div id="modal-carousel" class="carousel">
-
-          <div class="carousel-inner">
-          </div>
-
-          <a class="carousel-control left" href="#modal-carousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-          <a class="carousel-control right" href="#modal-carousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
 
         </div>
       </div>

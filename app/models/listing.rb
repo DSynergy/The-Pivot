@@ -23,6 +23,24 @@ class Listing < ActiveRecord::Base
       where("city like ?", "%#{query}%")
   end
 
+  def pending_reservations
+    self.reservations.select do |reservation|
+      reservation.pending?
+    end
+  end
+
+  def past_reservations
+    self.reservations.select do |reservation|
+      reservation.past?
+    end
+  end
+
+  def cancelled_reservations
+    self.reservations.select do |reservation|
+      reservation.cancelled?
+    end
+  end
+
  # def available_count
  #   available_dates.select {|key| available_dates[key].to_i == 0 }.count
  # end

@@ -1,18 +1,19 @@
 <div id="menu">
-  <div>
-    <% @listings.each do |listing| %>
-     <%= link_to listing do %>
+<div>
+  <% @listings.each do |listing| %>
+    <%= link_to listing do %>
       <div class="container">
         <div class="row middle">
+          <h4 class="listing-title"><%= listing.title %></h4>
           <div class="left">
-          <div>
-            <h4 class="listing-title"><%= listing.title %></h4>
-           </div>
             <figure><%= image_tag listing.pictures.first.avatar_url, class: "photo" %></figure>
           </div>
           <div class="right">
-            <p class="listing-description"><%= listing.description %></p>
-            <p class="listing-city"><%= listing.city %>, <%= listing.state %></P>
+          <p class="listing-description"><%= listing.description %></p>
+          <div class="local">
+            <h4 class="listing-city"><%= listing.city %></h4>
+            <h4 class="state"><%= listing.state %></h4>
+          </div>
             <h3 class="listing-price">$<%= listing.price %></h3>
             <ol id="stars">
               <% rand(1..5).times do %>
@@ -24,5 +25,8 @@
         </div>
       </div>
     <% end %>
-  </div>
+    <div class="paginate">
+      <%= will_paginate @listings %>
+    </div>
+</div>
 </div>

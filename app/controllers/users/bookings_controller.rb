@@ -3,7 +3,7 @@ class Users::BookingsController < ApplicationController
 
   def create
     cart = @cart.content
-    booking = current_user.bookings.generate_reservations(current_user, cart, params[:trip_name])
+    booking = current_user.bookings.create(trip_name: params[:trip_name]).generate_reservations(cart)
     TravelerReservationMailer.reserve_listing_mailer(booking).deliver_now
     session[:cart]={}
     redirect_to traveler_path(current_user),

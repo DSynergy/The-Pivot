@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "listing index" do
-  let!(:listing) { Listing.create({title: "Bacon Maple Crunch",
+  let(:listing) { Listing.create({title: "Bacon Maple Crunch",
                                    description: "see title",
                                    price: 8.00,
                                    quantity_available: 2,
                                    people_per_unit: 2,
                                    private_bathroom: true,
-                                   available_dates: {'Jan1' => 0, 'Jan2' => 0, 'Jan3' => 1, 'Sep27' => 0, 'Sep28' => 0, 'Sep29' => 1},
+                                   start_date: "08/10/2015",
+                                   end_date: "08/12/2015",
                                    user_id: 2,
                                    country: 'USA',
                                    state: 'Colorado',
@@ -16,7 +17,10 @@ RSpec.describe "listing index" do
                                    street_address: '1510 Blake St',
                                    status: 0})}
 
-  before(:each) { visit root_path }
+  before(:each) do
+    visit root_path
+    listing.pictures.create(avatar: "default_image.jpg")
+  end
 
   it "has link to see all listings" do
     expect(page).to have_link("Browse All Listings")

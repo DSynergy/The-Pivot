@@ -1,0 +1,16 @@
+<table>
+<th>
+  <tr>
+    <td>Traveler Name</td>
+    <td>Listing</td>
+    <td>Start Date</td>
+    <td>End Date</td>
+  </tr>
+</th>
+<tr>
+  <td><%= reservation.user.username %></td>
+  <td><%= link_to reservation.listing.title, listing_path(reservation.listing) %></td>
+  <td><%= reservation.start_date %></td>
+  <td><%= reservation.end_date %></td>
+</tr>
+</table>

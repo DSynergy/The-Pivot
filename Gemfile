@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate'
 gem 'faker'
 gem 'rails', '4.2.0'
 gem 'pg'
