@@ -1,16 +1,29 @@
-  <h1>Welcome <%=set_name(@traveler)%> to your traveler's profile page</h1>
+<h1>Welcome <%=set_name(@traveler)%> to your traveler's profile page</h1>
 
-  Your trips:
+Your trips:
 
-  <% @traveler.bookings.each do |booking| %>
-    trip_name: <%= booking.trip_name %>
+<% @traveler.bookings.each do |booking| %>
+  <table class="traveler-bookings">
+    <thead><%= booking.trip_name %></thead>
+    <tr>
+      <td>Listing</td>
+      <td>Start Date</td>
+      <td>End Date</td>
+      <td>Status</td>
+      <td>Price</td>
+    </tr>
 
-      <% booking.reservations.each do |reservation|%>
-        listing_title: <%= reservation.listing.title %>
-        start date: <%= reservation.start_date %>
-      end date: <%= reservation.end_date %>
-        status: <%= reservation.status %>
-        price: <%=number_to_currency(reservation.listing.price) %>
-    Total price: <%= number_to_currency(booking.calculate_total) %>
-      <% end %>
-  <% end %>
+    <% booking.reservations.each do |reservation|%>
+      <tr>
+        <td><%= link_to reservation.listing.title, listing_path(reservation.listing) %></td>
+        <td><%= reservation.start_date %></td>
+        <td><%= reservation.end_date %></td>
+        <td><%= reservation.status %></td>
+        <td><%= number_to_currency(reservation.listing.price) %></td>
+      </tr>
+      <tr>
+        <td>Total price: <%= number_to_currency(booking.calculate_total) %></td>
+      </tr>
+  </table>
+<% end %>
+<% end %>

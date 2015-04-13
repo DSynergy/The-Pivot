@@ -33,6 +33,7 @@ ol{
 .photo, .avatar-pic{
   border:3px solid $mint;
   &:hover{
+    transition: all 0.3s ease 0s;
     filter: grayscale(100%);
     cursor:pointer;
   }
@@ -63,6 +64,7 @@ ol{
     background-color:$mint;
   }
   &:hover .photo {
+    transition: all 0.3s ease 0s;
     filter: grayscale(100%);
   }
   .left{
@@ -74,7 +76,7 @@ ol{
   }
   figure{
     .photo{
-      border:3px solid $mint;
+      border:3px solid $main-teal;
       margin-bottom:15px;
     }
   }
