@@ -7,7 +7,7 @@ RSpec.describe "user visit traveler page spec" do
     sign_in(:user)
     expect(page).to have_content("Traveler Page")
     click_link_or_button("Traveler Page")
-    expect(page).to have_content("Traveler Page: #{user.display_name ? user.display_name : user.username}")
+    expect(page).to have_content("Welcome #{user.display_name ? user.display_name : user.username}")
   end
 
 end
