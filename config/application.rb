@@ -33,6 +33,4 @@ Bundler.require(*Rails.groups)
 
     config.autoload_paths += %W(#{config.root}/app/uploaders)
 
-    config.action_mailer.default_url_options = {host: 'OUR HEROKU URL'}
-
   end

@@ -1,10 +1,11 @@
 Hello <%= @traveler.username %>, this is a courtesy email from Travel Home.
 
-There has been an issue and the host has canceled one of your reservations.
+There has been an issue and the host (<%= @host.username %>) has canceled one of your reservations.
 
 If you are logged in, you can find more details on your <%= link_to "traveler's page", traveler_url(@traveler) %>.
-Otherwise, please<%= link_to "log in.", login_url %>
+
+Otherwise, please <%= link_to "log in.", login_url %>
 
 Please direct all questions and hate-mail directly to the host: <%= @host.email_address %>. You will be refunded in full.
 
-Thank you for using Travel Home and I hope you will try to find someone more accomodating.
+Thank you for using Travel Home and I hope you will find someone more accomodating.
