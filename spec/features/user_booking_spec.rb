@@ -144,7 +144,7 @@ RSpec.describe 'User confirm booking spec' do
       click_link_or_button("Add to Itinerary")
 
       checkout
-      expect(page).to have_content('start date: 09/01/2015')
+      expect(page).to have_content('09/01/2015')
       expect(page).to have_content("$8.00")
       expect(page).to have_content("$10.00")
     end
