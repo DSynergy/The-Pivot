@@ -8,7 +8,7 @@
     <%= hidden_field_tag "listing_id", @listing.id %>
 
     <% if @listing.retired %>
-      <p id="retired-listing"><%= "#{@listing.name} has been retired from the listings" %></p>
+      <p id="retired-listing"><%= "#{@listing.title} has been retired from the listings" %></p>
     <% elsif current_user.nil? || !current_user.admin? %>
       <%= button_to 'Add to Itinerary', cart_path, class: "btn" %>
     <% end %>
