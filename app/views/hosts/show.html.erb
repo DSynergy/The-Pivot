@@ -37,6 +37,9 @@
 
     <ul>
       <% @host.listings.each do |listing| %>
-        <li><%= link_to listing.title, listing %> <%= link_to "Edit", edit_host_listing_path(slug: @host.username, id: listing.id)%></li>
+        <li>
+          <%= link_to listing.title, listing %>
+          <%= link_to "Edit", edit_host_listing_path(slug: @host.username, id: listing.id)%>
+        </li>
       <% end %>
     </ul>
