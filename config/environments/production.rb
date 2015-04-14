@@ -85,8 +85,8 @@ Rails.application.configure do
     domain: "https://travel-home-turing.herokuapp.com/",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "TravelHome.Turing@gmail.com",
-    password: "turingturing",
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
     :openssl_verify_mode  => 'none'
 
   }
