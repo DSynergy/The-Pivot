@@ -9,7 +9,19 @@
       <%= f.label :description, class: "listing-email"%>
       <%= f.text_field :description, class: "form-control" %>
     </div>
-    </br>
+    <div class="form-group">
+      Choose a Category
+      <%= f.radio_button(:categories, "house") %>
+      <%= f.label(:categories, "house") %>
+      <%= f.radio_button(:categories, "condo") %>
+      <%= f.label(:categories, "condo") %>
+      <%= f.radio_button(:categories, "teepee") %>
+      <%= f.label(:categories, "teepee") %>
+      <%= f.radio_button(:categories, "mansion") %>
+      <%= f.label(:categories, "mansion") %>
+      <%= f.radio_button(:categories, "cabin") %>
+      <%= f.label(:categories, "cabin") %>
+    </div>
     <div id="private" class="radio">
       <%= f.radio_button(:private_bathroom, "private") %>
       <%= f.label(:private_bathroom, "private_bathroom") %>
@@ -70,6 +82,6 @@
       <% end %>
     </div>
     <%= f.submit "Submit New Listing", id: "submit_button-listing", class: "btn" %>
-   </div>
- </br></br></br></br></br>
-<% end %>
+  </div>
+          </br></br></br></br></br>
+        <% end %>

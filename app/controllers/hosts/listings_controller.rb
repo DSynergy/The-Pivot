@@ -12,6 +12,7 @@ class Hosts::ListingsController < ApplicationController
 
   def update
     if @listing.update(listing_params)
+      @listing.set_category(params[:listing]['categories'])
       set_pictures
       redirect_to host_path(current_user)
       flash[:notice] = "Successfully Updated"
@@ -33,6 +34,7 @@ class Hosts::ListingsController < ApplicationController
     @listing = current_user.listings.new(listing_params)
     if @listing.save
       set_pictures
+      @listing.set_category(params[:listing]['categories'])
       current_user.listings << @listing
       flash[:notice] = "Listing saved!"
       redirect_to host_path(current_user)
@@ -43,13 +45,13 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def destroy
-    if @listing.destroy
-      flash[:notice] = "Listing Deleted"
-      redirect_to host_path(current_user)
-    else
-      flash[:notice] = "Uh oh, something went wrong"
-      render :edit
-    end
+   # if @listing.destroy
+   #   flash[:notice] = "Listing Deleted"
+   #   redirect_to host_path(current_user)
+   # else
+   #   flash[:notice] = "Uh oh, something went wrong"
+   #   render :edit
+   # end
   end
 
   private
@@ -71,7 +73,8 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def set_listing
-    @listing = Listing.find(params[:id])
+    @listing = current_user.listings.find(params[:id])
   end
 
 end
+

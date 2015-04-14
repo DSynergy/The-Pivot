@@ -1,4 +1,12 @@
+@import 'base';
+
 .profile-pic{
   width:100px;
   height:auto;
+}
+
+#host_page{
+  h3{
+    color:$main-teal;
+  }
 }
