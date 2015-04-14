@@ -9,11 +9,14 @@
 
 <ul>
   <% @host.reservations_awaiting_approval.each do |reservation|%>
+    <%= reservation.status %>
     <%= render partial: "reservation_info", locals: {reservation: reservation} %>
+    <%= button_to "Approve Reservation", user_reservation_path(reservation.traveler, reservation.id), method: :put %>
+    <%= button_to "Cancel Reservation", user_reservation_path(reservation.traveler, reservation.id), method: :delete %>
   <% end %>
 </ul>
 
-<h3>Past reservations</h3>
+<h3> Completed reservations</h3>
 
 <ul>
   <% @host.past_reservations.each do |reservation| %>

@@ -1,4 +1,6 @@
 <%= @host.username %>
+<%= image_tag @host.avatar_url, class:"profile-pic" %>
+
 <ul>
   <% @host.listings.each do |listing| %>
     <li><%= listing.title %>

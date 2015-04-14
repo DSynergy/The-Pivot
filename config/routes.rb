@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   namespace :users, as: :user, path: "/:slug" do
+    resources :reservations, only: [:update, :destroy]
     resources :bookings, only: [:index, :create]
   end
 

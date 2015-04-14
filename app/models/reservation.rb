@@ -19,8 +19,12 @@ class Reservation < ActiveRecord::Base
      status == "completed"
    end
 
-   def past?
+   def cancelled?
      status == "cancelled"
+   end
+
+   def traveler
+     self.user.username
    end
 end
 
