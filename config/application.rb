@@ -14,7 +14,6 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module DinnerDash
   class Application < Rails::Application
     config.assets.paths << Rails.root.join("vendor","assets", "fonts")
     # Settings in config/environments/* take precedence over those specified here.
@@ -34,5 +33,6 @@ module DinnerDash
 
     config.autoload_paths += %W(#{config.root}/app/uploaders)
 
+    config.action_mailer.default_url_options = {host: 'OUR HEROKU URL'}
+
   end
-end

@@ -1,0 +1,3 @@
+HostBookingConfirmMailer#host_confirmation_email_to_traveler
+
+Hi, find me in app/views/host_booking_confirm_mailer/host_confirmation_email_to_traveler

@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
+  before_action :previous_url, only: [:create]
+
+  def previous_url
+    session[:previous_url] ||= request.referrer
+  end
 
   def new
-    session[:stored_url] = request.referrer
+    session[:stored_url] ||= request.referrer
   end
 
   def create
@@ -11,6 +16,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       determine_redirect
     else
+      session[:previous_url] = request.referrer
       flash[:error] = "Login failed"
       render :new
     end
@@ -28,7 +34,9 @@ class SessionsController < ApplicationController
     if @user.admin?
       redirect_to admin_path
     elsif session[:stored_url]
-      redirect_to session[:stored_url]
+      redirect_to cart_path
+    elsif session[:previous_url]
+      redirect_to session[:previous_url]
     else
       redirect_to root_path
     end
