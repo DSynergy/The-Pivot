@@ -2,10 +2,9 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show]
 
   def index
-    if params[:search]
+    if params[:search] && params[:search] != ""
       @listings = Listing.where(city: params[:search]).order("created_at DESC")
     else
-#      @listings = Listing.active.order('created_at DESC').paginate(:page => 5)
       @listings = Listing.paginate(page: params[:page], per_page: 5)
     end
   end
@@ -17,10 +16,6 @@ class ListingsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   private
