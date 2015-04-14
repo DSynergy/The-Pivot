@@ -1,5 +1,5 @@
 <h1>Edit Page</h1>
-<%= form_for(@listing, url: host_listing_path(slug: current_user.username, id: @listing.id)) do |f| %>
+<%= form_for([:host, @listing], url: host_listing_path(slug: current_user.username, id: @listing.id), method: :patch) do |f| %>
   <%= render "shared/errors", object: current_user %>
   <div id="new-listing-form">
     <div>
