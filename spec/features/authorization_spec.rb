@@ -9,27 +9,33 @@ RSpec.describe "User Authorization" do
   before(:each) do
     listing_1.pictures.create(avatar: "default_image.jpg")
     listing_2.pictures.create(avatar: "default_image.jpg")
-    user_1.bookings.create
-    user_2.bookings.create
   end
 
   context "when logged in as a Default User" do
 
-    it "sees personal booking history" do
-      login_as(user_1)
+    it "sees personal booking history", js:true do
+      visit root_path
+      click_link_or_button("Log In")
+      fill_in("session[email_address]", with: user_1.email_address)
+      fill_in("session[password]", with: user_1.password)
+      first(:css, "#small_submit_button").click
 
-      visit travelers_path(user_1)
+      visit traveler_path(user_1)
 
-      expect(page).to have_content("Welcome Sally")
-      expect(page).to have_content("$21.00")
+      expect(page).to have_content("Welcome SuperStarSally123")
     end
 
-    it "does not see another user's order history" do
-      login_as(user_1)
+    it "does not see another user's order history", js:true do
+      visit root_path
+      click_link_or_button("Log In")
+      fill_in("session[email_address]", with: user_1.email_address)
+      fill_in("session[password]", with: user_1.password)
+      first(:css, "#small_submit_button").click
 
-      visit travelers_path(user_1)
+      visit traveler_path(user_2)
 
-      expect(page).to_not have_content("Billy's Orders")
+      expect(page).to_not have_content("Billy")
+      expect(page).to have_content("not authorized")
     end
 
     xit "cannot visit any admin paths" do
