@@ -1,9 +1,13 @@
+A host has confirmed your reservation on Travel Home!
+
 Hello <%= @traveler.username %>, this is a courtesy email from Travel Home.
 
-The host <%= @host.username %> has confirmed your stay with them at <%= @reservation.listing.title %>!
+The host <%= @host.username %> has confirmed your stay with them at <%= @reservation.listing.title%> from <%= @reservation.start_date %> to <%= @reservation.end_date %>!
 
 If you are logged in, you can find more details on your <%= link_to "traveler's page", traveler_url(@traveler) %>.
+
 Otherwise, please <%= link_to "log in.", login_url %>
+
 Thank you for using Travel Home.
 
-Have a safe journey!
+Have a safe journey, <%= @traveler.username %>!
