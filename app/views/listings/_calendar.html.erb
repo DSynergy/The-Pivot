@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group date-select" data-start-date="<%=@listing.start_date%>" data-end-date="<%=@listing.end_date%>">
   <%= form_for(:listing, url: cart_path) do |t| %>
     <div class="input-daterange">
       <h3>Select dates</h3>

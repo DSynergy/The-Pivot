@@ -41,12 +41,9 @@ class Listing < ActiveRecord::Base
     end
   end
 
- # def available_count
- #   available_dates.select {|key| available_dates[key].to_i == 0 }.count
- # end
-
- # def available_days
- #   available_dates.select {|key| available_dates[key].to_i == 0 }.keys
- # end
+  def set_category(category_name)
+    category = Category.find_by(name: category_name)
+    self.categories = [category]
+  end
 
 end

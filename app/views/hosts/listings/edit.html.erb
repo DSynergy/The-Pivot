@@ -10,7 +10,19 @@
       <%= f.label :description, class: "listing-email"%>
       <%= f.text_field :description, class: "form-control" %>
     </div>
-  </br>
+    <div class="form-group">
+      Choose a Category
+      <%= f.radio_button(:categories, "house") %>
+      <%= f.label(:categories, "house") %>
+      <%= f.radio_button(:categories, "condo") %>
+      <%= f.label(:categories, "condo") %>
+      <%= f.radio_button(:categories, "teepee") %>
+      <%= f.label(:categories, "teepee") %>
+      <%= f.radio_button(:categories, "mansion") %>
+      <%= f.label(:categories, "mansion") %>
+      <%= f.radio_button(:categories, "cabin") %>
+      <%= f.label(:categories, "cabin") %>
+    </div>
     <div id="private" class="radio">
       <%= f.radio_button(:private_bathroom, "private") %>
       <%= f.label(:private_bathroom, "private_bathroom") %>
@@ -20,7 +32,7 @@
       <%= f.radio_button(:private_bathroom, "shared") %>
       <%= f.label(:private_bathroom, "Shared_bathroom") %>
     </div>
-  </br>
+    </br>
     <div class="form-group">
       <%= f.label :price, class: "listing-price"%>
       <%= f.number_field :price, class: "form-control" %>
@@ -61,13 +73,13 @@
       <figure class="default-pic">
         <%= image_tag @listing.pictures.last.avatar_url %>
       </figure>
-    <%= f.file_field :avatar %><br>
-    <%= f.label(:status, "Retire") %>
-    <%= f.radio_button(:status, "1") %>
-    <%= f.label(:status, "Active") %>
-    <%= f.radio_button(:status, "0") %>
-    <%= f.submit "Update Changes", id: "submit_button-listing", class: "btn" %>
-   </div>
- </br></br></br></br></br>
+      <%= f.file_field :avatar %><br>
+      <%= f.label(:status, "Retire") %>
+      <%= f.radio_button(:status, "1") %>
+      <%= f.label(:status, "Active") %>
+      <%= f.radio_button(:status, "0") %>
+      <%= f.submit "Update Changes", id: "submit_button-listing", class: "btn" %>
+    </div>
+      </br></br></br></br></br>
   </div>
 <% end %>
