@@ -2,4 +2,5 @@
 /log/*
 /tmp/**
 /coverage/*
+/coverage
 .DS_store
