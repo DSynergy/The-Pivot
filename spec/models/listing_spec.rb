@@ -76,10 +76,6 @@ RSpec.describe Listing, type: :model do
     expect { create(:listing, start_date: nil, end_date:nil)}.to raise_error(ActiveRecord::RecordInvalid)
   end
 
-  xit 'has the correct dates' do
-    expect(listing.available_count).to be 4
-  end
-
   it 'must belong to a user' do
     expect { create(:listing, user_id: nil)}.to raise_error(ActiveRecord::RecordInvalid)
   end
@@ -104,16 +100,5 @@ RSpec.describe Listing, type: :model do
     expect(listing.end_date).to eq '08/10/2015'
     expect(listing.start_date).to eq '08/10/2015'
   end
-
-  # describe ".active_listings" do
-  #   it "returns all active listings" do
-  #     listing
-  #     create(:listing, title: "Test Toast")
-  #     create(:listing, title: "Lazy Toast", retired: true)
-  #
-  #     expect(listing.count).to eq(3)
-  #     expect(listing.active_listings.count).to eq(2)
-  #   end
-  # end
 
 end

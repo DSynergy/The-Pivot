@@ -3,9 +3,9 @@ class ListingsController < ApplicationController
 
   def index
     if params[:search] && params[:search] != ""
-      @listings = Listing.where(city: params[:search]).order("created_at DESC")
+      @listings = Listing.active.where(city: params[:search]).order("created_at DESC")
     else
-      @listings = Listing.paginate(page: params[:page], per_page: 5)
+      @listings = Listing.active.paginate(page: params[:page], per_page: 5)
     end
   end
 
