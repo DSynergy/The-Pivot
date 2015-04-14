@@ -23,6 +23,8 @@ gem 'bootstrap-sass'
 gem "rails_12factor", group: :production
 gem "momentjs-rails", '~> 2.9.0'
 gem "figaro"
+gem 'sidekiq'
+gem 'sinatra'
 
 
 group :development, :test do
