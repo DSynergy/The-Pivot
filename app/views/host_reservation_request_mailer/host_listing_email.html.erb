@@ -1,13 +1,15 @@
 <h1>You have a pending reservation from Travel Home!</h1>
 
 <p>
-  Hello <%= @host.username %>, this is a courtesy email from Travel Home.
+  Hello <%= @host.username %>, this is a courtesy email from Travel Home.<br>
 
-  One of our travelers has created a reservation with you!
+  One of our travelers, <%= @traveler.username %>, has created a reservation with you! <br>
 
-  Please confirm or cancel this reservation within 5 business days to stay in good standing on travel home.
+  Please confirm or cancel this reservation within 5 business days to stay in good standing on travel home.<br>
 
-  You can find more details on your <%= link_to "host page", host_url(@host) %>.
+  If you are logged in, you can find more details on your <%= link_to "host page", host_url(@host) %>.<br><br>
+  Otherwise, please<%= link_to "log in.", login_url %><br><br><br>
 
   Thank you for using Travel Home!
+
 </p>

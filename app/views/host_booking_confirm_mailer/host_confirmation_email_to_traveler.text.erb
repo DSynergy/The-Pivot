@@ -1,3 +1,9 @@
-HostBookingConfirmMailer#host_confirmation_email_to_traveler
+Hello <%= @traveler.username %>, this is a courtesy email from Travel Home.
 
-<%= @greeting %>, find me in app/views/host_booking_confirm_mailer/host_confirmation_email_to_traveler.text.erb
+The host <%= @host.username %> has confirmed your stay with them at <%= @reservation.listing.title %>!
+
+If you are logged in, you can find more details on your <%= link_to "traveler's page", traveler_url(@traveler) %>.
+Otherwise, please <%= link_to "log in.", login_url %>
+Thank you for using Travel Home.
+
+Have a safe journey!

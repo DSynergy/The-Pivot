@@ -22,6 +22,8 @@ gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass'
 gem "rails_12factor", group: :production
 gem "momentjs-rails", '~> 2.9.0'
+gem "figaro"
+
 
 group :development, :test do
   gem 'brakeman', :require => false
