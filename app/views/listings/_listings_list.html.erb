@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="menu">
 <div>
   <% @listings.each do |listing| %>
@@ -18,12 +19,44 @@
             <ol id="stars">
               <% rand(1..5).times do %>
                 <li class="stars"><span class="glyphicon glyphicon-star smaller" aria-hidden="true"></span></li>
+=======
+<%= cache(cache_key_for(Listing)) do %>
+  <div id="menu">
+  <div>
+    <% @listings.each do |listing| %>
+      <%= cache(listing) do %>
+        <%= link_to listing do %>
+          <div class="container">
+            <div class="row middle">
+              <h4 class="listing-title"><%= listing.title %></h4>
+              <div class="left">
+                <%= cache("image") do %>
+                <figure><%= image_tag listing.pictures.first.avatar_url, class: "photo" %></figure>
+>>>>>>> 0dea37823d6c52f9d23daa4216c05b23000e3c14
               <% end %>
-            </ol>
+              </div>
+              <div class="right">
+              <p class="listing-description"><%= listing.description %></p>
+              <div class="local">
+                <h4 class="listing-city"><%= listing.city %></h4>
+                <h4 class="state"><%= listing.state %></h4>
+              </div>
+                <h3 class="listing-price">$<%= listing.price %></h3>
+                <ol id="stars">
+                  <% rand(1..5).times do %>
+                    <li class="stars"><span class="glyphicon glyphicon-star smaller" aria-hidden="true"></span></li>
+                  <% end %>
+                </ol>
+              </div>
+            <% end %>
+            </div>
           </div>
         <% end %>
-        </div>
+      <% end %>
+      <div class="paginate">
+        <%= will_paginate @listings %>
       </div>
+<<<<<<< HEAD
     <% end %>
     <div class="paginate">
       <% if @listings == Listing.all %>
@@ -32,3 +65,8 @@
     </div>
 </div>
 </div>
+=======
+  </div>
+  </div>
+<% end %>
+>>>>>>> 0dea37823d6c52f9d23daa4216c05b23000e3c14
