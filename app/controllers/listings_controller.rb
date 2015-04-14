@@ -3,9 +3,12 @@ class ListingsController < ApplicationController
 
   def index
     if params[:search]
+      pp "search params exist"
       @listings = Listing.where(city: params[:search]).order("created_at DESC")
+      pp "first 5 listings: #{@listings.take(5)}"
     else
 #      @listings = Listing.active.order('created_at DESC').paginate(:page => 5)
+      pp "no search params"
       @listings = Listing.paginate(page: params[:page], per_page: 5)
     end
   end
@@ -17,10 +20,6 @@ class ListingsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   private
