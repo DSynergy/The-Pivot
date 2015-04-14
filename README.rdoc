@@ -1,5 +1,7 @@
 == README
 
+Visit us on Heroku! https://travel-home-turing.herokuapp.com/
+
 The Pivot: taking the Dinner Dash project and changing the purpose of the site with keeping the legacy code
 
 ---
@@ -338,6 +340,3 @@ Technical Quality
     Test-Driven Development: (1) disregard for testing, (2) gaps in test usage/coverage/design, (3) adequate testing, (4) exceptional use of testing
     Code Quality: (1) poor factoring and understanding of MVC, (2) some gaps in code quality / application of MVC, (3) solid code quality and pushing logic down the stack, (4) exceptionally well factored code
     User Experience: (1) inattention to the user experience, (2) some gaps in the UX, (3) a production-ready user experience, (4) a polished UX
-
-
-
