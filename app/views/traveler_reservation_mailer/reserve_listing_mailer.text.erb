@@ -1,11 +1,12 @@
 Hello <%= @traveler.username %>, this is a courtesy email from Travel Home.
 
-You are currently booked for <%= @traveler.bookings.first.trip_name ? @traveler.bookings.first.trip_name : @traveler.bookings.first.listings.all.each {|t| title}%>.
+You are currently booked for <%= @traveler.bookings.last.trip_name ? @traveler.bookings.last.trip_name : @traveler.bookings.last.listings.all.each {|t| title}%>.
 
 The host has been notified of your booking for each listing you have reserved.
 You should hear back within 5 business days and will be notified via email.
 
-You can find more details on your <%= link_to "traveler's page", traveler_url(@traveler) %>.<br>
+If you are logged in, you can find more details on your <%= link_to "traveler's page", traveler_url(@traveler) %>.
+Otherwise, please<%= link_to "log in.", login_url %>
 
 Thank you for using Travel Home.
 

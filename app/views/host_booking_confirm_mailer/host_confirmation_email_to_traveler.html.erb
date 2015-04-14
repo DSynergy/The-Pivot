@@ -1,5 +1,14 @@
-<h1>HostBookingConfirmMailer#host_confirmation_email_to_traveler</h1>
+<h1>A host has confirmed your reservation on Travel Home!</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/host_booking_confirm_mailer/host_confirmation_email_to_traveler.html.erb
+<p>Hello <%= @traveler.username %>, this is a courtesy email from Travel Home.<br>
+
+The host <%= @host.username %> has confirmed your stay with them at <%= @reservation.listing.title%> from <%= @reservation.start_date %> to <%= @reservation.end_date %>!<br>
+
+If you are logged in, you can find more details on your <%= link_to "traveler's page", traveler_url(@traveler) %>. <br>
+Otherwise, please <%= link_to "log in.", login_url %><br><br>
+
+Thank you for using Travel Home.<br><br>
+
+Have a safe journey!
+
 </p>

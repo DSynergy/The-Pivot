@@ -82,15 +82,15 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "OUR HEROKKU URL",
+    domain: "https://travel-home-turing.herokuapp.com/",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
-
+    password: ENV["GMAIL_PASSWORD"],
+    :openssl_verify_mode  => 'none'
 
   }
-  config.action_mailer.default_url_options = {host: "THIS NEEDS TO BE OUR HEROKU URL"}
+  config.action_mailer.default_url_options = {host: "https://travel-home-turing.herokuapp.com/"}
 
 
 
