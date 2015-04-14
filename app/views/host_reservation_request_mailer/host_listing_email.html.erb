@@ -1,5 +1,13 @@
-<h1>HostReservationRequestMailer#host_listing_email</h1>
+<h1>You have a pending reservation from Travel Home!</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/host_reservation_request_mailer/host_listing_email.html.erb
+  Hello <%= @host.username %>, this is a courtesy email from Travel Home.
+
+  One of our travelers has created a reservation with you!
+
+  Please confirm or cancel this reservation within 5 business days to stay in good standing on travel home.
+
+  You can find more details on your <%= link_to "host page", host_url(@host) %>.
+
+  Thank you for using Travel Home!
 </p>
