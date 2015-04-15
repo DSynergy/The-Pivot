@@ -45,8 +45,8 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def destroy
-    @listing.update_attributes(status: "retired")
-    flash[:notice] = "Listing retired"
+    @listing.update_attributes(status: 1)
+    flash[:notice] = "#{@listing.title} retired"
     redirect_to host_path(current_user)
   end
 
