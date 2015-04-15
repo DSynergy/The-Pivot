@@ -1,4 +1,3 @@
-
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
   <h3 id="myModalLabel">Sign Up</h3>
@@ -18,12 +17,13 @@
         <%= f.email_field :email_address, class: "form-control", required: true %>
       </div>
       <div class="form-group">
-        <%= f.label :password, class: "register-password"%>
-        <%= f.password_field :password, class: "form-control password", id: "password", required: true %>
+        <%= f.label :password, class: "register-email" %>
+        <%= f.password_field :pass1, class: "form-control", id: "pass1", required: true %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation, class: "register-password"%>
-        <%= f.password_field :password_confirmation, class: "form-control confirm_password", id: "confirm_password", required: true %>
+        <%= f.label :confirm_password, class: "register-email" %>
+        <%= f.password_field :pass2, class: "form-control", id: "pass2", onkeyup: "checkPass(); return false;", required: true%>
+        <span id="confirmMessage" class="confirmMessage"></span>
       </div>
       <div class="form-group">
         <%= f.label :display_name %>

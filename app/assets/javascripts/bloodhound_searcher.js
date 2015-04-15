@@ -12,9 +12,8 @@ var bloodhound = new Bloodhound({
 // kicks off the loading/processing of `local` and `prefetch`
 bloodhound.initialize();
 
-
 $('.typeahead').typeahead({
-  hint: true,
+  hint: false,
   highlight: true,
   minLength: 1
 },
