@@ -7,7 +7,7 @@
       <h3>Your trips:</h3>
       <% @traveler.bookings.each do |booking| %>
         <table class="traveler-bookings">
-          <thead><%= booking.trip_name %></thead>
+          <thead><h3><%= booking.trip_name %></h3></thead>
           <tr class="headings">
             <td>Listing</td>
             <td>Start Date</td>

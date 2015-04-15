@@ -1,6 +1,6 @@
 @import "base";
 
-#order-history, #cart{
+#cart{
   table{
     margin:0 auto;
     display:block;
@@ -9,7 +9,7 @@
     margin-bottom: 30px;
     padding:10px;
     padding-left:70px;
-    background-color:$light-teal;
+    background-color:$background-teal;
 
     tr{
       border:none;
@@ -17,7 +17,7 @@
 
     th{
       text-align:center;
-      color:white;
+      color:$main-teal;
       font-family:$sub-font;
       font-size:1.5em;
       border:none;
@@ -28,8 +28,8 @@
 #cart{
   table{
     padding-left:10px;
-    color:white;
-    border:5px solid $mint;
+    color:$main-teal;
+    border:5px solid $main-teal;
     tbody{
       margin: 0 auto;
       display: block;

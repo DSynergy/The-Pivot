@@ -1,6 +1,6 @@
 <table class="host-table">
 <th>
-  <tr>
+  <tr class="headings-res">
     <td>Traveler</td>
     <td>Listing</td>
     <td>Start Date</td>
@@ -12,5 +12,7 @@
   <td><%= link_to reservation.listing.title, listing_path(reservation.listing) %></td>
   <td><%= reservation.start_date %></td>
   <td><%= reservation.end_date %></td>
+  <td class="res-btn"><%= button_to "Approve", user_reservation_path(reservation.traveler, reservation.id), method: :put %></td>
+  <td class="res-btn"><%= button_to "Cancel", user_reservation_path(reservation.traveler, reservation.id), method: :delete %></td>
 </tr>
 </table>

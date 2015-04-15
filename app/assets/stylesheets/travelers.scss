@@ -8,9 +8,14 @@
 
 .traveler-bookings{
   margin-top:20px;
-  table td{
+  border-bottom:3px solid $main-teal;
+  border-top:3px solid $main-teal;
+
+  table tr{
+    td{
     padding:10px;
   }
+}
   a{
     font-size:1.2em;
     border-bottom:1px solid $mint;
@@ -26,7 +31,6 @@
   color:$main-teal;
   table{
     width:100%;
-    border:3px solid $mint;
     background-color:$background-teal;
     text-align:center;
 
@@ -34,7 +38,7 @@
       font-size:1.2em;
       font-family:$sub-font;
       margin-bottom:10px;
-      border-bottom:1px solid $mint;
+      border-bottom:1px solid $main-teal;
       background-color:$mint;
     }
   }
