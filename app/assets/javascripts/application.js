@@ -4,4 +4,6 @@
 //= require moment
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require bloodhound
+//= require typeahead.jquery
 //= require_tree .

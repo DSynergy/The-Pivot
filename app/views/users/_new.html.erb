@@ -11,19 +11,19 @@
     <div id="login-form">
       <div>
         <%= f.label :username, class: "register-username" %>
-        <%= f.text_field :username, class: "form-control"%>
+        <%= f.text_field :username, class: "form-control", required: true %>
       </div>
       <div class="form-group">
-        <%= f.label :email_address, class: "register-email"%>
-        <%= f.text_field :email_address, class: "form-control" %>
+        <%= f.label :email_address, class: "register-email" %>
+        <%= f.email_field :email_address, class: "form-control", required: true %>
       </div>
       <div class="form-group">
         <%= f.label :password, class: "register-password"%>
-        <%= f.password_field :password, class: "form-control" %>
+        <%= f.password_field :password, class: "form-control password", id: "password", required: true %>
       </div>
       <div class="form-group">
         <%= f.label :password_confirmation, class: "register-password"%>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.password_field :password_confirmation, class: "form-control confirm_password", id: "confirm_password", required: true %>
       </div>
       <div class="form-group">
         <%= f.label :display_name %>
