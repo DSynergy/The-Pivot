@@ -59,7 +59,7 @@ RSpec.describe 'User confirm booking spec' do
 
   context "when not logged in" do
 
-    xit "can pick available dates for reservation and add to cart", js: true do
+    it "can pick available dates for reservation and add to cart", js: true do
       listing = create(:listing, title: "house", start_date: "08/12/2015", end_date: "08/15/2015")
       listing.categories.create(name: "house")
       listing.pictures.create(avatar: "default_image.jpg")
@@ -73,7 +73,7 @@ RSpec.describe 'User confirm booking spec' do
       expect(page).to have_content("Jul 01 2015: Wednesday - Jul 03 2015: Friday")
     end
 
-    xit "cannot checkout cart", js: true, :driver => :selenium_firefox do
+    it "cannot checkout cart", js: true, :driver => :selenium_firefox do
       listing.pictures.create(avatar: "default_image.jpg")
       create(:user, email_address: "ex@ex.com")
       add_a_booking
@@ -92,7 +92,7 @@ RSpec.describe 'User confirm booking spec' do
 
   context "when logged in" do
 
-    xit "can checkout cart", js:true, :driver => :selenium_firefox do
+    it "can checkout cart", js:true, :driver => :selenium_firefox do
       listing.pictures.create(avatar: "default_image.jpg")
       add_a_booking
       user = create(:user)
@@ -117,7 +117,7 @@ RSpec.describe 'User confirm booking spec' do
       user_login
     end
 
-    xit "shows status of reservation in traverler's booking history", js:true, :driver => :selenium_firefox do
+    it "shows status of reservation in traverler's booking history", js:true, :driver => :selenium_firefox do
 
       listing.pictures.create(avatar: "default_image.jpg")
       listing2.pictures.create(avatar: "default_image.jpg")
@@ -149,7 +149,7 @@ RSpec.describe 'User confirm booking spec' do
       expect(page).to have_content("$10.00")
     end
 
-    xit "shows a total for the entire booking", js:true, :driver => :selenium_firefox do
+    it "shows a total for the entire booking", js:true, :driver => :selenium_firefox do
       listing.pictures.create(avatar: "default_image.jpg")
       listing2.pictures.create(avatar: "default_image.jpg")
 

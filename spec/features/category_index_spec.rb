@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Browse by Category" do
-  xit "shows a list of Items by Category" do
+  it "shows a list of Items by Category" do
     listing = create(:listing)
     listing.categories.create(name: "house")
     visit root_path
