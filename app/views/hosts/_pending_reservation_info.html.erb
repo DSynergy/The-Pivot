@@ -1,0 +1,18 @@
+<table>
+<th>
+  <tr>
+    <td>Traveler</td>
+    <td>Listing</td>
+    <td>Start Date</td>
+    <td>End Date</td>
+  </tr>
+</th>
+<tr>
+  <td><%= reservation.user.username %></td>
+  <td><%= link_to reservation.listing.title, listing_path(reservation.listing) %></td>
+  <td><%= reservation.start_date %></td>
+  <td><%= reservation.end_date %></td>
+  <td class="res-btn"><%= button_to "Approve", user_reservation_path(reservation.traveler, reservation.id), method: :put %></td>
+  <td class="res-btn"><%= button_to "Cancel", user_reservation_path(reservation.traveler, reservation.id), method: :delete %></td>
+</tr>
+</table>
