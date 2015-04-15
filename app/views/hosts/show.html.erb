@@ -1,48 +1,53 @@
-<div id="host_page">
+<div id="host_page" class="container">
 
 <h1>Welcome <%= set_name(@host)%> to your hosting profile page</h1>
-<%= image_tag @host.avatar_url, class:"profile-pic" %>
 
-<hl>
-<%= link_to "Add listing", new_host_listing_path(slug: @host.username) %>
-</h1>
+<div class="row">
+  <div class="col-lg-2" id="profile">
+    <h3><%= image_tag @host.avatar_url, class:"profile-pic" %></h3>
+  </div>
+  <div class="col-lg-2" id="host-info">
+    <h3><%= @host.username %></h3>
+    <h3><%= @host.email_address %></h3>
+  </div>
+</div>
+<div class="col-lg-7" id="reservation-info">
 
-<h3>Reservations currently awaiting your approval</h3>
-
-<ul>
+  <h3>Reservations awaiting your approval</h3>
   <% @host.reservations_awaiting_approval.each do |reservation|%>
     <%= reservation.status %>
     <%= render partial: "reservation_info", locals: {reservation: reservation} %>
     <%= button_to "Approve Reservation", user_reservation_path(reservation.traveler, reservation.id), method: :put %>
     <%= button_to "Cancel Reservation", user_reservation_path(reservation.traveler, reservation.id), method: :delete %>
   <% end %>
-</ul>
 
-<h3> Completed reservations</h3>
-
-<ul>
+  <h3> Completed reservations</h3>
   <% @host.past_reservations.each do |reservation| %>
     <%= render partial: "reservation_info", locals: {reservation: reservation} %>
   <% end %>
-</ul>
 
-
-<h3>Cancelled reservations</h3>
-
-<ul>
+  <h3>Cancelled reservations</h3>
   <% @host.cancelled_reservations.each do |reservation| %>
     <%= render partial: "reservation_info", locals: {reservation: reservation} %>
   <% end %>
-</ul>
+</div>
 
-<h3>Your Listings<h3>
-
-    <ul>
-      <% @host.listings.each do |listing| %>
-        <li>
-          <%= link_to listing.title, listing %>
-          <%= link_to "Edit", edit_host_listing_path(slug: @host.username, id: listing.id)%>
-        </li>
+<div class="col-lg-5" id="listing-info">
+  <h3 id="listings-hosts" colspan="2">Your Listings</h3>
+  <%= link_to "Add listing", new_host_listing_path(slug: @host.username), class: "add-listing" %>
+  <table>
+    <% @host.listings.each do |listing| %>
+      <% if listing.retired %>
+        <tr><td class="title-link"><li><%= link_to listing.title, listing %> has been retired</li></td></tr>
+      <% else %>
+        <tr>
+          <td class="title-link"><%= link_to listing.title, listing, class:"listing-title", colspan:"2" %></td>
+          <td><%= link_to "Edit", edit_host_listing_path(slug: @host.username, id: listing.id), class: "listing-edit" %></td>
+          <td><%= link_to "Retire", host_listing_path(slug: @host.username, id:listing.id), method: :delete, class: "listing-retire" %></td>
+        </tr>
       <% end %>
-    </ul>
+    <% end %>
+  </table>
+</div>
+</div>
 </div>

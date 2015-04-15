@@ -6,7 +6,67 @@
 }
 
 #host_page{
+  color:$main-teal;
+  h1{
+    text-align:center;
+    font-family:$sub-font;
+  }
   h3{
-    color:$main-teal;
+    font-family:$sub-font;
+  }
+  ul li{
+    font-size:1em;
+  }
+  a{
+    font-size:1.3em;
+  }
+  a.add-listing{
+    border-bottom:1px solid $mint;
+  }
+  .listing-title{
+    font-family:$sub-font;
+    font-size:1.2em;
+    margin-right:25px;
+  }
+  .listing-edit, .listing-retire{
+    margin-left:10px;
+    margin-right:10px;
+    border:1px solid $mint;
+    padding:5px;
+    font-size:.8em;
+  }
+  #reservation-info {
+  }
+  #listings-hosts{
+    display:inline;
+    margin:20px 20px 40px 0px;
+    font-family:$sub-font;
+  }
+  #host-info h3{
+    font-size:1em;
+  }
+  #listing-info{
+    border:3px solid $light-teal;
+    background-color:$background-teal;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-top:20px;
+    text-align:center;
+    table{
+      margin:0 auto;
+      text-align:center;
+      margin-top:20px;
+    .title-link{
+      text-align:left;
+    }
+      tr td{
+        margin-top:15px;
+        margin-bottom:15px;
+        line-height:3em;
+      }
+    }
+  }
+  #profile{
+    text-align:right;
   }
 }
