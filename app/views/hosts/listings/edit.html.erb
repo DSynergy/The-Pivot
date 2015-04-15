@@ -73,11 +73,6 @@
       <figure class="default-pic">
         <%= image_tag @listing.pictures.last.avatar_url %>
       </figure>
-      <%= f.file_field :avatar %><br>
-      <%= f.label(:status, "Retire") %>
-      <%= f.radio_button(:status, "1") %>
-      <%= f.label(:status, "Active") %>
-      <%= f.radio_button(:status, "0") %>
       <%= f.submit "Update Changes", id: "submit_button-listing", class: "btn" %>
     </div>
       </br></br></br></br></br>
