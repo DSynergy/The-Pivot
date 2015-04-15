@@ -16,13 +16,14 @@
         <%= @cart.listings_per_cart %><span id="shopping-cart" class="glyphicon glyphicon-shopping-cart smaller" aria-hidden="true"></span>
       <% end %>
     </li>
-    <div class='dynamic_search' data-search="<%= { states: @locations }.to_json %>"></div>
-    <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "city...", class: "typeahead"%>
-      <button type="submit" class="btn"><span class="glyphicon glyphicon-search smaller" aria-hidden="true"></span></button>
-    <% end %>
+    <div class='dynamic_search' data-search="<%= { states: @locations }.to_json %>">
+      <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "city/state/listing title", class: "typeahead"%>
+        <button type="submit" class="btn"><span class="glyphicon glyphicon-search smaller" aria-hidden="true"></span></button>
+      <% end %>
+    </div>
+  <% end %>
   </ul>
-<% end %>
 
 <div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">

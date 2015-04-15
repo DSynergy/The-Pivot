@@ -29,6 +29,22 @@
     }
   }
 
+  .tt-suggestion:hover{
+    background:$main-teal;
+    color:white;
+  }
+
+
+  .tt-dropdown-menu{
+    color:$main-teal;
+    border:3px solid $mint;
+    background: white;
+    margin: 20px 5px 10px 15px;
+
+
+
+  }
+
   .container{
     background-color:rgba(255, 255, 255, 0.89);
     width:100%;
@@ -68,6 +84,7 @@ footer{
 
 button[type="submit"] {
   padding-left:0;
+  position:relative;
   background-color:transparent;
   border:none;
   box-shadow:none;
