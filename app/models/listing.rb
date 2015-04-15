@@ -16,7 +16,7 @@ class Listing < ActiveRecord::Base
   belongs_to :user
 
   def retired
-    status == 1
+    status == 0
   end
 
   def self.search(query)

@@ -6,7 +6,15 @@
 }
 
 #host_page{
-  h3{
     color:$main-teal;
+  h1{
+    text-align:center;
+    font-family:$sub-font;
+  }
+  ul li{
+    font-size:.8em;
+  }
+  a{
+    border-bottom:1px solid $mint;
   }
 }

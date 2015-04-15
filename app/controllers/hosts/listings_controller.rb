@@ -45,13 +45,9 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def destroy
-   # if @listing.destroy
-   #   flash[:notice] = "Listing Deleted"
-   #   redirect_to host_path(current_user)
-   # else
-   #   flash[:notice] = "Uh oh, something went wrong"
-   #   render :edit
-   # end
+    @listing.update_attributes(status: "retired")
+    flash[:notice] = "Listing retired"
+    redirect_to host_path(current_user)
   end
 
   private
