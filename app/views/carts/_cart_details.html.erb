@@ -17,8 +17,8 @@
     <tr>
       <td><%= number_to_currency(@cart.total_price) %></td>
     </tr>
-  <tfoot>
-    <td colspan="4">
+  <tfoot colspan="7">
+    <td>
       <% if current_user %>
       <%=form_tag(user_bookings_path(slug: current_user.username), id: "trip-name-form") do %>
         <%= text_field_tag :trip_name, params[:trip_name], placeholder: "Please enter your trip name!" %>
