@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_action :load_cart
-  helper_method :load_cart, :set_name, :current_user, :current_cart, :is_admin?, :redirect_to_login_if_not_logged_in
+  before_action :load_cart, :fetch_locations
+  helper_method :load_cart, :set_name, :current_user, :current_cart, :is_admin?, :redirect_to_login_if_not_logged_in, :fetch_locations
 
   private
+
+  def fetch_locations
+    @locations = Listing.all.pluck(:city, :state, :title).flatten
+  end
+
 
   def load_cart
     @cart = Cart.new(session[:cart])
