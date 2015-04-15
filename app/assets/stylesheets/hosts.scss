@@ -1,5 +1,9 @@
 @import 'base';
 
+.host-table{
+  background-color:$background-teal;
+  margin-bottom:20px;
+}
 .profile-pic{
   width:100px;
   height:auto;
@@ -8,6 +12,12 @@
 .res-btn input{
   width:100px;
   border:none;
+}
+
+.headings-res{
+  font-family:$sub-font;
+  font-size:1.2em;
+  border-bottom:1px solid $mint;
 }
 
 #host_page{
@@ -77,7 +87,8 @@
   .completed, .pending, .cancelled{
     table{
       td{
-        padding:10px;
+        padding-right:10px;
+        padding-left:10px;
       }
     }
   }
