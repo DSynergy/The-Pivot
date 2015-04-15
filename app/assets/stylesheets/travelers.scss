@@ -1,3 +1,41 @@
-// Place all the styles related to the Travelers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base';
+
+#traveler-welcome{
+  text-align:center;
+  color:$main-teal;
+  font-family:$sub-font;
+}
+
+.traveler-bookings{
+  margin-top:20px;
+  table td{
+    padding:10px;
+  }
+  a{
+    font-size:1.2em;
+    border-bottom:1px solid $mint;
+  }
+  #total{
+    font-size:1.5em;
+    font-family:$sub-font;
+    padding-top:10px;
+  }
+}
+
+#travel-info{
+  color:$main-teal;
+  table{
+    width:100%;
+    border:3px solid $mint;
+    background-color:$background-teal;
+    text-align:center;
+
+    .headings{
+      font-size:1.2em;
+      font-family:$sub-font;
+      margin-bottom:10px;
+      border-bottom:1px solid $mint;
+      background-color:$mint;
+    }
+  }
+}

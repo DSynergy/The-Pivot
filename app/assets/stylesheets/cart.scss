@@ -7,6 +7,12 @@
   color:$main-teal;
   font-family:$sub-font;
 }
+#cart table{
+  input{
+    width:600px;
+  }
+  width:700px;
+}
 
 #cart table tfoot td{
   border:none;
@@ -25,4 +31,8 @@
   margin:0 auto;
   display:block;
   width:100%;
+}
+
+#trip_name{
+  border:none;
 }

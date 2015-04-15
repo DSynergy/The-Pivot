@@ -6,8 +6,14 @@
 @import 'orders';
 @import 'nav';
 
+.wrapper{
+  overflow:auto;
+  min-height:100%;
+  margin-bottom:60px;
+}
 body{
   background-color:$background-teal;
+  height:100vh;
 
   div.hero{
     background-image: image-url('barcelona.jpg');

@@ -1,3 +1,4 @@
+<div class="wrapper">
 <div id="host_page" class="container">
 
 <h1>Welcome <%= set_name(@host)%> to your hosting profile page</h1>
@@ -12,24 +13,27 @@
   </div>
 </div>
 <div class="col-lg-7" id="reservation-info">
-
-  <h3>Reservations awaiting your approval</h3>
-  <% @host.reservations_awaiting_approval.each do |reservation|%>
-    <%= reservation.status %>
-    <%= render partial: "reservation_info", locals: {reservation: reservation} %>
-    <%= button_to "Approve Reservation", user_reservation_path(reservation.traveler, reservation.id), method: :put %>
-    <%= button_to "Cancel Reservation", user_reservation_path(reservation.traveler, reservation.id), method: :delete %>
-  <% end %>
-
-  <h3> Completed reservations</h3>
-  <% @host.past_reservations.each do |reservation| %>
-    <%= render partial: "reservation_info", locals: {reservation: reservation} %>
-  <% end %>
-
-  <h3>Cancelled reservations</h3>
-  <% @host.cancelled_reservations.each do |reservation| %>
-    <%= render partial: "reservation_info", locals: {reservation: reservation} %>
-  <% end %>
+  <div class="pending">
+    <h3>Reservations awaiting your approval</h3>
+    <% @host.reservations_awaiting_approval.each do |reservation|%>
+      <%= reservation.status %>
+      <%= render partial: "reservation_info", locals: {reservation: reservation} %>
+      <%= button_to "Approve Reservation", user_reservation_path(reservation.traveler, reservation.id), method: :put %>
+      <%= button_to "Cancel Reservation", user_reservation_path(reservation.traveler, reservation.id), method: :delete %>
+    <% end %>
+  </div>
+  <div class="completed">
+    <h3> Completed reservations</h3>
+    <% @host.past_reservations.each do |reservation| %>
+      <%= render partial: "reservation_info", locals: {reservation: reservation} %>
+    <% end %>
+  </div>
+  <div class="cancelled">
+    <h3>Cancelled reservations</h3>
+    <% @host.cancelled_reservations.each do |reservation| %>
+      <%= render partial: "reservation_info", locals: {reservation: reservation} %>
+    <% end %>
+  </div>
 </div>
 
 <div class="col-lg-5" id="listing-info">
@@ -48,6 +52,7 @@
       <% end %>
     <% end %>
   </table>
+</div>
 </div>
 </div>
 </div>

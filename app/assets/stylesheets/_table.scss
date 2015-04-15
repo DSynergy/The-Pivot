@@ -27,17 +27,19 @@
 
 #cart{
   table{
-    width:530px;
     padding-left:10px;
     color:white;
     border:5px solid $mint;
-
-    input{
-      text-align:center;
-      margin:0 auto;
-      display:block;
-      width:100%;
+    tbody{
+      margin: 0 auto;
+      display: block;
+      width: 620px;
+      text-align: center;
     }
+    .btn{
+      color:$main-teal;
+    }
+
     a{
       font-family:$sub-font;
       border:3px solid $mint;
