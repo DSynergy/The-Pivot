@@ -3,17 +3,17 @@
 <h1>Welcome <%= set_name(@host)%> to your hosting profile page</h1>
 
 <div class="row">
-  <div class="col-lg-3 col-lg-offset-3">
+  <div class="col-lg-2" id="profile">
     <h3><%= image_tag @host.avatar_url, class:"profile-pic" %></h3>
-  </div>
-  <div class="col-lg-3">
+    </div>
+  <div class="col-lg-2" id="host-info">
     <h3><%= @host.username %></h3>
     <h3><%= @host.email_address %></h3>
   </div>
 </div>
-<div class="col-lg-6">
+<div class="col-lg-6 col-lg-offset-1">
 
-  <h3>Reservations currently awaiting your approval</h3>
+  <h3>Reservations awaiting your approval</h3>
   <ul>
     <% @host.reservations_awaiting_approval.each do |reservation|%>
       <%= reservation.status %>
@@ -38,8 +38,8 @@
   </ul>
 </div>
 
-<div class="col-lg-6">
-  <h3 colspan="3">Your Listings<h3>
+<div class="col-lg-5" id="listing-info">
+  <h3 id="listings-hosts" colspan="2">Your Listings</h3>
       <%= link_to "Add listing", new_host_listing_path(slug: @host.username) %>
       <ul>
         <% @host.listings.each do |listing| %>

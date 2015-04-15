@@ -6,15 +6,40 @@
 }
 
 #host_page{
-    color:$main-teal;
+  color:$main-teal;
   h1{
     text-align:center;
     font-family:$sub-font;
   }
+  h3{
+    font-family:$sub-font;
+  }
   ul li{
-    font-size:.8em;
+    font-size:1em;
   }
   a{
     border-bottom:1px solid $mint;
+    font-size:1.3em;
+  }
+  #listings-hosts{
+    display:inline;
+    margin:20px 20px 40px 0px;
+    font-family:$sub-font;
+  }
+  #host-info h3{
+    font-size:1em;
+  }
+  #listing-info{
+    margin-top:20px;
+    ul{
+      padding-left:0px;
+      padding-top:20px;
+      li{
+        line-height:2em;
+      }
+    }
+  }
+  #profile{
+    text-align:right;
   }
 }
