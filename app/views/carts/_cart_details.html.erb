@@ -3,17 +3,22 @@
     <th>Listing</th>
     <th>Start date</th>
     <th>End date</th>
+    <th>Price/Night</th>
   </tr>
   <% @cart.listings_with_dates.each do |listing, dates| %>
     <tr>
       <td><h4><%= listing.title %></h4></td>
         <td><%= dates.first %></td>
         <td><%= dates.last %></td>
+        <td><%= number_to_currency(listing.price) %></td>
         <td><%= link_to "remove listing", cart_path(listing), method: :delete %></td>
     </tr>
   <% end %>
-  <tfoot>
-    <td colspan="4">
+    <tr>
+      <td><%= number_to_currency(@cart.total_price) %></td>
+    </tr>
+  <tfoot colspan="7">
+    <td>
       <% if current_user %>
       <%=form_tag(user_bookings_path(slug: current_user.username), id: "trip-name-form") do %>
         <%= text_field_tag :trip_name, params[:trip_name], placeholder: "Please enter your trip name!" %>
