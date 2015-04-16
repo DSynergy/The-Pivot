@@ -73,6 +73,12 @@
       <figure class="default-pic">
         <%= image_tag @listing.pictures.last.avatar_url %>
       </figure>
+      <%= f.fields_for :pictures do |p| %>
+        <div class="field">
+          <%= p.label :avatar %><br>
+          <%= p.file_field :remote_avatar_url, :multiple => true, name: "pictures[avatar][]" %>
+        </div>
+      <% end %>
       <%= f.submit "Update Changes", id: "submit_button-listing", class: "btn" %>
     </div>
       </br></br></br></br></br>

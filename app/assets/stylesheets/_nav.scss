@@ -28,21 +28,15 @@
       outline:none;
     }
   }
-
   .tt-suggestion:hover{
     background:$main-teal;
     color:white;
   }
-
-
   .tt-dropdown-menu{
     color:$main-teal;
     border:3px solid $mint;
     background: white;
     margin: 20px 5px 10px 15px;
-
-
-
   }
 
   .container{
@@ -89,6 +83,7 @@ button[type="submit"] {
   border:none;
   box-shadow:none;
   color:$main-teal;
+  margin-bottom:-40px;
   .glyphicon{
     padding:0;
   }
