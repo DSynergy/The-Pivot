@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:notice] = "Hello #{@user.display_name ? @user.display_name : @user.username}! Welcome to TravelHome!"
     else
-      render :new
+      redirect_to new_user_path
     end
   end
 
