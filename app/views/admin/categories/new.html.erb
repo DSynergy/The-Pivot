@@ -1,9 +1,0 @@
-<h1>Add a New Category of Toast</h1>
-
-<%= form_for([:admin, @category]) do |f| %>
-  <%= f.label "Name" %>
-  <%= f.text_field :name %><br><br>
-  <div id="small_submit_button">
-  <%= f.submit "Create Category", class: "btn-info" %>
-</div>
-<% end %>

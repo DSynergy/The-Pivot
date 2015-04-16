@@ -40,20 +40,6 @@ RSpec.describe 'User login/logout spec' do
       expect(page).to have_content("All Listings")
     end
 
-    xit "redirected to root_path after entering invalid credentials and having to re-enter login" do
-      visit root_path
-      click_on("Browse All Listings")
-      click_on("Log In")
-      fill_in("session[email_address]", with: "sadsal@example.com")
-      fill_in("session[password]", with: "incorrect")
-      first(:css, "#small_submit_button").click
-
-      fill_in("session[email_address]", with: "sadsal@example.com")
-      fill_in("session[password]", with: "password")
-      first(:css, "#small_submit_button").click
-      expect(page).to have_content("Browse All Listings")
-    end
-
   end
 
   context "when logged in" do

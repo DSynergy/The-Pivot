@@ -38,35 +38,14 @@ RSpec.describe "User Authorization" do
       expect(page).to have_content("not authorized")
     end
 
-    xit "cannot visit any admin paths" do
-      login_as(user_1)
-
-      visit admin_path
-
-      expect(page).to have_content("Unauthorized. Access Denied")
-      expect(current_path).to eq(root_path)
-
-      visit admin_categories_path
-
-      expect(page).to have_content("Unauthorized. Access Denied")
-      expect(current_path).to eq(root_path)
-    end
-
   end
 
   context "when not logged in" do
 
-    xit "the user is prompted to log in if they visit the orders path" do
-      visit orders_path
+    it "the user is prompted to log in if they visit the bookings path" do
+      visit traveler_path(user_1.id)
 
-      expect(page).to have_content("You must be logged in to view this page")
-      expect(current_path).to eq(login_path)
-    end
-
-    xit "the user is told to log in if they visit an admin path" do
-      visit admin_path
-
-      expect(page).to have_content("You must be logged in to view this page")
+      expect(page).to have_content("You are not authorized to view that page")
       expect(current_path).to eq(login_path)
     end
 

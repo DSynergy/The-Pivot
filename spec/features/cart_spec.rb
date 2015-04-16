@@ -1,8 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Cart" do
+  let(:user2) {User.create(username: "Sally",
+                          email_address: "reallysadsal@example.com",
+                          password: "password",
+                          role: 0,
+                          credit_card: '1234-5678-9012-3456',
+                          billing_address: 'blahblahblah',
+                          display_name: 'SuperStarSally123')}
+
   before(:each) do
     listing =  create(:listing, start_date: "08/12/2015", end_date: "08/13/2015")
+    user2.listings << listing
     listing.categories.create(name: "home")
     listing.pictures.create(avatar: "default_image.jpg")
     visit listing_path(listing)
@@ -53,7 +62,7 @@ RSpec.describe "Cart" do
     a = page.driver.browser.switch_to.alert
     a.accept
 
-    expect(page).to have_content("Your itinerary has been successfully booked")
+    expect(page).to have_content("Your itinerary has been successfully booked. Happy travels!")
   end
 
 end

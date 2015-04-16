@@ -31,9 +31,7 @@ class SessionsController < ApplicationController
   private
 
   def determine_redirect
-    if @user.admin?
-      redirect_to admin_path
-    elsif session[:stored_url]
+    if session[:stored_url]
       redirect_to cart_path
     elsif session[:previous_url]
       redirect_to session[:previous_url]

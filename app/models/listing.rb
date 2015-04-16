@@ -23,20 +23,30 @@ class Listing < ActiveRecord::Base
       where("city LIKE ? OR state LIKE ? OR title LIKE ?", "%#{query}%","%#{query}%","%#{query}%")
   end
 
+  def set_pictures(picture_params)
+    if picture_params
+      picture_params['avatar'].each do |pic|
+        pictures.create(avatar: pic)
+      end
+    else
+      pictures.create(avatar: "default_image")
+    end
+  end
+
   def pending_reservations
-    self.reservations.select do |reservation|
+    reservations.select do |reservation|
       reservation.pending?
     end
   end
 
   def past_reservations
-    self.reservations.select do |reservation|
+    reservations.select do |reservation|
       reservation.past?
     end
   end
 
   def cancelled_reservations
-    self.reservations.select do |reservation|
+    reservations.select do |reservation|
       reservation.cancelled?
     end
   end
