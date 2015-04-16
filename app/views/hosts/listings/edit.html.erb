@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col-lg-10 col-lg-offset-1 edit">
 <h1>Edit Page</h1>
 <%= form_for([:host, @listing], url: host_listing_path(slug: current_user.username, id: @listing.id), method: :patch) do |f| %>
   <%= render "shared/errors", object: current_user %>
@@ -32,7 +34,6 @@
       <%= f.radio_button(:private_bathroom, "shared") %>
       <%= f.label(:private_bathroom, "Shared_bathroom") %>
     </div>
-    </br>
     <div class="form-group">
       <%= f.label :price, class: "listing-price"%>
       <%= f.number_field :price, class: "form-control" %>
@@ -66,7 +67,7 @@
       <%= f.label :zipcode, class: "listing-zipcode"%>
       <%= f.text_field :zipcode, class: "form-control" %>
     </div>
-    <div class="form-group">Update Dates
+    <div class="form-group edit-calendar">
       <%= render partial: "calendar" %>
     </div>
     <div class="form-group">
@@ -84,3 +85,5 @@
       </br></br></br></br></br>
   </div>
 <% end %>
+</div>
+</div>
