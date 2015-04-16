@@ -19,7 +19,7 @@
               </div>
               <h3 class="listing-price">$<%= listing.price %></h3>
               <ol id="stars">
-                <% rand(1..5).times do %>
+                Average Rating:<% rand(1..5).times do %>
                   <li class="stars"><span class="glyphicon glyphicon-star smaller" aria-hidden="true"></span></li>
                 <% end %>
               </ol>
@@ -30,7 +30,7 @@
       <% end %>
     <% end %>
 
-    <% if @listings.size > 4 %>
+    <% if @listings.size > 10 %>
       <div class="paginate">
         <%= will_paginate @listings %>
       </div>
