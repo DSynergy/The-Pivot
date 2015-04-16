@@ -134,7 +134,7 @@ RSpec.describe 'User confirm booking spec' do
       fill_in("listing[end_date]", with: "09/02/2015")
       click_link_or_button("Add to Itinerary")
       checkout
-      expect(page).to have_content("status: pending")
+      expect(page).to have_content("pending")
     end
 
     it "shows totals for each reservation", js:true, :driver => :selenium_firefox do
