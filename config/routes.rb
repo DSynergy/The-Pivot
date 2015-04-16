@@ -28,14 +28,4 @@ Rails.application.routes.draw do
     resources :listings
   end
 
-  namespace :admin do
-    namespace :hosts, as: :host, path: "/:slug" do
-      resources :listings
-      resources :bookings
-    end
-      get "/", to: "dashboard#index"
-      resources :categories
-      resources :users, only: [:index, :show, :update],  param: 'slug'
-  end
-
 end

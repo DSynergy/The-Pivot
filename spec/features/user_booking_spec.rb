@@ -10,24 +10,32 @@ RSpec.describe 'User confirm booking spec' do
     fill_in("session[password]", with: "password")
     first(:css, "#small_submit_button").click
   end
+  
+  let(:user2) {User.create(username: "Sally",
+                          email_address: "reallysadsal@example.com",
+                          password: "password",
+                          role: 0,
+                          credit_card: '1234-5678-9012-3456',
+                          billing_address: 'blahblahblah',
+                          display_name: 'SuperStarSally123')}
 
-  let!(:listing) { Listing.create({title: "Bacon Maple Crunch",
-                                   description: "see title",
-                                   price: 8.00,
-                                   quantity_available: 2,
-                                   people_per_unit: 2,
-                                   private_bathroom: true,
-                                   user_id: 2,
-                                   start_date: "08/10/2015",
-                                   end_date: "08/14/2015",
-                                   country: 'USA',
-                                   state: 'Colorado',
-                                   city: 'Denver',
-                                   zipcode: '80206',
-                                   street_address: '1510 Blake St',
-                                   status: 0})}
+  let!(:listing) {user2.listings.create(title: "Bacon Maple Crunch",
+                               description: "see title",
+                               price: 8.00,
+                               quantity_available: 2,
+                               people_per_unit: 2,
+                               private_bathroom: true,
+                               start_date: "08/07/2015",
+                               end_date: "08/10/2015",
+                               country: 'USA',
+                               state: 'Colorado',
+                               city: 'Denver',
+                               zipcode: '80206',
+                               street_address: '1510 Blake St',
+                               status: 0)}
 
-  let!(:listing2) { Listing.create({title: "Bacon",
+
+  let!(:listing2) { user2.listings.create({title: "Bacon",
                                     description: "see title",
                                     price: 10.00,
                                     quantity_available: 2,
@@ -35,13 +43,13 @@ RSpec.describe 'User confirm booking spec' do
                                     private_bathroom: true,
                                     start_date: "08/10/2015",
                                     end_date: "08/14/2015",
-                                    user_id: 2,
                                     country: 'USA',
                                     state: 'Colorado',
                                     city: 'Denver',
                                     zipcode: '80206',
                                     street_address: '1510 Blake St',
                                     status: 0})}
+
   def add_a_booking
     visit listing_path(listing)
     fill_in("listing[start_date]", with: "07/01/2015")
@@ -59,7 +67,7 @@ RSpec.describe 'User confirm booking spec' do
 
   context "when not logged in" do
 
-    xit "can pick available dates for reservation and add to cart", js: true do
+    it "can pick available dates for reservation and add to cart", js: true do
       listing = create(:listing, title: "house", start_date: "08/12/2015", end_date: "08/15/2015")
       listing.categories.create(name: "house")
       listing.pictures.create(avatar: "default_image.jpg")
@@ -73,7 +81,7 @@ RSpec.describe 'User confirm booking spec' do
       expect(page).to have_content("Jul 01 2015: Wednesday - Jul 03 2015: Friday")
     end
 
-    xit "cannot checkout cart", js: true, :driver => :selenium_firefox do
+    it "cannot checkout cart", js: true, :driver => :selenium_firefox do
       listing.pictures.create(avatar: "default_image.jpg")
       create(:user, email_address: "ex@ex.com")
       add_a_booking
@@ -92,7 +100,7 @@ RSpec.describe 'User confirm booking spec' do
 
   context "when logged in" do
 
-    xit "can checkout cart", js:true, :driver => :selenium_firefox do
+    it "can checkout cart", js:true, :driver => :selenium_firefox do
       listing.pictures.create(avatar: "default_image.jpg")
       add_a_booking
       user = create(:user)
@@ -117,7 +125,7 @@ RSpec.describe 'User confirm booking spec' do
       user_login
     end
 
-    xit "shows status of reservation in traverler's booking history", js:true, :driver => :selenium_firefox do
+    it "shows status of reservation in traverler's booking history", js:true, :driver => :selenium_firefox do
 
       listing.pictures.create(avatar: "default_image.jpg")
       listing2.pictures.create(avatar: "default_image.jpg")
@@ -126,7 +134,7 @@ RSpec.describe 'User confirm booking spec' do
       fill_in("listing[end_date]", with: "09/02/2015")
       click_link_or_button("Add to Itinerary")
       checkout
-      expect(page).to have_content("status: pending")
+      expect(page).to have_content("pending")
     end
 
     it "shows totals for each reservation", js:true, :driver => :selenium_firefox do
@@ -149,7 +157,7 @@ RSpec.describe 'User confirm booking spec' do
       expect(page).to have_content("$10.00")
     end
 
-    xit "shows a total for the entire booking", js:true, :driver => :selenium_firefox do
+    it "shows a total for the entire booking", js:true, :driver => :selenium_firefox do
       listing.pictures.create(avatar: "default_image.jpg")
       listing2.pictures.create(avatar: "default_image.jpg")
 
