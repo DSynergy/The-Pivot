@@ -5,9 +5,26 @@
   font-size: 22px;
 }
 
-#shared, #private label{
-  padding-left:0px;
-  margin-left:0px;
+  .edit h1{
+    font-family:$sub-font;
+    color:$main-teal;
+  }
+  #new-listing-form{
+    .form-group{
+      margin-bottom:0px;
+    }
+  }
+figure.default-pic img{
+  width:250px;
+  height:auto;
+}
+
+#shared , #private {
+  margin-left:30px;
+  label{
+    padding-left:0px;
+    margin-left:0px;
+  }
 }
 
 #menu {
