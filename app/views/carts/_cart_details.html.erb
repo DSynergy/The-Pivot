@@ -11,7 +11,7 @@
         <td><%= dates.first %></td>
         <td><%= dates.last %></td>
         <td><%= number_to_currency(listing.price) %></td>
-        <td><%= link_to "remove listing", cart_path(listing), method: :delete %></td>
+        <td><%= link_to "remove", cart_path(listing), method: :delete, class: 'remove-cart' %></td>
     </tr>
   <% end %>
     <tr>
