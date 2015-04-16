@@ -32,7 +32,7 @@
 
     <% if @listings.size > 4 %>
       <div class="paginate">
-        <%= will_paginate @listings %>
+        <%= will_paginate @listings, :previous_label => "<<", :next_label => ">>" %>
       </div>
     <% end %>
 
