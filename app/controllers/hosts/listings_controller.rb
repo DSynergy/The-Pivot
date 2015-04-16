@@ -13,7 +13,7 @@ class Hosts::ListingsController < ApplicationController
   def update
     if @listing.update(listing_params)
       @listing.set_category(params[:listing]['categories'])
-      set_pictures
+      @listing.set_pictures(params[:pictures])
       redirect_to host_path(current_user)
       flash[:notice] = "Successfully Updated"
     else
@@ -33,7 +33,7 @@ class Hosts::ListingsController < ApplicationController
   def create
     @listing = current_user.listings.new(listing_params)
     if @listing.save
-      set_pictures
+      @listing.set_pictures(params[:pictures])
       @listing.set_category(params[:listing]['categories'])
       current_user.listings << @listing
       flash[:notice] = "Listing saved!"
@@ -56,16 +56,6 @@ class Hosts::ListingsController < ApplicationController
     params.require(:listing).permit(:title, :description, :private_bathroom,
                                     :price, :quantity_available, :people_per_unit, :status, :street_address, :city,
                                     :state, :country, :zipcode, :start_date, :end_date, pictures_attributes: [:id, :listing_id, :avatar])
-  end
-
-  def set_pictures
-    if params[:picutres]
-      params[:pictures]['avatar'].each do |pic|
-        @listing.pictures.create(avatar: pic)
-      end
-    else
-      @listing.pictures.create(avatar: "default_image")
-    end
   end
 
   def set_listing

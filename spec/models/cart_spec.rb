@@ -12,8 +12,8 @@ RSpec.describe Cart do
   describe "#add_listing" do
 
     it "can have a listings added" do
-      cart.add_listing(listing_1.id, [listing_1.start_date, listing_1.end_date])
-      expect(cart.content).to eq({ 1 => [["08/12/2015", "08/13/2015"]] })
+      cart.add_listing(listing_1.id, listing_1.start_date, listing_1.end_date)
+      expect(cart.content).to eq({ 1 => ["08/12/2015", "08/13/2015"] })
     end
 
   end
@@ -21,8 +21,8 @@ RSpec.describe Cart do
   describe "#remove_listing" do
 
     it "can have listings removed" do
-      cart.add_listing(listing_1.id, [listing_1.start_date, listing_1.end_date])
-      cart.add_listing(listing_2.id, [listing_1.start_date, listing_1.end_date])
+      cart.add_listing(listing_1.id, listing_1.start_date, listing_1.end_date)
+      cart.add_listing(listing_2.id, listing_1.start_date, listing_1.end_date)
 
       expect(cart.listings_per_cart).to eq(2)
       cart.remove_listing(listing_1.id)
