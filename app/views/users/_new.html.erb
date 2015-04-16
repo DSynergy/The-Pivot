@@ -17,12 +17,12 @@
         <%= f.email_field :email_address, class: "form-control", required: true %>
       </div>
       <div class="form-group">
-        <%= f.label :password, class: "register-email" %>
-        <%= f.password_field :pass1, class: "form-control", id: "pass1", required: true %>
+        <%= f.label :password, class: "register-password" %>
+        <%= f.password_field :password, class: "form-control", id: "pass1", required: true %>
       </div>
       <div class="form-group">
-        <%= f.label :confirm_password, class: "register-email" %>
-        <%= f.password_field :pass2, class: "form-control", id: "pass2", onkeyup: "checkPass(); return false;", required: true%>
+        <%= f.label :confirm_password, class: "register-password" %>
+        <%= f.password_field :password, class: "form-control", id: "pass2", onkeyup: "checkPass(); return false;", required: true%>
         <span id="confirmMessage" class="confirmMessage"></span>
       </div>
       <div class="form-group">
