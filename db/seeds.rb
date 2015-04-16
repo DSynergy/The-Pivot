@@ -29,7 +29,7 @@ class Seed
   def generate_realistic_listings
     user = User.find_by(username: "Dustin")
       listing = user.listings.create!(title: "Denver Condo", description: "My condo is the shit. You should stay here dawg.",
-                                      private_bathroom: true, price: 75.11.to_f,
+                                      private_bathroom: true, price: 75.00.to_f,
                                       quantity_available: 1, people_per_unit: 2,
                                       start_date: "04/17/2015", end_date: "04/21/2015", status: 0,
                                       street_address: Faker::Address.street_address, city: "Denver",
@@ -38,7 +38,7 @@ class Seed
       listing.categories << Category.find_by(name: "condo")
       puts "Listing: #{listing.title}, #{listing.categories.first.name}"
       listing = user.listings.create!(title: "Leadville Cabin", description: "My cabin sort of sucks, but hey it is cheap. You should stay here I guess.",
-                                      private_bathroom: true, price: 15.23.to_f,
+                                      private_bathroom: true, price: 15.00.to_f,
                                       quantity_available: 1, people_per_unit: 3,
                                       start_date: "04/17/2015", end_date: "04/21/2015", status: 0,
                                       street_address: Faker::Address.street_address, city: "Leadville",
@@ -47,7 +47,7 @@ class Seed
       listing.categories << Category.find_by(name: "cabin")
       puts "Listing: #{listing.title}, #{listing.categories.first.name}"
       listing = user.listings.create!(title: "La Junta TeePee", description: "I NEED MONEY! PLEASE STAY!",
-                                      private_bathroom: true, price: 5.34.to_f,
+                                      private_bathroom: true, price: 5.00.to_f,
                                       quantity_available: 1, people_per_unit: 3,
                                       start_date: "04/17/2015", end_date: "12/31/2015", status: 0,
                                       street_address: Faker::Address.street_address, city: "La Junta",
@@ -57,7 +57,7 @@ class Seed
       puts "Listing: #{listing.title}, #{listing.categories.first.name}"
     user2 = User.find_by(username: "Richard")
       listing = user2.listings.create!(title: "Sweet Highlands House", description: "My highlands home is super sweet. Way better than Denver Condos. You should stay here.",
-                                      private_bathroom: true, price: 175.45.to_f,
+                                      private_bathroom: true, price: 175.00.to_f,
                                       quantity_available: 2, people_per_unit: 2,
                                       start_date: "04/17/2015", end_date: "04/21/2015", status: 0,
                                       street_address: Faker::Address.street_address, city: "Denver",
@@ -67,7 +67,7 @@ class Seed
       puts "Listing: #{listing.title}, #{listing.categories.first.name}"
     user3 = User.find_by(username: "Kyra")
       listing = user3.listings.create!(title: "Boulder Mansion", description: "My Boulder Mansion is the sickest! Way better than the shit you find in Denver. You should stay here!.",
-                                      private_bathroom: true, price: 275.57.to_f,
+                                      private_bathroom: true, price: 275.00.to_f,
                                       quantity_available: 2, people_per_unit: 2,
                                       start_date: "04/17/2015", end_date: "04/21/2015", status: 0,
                                       street_address: Faker::Address.street_address, city: "Boulder",
