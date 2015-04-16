@@ -19,8 +19,8 @@ class Listing < ActiveRecord::Base
     status == 1
   end
 
-  def self.search(query)
-      where("city like ?", "%#{query}%")
+  def self.search_locations(query)
+      where("city LIKE ? OR state LIKE ? OR title LIKE ?", "%#{query}%","%#{query}%","%#{query}%")
   end
 
   def set_pictures(picture_params)
