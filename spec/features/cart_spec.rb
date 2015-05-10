@@ -33,7 +33,7 @@ RSpec.describe "Cart" do
     click_link_or_button("Add to Itinerary")
 
     visit cart_path
-    click_link_or_button("remove listing")
+    click_link_or_button("remove")
 
     within("#flash_notice") do
       expect(page).to have_content("Bacon Maple Crunch removed from cart")
