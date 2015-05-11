@@ -1,5 +1,5 @@
 class Users::ReservationsController < ApplicationController
-  before_action :set_reservation
+  before_action :reservation
 
   def update
     reservation.update_attributes(status: 1)

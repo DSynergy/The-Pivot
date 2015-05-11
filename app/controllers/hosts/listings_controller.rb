@@ -1,5 +1,5 @@
 class Hosts::ListingsController < ApplicationController
-  before_action :set_listing, only: [:update, :show, :edit, :destroy]
+  before_action :listing, only: [:update, :show, :edit, :destroy]
   before_action :redirect_to_login_if_not_logged_in
 
   def index
@@ -10,7 +10,7 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def update
-    if listing.update(listing_params)
+    if @listing.update(listing_params)
       listing.set_category(params[:listing]['categories'])
       listing.set_pictures(params[:pictures])
       redirect_to host_path(current_user)
@@ -22,8 +22,8 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def new
-    listing = current_user.listings.new
-    listing.pictures.build
+    @listing = current_user.listings.new
+    @listing.pictures.build
   end
 
   def show
@@ -58,7 +58,7 @@ class Hosts::ListingsController < ApplicationController
   end
 
   def listing
-    current_user.listings.find(params[:id])
+    @listing = current_user.listings.find(params[:id])
   end
 
 end
