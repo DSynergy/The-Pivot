@@ -1,14 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :load_cart, :fetch_locations
-  helper_method :load_cart, :set_name, :current_user, :current_cart, :is_admin?, :redirect_to_login_if_not_logged_in, :fetch_locations
+  helper_method :load_cart, :set_name, :current_user, :current_cart, :redirect_to_login_if_not_logged_in, :fetch_locations
 
   private
 
   def fetch_locations
     @locations = Listing.all.pluck(:city, :state, :title).flatten
   end
-
 
   def load_cart
     @cart = Cart.new(session[:cart])
@@ -20,13 +19,6 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     @current_cart ||= session[:cart]
-  end
-
-  def is_admin?
-    if !current_user.admin?
-      flash[:notice] = "Unauthorized. Access Denied"
-      redirect_to root_path
-    end
   end
 
   def set_name(user)
