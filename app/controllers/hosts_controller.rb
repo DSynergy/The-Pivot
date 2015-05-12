@@ -5,5 +5,4 @@ class HostsController < ApplicationController
       render :guest_show
     end
   end
-
 end

@@ -8,8 +8,8 @@ RSpec.describe "Listing show" do
                                    quantity_available: 2,
                                    people_per_unit: 2,
                                    private_bathroom: true,
-                                   start_date: "08/01/2015",
-                                   end_date: "08/30/2015",
+                                   start_date: "08/12/2015",
+                                   end_date: "08/14/2015",
                                    user_id: 2,
                                    country: 'USA',
                                    state: 'Colorado',
@@ -52,8 +52,8 @@ RSpec.describe "Listing show" do
     visit listing_path(listing)
     expect(page).to have_button("Add to Itinerary")
 
-    fill_in('listing[start_date]', with: "08/20/2015")
-    fill_in('listing[end_date]', with: "08/20/2015")
+    fill_in('listing[start_date]', with: "04/20/2015")
+    fill_in('listing[end_date]', with: "04/20/2015")
 
     click_link_or_button("Add to Itinerary")
 
@@ -67,12 +67,11 @@ RSpec.describe "Listing show" do
       listing.pictures.create(avatar: "default_image.jpg")
       visit listing_path(listing)
 
-      fill_in('listing[start_date]', with: "08/20/2015")
-      fill_in('listing[end_date]', with: "08/20/2015")
+      fill_in('listing[start_date]', with: "04/20/2015")
+      fill_in('listing[end_date]', with: "04/20/2015")
 
       click_link_or_button("Add to Itinerary")
       visit cart_path
-
       click_link_or_button("Sign in to book itinerary")
       fill_in("session[email_address]", with: "sadsal@example.com")
       fill_in("session[password]", with: "password")

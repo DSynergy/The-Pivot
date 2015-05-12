@@ -8,7 +8,7 @@
             <h4 class="listing-title"><%= listing.title %></h4>
             <div class="left">
               <%= cache("image") do %>
-                  <figure><%= image_tag listing.pictures.last.avatar_url, class: "photo" %></figure>
+                <figure><%= image_tag listing.pictures.first.avatar_url, class: "photo" %></figure>
               <% end %>
             </div>
             <div class="right">

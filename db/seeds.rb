@@ -87,7 +87,7 @@ class Seed
 
   def generate_users
     500.times do
-      user = User.create(username: Faker::Name.first_name, password: "password", email_address: Faker::Internet.email,
+      user = User.create(username: Faker::Name.name, password: "password", email_address: Faker::Internet.email,
                          role: 0, avatar: Faker::Avatar.image, credit_card: Faker::Number.number(16),
                          billing_address: Faker::Lorem.sentence)
       puts "User: #{user.username}"
