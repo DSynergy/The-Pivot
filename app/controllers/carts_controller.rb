@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    listing_id = params[:listing_id]
+    listing_id = params[:format]
     @cart.remove_listing(listing_id)
     listing = Listing.find(listing_id)
 
@@ -14,6 +14,7 @@ class CartsController < ApplicationController
 
 
   def create
+
     start_date = (params[:listing][:start_date])
     end_date = params[:listing][:end_date]
 

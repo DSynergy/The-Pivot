@@ -26,6 +26,7 @@ gem "figaro"
 gem 'sidekiq'
 gem 'sinatra'
 
+
 group :development, :test do
   gem 'brakeman', :require => false
   gem 'factory_girl_rails'
@@ -33,6 +34,7 @@ group :development, :test do
   gem 'pry'
   gem 'better_errors'
   gem 'web-console', '~> 2.0'
+#  gem 'spring'
   gem 'rspec-rails'
   gem 'launchy'
   gem 'capybara'

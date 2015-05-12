@@ -2,6 +2,10 @@
 require 'rails_helper'
 
 RSpec.describe Picture, type: :model do
+  xit "has a avatar" do
+    picture = Picture.new(avatar: "avatar")
+    expect(picture.avatar).to eq("avatar")
+  end
 
   it "has a listing associated with it" do
 

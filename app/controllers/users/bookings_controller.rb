@@ -3,10 +3,12 @@ class Users::BookingsController < ApplicationController
 
   def create
     cart = @cart.content
-    booking = current_user.bookings.create(trip_name: params[:trip_name])
-    booking.generate_reservations(cart)
-    TravelerReservationMailer.reserve_listing_mailer(booking).deliver_now
-    HostReservationRequestMailer.host_listing_email(booking.reservations).deliver_now
+    current_user.bookings.create(trip_name: params[:trip_name]).generate_reservations(cart)
+    @booking = Booking.last
+    TravelerReservationMailer.reserve_listing_mailer(@booking).deliver_now
+    @booking.reservations.each do |reservation|
+      HostReservationRequestMailer.host_listing_email(reservation).deliver_now
+    end
     session[:cart]={}
     redirect_to traveler_path(current_user),
       notice: "Your itinerary has been successfully booked. Happy travels!"
