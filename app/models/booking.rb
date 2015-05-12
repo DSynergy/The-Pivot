@@ -1,5 +1,5 @@
 class Booking < ActiveRecord::Base
-  belongs_to :user #traveler
+  belongs_to :user
   has_many :reservations
   has_many :listings, through: :reservations
 

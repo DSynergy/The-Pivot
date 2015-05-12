@@ -13,6 +13,6 @@
   <td><%= reservation.start_date %></td>
   <td><%= reservation.end_date %></td>
   <td class="res-btn"><%= button_to "Approve", user_reservation_path(reservation.traveler, reservation.id), method: :put %></td>
-  <td class="res-btn"><%= button_to "Cancel", user_reservation_path(reservation.traveler, reservation.id), method: :delete %></td>
+  <td class="res-btn"><%= link_to "Cancel", user_reservation_path(reservation.traveler, reservation.id), method: :delete %></td>
 </tr>
 </table>

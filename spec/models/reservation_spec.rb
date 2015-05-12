@@ -8,8 +8,8 @@ RSpec.describe Reservation, type: :model do
                                quantity_available: 2,
                                people_per_unit: 2,
                                private_bathroom: true,
-                               start_date: "08/07/2015",
-                               end_date: "08/10/2015",
+                               start_date: "09/01/2015",
+                               end_date: "09/30/2015",
                                user_id: 1,
                                country: 'USA',
                                state: 'Colorado',
@@ -26,7 +26,7 @@ RSpec.describe Reservation, type: :model do
                           billing_address: 'blahblahblah',
                           display_name: 'SuperStarSally123')}
 
-  let!(:reservation) {user.bookings.create(trip_name: "My summer getaway").reservations.create(listing_id:1, booking_id:1, status: 0, start_date: "05/05/2015", end_date: "05/05/2015")}
+  let!(:reservation) {user.bookings.create(trip_name: "My summer getaway").reservations.create(listing_id:1, booking_id:1, status: 0, start_date: "09/05/2015", end_date: "09/06/2015")}
 
   it "belongs to booking" do
     expect(reservation.id).to eq(1)
